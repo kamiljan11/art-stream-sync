@@ -49,7 +49,9 @@ export const Route = createFileRoute("/api/public/contact")({
         // attached to project), we still return success — the submission is
         // saved and visible in the database.
         try {
-          const { sendLovableEmail } = await import("@lovable.dev/email-js");
+          // @ts-expect-error - package is added by setup_email_infra; safe to skip if absent.
+          const mod = await import("@lovable.dev/email-js");
+          const sendLovableEmail = mod.sendLovableEmail;
           const SENDER = "MAS Prints <prints@notify.reykjawwwik.is>";
           const INTERNAL_TO = "prints@masgroup.is";
 

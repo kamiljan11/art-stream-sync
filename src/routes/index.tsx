@@ -251,30 +251,37 @@ function Index() {
       </section>
 
       {/* LEGAL / PRICING */}
-      <section id="pricing" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24">
-        <h2 className="text-4xl sm:text-5xl font-extrabold text-center">
-          Wholesale Pricing.<br />
-          <span style={{ color: "var(--brand-cyan)" }}>100% Legal.</span>
-        </h2>
-        <div id="legal" className="grid md:grid-cols-3 gap-8 mt-12">
-          <Card>
-            <h3 className="font-bold text-lg mb-2">No Hidden Fees.</h3>
-            <p className="text-muted-foreground text-sm">
-              Cheap quotes from abroad often come with a surprise bill from Icelandic Customs (Tollurinn). Not with us. The price we quote is the final price delivered to your door. We pay the import duties.
-            </p>
-          </Card>
-          <Card>
-            <h3 className="font-bold text-lg mb-2">Valid Tax Invoice.</h3>
-            <p className="text-muted-foreground text-sm">
-              MAS PRINTS is a brand of <span className="text-foreground font-semibold">Mountain All Service ehf.</span> (Kt: 690725-0450). You receive a fully compliant Icelandic invoice with VSK stated, so you can claim your tax back instantly.
-            </p>
-          </Card>
-          <Card>
-            <h3 className="font-bold text-lg mb-2">Local Accountability.</h3>
-            <p className="text-muted-foreground text-sm">
-              We are not a faceless website. We are a registered Icelandic company based in Njarðvík.
-            </p>
-          </Card>
+      <section id="pricing" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24 border-t border-border">
+        <div id="legal" className="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
+          <div>
+            <h2 className="text-4xl sm:text-5xl font-extrabold leading-tight">
+              Wholesale Pricing.<br />
+              <span style={{ color: "var(--brand-cyan)" }}>100% Legal.</span>
+            </h2>
+            <div className="mt-8 space-y-6">
+              <div>
+                <p className="text-lg font-bold text-foreground mb-2">No Hidden Fees.</p>
+                <p className="text-muted-foreground leading-relaxed">
+                  Cheap quotes from abroad often come with a surprise bill from Icelandic Customs (Tollurinn). Not with us. The price we quote is the final price delivered to your door. We pay the import duties.
+                </p>
+              </div>
+              <div>
+                <p className="text-lg font-bold text-foreground mb-2">Valid Tax Invoice.</p>
+                <p className="text-muted-foreground leading-relaxed">
+                  MAS PRINTS is a brand of <span className="text-foreground font-semibold">Mountain All Service ehf.</span> (Kt: 690725-0450). You receive a fully compliant Icelandic invoice with VSK stated, so you can claim your tax back instantly.
+                </p>
+              </div>
+              <div>
+                <p className="text-lg font-bold text-foreground mb-2">Local Accountability.</p>
+                <p className="text-muted-foreground leading-relaxed">
+                  We are not a faceless website. We are a registered Icelandic company based in Njarðvík.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="flex justify-center">
+            <LegalFlow />
+          </div>
         </div>
 
         <div className="mt-12 flex flex-wrap justify-center gap-3 text-xs uppercase tracking-wider">
@@ -592,6 +599,66 @@ function CheaperFlow() {
           </text>
         </svg>
       </div>
+    </div>
+  );
+}
+
+function LegalFlow() {
+  const cyan = "var(--brand-cyan)";
+  return (
+    <div
+      className="w-full max-w-[480px]"
+      style={{ filter: "drop-shadow(0 10px 30px rgba(0,0,0,0.6))" }}
+    >
+      <svg viewBox="0 0 480 540" className="w-full h-auto" preserveAspectRatio="xMidYMid meet">
+        <defs>
+          <marker id="legal-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill={cyan} />
+          </marker>
+        </defs>
+
+        {/* Connecting lines */}
+        <line x1="240" y1="80" x2="240" y2="160" stroke={cyan} strokeWidth="2.5" markerEnd="url(#legal-arrow)" />
+        <line x1="240" y1="400" x2="240" y2="460" stroke={cyan} strokeWidth="2.5" markerEnd="url(#legal-arrow)" />
+
+        {/* EU FACTORY box */}
+        <foreignObject x="120" y="20" width="240" height="60">
+          <div className="w-full h-full rounded-lg border border-border bg-card flex flex-col items-center justify-center text-center">
+            <div className="font-extrabold text-[13px] tracking-wider text-foreground">EU FACTORY</div>
+            <div className="text-[10px] tracking-widest text-muted-foreground mt-0.5">SOURCE</div>
+          </div>
+        </foreignObject>
+
+        {/* MAS PRINTS hub box with 4 badges */}
+        <foreignObject x="40" y="170" width="400" height="220">
+          <div
+            className="w-full h-full rounded-xl border-2 bg-background flex flex-col items-center justify-center px-5 py-4"
+            style={{ borderColor: cyan }}
+          >
+            <div className="font-extrabold text-base tracking-wider" style={{ color: cyan }}>
+              MAS PRINTS
+            </div>
+            <div className="mt-3 grid grid-cols-2 gap-2 w-full">
+              {["ICELANDIC KENNITALA", "CUSTOMS PAID", "VAT (VSK) INVOICE", "LOCAL SUPPORT"].map((b) => (
+                <div
+                  key={b}
+                  className="rounded border border-border bg-card/60 px-2 py-1.5 text-[10px] font-bold tracking-wider text-muted-foreground text-center"
+                >
+                  {b}
+                </div>
+              ))}
+            </div>
+          </div>
+        </foreignObject>
+
+        {/* YOU box */}
+        <foreignObject x="120" y="460" width="240" height="60">
+          <div className="w-full h-full rounded-lg border-2 flex flex-col items-center justify-center text-center" style={{ borderColor: cyan, background: "hsl(var(--background))" }}>
+            <div className="font-extrabold text-[13px] tracking-wider" style={{ color: cyan }}>YOU</div>
+            <div className="text-[10px] tracking-widest text-muted-foreground mt-0.5">SAFE DELIVERY</div>
+          </div>
+        </foreignObject>
+      </svg>
     </div>
   );
 }

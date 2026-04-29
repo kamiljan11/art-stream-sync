@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { ShieldCheck } from "lucide-react";
 
 const productTypes = [
   "Business Cards",
@@ -16,122 +17,224 @@ export function QuoteForm() {
   const [submitted, setSubmitted] = useState(false);
 
   return (
-    <div id="quote" className="rounded-2xl border border-border bg-card p-6 sm:p-10 shadow-[var(--shadow-card)]">
-      <div className="text-center mb-8">
-        <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">GET YOUR QUOTE.</h2>
-        <p className="mt-2 text-muted-foreground">100% Lowest Price Guarantee. Wholesale Direct.</p>
-      </div>
+    <div id="quote" className="bg-background py-20 px-5 relative">
+      <div className="max-w-[650px] mx-auto text-center relative z-10">
+        {/* Heading */}
+        <h2 className="text-[2.2rem] md:text-[3rem] leading-none font-black uppercase tracking-tight m-0 mb-[15px] text-foreground">
+          GET YOUR QUOTE.
+        </h2>
+        <p className="text-[#888] text-[1.05rem] md:text-[1.1rem] mb-10">
+          100% Lowest Price Guarantee. Wholesale Direct.
+        </p>
 
-      <div className="flex gap-2 p-1 bg-muted rounded-lg mb-6 max-w-md mx-auto">
-        <button
-          onClick={() => setTab("new")}
-          className={`flex-1 py-2 text-sm font-medium rounded-md transition-colors ${
-            tab === "new" ? "bg-background text-foreground" : "text-muted-foreground"
-          }`}
-        >
-          New Project Quote
-        </button>
-        <button
-          onClick={() => setTab("audit")}
-          className={`flex-1 py-2 text-sm font-medium rounded-md transition-colors ${
-            tab === "audit" ? "bg-background text-foreground" : "text-muted-foreground"
-          }`}
-        >
-          Price Match Audit
-        </button>
-      </div>
+        {/* Form box (white) */}
+        <div className="bg-white rounded-2xl overflow-hidden text-left relative shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+          {/* Tabs */}
+          <div className="flex bg-[#f0f0f0] p-1 border-b border-[#e0e0e0]">
+            <TabBtn
+              active={tab === "new"}
+              onClick={() => setTab("new")}
+              accent="#00AEEF"
+            >
+              New Project Quote
+            </TabBtn>
+            <TabBtn
+              active={tab === "audit"}
+              onClick={() => setTab("audit")}
+              accent="#EC008C"
+            >
+              Price Match Audit
+            </TabBtn>
+          </div>
 
-      {submitted ? (
-        <div className="text-center py-12">
-          <div className="text-2xl font-bold text-primary">Message Sent!</div>
-          <p className="mt-2 text-muted-foreground">
-            We have received your message and will reply as soon as possible.
-          </p>
+          {/* Form content */}
+          <div className="px-5 py-[25px] md:px-10 md:py-[30px]">
+            {submitted ? (
+              <div className="text-center py-12">
+                <div className="text-2xl font-bold" style={{ color: tab === "new" ? "#00AEEF" : "#EC008C" }}>
+                  Message Sent!
+                </div>
+                <p className="mt-2 text-[#555]">
+                  We have received your message and will reply as soon as possible.
+                </p>
+              </div>
+            ) : (
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  setSubmitted(true);
+                }}
+              >
+                {tab === "new" ? <NewProjectFields /> : <AuditFields />}
+
+                <button
+                  type="submit"
+                  className="w-full py-[18px] mt-2.5 rounded-lg font-extrabold text-[1.05rem] md:text-[1.1rem] uppercase tracking-[1px] text-white transition-all duration-200 hover:-translate-y-0.5"
+                  style={{
+                    background: tab === "new" ? "#00AEEF" : "#EC008C",
+                    boxShadow:
+                      tab === "new"
+                        ? "0 4px 12px rgba(0, 174, 239, 0.25)"
+                        : "0 4px 12px rgba(236, 0, 140, 0.25)",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = tab === "new" ? "#009bcc" : "#c40075";
+                    e.currentTarget.style.boxShadow =
+                      tab === "new"
+                        ? "0 10px 25px rgba(0, 174, 239, 0.3)"
+                        : "0 10px 25px rgba(236, 0, 140, 0.3)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = tab === "new" ? "#00AEEF" : "#EC008C";
+                    e.currentTarget.style.boxShadow =
+                      tab === "new"
+                        ? "0 4px 12px rgba(0, 174, 239, 0.25)"
+                        : "0 4px 12px rgba(236, 0, 140, 0.25)";
+                  }}
+                >
+                  {tab === "new" ? "Get My Quote" : "Beat My Price"}
+                </button>
+
+                <div className="flex items-center justify-center gap-2 mt-5 text-[0.85rem] text-[#888] font-semibold">
+                  <ShieldCheck size={16} style={{ color: tab === "new" ? "#00AEEF" : "#EC008C" }} />
+                  {tab === "new"
+                    ? "We guarantee the best price in Iceland."
+                    : "We beat any valid local quote or refund the difference."}
+                </div>
+              </form>
+            )}
+          </div>
         </div>
-      ) : (
-        <form
-          className="grid gap-4 sm:grid-cols-2"
-          onSubmit={(e) => {
-            e.preventDefault();
-            setSubmitted(true);
-          }}
-        >
-          <Input label="Name / Company" required />
-          <Input label="Email Address" type="email" required />
-          <Input label="Phone Number" />
-          {tab === "new" ? (
-            <>
-              <Select label="Product Type" options={productTypes} />
-              <Input label="Quantity" />
-              <Input label="Design Files Link (Optional)" hint="Required for files larger than 25MB." className="sm:col-span-2" />
-              <Textarea label="Project Details" className="sm:col-span-2" />
-            </>
-          ) : (
-            <>
-              <Input label="Current Cost (Optional)" />
-              <Input label="Upload Competitor Invoice / Quote" hint="We use this to beat their price." type="file" className="sm:col-span-2" />
-              <Input label="Design Files Link (Optional)" hint="Sharing artwork helps us verify specs faster." className="sm:col-span-2" />
-            </>
-          )}
-          <button
-            type="submit"
-            className="sm:col-span-2 mt-2 inline-flex items-center justify-center rounded-md py-3 text-base font-semibold text-primary-foreground"
-            style={{ background: "var(--gradient-cyan)", boxShadow: "var(--shadow-glow)" }}
-          >
-            {tab === "new" ? "Get My Quote" : "Beat My Price"}
-          </button>
-          <p className="sm:col-span-2 text-center text-xs text-muted-foreground">
-            {tab === "new"
-              ? "We guarantee the best price in Iceland."
-              : "We beat any valid local quote or refund the difference."}
-          </p>
-        </form>
-      )}
+      </div>
     </div>
+  );
+}
+
+function TabBtn({
+  active,
+  onClick,
+  accent,
+  children,
+}: {
+  active: boolean;
+  onClick: () => void;
+  accent: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className="relative flex-1 py-[15px] md:py-[18px] px-2.5 md:px-4 text-[0.85rem] md:text-[0.95rem] font-extrabold uppercase tracking-[0.5px] cursor-pointer transition-all duration-200 rounded-t-[12px]"
+      style={{
+        background: active ? "#fff" : "transparent",
+        color: active ? "#000" : "#888",
+        boxShadow: active ? "0 -2px 10px rgba(0,0,0,0.05)" : "none",
+      }}
+    >
+      {children}
+      <span
+        aria-hidden
+        className="absolute left-0 bottom-0 h-[3px] w-full origin-center transition-transform duration-200"
+        style={{
+          background: accent,
+          transform: active ? "scaleX(1)" : "scaleX(0)",
+        }}
+      />
+    </button>
+  );
+}
+
+function NewProjectFields() {
+  return (
+    <>
+      <Input label="Name / Company" required />
+      <Input label="Email Address" type="email" placeholder="you@company.is" required />
+      <Input label="Phone Number" type="tel" />
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4">
+        <Select label="Product Type" options={productTypes} />
+        <Input label="Quantity" />
+      </div>
+      <Textarea label="Project Details" />
+      <Input label="Design Files Link (Optional)" hint="Required for files larger than 25MB." />
+    </>
+  );
+}
+
+function AuditFields() {
+  return (
+    <>
+      <Input label="Company Name" required />
+      <Input label="Email Address" type="email" placeholder="you@company.is" required />
+      <Input label="Phone Number" type="tel" />
+      <FileInput label="Upload Competitor Invoice / Quote" hint="We use this to beat their price." />
+      <Input label="Design Files Link (Optional)" hint="Sharing artwork helps us verify specs faster." />
+      <Input label="Current Cost (Optional)" />
+    </>
   );
 }
 
 function Input({
   label,
   hint,
-  className = "",
   ...props
 }: React.InputHTMLAttributes<HTMLInputElement> & { label: string; hint?: string }) {
   return (
-    <label className={`flex flex-col gap-1.5 ${className}`}>
-      <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">{label}</span>
+    <div className="mb-5">
+      <label className="block text-[0.8rem] font-extrabold text-[#222] mb-2 uppercase tracking-[0.5px]">
+        {label}
+      </label>
       <input
         {...props}
-        className="rounded-md border border-input bg-background px-3 py-2.5 text-sm text-foreground outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition"
+        className="w-full px-4 py-[14px] text-base border-2 border-[#eee] rounded-lg bg-[#f9f9f9] text-[#333] focus:outline-none focus:border-[#333] focus:bg-white transition-colors"
       />
-      {hint && <span className="text-xs text-muted-foreground">{hint}</span>}
-    </label>
+      {hint && <p className="mt-1.5 text-xs text-[#888]">{hint}</p>}
+    </div>
   );
 }
 
-function Textarea({ label, className = "", ...props }: React.TextareaHTMLAttributes<HTMLTextAreaElement> & { label: string }) {
+function Textarea({ label, ...props }: React.TextareaHTMLAttributes<HTMLTextAreaElement> & { label: string }) {
   return (
-    <label className={`flex flex-col gap-1.5 ${className}`}>
-      <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">{label}</span>
+    <div className="mb-5">
+      <label className="block text-[0.8rem] font-extrabold text-[#222] mb-2 uppercase tracking-[0.5px]">
+        {label}
+      </label>
       <textarea
         rows={4}
         {...props}
-        className="rounded-md border border-input bg-background px-3 py-2.5 text-sm text-foreground outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition"
+        className="w-full px-4 py-[14px] text-base border-2 border-[#eee] rounded-lg bg-[#f9f9f9] text-[#333] focus:outline-none focus:border-[#333] focus:bg-white transition-colors min-h-[100px] resize-y"
       />
-    </label>
+    </div>
   );
 }
 
-function Select({ label, options, className = "" }: { label: string; options: string[]; className?: string }) {
+function Select({ label, options }: { label: string; options: string[] }) {
   return (
-    <label className={`flex flex-col gap-1.5 ${className}`}>
-      <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">{label}</span>
-      <select className="rounded-md border border-input bg-background px-3 py-2.5 text-sm text-foreground outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition">
+    <div className="mb-5">
+      <label className="block text-[0.8rem] font-extrabold text-[#222] mb-2 uppercase tracking-[0.5px]">
+        {label}
+      </label>
+      <select className="w-full px-4 py-[14px] text-base border-2 border-[#eee] rounded-lg bg-[#f9f9f9] text-[#333] focus:outline-none focus:border-[#333] focus:bg-white transition-colors">
         <option value="">Select...</option>
         {options.map((o) => (
           <option key={o}>{o}</option>
         ))}
       </select>
-    </label>
+    </div>
+  );
+}
+
+function FileInput({ label, hint }: { label: string; hint?: string }) {
+  return (
+    <div className="mb-5">
+      <label className="block text-[0.8rem] font-extrabold text-[#222] mb-2 uppercase tracking-[0.5px]">
+        {label}
+      </label>
+      <input
+        type="file"
+        className="w-full p-2.5 bg-[#f9f9f9] border-2 border-dashed border-[#ddd] rounded-lg text-[0.9rem] text-[#555] cursor-pointer hover:border-[#bbb] transition-colors file:mr-3 file:py-1.5 file:px-3 file:rounded-md file:border-0 file:text-xs file:font-bold file:bg-[#eee] file:text-[#333]"
+      />
+      {hint && <p className="mt-1.5 text-xs text-[#888]">{hint}</p>}
+    </div>
   );
 }

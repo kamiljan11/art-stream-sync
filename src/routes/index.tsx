@@ -632,3 +632,45 @@ function ProductCard({ n, title, img, items, accent }: { n: string; title: strin
     </div>
   );
 }
+
+function IndustrialStandards() {
+  const items = [
+    { Icon: Factory, t: "Industrial Capacity", d: "High-volume factory scale" },
+    { Icon: ShieldCheck, t: "Technical Safety", d: "We audit your files for errors" },
+    { Icon: Palette, t: "Color Accuracy", d: "Perfectly calibrated output" },
+    { Icon: Leaf, t: "Premium Stock", d: "Sustainable high-end paper" },
+  ];
+  return (
+    <div className="mt-20 px-5 py-10 md:py-[60px]">
+      <h3 className="md:hidden text-3xl font-extrabold text-center mb-10 leading-tight tracking-tight">
+        Industrial <span style={{ color: "var(--brand-cyan)" }}>Standards.</span>
+      </h3>
+      <div className="relative max-w-[1100px] mx-auto flex flex-col md:flex-row md:flex-wrap md:justify-center md:items-center items-center gap-10 md:gap-[50px]">
+        <div
+          aria-hidden
+          className="md:hidden absolute top-2 bottom-2 left-1/2 -translate-x-1/2 w-px"
+          style={{
+            background:
+              "linear-gradient(to bottom, transparent, hsl(var(--foreground) / 0.1) 20%, hsl(var(--foreground) / 0.1) 80%, transparent)",
+          }}
+        />
+        {items.map(({ Icon, t, d }) => (
+          <div
+            key={t}
+            className="relative z-10 flex flex-col md:flex-row items-center text-center md:text-left gap-2.5 md:gap-[15px] opacity-70 md:opacity-80 hover:opacity-100 hover:-translate-y-[5px] transition-all duration-300"
+          >
+            <Icon
+              className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-background p-1 md:bg-transparent md:p-0"
+              style={{ color: "var(--brand-cyan)" }}
+              strokeWidth={2}
+            />
+            <div className="leading-tight">
+              <div className="text-sm md:text-[0.9rem] font-bold tracking-wide">{t}</div>
+              <div className="text-[0.7rem] text-muted-foreground font-normal mt-0.5">{d}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}

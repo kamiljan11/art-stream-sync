@@ -482,6 +482,53 @@ function accentFor(idx: number) {
 
 type CapAccent = ReturnType<typeof accentFor>;
 
+function FaqCard({ q, a, accent }: { q: string; a: string; accent: CapAccent }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div
+      className="rounded-xl p-[25px] md:p-[30px] flex flex-col h-full transition-all duration-300 hover:-translate-y-[5px]"
+      style={{
+        background: accent.bg,
+        border: `1px solid ${accent.borderIdle}`,
+        boxShadow: "0 4px 20px rgba(0,0,0,0.2)",
+      }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.borderColor = accent.borderHover;
+        e.currentTarget.style.boxShadow = accent.shadowHover;
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.borderColor = accent.borderIdle;
+        e.currentTarget.style.boxShadow = "0 4px 20px rgba(0,0,0,0.2)";
+      }}
+    >
+      <button
+        type="button"
+        onClick={() => setOpen((v) => !v)}
+        aria-expanded={open}
+        className="flex items-start gap-3 text-left w-full"
+      >
+        <span
+          className="text-xl leading-none mt-0.5 font-bold transition-transform duration-300 shrink-0"
+          style={{ color: accent.color, transform: open ? "rotate(45deg)" : "rotate(0)" }}
+        >
+          +
+        </span>
+        <h3 className="m-0 font-bold text-[1.05rem] md:text-[1.1rem] text-[#111] leading-snug flex-1">
+          {q}
+        </h3>
+      </button>
+      <div
+        className="grid transition-all duration-300 ease-out"
+        style={{ gridTemplateRows: open ? "1fr" : "0fr", marginTop: open ? "15px" : "0" }}
+      >
+        <div className="overflow-hidden">
+          <p className="text-[0.95rem] text-[#555] leading-relaxed m-0">{a}</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function Pill({ label, sub, tone }: { label: string; sub: string; tone: "muted" | "danger" | "primary" }) {
   const styles =
     tone === "primary"

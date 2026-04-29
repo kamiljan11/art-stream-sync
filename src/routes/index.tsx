@@ -503,102 +503,86 @@ function CheaperFlow() {
   const cyan = "var(--brand-cyan)";
   return (
     <div className="w-full max-w-[550px]" style={{ filter: "drop-shadow(0 10px 30px rgba(0,0,0,0.6))" }}>
-      {/* Mobile: stacked */}
-      <div className="md:hidden flex flex-col items-center gap-4 text-center">
-        <FlowBox label="YOUR PROJECT" />
-        <div className="h-6 w-px bg-muted-foreground/40" />
-        <div className="grid grid-cols-1 gap-4 w-full">
-          <div className="flex flex-col items-center gap-2">
-            <FlowBox label="LOCAL SHOP" sub="HIGH OVERHEAD" muted />
-            <span className="text-xs font-bold tracking-widest text-muted-foreground">→ RETAIL $$$</span>
+      <svg viewBox="0 0 550 280" className="w-full h-auto" preserveAspectRatio="xMidYMid meet">
+        <defs>
+          <marker id="arrow-cyan" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill={cyan} />
+          </marker>
+          <marker id="arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="hsl(var(--muted-foreground) / 0.7)" />
+          </marker>
+        </defs>
+
+        {/* Dashed: project -> local shop */}
+        <path
+          d="M 130 140 C 200 140, 220 70, 290 70"
+          fill="none"
+          stroke="hsl(var(--muted-foreground) / 0.5)"
+          strokeWidth="2"
+          strokeDasharray="5 5"
+          markerEnd="url(#arrow-muted)"
+        />
+        {/* Dashed: local shop -> retail */}
+        <path
+          d="M 400 70 L 440 70"
+          fill="none"
+          stroke="hsl(var(--muted-foreground) / 0.5)"
+          strokeWidth="2"
+          strokeDasharray="5 5"
+          markerEnd="url(#arrow-muted)"
+        />
+
+        {/* Solid cyan: project -> mas batch */}
+        <path
+          d="M 130 140 C 200 140, 220 210, 290 210"
+          fill="none"
+          stroke={cyan}
+          strokeWidth="2.5"
+          markerEnd="url(#arrow-cyan)"
+        />
+        {/* Solid cyan: mas batch -> wholesale */}
+        <path
+          d="M 400 210 L 440 210"
+          fill="none"
+          stroke={cyan}
+          strokeWidth="2.5"
+          markerEnd="url(#arrow-cyan)"
+        />
+
+        {/* YOUR PROJECT box */}
+        <foreignObject x="20" y="105" width="110" height="70">
+          <div className="w-full h-full rounded-lg border border-border bg-card flex flex-col items-center justify-center text-center">
+            <div className="font-extrabold text-[13px] tracking-wider text-foreground leading-tight">YOUR</div>
+            <div className="font-extrabold text-[13px] tracking-wider text-foreground leading-tight">PROJECT</div>
           </div>
-          <div className="flex flex-col items-center gap-2">
-            <FlowBox label="MAS BATCH" sub="SHARED COSTS" highlight />
-            <span className="text-xs font-bold tracking-widest" style={{ color: cyan }}>→ WHOLESALE</span>
+        </foreignObject>
+
+        {/* LOCAL SHOP box */}
+        <foreignObject x="290" y="35" width="110" height="70">
+          <div className="w-full h-full rounded-lg border border-border bg-background flex flex-col items-center justify-center text-center px-2">
+            <div className="font-extrabold text-[12px] tracking-wider text-muted-foreground leading-tight">LOCAL SHOP</div>
+            <div className="text-[9px] tracking-widest text-muted-foreground/70 mt-1">HIGH OVERHEAD</div>
           </div>
-        </div>
-      </div>
+        </foreignObject>
 
-      {/* Desktop: SVG diagram */}
-      <div className="hidden md:block relative">
-        <svg viewBox="0 0 980 280" className="w-full h-auto" preserveAspectRatio="xMidYMid meet">
-          {/* Dashed muted path: project -> local shop -> retail */}
-          <path
-            d="M 220 140 C 320 140, 360 60, 460 60"
-            fill="none"
-            stroke="hsl(var(--muted-foreground) / 0.5)"
-            strokeWidth="2"
-            strokeDasharray="6 6"
-          />
-          <path
-            d="M 620 60 L 690 60"
-            fill="none"
-            stroke="hsl(var(--muted-foreground) / 0.5)"
-            strokeWidth="2"
-            strokeDasharray="6 6"
-            markerEnd="url(#arrow-muted)"
-          />
+        {/* MAS BATCH box */}
+        <foreignObject x="290" y="175" width="110" height="70">
+          <div className="w-full h-full rounded-lg border-2 flex flex-col items-center justify-center text-center px-2" style={{ borderColor: cyan, background: "hsl(var(--background))" }}>
+            <div className="font-extrabold text-[12px] tracking-wider leading-tight" style={{ color: cyan }}>MAS BATCH</div>
+            <div className="text-[9px] tracking-widest text-muted-foreground mt-1">SHARED COSTS</div>
+          </div>
+        </foreignObject>
 
-          {/* Solid cyan path: project -> mas batch -> wholesale */}
-          <path
-            d="M 220 140 C 320 140, 360 220, 460 220"
-            fill="none"
-            stroke={cyan}
-            strokeWidth="3"
-            markerEnd="url(#arrow-cyan)"
-          />
-          <path
-            d="M 620 220 L 690 220"
-            fill="none"
-            stroke={cyan}
-            strokeWidth="3"
-            markerEnd="url(#arrow-cyan)"
-          />
+        {/* RETAIL label */}
+        <text x="450" y="74" fill="hsl(var(--muted-foreground))" fontWeight="800" fontSize="13" fontFamily="inherit" letterSpacing="0.5">
+          ▸ RETAIL $$$
+        </text>
 
-          <defs>
-            <marker id="arrow-cyan" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-              <path d="M 0 0 L 10 5 L 0 10 z" fill={cyan} />
-            </marker>
-            <marker id="arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-              <path d="M 0 0 L 10 5 L 0 10 z" fill="hsl(var(--muted-foreground) / 0.6)" />
-            </marker>
-          </defs>
-
-          {/* YOUR PROJECT box */}
-          <foreignObject x="60" y="100" width="160" height="80">
-            <div className="w-full h-full rounded-lg border border-border bg-background flex flex-col items-center justify-center text-center px-3">
-              <div className="font-extrabold text-sm tracking-wider text-foreground">YOUR</div>
-              <div className="font-extrabold text-sm tracking-wider text-foreground">PROJECT</div>
-            </div>
-          </foreignObject>
-
-          {/* LOCAL SHOP box */}
-          <foreignObject x="460" y="20" width="160" height="80">
-            <div className="w-full h-full rounded-lg border border-border bg-background flex flex-col items-center justify-center text-center px-3">
-              <div className="font-extrabold text-sm tracking-wider text-muted-foreground">LOCAL SHOP</div>
-              <div className="text-[10px] tracking-widest text-muted-foreground/70 mt-1">HIGH OVERHEAD</div>
-            </div>
-          </foreignObject>
-
-          {/* MAS BATCH box */}
-          <foreignObject x="460" y="180" width="160" height="80">
-            <div className="w-full h-full rounded-lg border-2 flex flex-col items-center justify-center text-center px-3" style={{ borderColor: cyan, background: "hsl(var(--background))" }}>
-              <div className="font-extrabold text-sm tracking-wider" style={{ color: cyan }}>MAS BATCH</div>
-              <div className="text-[10px] tracking-widest text-muted-foreground mt-1">SHARED COSTS</div>
-            </div>
-          </foreignObject>
-
-          {/* RETAIL label */}
-          <text x="710" y="65" dominantBaseline="middle" fill="hsl(var(--muted-foreground))" fontWeight="800" fontSize="16" fontFamily="inherit" letterSpacing="2">
-            RETAIL $$$
-          </text>
-
-          {/* WHOLESALE label */}
-          <text x="710" y="220" dominantBaseline="middle" fill={cyan} fontWeight="800" fontSize="16" fontFamily="inherit" letterSpacing="2">
-            WHOLESALE
-          </text>
-        </svg>
-      </div>
+        {/* WHOLESALE label */}
+        <text x="450" y="214" fill={cyan} fontWeight="800" fontSize="13" fontFamily="inherit" letterSpacing="0.5">
+          WHOLESALE
+        </text>
+      </svg>
     </div>
   );
 }

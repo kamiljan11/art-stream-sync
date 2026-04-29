@@ -469,12 +469,32 @@ function Chevrons({ color }: { color: string }) {
 
 function accentFor(idx: number) {
   const palette = [
-    { color: "var(--brand-cyan)", tint: "var(--tint-cyan)" },
-    { color: "var(--brand-magenta)", tint: "var(--tint-magenta)" },
-    { color: "var(--brand-yellow)", tint: "var(--tint-yellow)" },
+    {
+      color: "#00AEEF",
+      bg: "linear-gradient(145deg, #f0fbff 0%, #ffffff 100%)",
+      borderIdle: "rgba(0, 174, 239, 0.15)",
+      borderHover: "#00AEEF",
+      shadowHover: "0 15px 40px rgba(0, 174, 239, 0.2)",
+    },
+    {
+      color: "#EC008C",
+      bg: "linear-gradient(145deg, #fff5fa 0%, #ffffff 100%)",
+      borderIdle: "rgba(236, 0, 140, 0.15)",
+      borderHover: "#EC008C",
+      shadowHover: "0 15px 40px rgba(236, 0, 140, 0.2)",
+    },
+    {
+      color: "#D4AF37",
+      bg: "linear-gradient(145deg, #fffbf0 0%, #ffffff 100%)",
+      borderIdle: "rgba(212, 175, 55, 0.15)",
+      borderHover: "#D4AF37",
+      shadowHover: "0 15px 40px rgba(212, 175, 55, 0.2)",
+    },
   ];
   return palette[idx % palette.length];
 }
+
+type CapAccent = ReturnType<typeof accentFor>;
 
 function Pill({ label, sub, tone }: { label: string; sub: string; tone: "muted" | "danger" | "primary" }) {
   const styles =

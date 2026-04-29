@@ -251,30 +251,37 @@ function Index() {
       </section>
 
       {/* LEGAL / PRICING */}
-      <section id="pricing" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24">
-        <h2 className="text-4xl sm:text-5xl font-extrabold text-center">
-          Wholesale Pricing.<br />
-          <span style={{ color: "var(--brand-cyan)" }}>100% Legal.</span>
-        </h2>
-        <div id="legal" className="grid md:grid-cols-3 gap-8 mt-12">
-          <Card>
-            <h3 className="font-bold text-lg mb-2">No Hidden Fees.</h3>
-            <p className="text-muted-foreground text-sm">
-              Cheap quotes from abroad often come with a surprise bill from Icelandic Customs (Tollurinn). Not with us. The price we quote is the final price delivered to your door. We pay the import duties.
-            </p>
-          </Card>
-          <Card>
-            <h3 className="font-bold text-lg mb-2">Valid Tax Invoice.</h3>
-            <p className="text-muted-foreground text-sm">
-              MAS PRINTS is a brand of <span className="text-foreground font-semibold">Mountain All Service ehf.</span> (Kt: 690725-0450). You receive a fully compliant Icelandic invoice with VSK stated, so you can claim your tax back instantly.
-            </p>
-          </Card>
-          <Card>
-            <h3 className="font-bold text-lg mb-2">Local Accountability.</h3>
-            <p className="text-muted-foreground text-sm">
-              We are not a faceless website. We are a registered Icelandic company based in Njarðvík.
-            </p>
-          </Card>
+      <section id="pricing" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24 border-t border-border">
+        <div id="legal" className="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
+          <div>
+            <h2 className="text-4xl sm:text-5xl font-extrabold leading-tight">
+              Wholesale Pricing.<br />
+              <span style={{ color: "var(--brand-cyan)" }}>100% Legal.</span>
+            </h2>
+            <div className="mt-8 space-y-6">
+              <div>
+                <p className="text-lg font-bold text-foreground mb-2">No Hidden Fees.</p>
+                <p className="text-muted-foreground leading-relaxed">
+                  Cheap quotes from abroad often come with a surprise bill from Icelandic Customs (Tollurinn). Not with us. The price we quote is the final price delivered to your door. We pay the import duties.
+                </p>
+              </div>
+              <div>
+                <p className="text-lg font-bold text-foreground mb-2">Valid Tax Invoice.</p>
+                <p className="text-muted-foreground leading-relaxed">
+                  MAS PRINTS is a brand of <span className="text-foreground font-semibold">Mountain All Service ehf.</span> (Kt: 690725-0450). You receive a fully compliant Icelandic invoice with VSK stated, so you can claim your tax back instantly.
+                </p>
+              </div>
+              <div>
+                <p className="text-lg font-bold text-foreground mb-2">Local Accountability.</p>
+                <p className="text-muted-foreground leading-relaxed">
+                  We are not a faceless website. We are a registered Icelandic company based in Njarðvík.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="flex justify-center">
+            <LegalFlow />
+          </div>
         </div>
 
         <div className="mt-12 flex flex-wrap justify-center gap-3 text-xs uppercase tracking-wider">

@@ -555,7 +555,7 @@ function CheaperFlow() {
             <path d="M 0 0 L 10 5 L 0 10 z" fill={cyan} />
           </marker>
           <marker id="arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-            <path d="M 0 0 L 10 5 L 0 10 z" fill="hsl(var(--muted-foreground) / 0.7)" />
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="rgba(255,255,255,0.55)" />
           </marker>
         </defs>
 
@@ -563,7 +563,7 @@ function CheaperFlow() {
         <path
           d="M 130 140 C 200 140, 220 70, 290 70"
           fill="none"
-          stroke="hsl(var(--muted-foreground) / 0.5)"
+          stroke="rgba(255,255,255,0.45)"
           strokeWidth="2"
           strokeDasharray="5 5"
           markerEnd="url(#arrow-muted)"
@@ -572,7 +572,7 @@ function CheaperFlow() {
         <path
           d="M 400 70 L 440 70"
           fill="none"
-          stroke="hsl(var(--muted-foreground) / 0.5)"
+          stroke="rgba(255,255,255,0.45)"
           strokeWidth="2"
           strokeDasharray="5 5"
           markerEnd="url(#arrow-muted)"
@@ -620,7 +620,7 @@ function CheaperFlow() {
         </foreignObject>
 
         {/* RETAIL label */}
-        <text x="450" y="74" fill="hsl(var(--muted-foreground))" fontWeight="800" fontSize="13" fontFamily="inherit" letterSpacing="0.5">
+        <text x="450" y="74" fill="rgba(255,255,255,0.7)" fontWeight="800" fontSize="13" fontFamily="inherit" letterSpacing="0.5">
           ▸ RETAIL $$$
         </text>
 

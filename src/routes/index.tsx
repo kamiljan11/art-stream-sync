@@ -284,14 +284,6 @@ function Index() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-wrap justify-center gap-3 text-xs uppercase tracking-wider">
-          {["EU Factory Source", "MAS Prints", "Icelandic Kennitala", "Customs Paid", "VAT (VSK) Invoice", "Local Support", "Safe Delivery"].map((s) => (
-            <span key={s} className="px-3 py-2 rounded-md border border-border bg-card text-muted-foreground">
-              {s}
-            </span>
-          ))}
-        </div>
-
         {/* Standards */}
         <IndustrialStandards />
       </section>

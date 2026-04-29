@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useState } from "react";
 import { Check, X, ArrowRight, Factory, ShieldCheck, Palette, Leaf, ChevronDown } from "lucide-react";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
@@ -357,28 +358,18 @@ function Index() {
       </section>
 
       {/* FAQ */}
-      <section id="faq" className="bg-card/40 border-y border-border">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-24">
-          <h2 className="text-4xl sm:text-5xl font-extrabold text-center">
-            Frequently <span style={{ color: "var(--brand-cyan)" }}>Asked Questions</span>
+      <section id="faq" className="bg-background">
+        <div className="mx-auto max-w-[1000px] px-5 py-20">
+          <h2 className="text-4xl sm:text-[2.5rem] font-extrabold text-center mt-0 mb-2.5 leading-tight">
+            Frequently Asked Questions
           </h2>
-          <p className="text-center mt-3 text-muted-foreground">
+          <p className="text-center text-[#888] max-w-[600px] mx-auto mb-[50px] text-base">
             Everything you need to know about printing with MAS Prints.
           </p>
-          <div className="mt-10 grid md:grid-cols-2 gap-4">
-            {faqs.map((f, i) => {
-              const dot = ["var(--brand-cyan)", "var(--brand-magenta)", "var(--brand-yellow)"][i % 3];
-              const tint = [`var(--tint-cyan)`, `var(--tint-magenta)`, `var(--tint-yellow)`][i % 3];
-              return (
-                <div key={f.q} className="rounded-xl border border-border p-6" style={{ background: tint }}>
-                  <div className="flex items-start gap-2 font-bold text-foreground">
-                    <span className="mt-2 inline-block h-1.5 w-1.5 rounded-full shrink-0" style={{ background: dot }} />
-                    <span>{f.q}</span>
-                  </div>
-                  <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{f.a}</p>
-                </div>
-              );
-            })}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-[30px]">
+            {faqs.map((f, i) => (
+              <FaqCard key={f.q} q={f.q} a={f.a} accent={accentFor(i)} />
+            ))}
           </div>
         </div>
       </section>
@@ -491,6 +482,53 @@ function accentFor(idx: number) {
 }
 
 type CapAccent = ReturnType<typeof accentFor>;
+
+function FaqCard({ q, a, accent }: { q: string; a: string; accent: CapAccent }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div
+      className="rounded-xl p-[25px] md:p-[30px] flex flex-col h-full transition-all duration-300 hover:-translate-y-[5px]"
+      style={{
+        background: accent.bg,
+        border: `1px solid ${accent.borderIdle}`,
+        boxShadow: "0 4px 20px rgba(0,0,0,0.2)",
+      }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.borderColor = accent.borderHover;
+        e.currentTarget.style.boxShadow = accent.shadowHover;
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.borderColor = accent.borderIdle;
+        e.currentTarget.style.boxShadow = "0 4px 20px rgba(0,0,0,0.2)";
+      }}
+    >
+      <button
+        type="button"
+        onClick={() => setOpen((v) => !v)}
+        aria-expanded={open}
+        className="flex items-start gap-3 text-left w-full"
+      >
+        <span
+          className="text-xl leading-none mt-0.5 font-bold transition-transform duration-300 shrink-0"
+          style={{ color: accent.color, transform: open ? "rotate(45deg)" : "rotate(0)" }}
+        >
+          +
+        </span>
+        <h3 className="m-0 font-bold text-[1.05rem] md:text-[1.1rem] text-[#111] leading-snug flex-1">
+          {q}
+        </h3>
+      </button>
+      <div
+        className="grid transition-all duration-300 ease-out"
+        style={{ gridTemplateRows: open ? "1fr" : "0fr", marginTop: open ? "15px" : "0" }}
+      >
+        <div className="overflow-hidden">
+          <p className="text-[0.95rem] text-[#555] leading-relaxed m-0">{a}</p>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 function Pill({ label, sub, tone }: { label: string; sub: string; tone: "muted" | "danger" | "primary" }) {
   const styles =

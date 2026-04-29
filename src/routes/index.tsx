@@ -431,13 +431,7 @@ function Card({ children }: { children: React.ReactNode }) {
   return <div className="rounded-xl border border-border bg-card p-8">{children}</div>;
 }
 
-function FeatureCard({ icon, title, text }: { icon: React.ReactNode; title: string; text: string }) {
-  return (
-    <FeatureCardImpl icon={icon} title={title} text={text} tint="cyan" />
-  );
-}
-
-function FeatureCardImpl({ icon, title, text, tint }: { icon: React.ReactNode; title: string; text: string; tint: "cyan" | "magenta" | "yellow" }) {
+function FeatureCard({ icon, title, text, tint = "cyan" }: { icon: React.ReactNode; title: string; text: string; tint?: "cyan" | "magenta" | "yellow" }) {
   const bg = tint === "magenta" ? "var(--tint-magenta)" : tint === "yellow" ? "var(--tint-yellow)" : "var(--tint-cyan)";
   return (
     <div className="rounded-2xl border border-border p-8" style={{ background: bg }}>

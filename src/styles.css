@@ -92,6 +92,11 @@
   --gradient-accent: linear-gradient(135deg, #EC008C 0%, #C4007A 100%);
   --shadow-glow: 0 10px 40px -10px color-mix(in oklab, var(--primary) 50%, transparent);
   --shadow-card: 0 4px 24px -8px rgb(0 0 0 / 0.5);
+  --brand-yellow: #FFE600;
+  /* Pastel tinted card backgrounds (matches original) */
+  --tint-magenta: linear-gradient(180deg, color-mix(in oklab, #EC008C 10%, #0A0A0A) 0%, #0A0A0A 100%);
+  --tint-cyan: linear-gradient(180deg, color-mix(in oklab, #00AEEF 10%, #0A0A0A) 0%, #0A0A0A 100%);
+  --tint-yellow: linear-gradient(180deg, color-mix(in oklab, #FFE600 10%, #0A0A0A) 0%, #0A0A0A 100%);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);

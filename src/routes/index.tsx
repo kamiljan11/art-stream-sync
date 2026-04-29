@@ -300,34 +300,18 @@ function Index() {
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-[30px] mt-[50px]">
             {capabilities.map((c, idx) => (
               <ProductCard key={c.n} {...c} accent={accentFor(idx)} />
             ))}
-            {/* Cups card with link */}
-            <div className="rounded-xl overflow-hidden border border-border bg-card group" style={{ background: "var(--tint-cyan)" }}>
-              <div className="aspect-[4/3] overflow-hidden">
-                <img src={capCups} alt="Paper cups" className="w-full h-full object-cover group-hover:scale-105 transition" />
-              </div>
-              <div className="p-6">
-                <h3 className="text-base font-extrabold tracking-widest mb-3 flex items-baseline gap-2">
-                  <span style={{ color: "var(--brand-cyan)" }} className="text-2xl">07</span>
-                  <span className="text-foreground">PAPER CUPS</span>
-                </h3>
-                <ul className="space-y-1.5 text-sm text-muted-foreground">
-                  {["Single-Wall Paper Cups", "Double-Wall Thermal Cups", "Eco-Friendly BIO Cups", "Paper & Plastic Lids", "Wooden Stirrers"].map((i) => (
-                    <li key={i} className="flex gap-2"><span style={{ color: "var(--brand-cyan)" }}>•</span>{i}</li>
-                  ))}
-                </ul>
-                <Link
-                  to="/cups"
-                  className="mt-5 inline-flex items-center justify-center gap-1 rounded-md px-5 py-2.5 text-sm font-bold text-primary-foreground tracking-wider"
-                  style={{ background: "var(--gradient-cyan)" }}
-                >
-                  READ MORE
-                </Link>
-              </div>
-            </div>
+            <ProductCard
+              n="07"
+              title="PAPER CUPS"
+              img={capCups}
+              items={["Single-Wall Paper Cups", "Double-Wall Thermal Cups", "Eco-Friendly BIO Cups", "Paper & Plastic Lids", "Wooden Stirrers"]}
+              accent={accentFor(6)}
+              cta={{ label: "Read More", to: "/cups" }}
+            />
           </div>
         </div>
       </section>

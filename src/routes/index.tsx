@@ -301,7 +301,7 @@ function Index() {
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-[30px] mt-[50px]">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-[30px] mt-[50px]">
             {capabilities.map((c, idx) => (
               <ProductCard key={c.n} {...c} accent={accentFor(idx)} />
             ))}

@@ -504,6 +504,126 @@ function Pill({ label, sub, tone }: { label: string; sub: string; tone: "muted" 
   );
 }
 
+function CheaperFlow() {
+  const cyan = "var(--brand-cyan)";
+  return (
+    <div className="mt-12 rounded-xl border border-border bg-card/40 p-6 sm:p-10">
+      {/* Mobile: stacked */}
+      <div className="md:hidden flex flex-col items-center gap-4 text-center">
+        <FlowBox label="YOUR PROJECT" />
+        <div className="h-6 w-px bg-muted-foreground/40" />
+        <div className="grid grid-cols-1 gap-4 w-full">
+          <div className="flex flex-col items-center gap-2">
+            <FlowBox label="LOCAL SHOP" sub="HIGH OVERHEAD" muted />
+            <span className="text-xs font-bold tracking-widest text-muted-foreground">→ RETAIL $$$</span>
+          </div>
+          <div className="flex flex-col items-center gap-2">
+            <FlowBox label="MAS BATCH" sub="SHARED COSTS" highlight />
+            <span className="text-xs font-bold tracking-widest" style={{ color: cyan }}>→ WHOLESALE</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Desktop: SVG diagram */}
+      <div className="hidden md:block relative">
+        <svg viewBox="0 0 800 280" className="w-full h-auto" preserveAspectRatio="xMidYMid meet">
+          {/* Dashed muted path: project -> local shop -> retail */}
+          <path
+            d="M 220 140 C 320 140, 360 60, 460 60"
+            fill="none"
+            stroke="hsl(var(--muted-foreground) / 0.5)"
+            strokeWidth="2"
+            strokeDasharray="6 6"
+          />
+          <path
+            d="M 620 60 L 690 60"
+            fill="none"
+            stroke="hsl(var(--muted-foreground) / 0.5)"
+            strokeWidth="2"
+            strokeDasharray="6 6"
+            markerEnd="url(#arrow-muted)"
+          />
+
+          {/* Solid cyan path: project -> mas batch -> wholesale */}
+          <path
+            d="M 220 140 C 320 140, 360 220, 460 220"
+            fill="none"
+            stroke={cyan}
+            strokeWidth="3"
+            markerEnd="url(#arrow-cyan)"
+          />
+          <path
+            d="M 620 220 L 690 220"
+            fill="none"
+            stroke={cyan}
+            strokeWidth="3"
+            markerEnd="url(#arrow-cyan)"
+          />
+
+          <defs>
+            <marker id="arrow-cyan" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill={cyan} />
+            </marker>
+            <marker id="arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill="hsl(var(--muted-foreground) / 0.6)" />
+            </marker>
+          </defs>
+
+          {/* YOUR PROJECT box */}
+          <foreignObject x="60" y="100" width="160" height="80">
+            <div className="w-full h-full rounded-lg border border-border bg-background flex flex-col items-center justify-center text-center px-3">
+              <div className="font-extrabold text-sm tracking-wider text-foreground">YOUR</div>
+              <div className="font-extrabold text-sm tracking-wider text-foreground">PROJECT</div>
+            </div>
+          </foreignObject>
+
+          {/* LOCAL SHOP box */}
+          <foreignObject x="460" y="20" width="160" height="80">
+            <div className="w-full h-full rounded-lg border border-border bg-background flex flex-col items-center justify-center text-center px-3">
+              <div className="font-extrabold text-sm tracking-wider text-muted-foreground">LOCAL SHOP</div>
+              <div className="text-[10px] tracking-widest text-muted-foreground/70 mt-1">HIGH OVERHEAD</div>
+            </div>
+          </foreignObject>
+
+          {/* MAS BATCH box */}
+          <foreignObject x="460" y="180" width="160" height="80">
+            <div className="w-full h-full rounded-lg border-2 flex flex-col items-center justify-center text-center px-3" style={{ borderColor: cyan, background: "hsl(var(--background))" }}>
+              <div className="font-extrabold text-sm tracking-wider" style={{ color: cyan }}>MAS BATCH</div>
+              <div className="text-[10px] tracking-widest text-muted-foreground mt-1">SHARED COSTS</div>
+            </div>
+          </foreignObject>
+
+          {/* RETAIL label */}
+          <text x="700" y="65" fill="hsl(var(--muted-foreground))" fontWeight="800" fontSize="14" fontFamily="inherit" letterSpacing="2">
+            RETAIL $$$
+          </text>
+
+          {/* WHOLESALE label */}
+          <text x="700" y="225" fill={cyan} fontWeight="800" fontSize="14" fontFamily="inherit" letterSpacing="2">
+            WHOLESALE
+          </text>
+        </svg>
+      </div>
+    </div>
+  );
+}
+
+function FlowBox({ label, sub, muted, highlight }: { label: string; sub?: string; muted?: boolean; highlight?: boolean }) {
+  return (
+    <div
+      className={`rounded-lg border px-5 py-3 text-center ${
+        highlight ? "border-2" : "border"
+      }`}
+      style={highlight ? { borderColor: "var(--brand-cyan)" } : undefined}
+    >
+      <div className={`font-extrabold tracking-wider text-sm ${muted ? "text-muted-foreground" : highlight ? "" : "text-foreground"}`} style={highlight ? { color: "var(--brand-cyan)" } : undefined}>
+        {label}
+      </div>
+      {sub && <div className="mt-1 text-[10px] tracking-widest text-muted-foreground/80">{sub}</div>}
+    </div>
+  );
+}
+
 function ProductCard({ n, title, img, items, accent }: { n: string; title: string; img: string; items: string[]; accent: { color: string; tint: string } }) {
   return (
     <div className="rounded-xl overflow-hidden border border-border group" style={{ background: accent.tint }}>

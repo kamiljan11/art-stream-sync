@@ -432,14 +432,25 @@ function Card({ children }: { children: React.ReactNode }) {
 }
 
 function FeatureCard({ icon, title, text, tint = "cyan" }: { icon: React.ReactNode; title: string; text: string; tint?: "cyan" | "magenta" | "yellow" }) {
-  const bg = tint === "magenta" ? "var(--tint-magenta)" : tint === "yellow" ? "var(--tint-yellow)" : "var(--tint-cyan)";
+  const styles = {
+    magenta: { bg: "linear-gradient(145deg, #fff5fa 0%, #ffffff 100%)", border: "rgba(236, 0, 140, 0.15)" },
+    cyan: { bg: "linear-gradient(145deg, #f0fbff 0%, #ffffff 100%)", border: "rgba(0, 174, 239, 0.15)" },
+    yellow: { bg: "linear-gradient(145deg, #fffbf0 0%, #ffffff 100%)", border: "rgba(212, 175, 55, 0.15)" },
+  }[tint];
   return (
-    <div className="rounded-2xl border border-border p-8" style={{ background: bg }}>
-      <div className="flex items-center gap-3">
+    <div
+      className="rounded-2xl p-9 transition-transform hover:-translate-y-2"
+      style={{
+        background: styles.bg,
+        border: `1px solid ${styles.border}`,
+        boxShadow: "0 10px 30px rgba(0, 0, 0, 0.3)",
+      }}
+    >
+      <div className="flex items-center gap-3.5">
         <span className="inline-flex h-7 w-7 items-center justify-center">{icon}</span>
-        <h3 className="font-extrabold tracking-wider text-foreground">{title}</h3>
+        <h3 className="font-extrabold tracking-wider text-[#111] text-[1.05rem]">{title}</h3>
       </div>
-      <p className="mt-4 text-sm text-muted-foreground leading-relaxed">{text}</p>
+      <p className="mt-5 text-[0.95rem] text-[#555] leading-relaxed">{text}</p>
     </div>
   );
 }

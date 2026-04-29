@@ -141,26 +141,31 @@ function Index() {
 
       {/* SECRET / LOGIC */}
       <section id="secret" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24">
-        <h2 className="text-4xl sm:text-5xl font-extrabold text-center">
-          Why We Are <span style={{ color: "var(--brand-cyan)" }}>Cheaper.</span>
-        </h2>
-        <div id="logic" className="grid md:grid-cols-2 gap-8 mt-12">
-          <Card>
-            <h3 className="text-xl font-bold mb-3">The Logic Behind the Guarantee.</h3>
-            <p className="text-muted-foreground">
-              Local print shops often treat small orders as "one-off" jobs. You pay for the machine setup, the labor, and the local retail overhead.
-            </p>
-          </Card>
-          <Card>
-            <h3 className="text-xl font-bold mb-3">The Wholesale Difference.</h3>
-            <p className="text-muted-foreground">
-              We don't print alone. We batch your order with hundreds of others in massive industrial runs directly at the factory. We split the setup costs, bypass the retail markup, and pass the savings directly to you.
-            </p>
-          </Card>
+        <div id="logic" className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div>
+            <h2 className="text-4xl sm:text-5xl font-extrabold leading-tight">
+              Why We Are <span style={{ color: "var(--brand-cyan)" }}>Cheaper.</span>
+            </h2>
+            <div className="mt-8 space-y-6">
+              <div>
+                <p className="text-lg font-bold text-foreground mb-2">The Logic Behind the Guarantee.</p>
+                <p className="text-muted-foreground leading-relaxed">
+                  Local print shops often treat small orders as "one-off" jobs. You pay for the machine setup, the labor, and the local retail overhead.
+                </p>
+              </div>
+              <div>
+                <p className="text-lg font-bold text-foreground mb-2">The Wholesale Difference.</p>
+                <p className="text-muted-foreground leading-relaxed">
+                  We don't print alone. We batch your order with hundreds of others in massive industrial runs directly at the factory. We split the setup costs, bypass the retail markup, and pass the savings directly to you.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="flex justify-center">
+            <CheaperFlow />
+          </div>
         </div>
-
-        <CheaperFlow />
-        <CmykBar className="mt-16" />
+        <CmykBar className="mt-20" />
       </section>
 
       {/* SAVINGS / MATH */}
@@ -507,7 +512,7 @@ function Pill({ label, sub, tone }: { label: string; sub: string; tone: "muted" 
 function CheaperFlow() {
   const cyan = "var(--brand-cyan)";
   return (
-    <div className="mt-12 rounded-xl border border-border bg-card/40 p-6 sm:p-10">
+    <div className="w-full max-w-[550px]" style={{ filter: "drop-shadow(0 10px 30px rgba(0,0,0,0.6))" }}>
       {/* Mobile: stacked */}
       <div className="md:hidden flex flex-col items-center gap-4 text-center">
         <FlowBox label="YOUR PROJECT" />

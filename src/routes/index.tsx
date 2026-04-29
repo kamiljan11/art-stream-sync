@@ -109,16 +109,14 @@ function Index() {
       {/* HERO */}
       <section id="hero" className="relative overflow-hidden" style={{ background: "var(--gradient-hero)" }}>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24 sm:py-32 text-center">
-          <h1 className="text-5xl sm:text-7xl font-extrabold tracking-tight">
-            Wholesale Print{" "}
-            <span
-              className="bg-clip-text text-transparent"
-              style={{ backgroundImage: "var(--gradient-cyan)" }}
-            >
-              Prices.
+          <CmykBar />
+          <h1 className="mt-6 text-5xl sm:text-7xl font-extrabold tracking-tight uppercase">
+            Wholesale{" "}
+            <span className="text-transparent" style={{ WebkitTextStroke: "1.5px hsl(0 0% 100% / 0.6)" }}>
+              Print
             </span>
             <br />
-            Guaranteed.
+            Prices. Guaranteed.
           </h1>
           <p className="mt-6 max-w-2xl mx-auto text-lg text-muted-foreground">
             Direct access to high-capacity European printing factories. Offset & Digital. Icelandic quality. No retail markup.
@@ -132,7 +130,8 @@ function Index() {
               Get your printing quote <ArrowRight size={18} />
             </a>
             <p className="text-sm text-muted-foreground">
-              Backed by our <span className="text-primary font-semibold">100% Lowest Price Guarantee</span>
+              <span className="inline-block h-2 w-2 rounded-full bg-primary mr-2 align-middle" />
+              Backed by our 100% Lowest Price Guarantee
             </p>
           </div>
         </div>
@@ -142,7 +141,9 @@ function Index() {
 
       {/* SECRET / LOGIC */}
       <section id="secret" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24">
-        <h2 className="text-4xl sm:text-5xl font-extrabold text-center">Why We Are Cheaper.</h2>
+        <h2 className="text-4xl sm:text-5xl font-extrabold text-center">
+          Why We Are <span style={{ color: "var(--brand-cyan)" }}>Cheaper.</span>
+        </h2>
         <div id="logic" className="grid md:grid-cols-2 gap-8 mt-12">
           <Card>
             <h3 className="text-xl font-bold mb-3">The Logic Behind the Guarantee.</h3>
@@ -163,13 +164,16 @@ function Index() {
           <Pill label="LOCAL SHOP" sub="HIGH OVERHEAD · RETAIL $$$" tone="danger" />
           <Pill label="MAS BATCH" sub="SHARED COSTS · WHOLESALE" tone="primary" />
         </div>
+        <CmykBar className="mt-16" />
       </section>
 
       {/* SAVINGS / MATH */}
       <section id="savings" className="bg-card/40 border-y border-border">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24">
           <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-4xl sm:text-5xl font-extrabold">The Math Behind the Guarantee.</h2>
+            <h2 className="text-4xl sm:text-5xl font-extrabold">
+              The Math Behind the <span style={{ color: "var(--brand-cyan)" }}>Guarantee.</span>
+            </h2>
             <p className="mt-4 text-muted-foreground">
               How can we promise the lowest price? Simple. We removed every cost that doesn't make your print better.
             </p>
@@ -177,17 +181,20 @@ function Index() {
 
           <div className="grid md:grid-cols-3 gap-6 mt-12">
             <FeatureCard
-              icon={<X className="text-destructive" />}
+              tint="magenta"
+              icon={<X className="text-[color:var(--brand-magenta)]" strokeWidth={3} />}
               title="NO STORAGE"
               text="Storage costs add 15% to the price. We skip it. Your order goes from the factory straight to your door. You pay for the product, not for a warehouse."
             />
             <FeatureCard
-              icon={<X className="text-destructive" />}
+              tint="cyan"
+              icon={<X className="text-[color:var(--brand-cyan)]" strokeWidth={3} />}
               title="NO FANCY OFFICE"
               text="We don't have an expensive office in 101 Reykjavík. We work online so you don't have to pay for our rent in your invoice."
             />
             <FeatureCard
-              icon={<Check className="text-primary" />}
+              tint="yellow"
+              icon={<Check style={{ color: "var(--brand-yellow)" }} strokeWidth={3} />}
               title="LOCAL & FAST"
               text="We work from Njarðvík, right next to the airport. We stay out of the expensive city center to lower your costs while keeping our service local."
             />
@@ -195,7 +202,9 @@ function Index() {
 
           {/* Comparison table */}
           <div className="mt-16">
-            <h3 className="text-2xl sm:text-3xl font-bold text-center">COMPARE THE MODEL.</h3>
+            <h3 className="text-3xl sm:text-4xl font-extrabold text-center">
+              COMPARE THE <span style={{ color: "var(--brand-cyan)" }}>MODEL.</span>
+            </h3>
             <p className="text-center mt-2 text-muted-foreground">Same machines. Same paper. Drastically lower overhead.</p>
 
             <div className="mt-8 overflow-x-auto">
@@ -243,8 +252,8 @@ function Index() {
       {/* LEGAL / PRICING */}
       <section id="pricing" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24">
         <h2 className="text-4xl sm:text-5xl font-extrabold text-center">
-          Wholesale Pricing.{" "}
-          <span style={{ color: "var(--brand-magenta)" }}>100% Legal.</span>
+          Wholesale Pricing.<br />
+          <span style={{ color: "var(--brand-cyan)" }}>100% Legal.</span>
         </h2>
         <div id="legal" className="grid md:grid-cols-3 gap-8 mt-12">
           <Card>
@@ -277,7 +286,9 @@ function Index() {
 
         {/* Standards */}
         <div className="mt-20">
-          <h3 className="text-3xl font-extrabold text-center">Industrial Standards.</h3>
+          <h3 className="text-3xl font-extrabold text-center">
+            Industrial <span style={{ color: "var(--brand-cyan)" }}>Standards.</span>
+          </h3>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-10">
             {[
               { t: "Industrial Capacity", d: "High-volume factory scale" },
@@ -298,33 +309,39 @@ function Index() {
       <section id="products" className="bg-card/40 border-y border-border">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24">
           <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-4xl sm:text-5xl font-extrabold">Industrial Capabilities.</h2>
+            <h2 className="text-4xl sm:text-5xl font-extrabold">
+              Industrial <span style={{ color: "var(--brand-cyan)" }}>Capabilities.</span>
+            </h2>
             <p className="mt-4 text-muted-foreground">
               Everything your business needs to print. From daily essentials to high-volume industrial runs and custom packaging.
             </p>
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
-            {capabilities.map((c) => (
-              <ProductCard key={c.n} {...c} />
+            {capabilities.map((c, idx) => (
+              <ProductCard key={c.n} {...c} accent={accentFor(idx)} />
             ))}
             {/* Cups card with link */}
-            <div className="rounded-xl overflow-hidden border border-border bg-card group">
+            <div className="rounded-xl overflow-hidden border border-border bg-card group" style={{ background: "var(--tint-cyan)" }}>
               <div className="aspect-[4/3] overflow-hidden">
                 <img src={capCups} alt="Paper cups" className="w-full h-full object-cover group-hover:scale-105 transition" />
               </div>
               <div className="p-6">
-                <h3 className="text-sm font-bold tracking-widest text-primary mb-3">07 PAPER CUPS</h3>
+                <h3 className="text-base font-extrabold tracking-widest mb-3 flex items-baseline gap-2">
+                  <span style={{ color: "var(--brand-cyan)" }} className="text-2xl">07</span>
+                  <span className="text-foreground">PAPER CUPS</span>
+                </h3>
                 <ul className="space-y-1.5 text-sm text-muted-foreground">
                   {["Single-Wall Paper Cups", "Double-Wall Thermal Cups", "Eco-Friendly BIO Cups", "Paper & Plastic Lids", "Wooden Stirrers"].map((i) => (
-                    <li key={i}>• {i}</li>
+                    <li key={i} className="flex gap-2"><span style={{ color: "var(--brand-cyan)" }}>•</span>{i}</li>
                   ))}
                 </ul>
                 <Link
                   to="/cups"
-                  className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-primary hover:gap-2 transition-all"
+                  className="mt-5 inline-flex items-center justify-center gap-1 rounded-md px-5 py-2.5 text-sm font-bold text-primary-foreground tracking-wider"
+                  style={{ background: "var(--gradient-cyan)" }}
                 >
-                  Read More <ArrowRight size={14} />
+                  READ MORE
                 </Link>
               </div>
             </div>
@@ -335,7 +352,9 @@ function Index() {
       {/* PROCESS */}
       <section id="process" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24">
         <div className="text-center max-w-3xl mx-auto">
-          <h2 className="text-4xl sm:text-5xl font-extrabold">3 STEPS TO LOWER COSTS</h2>
+          <h2 className="text-4xl sm:text-5xl font-extrabold">
+            3 STEPS TO <span style={{ color: "var(--brand-cyan)" }}>LOWER COSTS</span>
+          </h2>
           <p className="mt-4 text-muted-foreground">
             We simplified the industrial print process. <span className="text-foreground font-semibold">Wholesale access. Zero hassle.</span>
           </p>
@@ -343,30 +362,15 @@ function Index() {
 
         <div className="grid md:grid-cols-3 gap-6 mt-12">
           {[
-            {
-              n: "01",
-              t: "Request or Audit",
-              d: 'New project? Tell us what you need. Already printing somewhere else? Upload a recent invoice for a free price audit.',
-            },
-            {
-              n: "02",
-              t: "Quote & Guarantee",
-              d: "We send you a wholesale price. If you find a lower valid offer in Iceland, we beat it. You approve the final digital proof.",
-            },
-            {
-              n: "03",
-              t: "Print & Deliver",
-              d: "We handle production, customs clearance, and logistics. You receive the box at your door with one local invoice in ISK.",
-            },
+            { n: "01", color: "var(--brand-cyan)", tint: "var(--tint-cyan)", t: "REQUEST OR AUDIT", d: "New project? Tell us what you need. Already printing somewhere else? Upload a recent invoice for a free price audit." },
+            { n: "02", color: "var(--brand-magenta)", tint: "var(--tint-magenta)", t: "QUOTE & GUARANTEE", d: "We send you a wholesale price. If you find a lower valid offer in Iceland, we beat it. You approve the final digital proof." },
+            { n: "03", color: "var(--brand-yellow)", tint: "var(--tint-yellow)", t: "PRINT & DELIVER", d: "We handle production, customs clearance, and logistics. You receive the box at your door with one local invoice in ISK." },
           ].map((s) => (
-            <div key={s.n} className="rounded-xl border border-border bg-card p-8">
-              <div
-                className="text-5xl font-extrabold bg-clip-text text-transparent"
-                style={{ backgroundImage: "var(--gradient-cyan)" }}
-              >
+            <div key={s.n} className="rounded-xl border border-border p-8" style={{ background: s.tint }}>
+              <div className="text-6xl font-extrabold" style={{ color: s.color }}>
                 {s.n}
               </div>
-              <h3 className="mt-4 text-xl font-bold">{s.t}</h3>
+              <h3 className="mt-4 text-xl font-extrabold tracking-wide">{s.t}</h3>
               <p className="mt-3 text-sm text-muted-foreground">{s.d}</p>
             </div>
           ))}
@@ -382,31 +386,39 @@ function Index() {
           </a>
           <p className="mt-3 text-sm text-muted-foreground">Average savings: 15% – 30%</p>
         </div>
+        <CmykBar className="mt-16" arrows />
       </section>
 
       {/* FAQ */}
       <section id="faq" className="bg-card/40 border-y border-border">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-24">
-          <h2 className="text-4xl sm:text-5xl font-extrabold text-center">Frequently Asked Questions</h2>
+          <h2 className="text-4xl sm:text-5xl font-extrabold text-center">
+            Frequently <span style={{ color: "var(--brand-cyan)" }}>Asked Questions</span>
+          </h2>
           <p className="text-center mt-3 text-muted-foreground">
             Everything you need to know about printing with MAS Prints.
           </p>
-          <div className="mt-10 space-y-3">
-            {faqs.map((f) => (
-              <details key={f.q} className="group rounded-lg border border-border bg-card p-5 open:shadow-[var(--shadow-card)]">
-                <summary className="flex items-center justify-between cursor-pointer list-none font-semibold">
-                  <span><span className="text-primary mr-2">•</span>{f.q}</span>
-                  <span className="text-primary text-2xl group-open:rotate-45 transition-transform">+</span>
-                </summary>
-                <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{f.a}</p>
-              </details>
-            ))}
+          <div className="mt-10 grid md:grid-cols-2 gap-4">
+            {faqs.map((f, i) => {
+              const dot = ["var(--brand-cyan)", "var(--brand-magenta)", "var(--brand-yellow)"][i % 3];
+              const tint = [`var(--tint-cyan)`, `var(--tint-magenta)`, `var(--tint-yellow)`][i % 3];
+              return (
+                <div key={f.q} className="rounded-xl border border-border p-6" style={{ background: tint }}>
+                  <div className="flex items-start gap-2 font-bold text-foreground">
+                    <span className="mt-2 inline-block h-1.5 w-1.5 rounded-full shrink-0" style={{ background: dot }} />
+                    <span>{f.q}</span>
+                  </div>
+                  <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{f.a}</p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* QUOTE */}
       <section className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-24">
+        <CmykBar className="mb-16" arrows />
         <QuoteForm />
       </section>
 
@@ -419,16 +431,55 @@ function Card({ children }: { children: React.ReactNode }) {
   return <div className="rounded-xl border border-border bg-card p-8">{children}</div>;
 }
 
-function FeatureCard({ icon, title, text }: { icon: React.ReactNode; title: string; text: string }) {
+function FeatureCard({ icon, title, text, tint = "cyan" }: { icon: React.ReactNode; title: string; text: string; tint?: "cyan" | "magenta" | "yellow" }) {
+  const bg = tint === "magenta" ? "var(--tint-magenta)" : tint === "yellow" ? "var(--tint-yellow)" : "var(--tint-cyan)";
   return (
-    <div className="rounded-xl border border-border bg-card p-8">
-      <div className="h-12 w-12 rounded-lg bg-background border border-border flex items-center justify-center">
-        {icon}
+    <div className="rounded-2xl border border-border p-8" style={{ background: bg }}>
+      <div className="flex items-center gap-3">
+        <span className="inline-flex h-7 w-7 items-center justify-center">{icon}</span>
+        <h3 className="font-extrabold tracking-wider text-foreground">{title}</h3>
       </div>
-      <h3 className="mt-5 font-bold tracking-wider">{title}</h3>
-      <p className="mt-3 text-sm text-muted-foreground">{text}</p>
+      <p className="mt-4 text-sm text-muted-foreground leading-relaxed">{text}</p>
     </div>
   );
+}
+
+function CmykBar({ className = "", arrows = false }: { className?: string; arrows?: boolean }) {
+  if (arrows) {
+    return (
+      <div className={`flex justify-center items-center gap-3 ${className}`}>
+        <Chevrons color="var(--brand-cyan)" />
+        <Chevrons color="var(--brand-magenta)" />
+        <Chevrons color="var(--brand-yellow)" />
+      </div>
+    );
+  }
+  return (
+    <div className={`flex justify-center items-center gap-1 ${className}`}>
+      <span className="block h-1 w-10 rounded-full" style={{ background: "var(--brand-cyan)" }} />
+      <span className="block h-1 w-10 rounded-full" style={{ background: "var(--brand-magenta)" }} />
+      <span className="block h-1 w-10 rounded-full" style={{ background: "var(--brand-yellow)" }} />
+      <span className="block h-1 w-10 rounded-full bg-foreground" />
+    </div>
+  );
+}
+
+function Chevrons({ color }: { color: string }) {
+  return (
+    <div className="flex flex-col items-center" style={{ color }}>
+      <ArrowRight size={16} className="rotate-90 -mb-2" />
+      <ArrowRight size={16} className="rotate-90" />
+    </div>
+  );
+}
+
+function accentFor(idx: number) {
+  const palette = [
+    { color: "var(--brand-cyan)", tint: "var(--tint-cyan)" },
+    { color: "var(--brand-magenta)", tint: "var(--tint-magenta)" },
+    { color: "var(--brand-yellow)", tint: "var(--tint-yellow)" },
+  ];
+  return palette[idx % palette.length];
 }
 
 function Pill({ label, sub, tone }: { label: string; sub: string; tone: "muted" | "danger" | "primary" }) {
@@ -446,19 +497,20 @@ function Pill({ label, sub, tone }: { label: string; sub: string; tone: "muted" 
   );
 }
 
-function ProductCard({ n, title, img, items }: { n: string; title: string; img: string; items: string[] }) {
+function ProductCard({ n, title, img, items, accent }: { n: string; title: string; img: string; items: string[]; accent: { color: string; tint: string } }) {
   return (
-    <div className="rounded-xl overflow-hidden border border-border bg-card group">
+    <div className="rounded-xl overflow-hidden border border-border group" style={{ background: accent.tint }}>
       <div className="aspect-[4/3] overflow-hidden">
         <img src={img} alt={title} className="w-full h-full object-cover group-hover:scale-105 transition" />
       </div>
       <div className="p-6">
-        <h3 className="text-sm font-bold tracking-widest text-primary mb-3">
-          {n} {title}
+        <h3 className="text-base font-extrabold tracking-widest mb-3 flex items-baseline gap-2">
+          <span style={{ color: accent.color }} className="text-2xl">{n}</span>
+          <span className="text-foreground">{title}</span>
         </h3>
         <ul className="space-y-1.5 text-sm text-muted-foreground">
           {items.map((i) => (
-            <li key={i}>• {i}</li>
+            <li key={i} className="flex gap-2"><span style={{ color: accent.color }}>•</span>{i}</li>
           ))}
         </ul>
       </div>

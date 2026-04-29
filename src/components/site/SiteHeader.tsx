@@ -18,12 +18,8 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 backdrop-blur-md bg-background/80 border-b border-border">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2.5">
-          <CmykDots />
-          <span className="flex flex-col leading-tight">
-            <span className="text-sm font-extrabold tracking-widest text-foreground">MAS PRINTS</span>
-            <span className="text-[9px] tracking-[0.25em] text-muted-foreground">ICELANDIC BROKERAGE</span>
-          </span>
+        <Link to="/" className="block">
+          <MasLogo />
         </Link>
         <nav className="hidden lg:flex items-center gap-6 text-sm font-medium text-muted-foreground">
           {navItems.map((n) => (
@@ -69,27 +65,23 @@ export function SiteHeader() {
   );
 }
 
-function CmykDots() {
-  // Pyramid: row1=1 (yellow), row2=2 (magenta+yellow), row3=3 (cyan+magenta+yellow), row4=4 (cyan x2 + magenta + black)
-  const C = "#00AEEF";
-  const M = "#EC008C";
-  const Y = "#FFE600";
-  const K = "#FFFFFF";
-  const rows: string[][] = [
-    [Y],
-    [M, Y],
-    [C, M, Y],
-    [C, C, M, K],
-  ];
+function MasLogo() {
   return (
-    <div className="flex flex-col items-center gap-[2px]">
-      {rows.map((row, i) => (
-        <div key={i} className="flex gap-[2px]">
-          {row.map((color, j) => (
-            <span key={j} className="h-1.5 w-1.5 rounded-full" style={{ background: color }} />
-          ))}
-        </div>
-      ))}
-    </div>
+    <svg height="36" viewBox="0 0 350 50" xmlns="http://www.w3.org/2000/svg" aria-label="MAS PRINTS — Icelandic Brokerage">
+      <g transform="translate(0, 5)">
+        <circle cx="25" cy="5" r="3.5" fill="#00AEEF" />
+        <circle cx="20" cy="14" r="3.5" fill="#EC008C" />
+        <circle cx="30" cy="14" r="3.5" fill="#EC008C" />
+        <circle cx="15" cy="23" r="3.5" fill="#FFF200" />
+        <circle cx="25" cy="23" r="3.5" fill="#FFF200" />
+        <circle cx="35" cy="23" r="3.5" fill="#FFF200" />
+        <circle cx="10" cy="32" r="3.5" fill="#FFFFFF" />
+        <circle cx="20" cy="32" r="3.5" fill="#FFFFFF" />
+        <circle cx="30" cy="32" r="3.5" fill="#FFFFFF" />
+        <circle cx="40" cy="32" r="3.5" fill="#FFFFFF" />
+      </g>
+      <text x="60" y="28" fontFamily="Inter, sans-serif" fontWeight="800" fontSize="26" fill="#fff">MAS PRINTS</text>
+      <text x="61" y="42" fontFamily="Inter, sans-serif" fontWeight="700" fontSize="10" fill="#00AEEF" letterSpacing="2">ICELANDIC BROKERAGE</text>
+    </svg>
   );
 }

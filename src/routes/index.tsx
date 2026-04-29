@@ -375,8 +375,8 @@ function Index() {
       </section>
 
       {/* QUOTE */}
-      <section className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-24">
-        <CmykBar className="mb-16" arrows />
+      <section>
+        <CmykBar className="pt-16" arrows />
         <QuoteForm />
       </section>
 

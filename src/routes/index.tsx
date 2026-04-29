@@ -300,34 +300,18 @@ function Index() {
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-[30px] mt-[50px]">
             {capabilities.map((c, idx) => (
               <ProductCard key={c.n} {...c} accent={accentFor(idx)} />
             ))}
-            {/* Cups card with link */}
-            <div className="rounded-xl overflow-hidden border border-border bg-card group" style={{ background: "var(--tint-cyan)" }}>
-              <div className="aspect-[4/3] overflow-hidden">
-                <img src={capCups} alt="Paper cups" className="w-full h-full object-cover group-hover:scale-105 transition" />
-              </div>
-              <div className="p-6">
-                <h3 className="text-base font-extrabold tracking-widest mb-3 flex items-baseline gap-2">
-                  <span style={{ color: "var(--brand-cyan)" }} className="text-2xl">07</span>
-                  <span className="text-foreground">PAPER CUPS</span>
-                </h3>
-                <ul className="space-y-1.5 text-sm text-muted-foreground">
-                  {["Single-Wall Paper Cups", "Double-Wall Thermal Cups", "Eco-Friendly BIO Cups", "Paper & Plastic Lids", "Wooden Stirrers"].map((i) => (
-                    <li key={i} className="flex gap-2"><span style={{ color: "var(--brand-cyan)" }}>•</span>{i}</li>
-                  ))}
-                </ul>
-                <Link
-                  to="/cups"
-                  className="mt-5 inline-flex items-center justify-center gap-1 rounded-md px-5 py-2.5 text-sm font-bold text-primary-foreground tracking-wider"
-                  style={{ background: "var(--gradient-cyan)" }}
-                >
-                  READ MORE
-                </Link>
-              </div>
-            </div>
+            <ProductCard
+              n="07"
+              title="PAPER CUPS"
+              img={capCups}
+              items={["Single-Wall Paper Cups", "Double-Wall Thermal Cups", "Eco-Friendly BIO Cups", "Paper & Plastic Lids", "Wooden Stirrers"]}
+              accent={accentFor(6)}
+              cta={{ label: "Read More", to: "/cups" }}
+            />
           </div>
         </div>
       </section>
@@ -469,12 +453,32 @@ function Chevrons({ color }: { color: string }) {
 
 function accentFor(idx: number) {
   const palette = [
-    { color: "var(--brand-cyan)", tint: "var(--tint-cyan)" },
-    { color: "var(--brand-magenta)", tint: "var(--tint-magenta)" },
-    { color: "var(--brand-yellow)", tint: "var(--tint-yellow)" },
+    {
+      color: "#00AEEF",
+      bg: "linear-gradient(145deg, #f0fbff 0%, #ffffff 100%)",
+      borderIdle: "rgba(0, 174, 239, 0.15)",
+      borderHover: "#00AEEF",
+      shadowHover: "0 15px 40px rgba(0, 174, 239, 0.2)",
+    },
+    {
+      color: "#EC008C",
+      bg: "linear-gradient(145deg, #fff5fa 0%, #ffffff 100%)",
+      borderIdle: "rgba(236, 0, 140, 0.15)",
+      borderHover: "#EC008C",
+      shadowHover: "0 15px 40px rgba(236, 0, 140, 0.2)",
+    },
+    {
+      color: "#D4AF37",
+      bg: "linear-gradient(145deg, #fffbf0 0%, #ffffff 100%)",
+      borderIdle: "rgba(212, 175, 55, 0.15)",
+      borderHover: "#D4AF37",
+      shadowHover: "0 15px 40px rgba(212, 175, 55, 0.2)",
+    },
   ];
   return palette[idx % palette.length];
 }
+
+type CapAccent = ReturnType<typeof accentFor>;
 
 function Pill({ label, sub, tone }: { label: string; sub: string; tone: "muted" | "danger" | "primary" }) {
   const styles =
@@ -655,22 +659,75 @@ function FlowBox({ label, sub, muted, highlight }: { label: string; sub?: string
   );
 }
 
-function ProductCard({ n, title, img, items, accent }: { n: string; title: string; img: string; items: string[]; accent: { color: string; tint: string } }) {
+function ProductCard({
+  n,
+  title,
+  img,
+  items,
+  accent,
+  cta,
+}: {
+  n: string;
+  title: string;
+  img: string;
+  items: string[];
+  accent: CapAccent;
+  cta?: { label: string; to: string };
+}) {
   return (
-    <div className="rounded-xl overflow-hidden border border-border group" style={{ background: accent.tint }}>
-      <div className="aspect-[4/3] overflow-hidden">
-        <img src={img} alt={title} className="w-full h-full object-cover group-hover:scale-105 transition" />
+    <div
+      className="cap-card group rounded-xl overflow-hidden flex flex-col h-full transition-all duration-300 hover:-translate-y-[5px]"
+      style={{
+        background: accent.bg,
+        border: `1px solid ${accent.borderIdle}`,
+        boxShadow: "0 10px 30px rgba(0,0,0,0.2)",
+      }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.borderColor = accent.borderHover;
+        e.currentTarget.style.boxShadow = accent.shadowHover;
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.borderColor = accent.borderIdle;
+        e.currentTarget.style.boxShadow = "0 10px 30px rgba(0,0,0,0.2)";
+      }}
+    >
+      <div className="h-[220px] w-full overflow-hidden bg-[#f0f0f0] border-b border-black/5">
+        <img
+          src={img}
+          alt={title}
+          className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+        />
       </div>
-      <div className="p-6">
-        <h3 className="text-base font-extrabold tracking-widest mb-3 flex items-baseline gap-2">
-          <span style={{ color: accent.color }} className="text-2xl">{n}</span>
-          <span className="text-foreground">{title}</span>
+      <div className="p-[30px] md:p-[30px] flex-grow flex flex-col">
+        <h3 className="text-[#111] text-[1.2rem] font-extrabold uppercase tracking-wide mb-[15px] flex items-center gap-2">
+          <span style={{ color: accent.color }}>{n}</span>
+          <span>{title}</span>
         </h3>
-        <ul className="space-y-1.5 text-sm text-muted-foreground">
+        <ul className="m-0 p-0 list-none mb-auto">
           {items.map((i) => (
-            <li key={i} className="flex gap-2"><span style={{ color: accent.color }}>•</span>{i}</li>
+            <li
+              key={i}
+              className="text-[#555] mb-2 pl-[15px] relative text-[0.95rem] leading-relaxed"
+            >
+              <span className="absolute left-0 font-bold" style={{ color: accent.color }}>•</span>
+              {i}
+            </li>
           ))}
         </ul>
+        {cta && (
+          <Link
+            to={cta.to}
+            className="cap-btn self-start w-full md:w-auto mt-[25px] inline-block px-6 py-3 text-white font-bold text-[0.9rem] uppercase tracking-[1px] rounded-lg text-center transition-all duration-300 hover:-translate-y-[2px]"
+            style={{
+              backgroundColor: "#00AEEF",
+              boxShadow: "0 4px 10px rgba(0, 174, 239, 0.2)",
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#008FC5")}
+            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#00AEEF")}
+          >
+            {cta.label}
+          </Link>
+        )}
       </div>
     </div>
   );

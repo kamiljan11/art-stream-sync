@@ -675,22 +675,75 @@ function FlowBox({ label, sub, muted, highlight }: { label: string; sub?: string
   );
 }
 
-function ProductCard({ n, title, img, items, accent }: { n: string; title: string; img: string; items: string[]; accent: { color: string; tint: string } }) {
+function ProductCard({
+  n,
+  title,
+  img,
+  items,
+  accent,
+  cta,
+}: {
+  n: string;
+  title: string;
+  img: string;
+  items: string[];
+  accent: CapAccent;
+  cta?: { label: string; to: string };
+}) {
   return (
-    <div className="rounded-xl overflow-hidden border border-border group" style={{ background: accent.tint }}>
-      <div className="aspect-[4/3] overflow-hidden">
-        <img src={img} alt={title} className="w-full h-full object-cover group-hover:scale-105 transition" />
+    <div
+      className="cap-card group rounded-xl overflow-hidden flex flex-col h-full transition-all duration-300 hover:-translate-y-[5px]"
+      style={{
+        background: accent.bg,
+        border: `1px solid ${accent.borderIdle}`,
+        boxShadow: "0 10px 30px rgba(0,0,0,0.2)",
+      }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.borderColor = accent.borderHover;
+        e.currentTarget.style.boxShadow = accent.shadowHover;
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.borderColor = accent.borderIdle;
+        e.currentTarget.style.boxShadow = "0 10px 30px rgba(0,0,0,0.2)";
+      }}
+    >
+      <div className="h-[220px] w-full overflow-hidden bg-[#f0f0f0] border-b border-black/5">
+        <img
+          src={img}
+          alt={title}
+          className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+        />
       </div>
-      <div className="p-6">
-        <h3 className="text-base font-extrabold tracking-widest mb-3 flex items-baseline gap-2">
-          <span style={{ color: accent.color }} className="text-2xl">{n}</span>
-          <span className="text-foreground">{title}</span>
+      <div className="p-[30px] md:p-[30px] flex-grow flex flex-col">
+        <h3 className="text-[#111] text-[1.2rem] font-extrabold uppercase tracking-wide mb-[15px] flex items-center gap-2">
+          <span style={{ color: accent.color }}>{n}</span>
+          <span>{title}</span>
         </h3>
-        <ul className="space-y-1.5 text-sm text-muted-foreground">
+        <ul className="m-0 p-0 list-none mb-auto">
           {items.map((i) => (
-            <li key={i} className="flex gap-2"><span style={{ color: accent.color }}>•</span>{i}</li>
+            <li
+              key={i}
+              className="text-[#555] mb-2 pl-[15px] relative text-[0.95rem] leading-relaxed"
+            >
+              <span className="absolute left-0 font-bold" style={{ color: accent.color }}>•</span>
+              {i}
+            </li>
           ))}
         </ul>
+        {cta && (
+          <Link
+            to={cta.to}
+            className="cap-btn self-start w-full md:w-auto mt-[25px] inline-block px-6 py-3 text-white font-bold text-[0.9rem] uppercase tracking-[1px] rounded-lg text-center transition-all duration-300 hover:-translate-y-[2px]"
+            style={{
+              backgroundColor: "#00AEEF",
+              boxShadow: "0 4px 10px rgba(0, 174, 239, 0.2)",
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#008FC5")}
+            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#00AEEF")}
+          >
+            {cta.label}
+          </Link>
+        )}
       </div>
     </div>
   );

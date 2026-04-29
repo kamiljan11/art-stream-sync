@@ -286,24 +286,7 @@ function Index() {
         </div>
 
         {/* Standards */}
-        <div className="mt-20">
-          <h3 className="text-3xl font-extrabold text-center">
-            Industrial <span style={{ color: "var(--brand-cyan)" }}>Standards.</span>
-          </h3>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-10">
-            {[
-              { t: "Industrial Capacity", d: "High-volume factory scale" },
-              { t: "Technical Safety", d: "We audit your files for errors" },
-              { t: "Color Accuracy", d: "Perfectly calibrated output" },
-              { t: "Premium Stock", d: "Sustainable high-end paper" },
-            ].map((s) => (
-              <div key={s.t} className="rounded-xl border border-border bg-card p-6 text-center">
-                <div className="font-bold text-foreground">{s.t}</div>
-                <p className="mt-2 text-sm text-muted-foreground">{s.d}</p>
-              </div>
-            ))}
-          </div>
-        </div>
+        <IndustrialStandards />
       </section>
 
       {/* PRODUCTS / CAPABILITIES */}

@@ -13,7 +13,7 @@ export function PartnersMarquee() {
       </p>
       <div className="overflow-hidden">
         <div className="flex gap-16 animate-marquee w-max">
-          {[...logos, ...logos, ...logos].map((src, i) => (
+          {[...logos, ...logos].map((src, i) => (
             <img
               key={i}
               src={src}

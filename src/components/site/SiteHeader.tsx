@@ -70,14 +70,26 @@ export function SiteHeader() {
 }
 
 function CmykDots() {
+  // Pyramid: row1=1 (yellow), row2=2 (magenta+yellow), row3=3 (cyan+magenta+yellow), row4=4 (cyan x2 + magenta + black)
+  const C = "#00AEEF";
+  const M = "#EC008C";
+  const Y = "#FFE600";
+  const K = "#FFFFFF";
+  const rows: string[][] = [
+    [Y],
+    [M, Y],
+    [C, M, Y],
+    [C, C, M, K],
+  ];
   return (
-    <div className="grid grid-cols-3 gap-[2px] w-6">
-      <span className="h-1.5 w-1.5 rounded-full" style={{ background: "#00AEEF" }} />
-      <span className="h-1.5 w-1.5 rounded-full" style={{ background: "#EC008C" }} />
-      <span className="h-1.5 w-1.5 rounded-full" style={{ background: "#FFE600" }} />
-      <span className="h-1.5 w-1.5 rounded-full opacity-70" style={{ background: "#00AEEF" }} />
-      <span className="h-1.5 w-1.5 rounded-full opacity-70" style={{ background: "#EC008C" }} />
-      <span className="h-1.5 w-1.5 rounded-full opacity-70" style={{ background: "#0A0A0A", border: "1px solid #333" }} />
+    <div className="flex flex-col items-center gap-[2px]">
+      {rows.map((row, i) => (
+        <div key={i} className="flex gap-[2px]">
+          {row.map((color, j) => (
+            <span key={j} className="h-1.5 w-1.5 rounded-full" style={{ background: color }} />
+          ))}
+        </div>
+      ))}
     </div>
   );
 }

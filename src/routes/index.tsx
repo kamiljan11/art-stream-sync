@@ -521,7 +521,7 @@ function CheaperFlow() {
 
       {/* Desktop: SVG diagram */}
       <div className="hidden md:block relative">
-        <svg viewBox="0 0 800 280" className="w-full h-auto" preserveAspectRatio="xMidYMid meet">
+        <svg viewBox="0 0 980 280" className="w-full h-auto" preserveAspectRatio="xMidYMid meet">
           {/* Dashed muted path: project -> local shop -> retail */}
           <path
             d="M 220 140 C 320 140, 360 60, 460 60"
@@ -589,12 +589,12 @@ function CheaperFlow() {
           </foreignObject>
 
           {/* RETAIL label */}
-          <text x="700" y="65" fill="hsl(var(--muted-foreground))" fontWeight="800" fontSize="14" fontFamily="inherit" letterSpacing="2">
+          <text x="710" y="65" dominantBaseline="middle" fill="hsl(var(--muted-foreground))" fontWeight="800" fontSize="16" fontFamily="inherit" letterSpacing="2">
             RETAIL $$$
           </text>
 
           {/* WHOLESALE label */}
-          <text x="700" y="225" fill={cyan} fontWeight="800" fontSize="14" fontFamily="inherit" letterSpacing="2">
+          <text x="710" y="220" dominantBaseline="middle" fill={cyan} fontWeight="800" fontSize="16" fontFamily="inherit" letterSpacing="2">
             WHOLESALE
           </text>
         </svg>

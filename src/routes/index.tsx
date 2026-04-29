@@ -686,10 +686,10 @@ function ProductCard({ n, title, img, items, accent }: { n: string; title: strin
 
 function IndustrialStandards() {
   const items = [
-    { Icon: Factory, t: "Industrial Capacity", d: "High-volume factory scale" },
-    { Icon: ShieldCheck, t: "Technical Safety", d: "We audit your files for errors" },
-    { Icon: Palette, t: "Color Accuracy", d: "Perfectly calibrated output" },
-    { Icon: Leaf, t: "Premium Stock", d: "Sustainable high-end paper" },
+    { Icon: Factory, t: "Industrial Capacity", d: "High-volume factory scale", color: "var(--brand-cyan)" },
+    { Icon: ShieldCheck, t: "Technical Safety", d: "We audit your files for errors", color: "var(--brand-magenta)" },
+    { Icon: Palette, t: "Color Accuracy", d: "Perfectly calibrated output", color: "var(--brand-yellow)" },
+    { Icon: Leaf, t: "Premium Stock", d: "Sustainable high-end paper", color: "#22c55e" },
   ];
   return (
     <div className="mt-20 px-5 py-10 md:py-[60px]">
@@ -705,14 +705,14 @@ function IndustrialStandards() {
               "linear-gradient(to bottom, transparent, hsl(var(--foreground) / 0.1) 20%, hsl(var(--foreground) / 0.1) 80%, transparent)",
           }}
         />
-        {items.map(({ Icon, t, d }) => (
+        {items.map(({ Icon, t, d, color }) => (
           <div
             key={t}
             className="relative z-10 flex flex-col md:flex-row items-center text-center md:text-left gap-2.5 md:gap-[15px] opacity-70 md:opacity-80 hover:opacity-100 hover:-translate-y-[5px] transition-all duration-300"
           >
             <Icon
               className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-background p-1 md:bg-transparent md:p-0"
-              style={{ color: "var(--brand-cyan)" }}
+              style={{ color }}
               strokeWidth={2}
             />
             <div className="leading-tight">

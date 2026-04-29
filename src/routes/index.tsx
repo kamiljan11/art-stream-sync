@@ -512,7 +512,7 @@ function Pill({ label, sub, tone }: { label: string; sub: string; tone: "muted" 
 function CheaperFlow() {
   const cyan = "var(--brand-cyan)";
   return (
-    <div className="mt-12 rounded-xl border border-border bg-card/40 p-6 sm:p-10">
+    <div className="w-full max-w-[550px]" style={{ filter: "drop-shadow(0 10px 30px rgba(0,0,0,0.6))" }}>
       {/* Mobile: stacked */}
       <div className="md:hidden flex flex-col items-center gap-4 text-center">
         <FlowBox label="YOUR PROJECT" />

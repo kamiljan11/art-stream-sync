@@ -7,16 +7,25 @@ const Y = "#FFE600";
 const K = "#FFFFFF";
 
 function FooterCmykDots() {
-  const rows: string[][] = [[Y], [M, Y], [C, M, Y], [C, C, M, K]];
+  // Pyramid: 1, 2, 3, 4 dots — top to bottom CMYK
+  const rows: string[][] = [
+    [C],
+    [C, M],
+    [C, M, Y],
+    [C, M, Y, K],
+  ];
   return (
-    <div className="flex flex-col items-center gap-[3px]">
+    <div className="flex flex-col items-center gap-[4px]">
       {rows.map((row, i) => (
-        <div key={i} className="flex gap-[3px]">
+        <div key={i} className="flex gap-[4px]">
           {row.map((color, j) => (
             <span
               key={j}
-              className="block h-[7px] w-[7px] rounded-full"
-              style={{ backgroundColor: color }}
+              className="block h-[9px] w-[9px] rounded-full"
+              style={{
+                backgroundColor: color,
+                boxShadow: `0 0 8px ${color}80`,
+              }}
             />
           ))}
         </div>

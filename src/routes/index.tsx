@@ -159,11 +159,7 @@ function Index() {
           </Card>
         </div>
 
-        <div className="mt-12 grid sm:grid-cols-3 gap-6 text-center">
-          <Pill label="YOUR PROJECT" sub="" tone="muted" />
-          <Pill label="LOCAL SHOP" sub="HIGH OVERHEAD · RETAIL $$$" tone="danger" />
-          <Pill label="MAS BATCH" sub="SHARED COSTS · WHOLESALE" tone="primary" />
-        </div>
+        <CheaperFlow />
         <CmykBar className="mt-16" />
       </section>
 

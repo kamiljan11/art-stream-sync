@@ -357,28 +357,18 @@ function Index() {
       </section>
 
       {/* FAQ */}
-      <section id="faq" className="bg-card/40 border-y border-border">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-24">
-          <h2 className="text-4xl sm:text-5xl font-extrabold text-center">
-            Frequently <span style={{ color: "var(--brand-cyan)" }}>Asked Questions</span>
+      <section id="faq" className="bg-background">
+        <div className="mx-auto max-w-[1000px] px-5 py-20">
+          <h2 className="text-4xl sm:text-[2.5rem] font-extrabold text-center mt-0 mb-2.5 leading-tight">
+            Frequently Asked Questions
           </h2>
-          <p className="text-center mt-3 text-muted-foreground">
+          <p className="text-center text-[#888] max-w-[600px] mx-auto mb-[50px] text-base">
             Everything you need to know about printing with MAS Prints.
           </p>
-          <div className="mt-10 grid md:grid-cols-2 gap-4">
-            {faqs.map((f, i) => {
-              const dot = ["var(--brand-cyan)", "var(--brand-magenta)", "var(--brand-yellow)"][i % 3];
-              const tint = [`var(--tint-cyan)`, `var(--tint-magenta)`, `var(--tint-yellow)`][i % 3];
-              return (
-                <div key={f.q} className="rounded-xl border border-border p-6" style={{ background: tint }}>
-                  <div className="flex items-start gap-2 font-bold text-foreground">
-                    <span className="mt-2 inline-block h-1.5 w-1.5 rounded-full shrink-0" style={{ background: dot }} />
-                    <span>{f.q}</span>
-                  </div>
-                  <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{f.a}</p>
-                </div>
-              );
-            })}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-[30px]">
+            {faqs.map((f, i) => (
+              <FaqCard key={f.q} q={f.q} a={f.a} accent={accentFor(i)} />
+            ))}
           </div>
         </div>
       </section>

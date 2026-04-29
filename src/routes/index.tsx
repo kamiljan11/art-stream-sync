@@ -425,10 +425,22 @@ function FeatureCard({ icon, title, text, tint = "cyan" }: { icon: React.ReactNo
 function CmykBar({ className = "", arrows = false }: { className?: string; arrows?: boolean }) {
   if (arrows) {
     return (
-      <div className={`flex justify-center items-center gap-3 ${className}`}>
-        <Chevrons color="var(--brand-cyan)" />
-        <Chevrons color="var(--brand-magenta)" />
-        <Chevrons color="var(--brand-yellow)" />
+      <div className={`flex justify-center items-center gap-[15px] py-5 w-full ${className}`}>
+        <ChevronDown
+          size={32}
+          strokeWidth={2.5}
+          style={{ color: "var(--brand-cyan)", animation: "masBounce 2s infinite ease-in-out", animationDelay: "0s" }}
+        />
+        <ChevronDown
+          size={32}
+          strokeWidth={2.5}
+          style={{ color: "var(--brand-magenta)", animation: "masBounce 2s infinite ease-in-out", animationDelay: "0.2s" }}
+        />
+        <ChevronDown
+          size={32}
+          strokeWidth={2.5}
+          style={{ color: "var(--brand-yellow)", animation: "masBounce 2s infinite ease-in-out", animationDelay: "0.4s" }}
+        />
       </div>
     );
   }

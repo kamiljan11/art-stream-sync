@@ -246,9 +246,9 @@ function Index() {
                 className="inline-flex items-center gap-2 rounded-md px-6 py-3 text-base font-semibold text-primary-foreground hover-glow"
                 style={{ background: "var(--gradient-cyan)" }}
               >
-                Get Your Winning Quote <ArrowRight size={18} />
+                {t("ctas.getWinningQuote")} <ArrowRight size={18} />
               </a>
-              <p className="mt-3 text-sm text-muted-foreground">Backed by our 100% Lowest Price Guarantee.</p>
+              <p className="mt-3 text-sm text-muted-foreground">{t("ctas.backedGuarantee")}</p>
             </div>
           </div>
         </div>
@@ -353,9 +353,9 @@ function Index() {
             className="inline-flex items-center gap-2 rounded-md px-6 py-3 text-base font-semibold text-primary-foreground hover-glow"
             style={{ background: "var(--gradient-cyan)" }}
           >
-            Get Your Quote Now <ArrowRight size={18} />
+            {t("ctas.getQuoteNow")} <ArrowRight size={18} />
           </a>
-          <p className="mt-3 text-sm text-muted-foreground">Average savings: 15% – 30%</p>
+          <p className="mt-3 text-sm text-muted-foreground">{t("ctas.avgSavings")}</p>
         </div>
         <CmykBar className="mt-16" arrows />
       </section>

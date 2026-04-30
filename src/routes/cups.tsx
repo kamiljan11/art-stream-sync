@@ -785,8 +785,8 @@ function CupsPage() {
             ))}
           </div>
 
-          {/* USP strip — low MOQ, free design, dedicated contact */}
-          <div className="mt-12 grid md:grid-cols-3 gap-4">
+          {/* USP strip — low MOQ, free design, dedicated contact, QC */}
+          <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
               {
                 t: "From just 1,000 pcs",
@@ -799,6 +799,10 @@ function CupsPage() {
               {
                 t: "Your dedicated contact",
                 d: "One person guides you from quote to delivery. Not sure which product fits? Just ask — we'll advise.",
+              },
+              {
+                t: "Professional QC system",
+                d: "Every batch passes a multi-stage quality check — print accuracy, lining seal, structure and food-safety compliance — before it ships.",
               },
             ].map((u) => (
               <div

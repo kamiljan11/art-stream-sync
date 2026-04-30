@@ -486,10 +486,10 @@ function CupsPage() {
           </div>
 
           {/* Two-column body — text left, image right on desktop */}
-          <div className="mt-16 grid lg:grid-cols-[7fr_5fr] gap-10 lg:gap-16 items-center">
+          <div className="mt-16 grid md:grid-cols-[7fr_5fr] gap-10 md:gap-16 items-center">
             {/* RIGHT (desktop) / SECOND (mobile): warning sticker on green panel */}
             <div
-              className="relative rounded-2xl overflow-hidden flex items-center justify-center p-10 sm:p-14 aspect-square lg:aspect-[4/5] max-w-md mx-auto w-full order-1 lg:order-2"
+              className="relative rounded-2xl overflow-hidden flex items-center justify-center p-10 sm:p-14 aspect-square md:aspect-[4/5] max-w-md mx-auto w-full order-1 md:order-2"
               style={{ background: "linear-gradient(135deg, #c5d9a4 0%, #b9d18f 100%)" }}
             >
               <span className="absolute top-4 left-4 inline-block px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider rounded-md bg-black/80 text-white">
@@ -508,7 +508,7 @@ function CupsPage() {
             </div>
 
             {/* LEFT (desktop) / FIRST (mobile): copy */}
-            <div className="order-2 lg:order-1">
+            <div className="order-2 md:order-1">
               <span
                 className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-full"
                 style={{

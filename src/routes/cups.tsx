@@ -400,7 +400,7 @@ function CupsPage() {
             return (
             <article
               key={p.title}
-              className={`overflow-hidden ${tone} flex flex-col group`}
+              className={`overflow-hidden ${tone} flex flex-col group hover-lift-light`}
             >
               <div className="aspect-[16/9] sm:aspect-[4/3] overflow-hidden bg-white/60">
                 <img
@@ -455,7 +455,7 @@ function CupsPage() {
             { t: "Your dedicated contact", d: "One person guides you from quote to delivery. Not sure which product fits? Just ask, we'll advise.", tone: "card-light-yellow", accent: "#eab308" },
             { t: "Professional QC system", d: "Every batch passes a multi-stage quality check, print accuracy, lining seal, structure and food-safety compliance, before it ships.", tone: "card-light-lime", accent: "#84cc16" },
           ].map((u) => (
-            <div key={u.t} className={`${u.tone} p-5`}>
+            <div key={u.t} className={`${u.tone} p-5 hover-lift-light`}>
               <div className="flex items-center gap-2">
                 <span
                   className="inline-flex h-6 w-6 items-center justify-center rounded-full text-xs font-bold text-white"
@@ -793,7 +793,7 @@ function CupsPage() {
           ].map((w) => (
             <div
               key={w.t}
-              className={`relative ${w.tone} p-6 pt-7`}
+              className={`relative ${w.tone} p-6 pt-7 hover-lift-light`}
             >
               <div
                 className="absolute top-0 left-6 right-6 h-[3px] rounded-b-full"
@@ -818,7 +818,7 @@ function CupsPage() {
               { n: "3", t: "Free artwork adaptation", d: "We adapt your logo or graphics to the cup template, completely free with every order. Digital proof before any press starts.", tone: "card-light-yellow", accent: "#eab308" },
               { n: "4", t: "Pallet at your door", d: "We track production and freight. You stop chasing.", tone: "card-light-lime", accent: "#84cc16" },
             ].map((s) => (
-              <div key={s.n} className={`${s.tone} p-6`}>
+              <div key={s.n} className={`${s.tone} p-6 hover-lift-light`}>
                 <div className="text-5xl font-extrabold" style={{ color: s.accent }}>
                   {s.n}
                 </div>

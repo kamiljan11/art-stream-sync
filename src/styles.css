@@ -224,3 +224,50 @@
   opacity: 0;
   animation: pulseRing 1.5s 0.6s infinite;
 }
+
+/* ─────────────────────────────────────────────
+   Light pastel cards (cups page accent style)
+   White / pastel gradient bg + dark text
+   ───────────────────────────────────────────── */
+.card-light {
+  background: #ffffff;
+  color: #0f172a;
+  border-radius: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 24px -8px rgb(0 0 0 / 0.4);
+}
+.card-light-pink {
+  background: linear-gradient(180deg, #fdf2f8 0%, #ffffff 60%);
+  color: #0f172a;
+  border-radius: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 24px -8px rgb(0 0 0 / 0.4);
+}
+.card-light-cyan {
+  background: linear-gradient(180deg, #eff6ff 0%, #ffffff 60%);
+  color: #0f172a;
+  border-radius: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 24px -8px rgb(0 0 0 / 0.4);
+}
+.card-light-yellow {
+  background: linear-gradient(180deg, #fefce8 0%, #ffffff 60%);
+  color: #0f172a;
+  border-radius: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 24px -8px rgb(0 0 0 / 0.4);
+}
+.card-light-lime {
+  background: linear-gradient(180deg, #f7fee7 0%, #ffffff 60%);
+  color: #0f172a;
+  border-radius: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 24px -8px rgb(0 0 0 / 0.4);
+}
+.card-light .muted,
+.card-light-pink .muted,
+.card-light-cyan .muted,
+.card-light-yellow .muted,
+.card-light-lime .muted {
+  color: #475569;
+}

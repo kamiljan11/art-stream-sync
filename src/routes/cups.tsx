@@ -259,12 +259,12 @@ const portfolio = [
 ];
 
 const sizeGuide = [
-  { ml: "100 ml", oz: "4 oz", use: "Espresso, tasting shots, dental practices" },
-  { ml: "180 ml", oz: "7 oz", use: "Water dispensers, vending machines" },
-  { ml: "250 ml", oz: "8 oz", use: "Standard coffee, cold drinks" },
-  { ml: "300 ml", oz: "12 oz", use: "Latte, juice, lemonade" },
-  { ml: "400 ml", oz: "16 oz", use: "Big coffee, shakes, beer" },
-  { ml: "500 ml", oz: "17 oz", use: "Plastic cups only — large cold drinks, beer" },
+  { ml: "100 ml", oz: "≈ 3 oz", use: "Espresso, tasting shots, dental practices" },
+  { ml: "180 ml", oz: "≈ 6 oz", use: "Water dispensers, vending machines" },
+  { ml: "250 ml", oz: "≈ 8 oz", use: "Standard coffee, cold drinks" },
+  { ml: "300 ml", oz: "≈ 10 oz", use: "Latte, juice, lemonade" },
+  { ml: "400 ml", oz: "≈ 14 oz", use: "Big coffee, shakes, beer" },
+  { ml: "500 ml", oz: "≈ 17 oz", use: "Plastic cups only — large cold drinks, beer" },
 ];
 
 const cupsFaqs = [

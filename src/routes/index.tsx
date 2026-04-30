@@ -37,36 +37,42 @@ export const Route = createFileRoute("/")({
 const capabilities = [
   {
     n: "01",
+    key: "marketing",
     title: "MARKETING",
     img: capMarketing,
     items: ["Business Cards & Stationery", "Flyers & Folded Leaflets", "Roll-Up Banners (Events)", "Presentation Folders", "Branded Notepads"],
   },
   {
     n: "02",
+    key: "publishing",
     title: "PUBLISHING",
     img: capPublishing,
     items: ["Product Catalogs", "Magazines", "Hardcover Books", "Softcover Books", "Training Manuals"],
   },
   {
     n: "03",
+    key: "packaging",
     title: "PACKAGING",
     img: capPackaging,
     items: ["Product Boxes", "Mailer/Shipping Boxes", "Paper Bags", "Stickers & Labels", "Cardboard Sleeves"],
   },
   {
     n: "04",
+    key: "decals",
     title: "VEHICLE DECALS",
     img: capDecals,
     items: ["Rear Window Stickers", "Die-Cut Vinyl Lettering", "One-Way Vision (Perforated)", "Bumper Stickers", "Weather-Proof Vinyl"],
   },
   {
     n: "05",
+    key: "magnetic",
     title: "MAGNETIC SIGNS",
     img: capMagnetic,
     items: ["Removable Car Magnets", "Van Door Branding", "High-Grip 0.85mm Sheet", "Temporary Promotion", "Reusable & Durable"],
   },
   {
     n: "06",
+    key: "apparel",
     title: "BRANDED APPAREL",
     img: capApparel,
     items: ["Screen Printed T-Shirts", "Embroidered Polos", "Corporate Hoodies", "High-Vis Safety Vests", "Caps & Beanies"],

@@ -6,6 +6,7 @@ import { SiteFooter } from "@/components/site/SiteFooter";
 import { PartnersMarquee } from "@/components/site/Marquee";
 import { QuoteForm } from "@/components/site/QuoteForm";
 import { Reveal } from "@/components/site/Reveal";
+import { useT } from "@/i18n/I18nProvider";
 import capMarketing from "@/assets/site/cap-marketing.jpg";
 import capPublishing from "@/assets/site/cap-publishing.png";
 import capPackaging from "@/assets/site/cap-packaging.jpg";
@@ -104,6 +105,7 @@ const faqs = [
 ];
 
 function Index() {
+  const t = useT();
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SiteHeader />
@@ -113,15 +115,15 @@ function Index() {
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-24 sm:py-32 text-center animate-fade-in">
           <CmykBar />
           <h1 className="mt-6 text-5xl sm:text-7xl font-extrabold tracking-tight uppercase">
-            Wholesale{" "}
+            {t("hero.line1")}{" "}
             <span className="text-transparent" style={{ WebkitTextStroke: "1.5px hsl(0 0% 100% / 0.6)" }}>
-              Print
+              {t("hero.line2")}
             </span>
             <br />
-            Prices. Guaranteed.
+            {t("hero.line3")}
           </h1>
           <p className="mt-6 max-w-2xl mx-auto text-lg text-foreground/75 leading-relaxed">
-            Direct access to European print factories. Icelandic invoice, no retail markup.
+            {t("hero.sub")}
           </p>
           <div className="mt-10 flex flex-col items-center gap-4">
             <a
@@ -129,11 +131,11 @@ function Index() {
               className="inline-flex items-center gap-2 rounded-md px-8 py-4 text-base font-semibold text-primary-foreground hover-glow"
               style={{ background: "var(--gradient-cyan)", boxShadow: "var(--shadow-glow)" }}
             >
-              Get your printing quote <ArrowRight size={18} />
+              {t("hero.cta")} <ArrowRight size={18} />
             </a>
             <p className="text-sm text-muted-foreground">
               <span className="inline-block h-2 w-2 rounded-full bg-primary mr-2 align-middle" />
-              Backed by our 100% Lowest Price Guarantee
+              {t("hero.badge")}
             </p>
           </div>
         </div>

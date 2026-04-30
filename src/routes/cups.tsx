@@ -465,11 +465,13 @@ function CupsPage() {
       </section>
 
       {/* ECO */}
-      <section
-        className="border-y border-border"
-        style={{ background: "radial-gradient(ellipse at top, rgba(132,204,22,0.08), transparent 60%), hsl(0 0% 4%)" }}
-      >
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24">
+      <section className="border-y border-border bg-card/40 relative">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0"
+          style={{ background: "radial-gradient(ellipse at top, rgba(132,204,22,0.08), transparent 60%)" }}
+        />
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24">
           {/* Heading */}
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="text-4xl sm:text-5xl font-extrabold leading-tight">

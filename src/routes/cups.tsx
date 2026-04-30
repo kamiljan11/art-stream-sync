@@ -73,7 +73,7 @@ const products: Product[] = [
     title: "Single-wall paper cup with your print",
     sizes: "100 · 180 · 250 · 300 · 400 ml",
     desc:
-      "The workhorse advertising cup. Light, stackable, full-wrap print with no colour limit. Perfect for water dispensers, juice and lemonade bars, events, offices and dental practices.",
+      "The workhorse cup. Light, stackable, full-wrap print with no colour limit. For events, offices, juice bars and water dispensers.",
     bullets: [
       "Unlimited full-colour printing — no upcharge",
       "Recyclable or compostable inner lining",
@@ -88,7 +88,7 @@ const products: Product[] = [
     title: "Premium thermal double-wall cup",
     sizes: "250 · 300 · 400 ml (8 · 12 · 16 oz)",
     desc:
-      "Top-of-range double-wall paper cup. Superior thermal insulation — keeps coffee hot, hands cool. Our pick for cafés, takeaway and hotel coffee corners.",
+      "Top-of-range double-wall cup. Hot coffee inside, cool hands outside. Our pick for cafés, takeaway and hotel coffee corners.",
     bullets: [
       "Best-in-class hand comfort on hot drinks",
       "Premium feel — matte or gloss finish",
@@ -103,7 +103,7 @@ const products: Product[] = [
     title: "Sleeve double-wall cup (budget)",
     sizes: "100 · 250 · 300 ml",
     desc:
-      "Budget double-wall option. Thicker than single-wall, cheaper than premium thermal. A solid middle ground for hot coffee, tea, hot chocolate and mulled wine.",
+      "Budget double-wall — thicker than single-wall, cheaper than premium. A solid middle ground for hot coffee, tea and mulled wine.",
     bullets: [
       "Extra insulation vs. single-wall",
       "Lower cost than premium thermal",
@@ -118,7 +118,7 @@ const products: Product[] = [
     title: "Plain white paper cup (stock)",
     sizes: "100 · 180 · 250 · 300 · 400 ml",
     desc:
-      "No-print, no-fuss cups straight from stock. Ideal for water stations, vending, gyms, pools and offices. Sold by the carton — no minimum print run.",
+      "No-print, no-fuss cups straight from stock. Ideal for water stations, vending, gyms and offices. Sold by the carton — no print minimum.",
     bullets: [
       "From 1 carton per size — no print minimum",
       "Recyclable or compostable inner lining",
@@ -133,7 +133,7 @@ const products: Product[] = [
     title: "Transparent recycled-plastic cup",
     sizes: "300 · 400 · 500 ml",
     desc:
-      "Crystal-clear cup for cold drinks — smoothies, iced coffee, juices, beer, cocktails. Made from recycled PET plastic. The legal replacement for the old single-use plastic cups.",
+      "Crystal-clear cup for cold drinks — smoothies, iced coffee, beer, cocktails. Recycled PET. The legal replacement for old single-use plastic cups.",
     bullets: [
       "Made from recycled PET plastic",
       "Up to 4 spot colours — solid blocks only (no gradients)",
@@ -148,7 +148,7 @@ const products: Product[] = [
     title: "Ice cream & dessert bowl",
     sizes: "130 · 245 · 360 ml",
     desc:
-      "Wide-mouth bowl for ice cream, yoghurt, gelato, soup and snacks. Always BIO-coated. Custom-printed or plain — your call.",
+      "Wide-mouth bowl for ice cream, yoghurt, soup and snacks. Always BIO-coated. Custom-printed or plain.",
     bullets: [
       "100% biodegradable BIO lining",
       "Custom full-wrap print available",
@@ -163,7 +163,7 @@ const products: Product[] = [
     title: "Lids for every cup we sell",
     sizes: "for 100 · 180 · 250 · 300 · 400 ml + plastic cups",
     desc:
-      "We match lids to cups so you don't have to. Flat and dome lids in white or black. 250 ml lids also come in green, red, orange, gold and silver.",
+      "Flat and dome lids in white or black, matched to every cup we ship. The 250 ml line also comes in green, red, orange, gold and silver.",
     bullets: [
       "Guaranteed fit on every cup we ship",
       "Dome lids for cold drinks & smoothies",
@@ -178,7 +178,7 @@ const products: Product[] = [
     title: "Paper drinking straws",
     sizes: "150 pcs / pack",
     desc:
-      "Plastic-free paper straws — straight or bendy. Black is in stock; other colours produced on order. Order with cups for synchronised delivery.",
+      "Plastic-free paper straws, straight or bendy. Black in stock; other colours by order. Bundle with cups for synced delivery.",
     bullets: [
       "EU single-use plastics compliant",
       "Black in stock — colours by order",
@@ -193,7 +193,7 @@ const products: Product[] = [
     title: "Wooden coffee stirrers",
     sizes: "1,000 pcs / pack",
     desc:
-      "Smooth natural-birch stirrers. No splinters, no chemical dyes, no plastic. Food-contact safe and 100% biodegradable.",
+      "Smooth natural-birch stirrers. No splinters, no dyes, no plastic. Food-safe and fully biodegradable.",
     bullets: [
       "Untreated natural light wood",
       "Food-contact certified",

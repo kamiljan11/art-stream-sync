@@ -7,13 +7,13 @@ const Y = "#FFE600";
 const K = "#FFFFFF";
 
 function FooterLogo() {
-  // Same SVG mark as the header (MasLogo) — scaled up for footer
+  // Same SVG mark as the header (MasLogo), scaled up for footer
   return (
     <svg
       height="56"
       viewBox="0 0 350 50"
       xmlns="http://www.w3.org/2000/svg"
-      aria-label="MAS PRINTS — Icelandic Brokerage"
+      aria-label="MAS PRINTS, Icelandic Brokerage"
     >
       <g transform="translate(0, 5)">
         <circle cx="25" cy="5" r="3.5" fill={C} />

@@ -16,13 +16,13 @@ import capCups from "@/assets/site/cap-cups.png";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "MAS Prints — Wholesale Print Prices. Guaranteed. Iceland." },
+      { title: "MAS Prints, Wholesale Print Prices. Guaranteed. Iceland." },
       {
         name: "description",
         content:
           "Direct access to high-capacity European printing factories. Offset & Digital. Icelandic quality. No retail markup.",
       },
-      { property: "og:title", content: "MAS Prints — Icelandic Print Brokerage" },
+      { property: "og:title", content: "MAS Prints, Icelandic Print Brokerage" },
       {
         property: "og:description",
         content: "Wholesale print prices guaranteed. Lowest price in Iceland or we beat it.",
@@ -74,15 +74,15 @@ const capabilities = [
 const faqs = [
   {
     q: "Why are you so much cheaper?",
-    a: "No overhead. No expensive Reykjavík office, no sales fleet — we connect you straight to the industrial source.",
+    a: "No overhead. No expensive Reykjavík office, no sales fleet, we connect you straight to the industrial source.",
   },
   {
     q: "Is the quality the same?",
-    a: "Yes — same Heidelberg/HP presses, same paper weights (130–300 g) as the big Icelandic agencies. Often the exact same factories they outsource to.",
+    a: "Yes, same Heidelberg/HP presses, same paper weights (130–300 g) as the big Icelandic agencies. Often the exact same factories they outsource to.",
   },
   {
     q: "How does the Price Guarantee work?",
-    a: "Find a lower official quote from a registered Icelandic printer for the exact same job — same quantity, paper, finish — before ordering or within 7 days. We beat it, or refund the difference.",
+    a: "Find a lower official quote from a registered Icelandic printer for the exact same job, same quantity, paper, finish, before ordering or within 7 days. We beat it, or refund the difference.",
   },
   {
     q: "Do I get a valid invoice?",
@@ -90,7 +90,7 @@ const faqs = [
   },
   {
     q: "Do I have to deal with Customs?",
-    a: "No. We handle import, VAT and customs. The quoted price is the final price at your door — you never talk to Tollstjóri.",
+    a: "No. We handle import, VAT and customs. The quoted price is the final price at your door, you never talk to Tollstjóri.",
   },
   {
     q: "Can you check my files?",
@@ -151,7 +151,7 @@ function Index() {
               <div>
                 <p className="text-lg font-bold text-foreground mb-2">The logic.</p>
                 <p className="text-foreground/75 leading-relaxed">
-                  Local shops treat every order as a one-off. You pay for the machine setup, the labour and the retail overhead — every single time.
+                  Local shops treat every order as a one-off. You pay for the machine setup, the labour and the retail overhead, every single time.
                 </p>
               </div>
               <div>
@@ -186,19 +186,19 @@ function Index() {
               tint="magenta"
               icon={<X className="text-[color:var(--brand-magenta)]" strokeWidth={3} />}
               title="NO STORAGE"
-              text="Storage adds ~15% to the price. We skip it — straight from factory to your door."
+              text="Storage adds ~15% to the price. We skip it, straight from factory to your door."
             />
             <FeatureCard
               tint="cyan"
               icon={<X className="text-[color:var(--brand-cyan)]" strokeWidth={3} />}
               title="NO FANCY OFFICE"
-              text="No expensive office in 101 Reykjavík. We work online — so our rent isn't on your invoice."
+              text="No expensive office in 101 Reykjavík. We work online, so our rent isn't on your invoice."
             />
             <FeatureCard
               tint="yellow"
               icon={<Check style={{ color: "var(--brand-yellow)" }} strokeWidth={3} />}
               title="LOCAL & FAST"
-              text="We work from Njarðvík, next to the airport. Out of the expensive city — still fully local."
+              text="We work from Njarðvík, next to the airport. Out of the expensive city, still fully local."
             />
           </div>
 
@@ -263,19 +263,19 @@ function Index() {
               <div>
                 <p className="text-lg font-bold text-foreground mb-2">No hidden fees.</p>
                 <p className="text-foreground/75 leading-relaxed">
-                  Cheap foreign quotes often come with a surprise bill from Tollurinn. Not here — the price we quote is the final price at your door. Customs is on us.
+                  Cheap foreign quotes often come with a surprise bill from Tollurinn. Not here, the price we quote is the final price at your door. Customs is on us.
                 </p>
               </div>
               <div>
                 <p className="text-lg font-bold text-foreground mb-2">Valid tax invoice.</p>
                 <p className="text-foreground/75 leading-relaxed">
-                  MAS Prints is a brand of <span className="text-foreground font-semibold">Mountain All Service ehf.</span> (Kt. 690725-0450). You get a compliant Icelandic invoice with VSK — claim your tax back instantly.
+                  MAS Prints is a brand of <span className="text-foreground font-semibold">Mountain All Service ehf.</span> (Kt. 690725-0450). You get a compliant Icelandic invoice with VSK, claim your tax back instantly.
                 </p>
               </div>
               <div>
                 <p className="text-lg font-bold text-foreground mb-2">Local accountability.</p>
                 <p className="text-foreground/75 leading-relaxed">
-                  Not a faceless website — a registered Icelandic company based in Njarðvík.
+                  Not a faceless website, a registered Icelandic company based in Njarðvík.
                 </p>
               </div>
             </div>
@@ -297,7 +297,7 @@ function Index() {
               Industrial <span style={{ color: "var(--brand-cyan)" }}>Capabilities.</span>
             </h2>
             <p className="mt-4 text-foreground/75 max-w-xl mx-auto leading-relaxed">
-              Everything your business prints — from daily essentials to industrial runs and custom packaging.
+              Everything your business prints, from daily essentials to industrial runs and custom packaging.
             </p>
           </div>
 
@@ -330,7 +330,7 @@ function Index() {
 
         <div className="grid md:grid-cols-3 gap-6 mt-12">
           {[
-            { n: "01", color: "var(--brand-cyan)", tone: "card-light-cyan", t: "REQUEST OR AUDIT", d: "Tell us what you need — or upload a recent invoice for a free price audit." },
+            { n: "01", color: "var(--brand-cyan)", tone: "card-light-cyan", t: "REQUEST OR AUDIT", d: "Tell us what you need, or upload a recent invoice for a free price audit." },
             { n: "02", color: "var(--brand-magenta)", tone: "card-light-pink", t: "QUOTE & GUARANTEE", d: "We send a wholesale price. Find a lower Icelandic offer? We beat it. You approve the proof." },
             { n: "03", color: "var(--brand-yellow)", tone: "card-light-yellow", t: "PRINT & DELIVER", d: "We handle production, customs and logistics. The box lands at your door with one ISK invoice." },
           ].map((s) => (

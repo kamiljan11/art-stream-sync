@@ -138,7 +138,7 @@ export function FloatingContact() {
                 GET IN TOUCH
               </h2>
               <p className="text-sm text-white/90 mt-1">
-                Send us a message — we usually reply within a few business hours.
+                Send us a message, we usually reply within a few business hours.
               </p>
             </div>
 

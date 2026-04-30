@@ -67,7 +67,7 @@ export function SiteHeader() {
 
 function MasLogo() {
   return (
-    <svg height="36" viewBox="0 0 350 50" xmlns="http://www.w3.org/2000/svg" aria-label="MAS PRINTS — Icelandic Brokerage">
+    <svg height="36" viewBox="0 0 350 50" xmlns="http://www.w3.org/2000/svg" aria-label="MAS PRINTS, Icelandic Brokerage">
       <g transform="translate(0, 5)">
         <circle cx="25" cy="5" r="3.5" fill="#00AEEF" />
         <circle cx="20" cy="14" r="3.5" fill="#EC008C" />

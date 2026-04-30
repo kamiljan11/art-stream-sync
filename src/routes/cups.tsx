@@ -446,6 +446,29 @@ function CupsPage() {
         <p className="mt-10 text-center text-sm text-muted-foreground max-w-2xl mx-auto">
           Don't see what you need? <a href="#quote" className="text-primary font-semibold underline underline-offset-4 hover:opacity-80">Send us a request</a>, we can source almost anything in this category.
         </p>
+
+        {/* USP strip, why people order with us */}
+        <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {[
+            { t: "From just 1,000 pcs", d: "Low minimum order, perfect for small cafés, events and pilot runs. Scale up whenever you're ready.", tone: "card-light-cyan", accent: "#0ea5e9" },
+            { t: "Free artwork adaptation", d: "Send your logo in any usable format, we adapt it to the cup template at no extra cost with every order.", tone: "card-light-pink", accent: "#ec4899" },
+            { t: "Your dedicated contact", d: "One person guides you from quote to delivery. Not sure which product fits? Just ask, we'll advise.", tone: "card-light-yellow", accent: "#eab308" },
+            { t: "Professional QC system", d: "Every batch passes a multi-stage quality check, print accuracy, lining seal, structure and food-safety compliance, before it ships.", tone: "card-light-lime", accent: "#84cc16" },
+          ].map((u) => (
+            <div key={u.t} className={`${u.tone} p-5`}>
+              <div className="flex items-center gap-2">
+                <span
+                  className="inline-flex h-6 w-6 items-center justify-center rounded-full text-xs font-bold text-white"
+                  style={{ backgroundColor: u.accent }}
+                >
+                  ✓
+                </span>
+                <h3 className="font-bold text-base text-slate-900">{u.t}</h3>
+              </div>
+              <p className="mt-2 text-sm text-slate-700 leading-relaxed">{u.d}</p>
+            </div>
+          ))}
+        </div>
       </section>
 
       {/* SIZE GUIDE */}
@@ -609,6 +632,45 @@ function CupsPage() {
               </a>
             </div>
           </div>
+
+          {/* Circular by design, four-step loop (merged from former section) */}
+          <div className="mt-20 pt-16 border-t border-border/50">
+            <div className="text-center max-w-2xl mx-auto">
+              <span className="inline-block text-[10px] font-bold uppercase tracking-[0.2em] text-primary">
+                Circular economy
+              </span>
+              <h3 className="mt-3 text-3xl sm:text-4xl font-extrabold leading-[1.05] tracking-tight">
+                Circular by{" "}
+                <span style={{ color: "#84cc16" }}>design.</span>
+              </h3>
+              <p className="mt-4 text-foreground/75 leading-relaxed max-w-prose mx-auto">
+                Every BIO line follows a four-step loop: design it right, use it well, recover the material, put it back to work.
+              </p>
+            </div>
+
+            <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+              {[
+                { n: "01", t: "Design", d: "Plant-based PLA lining instead of fossil plastic. Print inks chosen to keep the cup compostable.", tone: "card-light-lime" },
+                { n: "02", t: "Use", d: "Same heat resistance, same hand-feel as a regular cup. No compromise for the customer or the barista.", tone: "card-light-cyan" },
+                { n: "03", t: "Recover", d: "EN 13432 certified, breaks down in industrial composting in weeks, not decades. Zero microplastics.", tone: "card-light-yellow" },
+                { n: "04", t: "Reuse", d: "Compost goes back into soil. Carbon stays in the loop. The cup becomes the next thing that grows.", tone: "card-light-pink" },
+              ].map((step) => (
+                <div key={step.n} className={`relative ${step.tone} p-6 pt-7`}>
+                  <div
+                    className="absolute top-0 left-6 right-6 h-[3px] rounded-b-full"
+                    style={{ backgroundColor: "#84cc16" }}
+                  />
+                  <div className="text-xs font-bold tracking-[0.2em] text-slate-500">{step.n}</div>
+                  <h4 className="mt-2 font-bold text-lg" style={{ color: "#84cc16" }}>{step.t}</h4>
+                  <p className="mt-3 text-sm text-slate-700 leading-relaxed">{step.d}</p>
+                </div>
+              ))}
+            </div>
+
+            <p className="mt-8 text-center text-xs text-muted-foreground max-w-xl mx-auto">
+              Need EN 13432 certificates or material data sheets for a tender or sustainability report? Just ask.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -745,76 +807,6 @@ function CupsPage() {
       </section>
 
       {/* CIRCULAR BY DESIGN */}
-      <section className="border-y border-border bg-card/40">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-24">
-          <div className="text-center max-w-2xl mx-auto">
-            <span className="inline-block text-[10px] font-bold uppercase tracking-[0.2em] text-primary">
-              Circular economy
-            </span>
-            <h2 className="mt-3 text-4xl sm:text-5xl font-extrabold leading-[1.05] tracking-tight">
-              Circular by{" "}
-              <span style={{ color: "#84cc16" }}>design.</span>
-            </h2>
-            <p className="mt-4 text-foreground/75 leading-relaxed max-w-prose mx-auto">
-              We don't just sell cups, we build them to leave the bin behind. Every BIO line
-              follows a four-step loop: design it right, use it well, recover the material, put it
-              back to work.
-            </p>
-          </div>
-
-          <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {[
-              {
-                n: "01",
-                t: "Design",
-                d: "Plant-based PLA lining instead of fossil plastic. Print inks chosen to keep the cup compostable.",
-                tone: "card-light-lime",
-              },
-              {
-                n: "02",
-                t: "Use",
-                d: "Same heat resistance, same hand-feel as a regular cup. No compromise for the customer or the barista.",
-                tone: "card-light-cyan",
-              },
-              {
-                n: "03",
-                t: "Recover",
-                d: "EN 13432 certified, breaks down in industrial composting in weeks, not decades. Zero microplastics.",
-                tone: "card-light-yellow",
-              },
-              {
-                n: "04",
-                t: "Reuse",
-                d: "Compost goes back into soil. Carbon stays in the loop. The cup becomes the next thing that grows.",
-                tone: "card-light-pink",
-              },
-            ].map((step) => (
-              <div
-                key={step.n}
-                className={`relative ${step.tone} p-6 pt-7`}
-              >
-                <div
-                  className="absolute top-0 left-6 right-6 h-[3px] rounded-b-full"
-                  style={{ backgroundColor: "#84cc16" }}
-                />
-                <div className="text-xs font-bold tracking-[0.2em] text-slate-500">
-                  {step.n}
-                </div>
-                <h3 className="mt-2 font-bold text-lg" style={{ color: "#84cc16" }}>
-                  {step.t}
-                </h3>
-                <p className="mt-3 text-sm text-slate-700 leading-relaxed">{step.d}</p>
-              </div>
-            ))}
-          </div>
-
-          <p className="mt-10 text-center text-xs text-muted-foreground max-w-xl mx-auto">
-            Looking for documentation for a tender or sustainability report? We provide EN 13432
-            certificates and material data sheets on request.
-          </p>
-        </div>
-      </section>
-
       {/* HOW TO ORDER */}
       <section id="how" className="bg-card/40 border-y border-border">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-24">
@@ -832,49 +824,6 @@ function CupsPage() {
                 </div>
                 <h3 className="mt-4 text-lg font-bold text-slate-900">{s.t}</h3>
                 <p className="mt-3 text-sm text-slate-700 leading-relaxed">{s.d}</p>
-              </div>
-            ))}
-          </div>
-
-          {/* USP strip, low MOQ, free design, dedicated contact, QC */}
-          <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {[
-              {
-                t: "From just 1,000 pcs",
-                d: "Low minimum order, perfect for small cafés, events and pilot runs. Scale up whenever you're ready.",
-                tone: "card-light-cyan",
-                accent: "#0ea5e9",
-              },
-              {
-                t: "Free artwork adaptation",
-                d: "Send your logo in any usable format, we adapt it to the cup template at no extra cost with every order.",
-                tone: "card-light-pink",
-                accent: "#ec4899",
-              },
-              {
-                t: "Your dedicated contact",
-                d: "One person guides you from quote to delivery. Not sure which product fits? Just ask, we'll advise.",
-                tone: "card-light-yellow",
-                accent: "#eab308",
-              },
-              {
-                t: "Professional QC system",
-                d: "Every batch passes a multi-stage quality check, print accuracy, lining seal, structure and food-safety compliance, before it ships.",
-                tone: "card-light-lime",
-                accent: "#84cc16",
-              },
-            ].map((u) => (
-              <div key={u.t} className={`${u.tone} p-5`}>
-                <div className="flex items-center gap-2">
-                  <span
-                    className="inline-flex h-6 w-6 items-center justify-center rounded-full text-xs font-bold text-white"
-                    style={{ backgroundColor: u.accent }}
-                  >
-                    ✓
-                  </span>
-                  <h3 className="font-bold text-base text-slate-900">{u.t}</h3>
-                </div>
-                <p className="mt-2 text-sm text-slate-700 leading-relaxed">{u.d}</p>
               </div>
             ))}
           </div>

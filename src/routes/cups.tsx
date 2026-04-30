@@ -3,6 +3,7 @@ import { ArrowRight, Check, Leaf } from "lucide-react";
 import { useState } from "react";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
+import { Reveal } from "@/components/site/Reveal";
 
 import cupEveryday from "@/assets/site/cup-everyday.jpg";
 import cupPremium from "@/assets/site/cup-premium.jpg";

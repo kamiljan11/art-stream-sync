@@ -326,24 +326,24 @@ function Index() {
       <section id="process" className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-24">
         <Reveal className="text-center max-w-3xl mx-auto">
           <h2 className="text-4xl sm:text-5xl font-extrabold">
-            3 STEPS TO <span style={{ color: "var(--brand-cyan)" }}>LOWER COSTS</span>
+            {t("process.heading1")} <span style={{ color: "var(--brand-cyan)" }}>{t("process.heading2")}</span>
           </h2>
           <p className="mt-4 text-foreground/75 max-w-xl mx-auto leading-relaxed">
-            <span className="text-foreground font-semibold">Wholesale access. Zero hassle.</span>
+            <span className="text-foreground font-semibold">{t("process.sub")}</span>
           </p>
         </Reveal>
 
         <div className="grid md:grid-cols-3 gap-6 mt-12">
           {[
-            { n: "01", color: "var(--brand-cyan)", tone: "card-light-cyan", t: "REQUEST OR AUDIT", d: "Tell us what you need, or upload a recent invoice for a free price audit." },
-            { n: "02", color: "var(--brand-magenta)", tone: "card-light-pink", t: "QUOTE & GUARANTEE", d: "We send a wholesale price. Find a lower Icelandic offer? We beat it. You approve the proof." },
-            { n: "03", color: "var(--brand-yellow)", tone: "card-light-yellow", t: "PRINT & DELIVER", d: "We handle production, customs and logistics. The box lands at your door with one ISK invoice." },
+            { n: "01", color: "var(--brand-cyan)", tone: "card-light-cyan", title: t("process.s1Title"), d: t("process.s1Body") },
+            { n: "02", color: "var(--brand-magenta)", tone: "card-light-pink", title: t("process.s2Title"), d: t("process.s2Body") },
+            { n: "03", color: "var(--brand-yellow)", tone: "card-light-yellow", title: t("process.s3Title"), d: t("process.s3Body") },
           ].map((s) => (
             <div key={s.n} className={`${s.tone} p-8`}>
               <div className="text-6xl font-extrabold" style={{ color: s.color }}>
                 {s.n}
               </div>
-              <h3 className="mt-4 text-xl font-extrabold tracking-wide text-slate-900">{s.t}</h3>
+              <h3 className="mt-4 text-xl font-extrabold tracking-wide text-slate-900">{s.title}</h3>
               <p className="mt-3 text-sm text-slate-700">{s.d}</p>
             </div>
           ))}
@@ -366,14 +366,19 @@ function Index() {
       <section id="faq" className="bg-background">
         <div className="mx-auto max-w-[1000px] px-5 py-20">
           <h2 className="text-4xl sm:text-[2.5rem] font-extrabold text-center mt-0 mb-2.5 leading-tight">
-            Frequently Asked Questions
+            {t("faqs.heading")}
           </h2>
           <p className="text-center text-[#aaa] max-w-[600px] mx-auto mb-[50px] text-base">
-            Everything you need to know before printing with us.
+            {t("faqs.sub")}
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-[30px]">
-            {faqs.map((f, i) => (
-              <FaqCard key={f.q} q={f.q} a={f.a} accent={accentFor(i)} />
+            {[1, 2, 3, 4, 5, 6, 7].map((i) => (
+              <FaqCard
+                key={i}
+                q={t(`faqs.q${i}`)}
+                a={t(`faqs.a${i}`)}
+                accent={accentFor(i - 1)}
+              />
             ))}
           </div>
         </div>

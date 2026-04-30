@@ -334,7 +334,7 @@ function CupsPage() {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 mt-12">
           {products.map((p) => (
             <article
               key={p.title}

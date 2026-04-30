@@ -73,7 +73,7 @@ const products: Product[] = [
     title: "Single-wall paper cup with your print",
     sizes: "100 · 180 · 250 · 300 · 400 ml",
     desc:
-      "The workhorse advertising cup. Light, stackable, full-wrap print with no colour limit. Perfect for water dispensers, juice and lemonade bars, events, offices and dental practices.",
+      "The workhorse cup. Light, stackable, full-wrap print with no colour limit. For events, offices, juice bars and water dispensers.",
     bullets: [
       "Unlimited full-colour printing — no upcharge",
       "Recyclable or compostable inner lining",
@@ -88,7 +88,7 @@ const products: Product[] = [
     title: "Premium thermal double-wall cup",
     sizes: "250 · 300 · 400 ml (8 · 12 · 16 oz)",
     desc:
-      "Top-of-range double-wall paper cup. Superior thermal insulation — keeps coffee hot, hands cool. Our pick for cafés, takeaway and hotel coffee corners.",
+      "Top-of-range double-wall cup. Hot coffee inside, cool hands outside. Our pick for cafés, takeaway and hotel coffee corners.",
     bullets: [
       "Best-in-class hand comfort on hot drinks",
       "Premium feel — matte or gloss finish",
@@ -103,7 +103,7 @@ const products: Product[] = [
     title: "Sleeve double-wall cup (budget)",
     sizes: "100 · 250 · 300 ml",
     desc:
-      "Budget double-wall option. Thicker than single-wall, cheaper than premium thermal. A solid middle ground for hot coffee, tea, hot chocolate and mulled wine.",
+      "Budget double-wall — thicker than single-wall, cheaper than premium. A solid middle ground for hot coffee, tea and mulled wine.",
     bullets: [
       "Extra insulation vs. single-wall",
       "Lower cost than premium thermal",
@@ -118,7 +118,7 @@ const products: Product[] = [
     title: "Plain white paper cup (stock)",
     sizes: "100 · 180 · 250 · 300 · 400 ml",
     desc:
-      "No-print, no-fuss cups straight from stock. Ideal for water stations, vending, gyms, pools and offices. Sold by the carton — no minimum print run.",
+      "No-print, no-fuss cups straight from stock. Ideal for water stations, vending, gyms and offices. Sold by the carton — no print minimum.",
     bullets: [
       "From 1 carton per size — no print minimum",
       "Recyclable or compostable inner lining",
@@ -133,7 +133,7 @@ const products: Product[] = [
     title: "Transparent recycled-plastic cup",
     sizes: "300 · 400 · 500 ml",
     desc:
-      "Crystal-clear cup for cold drinks — smoothies, iced coffee, juices, beer, cocktails. Made from recycled PET plastic. The legal replacement for the old single-use plastic cups.",
+      "Crystal-clear cup for cold drinks — smoothies, iced coffee, beer, cocktails. Recycled PET. The legal replacement for old single-use plastic cups.",
     bullets: [
       "Made from recycled PET plastic",
       "Up to 4 spot colours — solid blocks only (no gradients)",
@@ -148,7 +148,7 @@ const products: Product[] = [
     title: "Ice cream & dessert bowl",
     sizes: "130 · 245 · 360 ml",
     desc:
-      "Wide-mouth bowl for ice cream, yoghurt, gelato, soup and snacks. Always BIO-coated. Custom-printed or plain — your call.",
+      "Wide-mouth bowl for ice cream, yoghurt, soup and snacks. Always BIO-coated. Custom-printed or plain.",
     bullets: [
       "100% biodegradable BIO lining",
       "Custom full-wrap print available",
@@ -163,7 +163,7 @@ const products: Product[] = [
     title: "Lids for every cup we sell",
     sizes: "for 100 · 180 · 250 · 300 · 400 ml + plastic cups",
     desc:
-      "We match lids to cups so you don't have to. Flat and dome lids in white or black. 250 ml lids also come in green, red, orange, gold and silver.",
+      "Flat and dome lids in white or black, matched to every cup we ship. The 250 ml line also comes in green, red, orange, gold and silver.",
     bullets: [
       "Guaranteed fit on every cup we ship",
       "Dome lids for cold drinks & smoothies",
@@ -178,7 +178,7 @@ const products: Product[] = [
     title: "Paper drinking straws",
     sizes: "150 pcs / pack",
     desc:
-      "Plastic-free paper straws — straight or bendy. Black is in stock; other colours produced on order. Order with cups for synchronised delivery.",
+      "Plastic-free paper straws, straight or bendy. Black in stock; other colours by order. Bundle with cups for synced delivery.",
     bullets: [
       "EU single-use plastics compliant",
       "Black in stock — colours by order",
@@ -193,7 +193,7 @@ const products: Product[] = [
     title: "Wooden coffee stirrers",
     sizes: "1,000 pcs / pack",
     desc:
-      "Smooth natural-birch stirrers. No splinters, no chemical dyes, no plastic. Food-contact safe and 100% biodegradable.",
+      "Smooth natural-birch stirrers. No splinters, no dyes, no plastic. Food-safe and fully biodegradable.",
     bullets: [
       "Untreated natural light wood",
       "Food-contact certified",
@@ -232,67 +232,63 @@ const sizeGuide = [
 const cupsFaqs = [
   {
     q: "What's the minimum order for printed cups?",
-    a: "1,000 pieces per design for paper cups, 800 (one carton) for transparent plastic cups. Below that the per-unit price stops making sense — you'd pay more than at a retail shop. Plain white cups without print: from one carton.",
+    a: "1,000 pcs per design for paper cups, 800 (one carton) for transparent plastic. Below that the per-unit price stops making sense. Plain white cups without print: from one carton.",
   },
   {
     q: "How long does delivery to Iceland take?",
-    a: "Realistic timing: 4–6 weeks for printed paper cups, 5–6 weeks for thermal and transparent plastic cups, 2–3 weeks for stock items (plain cups, lids, straws, stirrers). Express tier shaves about a week off printed orders. The exact date is locked in your quote — we ship from mainland Europe and clear Icelandic customs for you.",
+    a: "Printed paper cups: 4–6 weeks. Thermal & transparent plastic: 5–6 weeks. Stock items (plain cups, lids, straws, stirrers): 2–3 weeks. Express shaves about a week off printed orders. The exact date is locked in your quote — we clear Icelandic customs for you.",
   },
   {
     q: "Are customs, VAT and delivery included?",
-    a: "Yes. Every quote is all-in ISK, delivered to your door (Delivered Duty Paid). Icelandic VAT, customs and inland transport from Reykjavík port to your address are all in the price. No surprise fees when the pallet lands.",
+    a: "Yes. Every quote is all-in ISK, delivered to your door. VAT, customs and inland transport from Reykjavík port — all included. No surprise fees when the pallet lands.",
   },
   {
     q: "How many colours can I print?",
-    a: "Paper cups: unlimited full-colour printing at no extra cost — go full-bleed photographic if you want. Transparent plastic cups: max 4 spot colours, solid blocks only (no tonal gradients). QR codes and capacity markings are both supported.",
+    a: "Paper cups: unlimited full-colour printing at no extra cost — full-bleed photographs welcome. Transparent plastic: max 4 spot colours, solid blocks only (no gradients). QR codes and capacity markings are supported on both.",
   },
   {
     q: "Can I order eco / biodegradable cups?",
-    a: "Yes — every paper line can be ordered with a BIO (compostable PLA) lining instead of standard Green PE. Same feel, same heat resistance, but no microplastics and EN 13432 industrial-compostable. Just ask in the quote form.",
-  },
-  {
-    q: "What file formats do you accept for artwork?",
-    a: "Vector files work best — Adobe Illustrator (.ai), PDF, EPS or SVG. Colours can be standard print (CMYK) or specific Pantone shades. We have ready arc-shaped templates for every cup size and will send you the right one. Simple logos we often prepare for free; complex artwork is quoted separately.",
+    a: "Yes — every paper line can be ordered with a BIO (compostable PLA) lining instead of standard Green PE. Same feel, same heat resistance, no microplastics, EN 13432 compostable. Just tick it in the quote form.",
   },
   {
     q: "Can I see samples first?",
-    a: "Yes. Plain stock samples are free. Custom-printed samples carry a small production fee, deducted from your first real order.",
+    a: "Yes. Plain stock samples are free. Custom-printed samples carry a small production fee — deducted from your first real order.",
   },
   {
     q: "Will every batch look identical?",
-    a: "Within ±15% colour variance between production runs (industry standard). Red stays red — but the exact shade can shift slightly batch to batch. Paper weight, lid fit and dimensions are locked in spec.",
+    a: "Within ±15% colour variance between runs (industry standard). Red stays red — but the exact shade can shift slightly. Paper weight, lid fit and dimensions are locked in spec.",
   },
   {
     q: "Do you deliver outside the capital area?",
-    a: "Yes. We're based in Njarðvík and ship anywhere in Iceland — Reykjavík, Akureyri, Vestfirðir, Egilsstaðir, Westman Islands. Inland transport is included in the quote.",
+    a: "Yes. We're based in Njarðvík and ship anywhere in Iceland — Reykjavík, Akureyri, Vestfirðir, Egilsstaðir, Westman Islands. Inland transport is in the quote.",
   },
   {
     q: "Do I need a long-term contract?",
-    a: "No. Every order is independent. Order once and never come back, or set up a recurring delivery — your call.",
+    a: "No. Every order is independent. Order once or set up a recurring delivery — your call.",
   },
   {
     q: "I don't know how to prepare artwork — can you help?",
-    a: "Yes. Send us your logo, the colours you want and where it should sit on the cup. For simple jobs we prepare the artwork for you, free. For more complex designs we'll quote a small one-off setup fee before we start.",
+    a: "Yes. Send us your logo, the colours and where it should sit on the cup. Simple jobs we prepare for free; complex designs get a small one-off setup fee, quoted upfront.",
   },
   {
     q: "Can I put a QR code on my cups?",
-    a: "Yes — very common for menus, loyalty programs and Instagram links. Send it as a vector file or a sharp 300 dpi image. We'll print a 1:1 test on the proof so you can scan it before the full run starts.",
+    a: "Yes — common for menus, loyalty and Instagram. Send it as vector or a sharp 300 dpi image. We test-scan a 1:1 print on the proof before the full run.",
   },
   {
     q: "Will the colour on my screen match the finished cups?",
-    a: "Close, but not 100%. Screens use light, cups use ink on paper — and there's a normal ±15% colour variance between print runs. If a brand colour has to be exact, tell us your Pantone code and we'll print a Pantone match (small extra cost) instead of standard CMYK.",
+    a: "Close, but not 100%. Screens use light, cups use ink — plus a normal ±15% variance between runs. If a brand colour must be exact, send a Pantone code and we'll print a Pantone match (small extra cost).",
   },
   {
     q: "Can I add liquid level markings (0.2 L, 0.3 L)?",
-    a: "Yes, on the outside of the cup. Because cup walls taper, we recommend ordering a sample first so we can measure exact fill heights before locking the artwork.",
+    a: "Yes, on the outside. Because cup walls taper, order a sample first so we can measure the exact fill heights before locking the artwork.",
   },
   {
     q: "Can the inside of the cup be printed?",
-    a: "No. The inner coating that keeps the cup leak-proof and food-safe also blocks ink — printing only happens on the outside.",
+    a: "No. The leak-proof, food-safe inner coating also blocks ink — printing is exterior-only.",
   },
   {
     q: "What file formats do you accept and which template should I use?",
-    a: "Editable vector files: .ai (Adobe Illustrator), .cdr (CorelDraw) or editable .pdf. Every cup size has its own arc-shaped template — tell us the size and lining you want and we'll email the right one back to you.",
+    a: "Editable vector files: .ai (Illustrator), .cdr (CorelDraw) or editable .pdf. Every cup size has its own arc-shaped template — tell us the size and lining and we'll email the right one back.",
   },
 ];
 
@@ -317,7 +313,7 @@ function CupsPage() {
             </span>{" "}
             Delivered in Iceland.
           </h1>
-          <p className="mt-6 text-lg text-muted-foreground">
+          <p className="mt-6 text-lg text-foreground/80 leading-relaxed">
             Custom print from 1,000 pieces. One price, one schedule, one contact.
           </p>
           <div className="mt-10 flex flex-col items-center gap-3">
@@ -378,7 +374,7 @@ function CupsPage() {
                 </span>
                 <h3 className="mt-2 font-bold text-lg leading-snug">{p.title}</h3>
                 <p className="text-xs text-muted-foreground mt-1 tracking-wider">{p.sizes}</p>
-                <p className="mt-3 text-sm text-muted-foreground">{p.desc}</p>
+                <p className="mt-3 text-sm text-foreground/75 leading-relaxed">{p.desc}</p>
 
                 <ul className="mt-4 space-y-1.5">
                   {p.bullets.map((b) => (
@@ -523,21 +519,19 @@ function CupsPage() {
                 <span style={{ color: "#84cc16" }}>cup.</span>
               </h3>
 
-              <div className="mt-6 space-y-5 text-muted-foreground leading-relaxed">
+              <div className="mt-6 space-y-5 text-foreground/80 leading-relaxed">
                 <p>
                   <span className="text-foreground font-semibold">Most "paper" cups have a plastic lining inside.</span>{" "}
-                  The moment hot coffee hits it, research shows a single cup can release up to{" "}
+                  Pour in hot coffee and a single cup can release up to{" "}
                   <span className="text-foreground font-semibold">25,000 microplastic particles straight into the drink.</span>
                 </p>
                 <p>
-                  <span className="text-foreground font-semibold">Then the cup goes in the bin.</span> It takes up to 20 years to break down, and every year more of it pollutes the oceans.
+                  <span className="text-foreground font-semibold">Then the cup goes in the bin.</span> It takes up to 20 years to break down — and every year more of it ends up in the ocean.
                 </p>
                 <p>
                   Our eco line swaps the plastic for a{" "}
-                  <span className="text-foreground font-semibold">plant-based, compostable PLA lining</span>. Works for{" "}
-                  <span className="text-foreground font-semibold">hot coffee, cold drinks, ice cream — any cup you already sell.</span>{" "}
-                  Same feel in the hand, same heat resistance, same taste in the drink — but{" "}
-                  <span className="text-foreground font-semibold">zero microplastics</span>, and it breaks down in industrial composting.
+                  <span className="text-foreground font-semibold">plant-based, compostable PLA lining</span>. Same feel, same heat resistance, same taste — but{" "}
+                  <span className="text-foreground font-semibold">zero microplastics</span>, and it breaks down in industrial composting. Works for hot coffee, cold drinks and ice cream.
                 </p>
               </div>
 
@@ -658,7 +652,7 @@ function CupsPage() {
           <h2 className="text-4xl font-extrabold">
             Why <span className="bg-clip-text text-transparent" style={{ backgroundImage: "var(--gradient-cyan)" }}>us.</span>
           </h2>
-          <p className="mt-3 text-muted-foreground">No contract. Test us on one pallet.</p>
+          <p className="mt-3 text-foreground/75">No contract. Test us on one pallet.</p>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-10">
           {[
@@ -692,7 +686,7 @@ function CupsPage() {
                 style={{ backgroundColor: w.c }}
               />
               <h3 className="font-bold text-lg">{w.t}</h3>
-              <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{w.d}</p>
+              <p className="mt-3 text-sm text-foreground/75 leading-relaxed">{w.d}</p>
             </div>
           ))}
         </div>
@@ -717,7 +711,7 @@ function CupsPage() {
                   {s.n}
                 </div>
                 <h3 className="mt-4 text-lg font-bold">{s.t}</h3>
-                <p className="mt-3 text-sm text-muted-foreground">{s.d}</p>
+              <p className="mt-3 text-sm text-foreground/75 leading-relaxed">{s.d}</p>
               </div>
             ))}
           </div>
@@ -727,7 +721,7 @@ function CupsPage() {
       {/* FAQ */}
       <section id="faq" className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-24">
         <h2 className="text-4xl font-extrabold text-center">Frequently asked questions.</h2>
-        <p className="text-center mt-3 text-muted-foreground">
+        <p className="text-center mt-3 text-foreground/75">
           If something's not here — just ask in the form below.
         </p>
         <div className="mt-10 space-y-3">
@@ -737,7 +731,7 @@ function CupsPage() {
                 <span>{f.q}</span>
                 <span className="text-primary text-2xl group-open:rotate-45 transition-transform">+</span>
               </summary>
-              <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{f.a}</p>
+              <p className="mt-3 text-sm text-foreground/80 leading-relaxed">{f.a}</p>
             </details>
           ))}
         </div>

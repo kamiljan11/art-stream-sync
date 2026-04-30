@@ -220,6 +220,7 @@ const en = {
       { t: "Your dedicated contact", d: "One person guides you from quote to delivery. Not sure which product fits? Just ask, we'll advise." },
       { t: "Professional QC system", d: "Every batch passes a multi-stage quality check, print accuracy, lining seal, structure and food-safety compliance, before it ships." },
     ],
+    uspAskButton: "Ask now",
     sizeGuide: {
       heading1: "Pick the right",
       heading2: "size.",

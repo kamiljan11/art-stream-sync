@@ -220,6 +220,7 @@ const pl = {
       { t: "Twój dedykowany kontakt", d: "Jedna osoba prowadzi cię od wyceny do dostawy. Nie wiesz, co wybrać? Pytaj, doradzimy." },
       { t: "Profesjonalna kontrola jakości", d: "Każda partia przechodzi wielostopniową kontrolę jakości, dokładność druku, szczelność bariery, struktura i zgodność z normami spożywczymi, zanim trafi do wysyłki." },
     ],
+    uspAskButton: "Zapytaj teraz",
     sizeGuide: {
       heading1: "Wybierz właściwy",
       heading2: "rozmiar.",

@@ -444,47 +444,127 @@ function CupsPage() {
       </section>
 
       {/* ECO */}
-      <section className="bg-card/40 border-y border-border">
-        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-24">
-          <div className="text-center">
-            <span className="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-wider rounded-full bg-primary/10 text-primary">
-              Top pick in Iceland
-            </span>
-            <h2 className="mt-4 text-4xl sm:text-5xl font-extrabold">Drop the plastic. Keep the cup.</h2>
-          </div>
-          <div className="mt-10 grid md:grid-cols-2 gap-8 text-muted-foreground leading-relaxed">
-            <p>
-              <span className="text-foreground font-semibold">Most "paper" cups have a plastic lining inside.</span> The moment hot coffee hits it, research shows a single cup can release up to{" "}
-              <span className="text-foreground font-semibold">25,000 microplastic particles straight into the drink.</span>
-            </p>
-            <p>
-              Our eco line swaps the plastic for a{" "}
-              <span className="text-foreground font-semibold">plant-based, compostable PLA lining</span>. Same feel, same heat resistance — but{" "}
-              <span className="text-foreground font-semibold">zero microplastics</span>, and it breaks down in industrial composting.
-            </p>
+      <section
+        className="border-y border-border"
+        style={{ background: "radial-gradient(ellipse at top, rgba(132,204,22,0.08), transparent 60%), hsl(0 0% 4%)" }}
+      >
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24">
+          {/* Heading */}
+          <div className="text-center max-w-3xl mx-auto">
+            <h2 className="text-4xl sm:text-5xl font-extrabold leading-tight">
+              Check your cup.{" "}
+              <span style={{ color: "#84cc16" }}>Does it have this mark?</span>
+            </h2>
+            <p className="mt-4 text-muted-foreground">If yes, it has plastic inside.</p>
           </div>
 
-          <div className="mt-10 grid grid-cols-3 gap-4 text-center">
-            {[
-              { v: "100%", l: "FSC paper" },
-              { v: "PLA", l: "Compostable lining" },
-              { v: "EN 13432", l: "Certified" },
-            ].map((b) => (
-              <div key={b.l} className="rounded-xl border border-border bg-card p-6">
-                <div className="text-2xl font-extrabold text-primary">{b.v}</div>
-                <div className="text-xs uppercase tracking-wider text-muted-foreground mt-1">{b.l}</div>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-8 text-center">
-            <a
-              href="#quote"
-              className="inline-flex items-center gap-2 rounded-md px-6 py-3 text-base font-semibold text-primary-foreground"
-              style={{ background: "var(--gradient-cyan)" }}
+          {/* Two-column body */}
+          <div className="mt-16 grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+            {/* LEFT: warning sticker on green panel */}
+            <div
+              className="relative aspect-[4/3] rounded-2xl overflow-hidden flex items-center justify-center p-8 sm:p-12"
+              style={{ background: "linear-gradient(135deg, #c5d9a4 0%, #b9d18f 100%)" }}
             >
-              Ask for an eco quote <ArrowRight size={18} />
-            </a>
+              <span className="absolute top-5 left-5 inline-block px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider rounded-md bg-black/80 text-white">
+                EU mandatory marking on plastic-lined cups
+              </span>
+
+              {/* The sticker */}
+              <div
+                className="rotate-[-6deg] rounded-md overflow-hidden border-[3px] border-white shadow-2xl bg-white"
+                style={{ width: "min(80%, 320px)" }}
+              >
+                <div className="grid grid-cols-2">
+                  {/* Left: no-plastic icon on red */}
+                  <div className="aspect-square flex items-center justify-center" style={{ background: "#dc2626" }}>
+                    <svg viewBox="0 0 100 100" className="w-3/5 h-3/5" fill="none" stroke="white" strokeWidth="6">
+                      <circle cx="50" cy="50" r="40" />
+                      <line x1="22" y1="22" x2="78" y2="78" />
+                      <rect x="38" y="32" width="24" height="36" rx="2" />
+                      <line x1="38" y1="42" x2="62" y2="42" />
+                    </svg>
+                  </div>
+                  {/* Right: turtle on blue */}
+                  <div className="aspect-square flex items-center justify-center" style={{ background: "#3b82f6" }}>
+                    <svg viewBox="0 0 100 100" className="w-3/5 h-3/5" fill="none" stroke="white" strokeWidth="4">
+                      <ellipse cx="50" cy="55" rx="28" ry="20" />
+                      <path d="M40 45 L45 35 M50 42 L50 32 M60 45 L55 35" />
+                      <circle cx="78" cy="48" r="6" />
+                      <line x1="30" y1="65" x2="22" y2="72" />
+                      <line x1="70" y1="65" x2="78" y2="72" />
+                      <line x1="40" y1="75" x2="36" y2="84" />
+                      <line x1="60" y1="75" x2="64" y2="84" />
+                    </svg>
+                  </div>
+                </div>
+                <div className="bg-black text-white text-center py-2 px-2">
+                  <div className="text-[10px] sm:text-xs font-bold leading-tight">PLASTIC IN PRODUCT</div>
+                  <div className="text-[9px] sm:text-[10px] font-semibold leading-tight opacity-90">PLAISTEACH SA TÁIRGE</div>
+                </div>
+              </div>
+            </div>
+
+            {/* RIGHT: copy */}
+            <div>
+              <span
+                className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-full"
+                style={{
+                  background: "#facc15",
+                  color: "#000",
+                  boxShadow: "0 0 30px rgba(250,204,21,0.4)",
+                }}
+              >
+                ★ Top pick in Iceland
+              </span>
+
+              <h3 className="mt-5 text-3xl sm:text-4xl font-extrabold leading-tight">
+                Drop the plastic. Keep the{" "}
+                <span style={{ color: "#84cc16" }}>cup.</span>
+              </h3>
+
+              <div className="mt-6 space-y-5 text-muted-foreground leading-relaxed">
+                <p>
+                  <span className="text-foreground font-semibold">Most "paper" cups have a plastic lining inside.</span>{" "}
+                  The moment hot coffee hits it, research shows a single cup can release up to{" "}
+                  <span className="text-foreground font-semibold">25,000 microplastic particles straight into the drink.</span>
+                </p>
+                <p>
+                  <span className="text-foreground font-semibold">Then the cup goes in the bin.</span> It takes up to 20 years to break down, and every year more of it pollutes the oceans.
+                </p>
+                <p>
+                  Our eco line swaps the plastic for a{" "}
+                  <span className="text-foreground font-semibold">plant-based, compostable PLA lining</span>. Works for{" "}
+                  <span className="text-foreground font-semibold">hot coffee, cold drinks, ice cream — any cup you already sell.</span>{" "}
+                  Same feel in the hand, same heat resistance, same taste in the drink — but{" "}
+                  <span className="text-foreground font-semibold">zero microplastics</span>, and it breaks down in industrial composting.
+                </p>
+              </div>
+
+              {/* Stats */}
+              <div className="mt-8 grid grid-cols-3 gap-6">
+                {[
+                  { v: "100%", l: "FSC paper" },
+                  { v: "PLA", l: "Compostable lining" },
+                  { v: "EN 13432", l: "Certified" },
+                ].map((b) => (
+                  <div key={b.l}>
+                    <div className="text-2xl sm:text-3xl font-extrabold" style={{ color: "#84cc16" }}>
+                      {b.v}
+                    </div>
+                    <div className="text-[10px] uppercase tracking-wider text-muted-foreground mt-1">{b.l}</div>
+                  </div>
+                ))}
+              </div>
+
+              {/* CTA */}
+              <a
+                href="#quote"
+                className="mt-8 inline-flex items-center gap-2 rounded-full px-7 py-3 text-sm font-bold uppercase tracking-wider border-2 transition hover:bg-[#84cc16] hover:text-black"
+                style={{ borderColor: "#84cc16", color: "#84cc16" }}
+              >
+                Ask for eco quote <ArrowRight size={16} />
+              </a>
+            </div>
           </div>
         </div>
       </section>

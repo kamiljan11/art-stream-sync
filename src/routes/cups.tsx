@@ -365,7 +365,7 @@ function CupsPage() {
                 </ul>
 
                 <div className="mt-5 pt-4 border-t border-border text-xs">
-                  <div className="text-muted-foreground uppercase tracking-wider">MOQ</div>
+                  <div className="text-muted-foreground uppercase tracking-wider">Minimum order</div>
                   <div className="font-semibold mt-0.5">{p.moq}</div>
                 </div>
 

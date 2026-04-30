@@ -173,58 +173,56 @@ function Index() {
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-24">
           <Reveal className="text-center max-w-3xl mx-auto">
             <h2 className="text-4xl sm:text-5xl font-extrabold">
-              The Math Behind the <span style={{ color: "var(--brand-cyan)" }}>Guarantee.</span>
+              {t("math.heading1")} <span style={{ color: "var(--brand-cyan)" }}>{t("math.heading2")}</span>
             </h2>
-            <p className="mt-4 text-foreground/75 max-w-xl mx-auto leading-relaxed">
-              We removed every cost that doesn't make your print better.
-            </p>
+            <p className="mt-4 text-foreground/75 max-w-xl mx-auto leading-relaxed">{t("math.sub")}</p>
           </Reveal>
 
           <div className="grid md:grid-cols-3 gap-6 mt-12">
             <FeatureCard
               tint="magenta"
               icon={<X className="text-[color:var(--brand-magenta)]" strokeWidth={3} />}
-              title="NO STORAGE"
-              text="Storage adds ~15% to the price. We skip it, straight from factory to your door."
+              title={t("math.cards.noStorageTitle")}
+              text={t("math.cards.noStorageBody")}
             />
             <FeatureCard
               tint="cyan"
               icon={<X className="text-[color:var(--brand-cyan)]" strokeWidth={3} />}
-              title="NO FANCY OFFICE"
-              text="No expensive office in 101 Reykjavík. We work online, so our rent isn't on your invoice."
+              title={t("math.cards.noOfficeTitle")}
+              text={t("math.cards.noOfficeBody")}
             />
             <FeatureCard
               tint="yellow"
               icon={<Check style={{ color: "var(--brand-yellow)" }} strokeWidth={3} />}
-              title="LOCAL & FAST"
-              text="We work from Njarðvík, next to the airport. Out of the expensive city, still fully local."
+              title={t("math.cards.localFastTitle")}
+              text={t("math.cards.localFastBody")}
             />
           </div>
 
           {/* Comparison table */}
           <div className="mt-16">
             <h3 className="text-3xl sm:text-4xl font-extrabold text-center">
-              COMPARE THE <span style={{ color: "var(--brand-cyan)" }}>MODEL.</span>
+              {t("math.compareHeading1")} <span style={{ color: "var(--brand-cyan)" }}>{t("math.compareHeading2")}</span>
             </h3>
-            <p className="text-center mt-2 text-foreground/75">Same machines. Same paper. Lower overhead.</p>
+            <p className="text-center mt-2 text-foreground/75">{t("math.compareSub")}</p>
 
             <div className="mt-8 overflow-x-auto">
               <table className="w-full text-sm border border-border rounded-lg overflow-hidden">
                 <thead className="bg-muted">
                   <tr>
-                    <th className="text-left px-4 py-3 font-semibold">Feature</th>
-                    <th className="text-left px-4 py-3 font-semibold">Local Retailer</th>
-                    <th className="text-left px-4 py-3 font-semibold text-primary">MAS WHOLESALE</th>
+                    <th className="text-left px-4 py-3 font-semibold">{t("math.table.colFeature")}</th>
+                    <th className="text-left px-4 py-3 font-semibold">{t("math.table.colLocal")}</th>
+                    <th className="text-left px-4 py-3 font-semibold text-primary">{t("math.table.colMas")}</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-border">
                   {[
-                    ["Quality", "✓ Industrial Standard", "✓ Industrial Standard"],
-                    ["Setup Cost", "High (You pay full)", "✓ Shared (Batched)"],
-                    ["Overhead", "High (Rent/Staff)", "✓ ZERO"],
-                    ["Customs/VAT", "✓ Included", "✓ Included (We Handle)"],
-                    ["Price Guarantee", "✗ None", "✓ WE BEAT ANY QUOTE"],
-                    ["Final Cost", "Retail Markup", "✓ WHOLESALE"],
+                    [t("math.table.rowQuality"), t("math.table.sameStandard"), t("math.table.sameStandard")],
+                    [t("math.table.rowSetup"), t("math.table.setupLocal"), t("math.table.setupMas")],
+                    [t("math.table.rowOverhead"), t("math.table.overheadLocal"), t("math.table.overheadMas")],
+                    [t("math.table.rowCustoms"), t("math.table.customsLocal"), t("math.table.customsMas")],
+                    [t("math.table.rowGuarantee"), t("math.table.guaranteeLocal"), t("math.table.guaranteeMas")],
+                    [t("math.table.rowFinal"), t("math.table.finalLocal"), t("math.table.finalMas")],
                   ].map(([f, l, m]) => (
                     <tr key={f}>
                       <td className="px-4 py-3 font-medium">{f}</td>

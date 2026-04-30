@@ -387,7 +387,7 @@ function CupsPage() {
       {/* PRODUCTS GRID */}
       <section id="products" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24">
         <div className="text-center max-w-2xl mx-auto">
-          <h2 className="text-4xl font-extrabold">Our catalogue.</h2>
+          <h2 className="text-4xl font-extrabold">Our <span style={{ color: "var(--brand-cyan)" }}>catalogue.</span></h2>
           <p className="mt-3 text-muted-foreground">
             Every paper line is available with standard Green PE or compostable BIO lining, just say the word.
           </p>
@@ -475,7 +475,7 @@ function CupsPage() {
       <section className="bg-card/40 border-y border-border">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-20">
           <div className="text-center">
-            <h2 className="text-4xl font-extrabold">Pick the right size.</h2>
+            <h2 className="text-4xl font-extrabold">Pick the right <span style={{ color: "var(--brand-cyan)" }}>size.</span></h2>
             <p className="mt-3 text-muted-foreground">
               ml / oz reference and what each size is normally used for.
             </p>
@@ -509,7 +509,7 @@ function CupsPage() {
           <span className="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-wider rounded-full bg-primary/10 text-primary">
             30+ brands &amp; counting
           </span>
-          <h2 className="mt-4 text-4xl font-extrabold">Trusted with their cups.</h2>
+          <h2 className="mt-4 text-4xl font-extrabold">Trusted with their <span style={{ color: "var(--brand-cyan)" }}>cups.</span></h2>
           <p className="mt-3 text-muted-foreground">
             Over 30 brands have already printed with us, a small slice below. Yours could be next.
           </p>
@@ -760,7 +760,7 @@ function CupsPage() {
 
         <div className="text-center max-w-2xl mx-auto">
           <h2 className="text-4xl font-extrabold">
-            Why <span className="bg-clip-text text-transparent" style={{ backgroundImage: "var(--gradient-cyan)" }}>us.</span>
+            Why <span style={{ color: "var(--brand-cyan)" }}>us.</span>
           </h2>
           <p className="mt-3 text-foreground/75">No contract. Test us on one pallet.</p>
         </div>
@@ -810,7 +810,7 @@ function CupsPage() {
       {/* HOW TO ORDER */}
       <section id="how" className="bg-card/40 border-y border-border">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-24">
-          <h2 className="text-4xl font-extrabold text-center">How to order.</h2>
+          <h2 className="text-4xl font-extrabold text-center">How to <span style={{ color: "var(--brand-cyan)" }}>order.</span></h2>
           <div className="grid md:grid-cols-4 gap-6 mt-12">
             {[
               { n: "1", t: "Send the brief", d: "Size, quantity, lining (PE or BIO), logo or full artwork.", tone: "card-light-cyan", accent: "#0ea5e9" },
@@ -832,7 +832,7 @@ function CupsPage() {
 
       {/* FAQ */}
       <section id="faq" className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-24">
-        <h2 className="text-4xl font-extrabold text-center">Frequently asked questions.</h2>
+        <h2 className="text-4xl font-extrabold text-center">Frequently asked <span style={{ color: "var(--brand-cyan)" }}>questions.</span></h2>
         <p className="text-center mt-3 text-foreground/75">
           If something's not here, just ask in the form below.
         </p>
@@ -864,7 +864,7 @@ function CupsPage() {
       <section id="quote" className="bg-card/40 border-y border-border">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-24">
           <div className="text-center">
-            <h2 className="text-4xl font-extrabold">Get a quote.</h2>
+            <h2 className="text-4xl font-extrabold">Get a <span style={{ color: "var(--brand-cyan)" }}>quote.</span></h2>
             <p className="mt-3 text-muted-foreground">Takes 60 seconds. Reply within 24 working hours.</p>
           </div>
           <CupsQuoteForm />

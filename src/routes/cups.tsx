@@ -807,7 +807,7 @@ function CupsPage() {
             ].map((u) => (
               <div
                 key={u.t}
-                className="rounded-xl border border-primary/30 bg-background/60 p-5"
+                className="rounded-xl border border-primary/30 bg-card p-5"
                 style={{ boxShadow: "0 0 0 1px rgba(132,204,22,0.05)" }}
               >
                 <div className="flex items-center gap-2">
@@ -909,7 +909,7 @@ function CupsQuoteForm() {
       <SelectField label="Timing" options={["Standard (best price)", "Express (~1 week faster)", "Flexible"]} />
       <SelectField label="Lining" options={["Standard (Green PE)", "BIO (compostable)", "Don't know — advise me"]} />
       {/* Design assistance + file upload — two-column block */}
-      <div className="sm:col-span-2 grid gap-4 sm:grid-cols-2 rounded-lg border border-border/70 bg-background/40 p-4">
+      <div className="sm:col-span-2 grid gap-4 sm:grid-cols-2 rounded-lg border border-border/70 bg-card p-4">
         <fieldset className="flex flex-col gap-2">
           <legend className="text-xs font-medium uppercase tracking-wider text-muted-foreground mb-1">
             Should we prepare the design for you?

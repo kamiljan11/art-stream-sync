@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useT } from "@/i18n/I18nProvider";
 
 export const Route = createFileRoute("/thank-you")({
   head: () => ({
@@ -22,6 +23,7 @@ export const Route = createFileRoute("/thank-you")({
 });
 
 function ThankYouPage() {
+  const t = useT();
   return (
     <main className="min-h-screen bg-background text-foreground flex items-center justify-center px-5 py-16">
       <div className="w-full max-w-[600px] text-center animate-[masFadeIn_0.8s_ease-out_forwards]">
@@ -33,12 +35,11 @@ function ThankYouPage() {
         </div>
 
         <h1 className="font-[Exo_2,sans-serif] text-4xl sm:text-5xl font-extrabold uppercase tracking-tight mb-5 leading-[1.1]">
-          Request <span className="text-primary">Received!</span>
+          {t("thankYou.title")} <span className="text-primary">{t("thankYou.titleAccent")}</span>
         </h1>
 
         <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-8">
-          Thank you for submitting your audit request. Our team has received
-          your invoice and design files securely.
+          {t("thankYou.intro")}
         </p>
 
         {/* Next steps box with CMYK strip */}
@@ -51,26 +52,26 @@ function ThankYouPage() {
           </div>
           <div className="p-7 border border-t-0 border-border rounded-b-xl">
             <h3 className="text-lg font-extrabold text-foreground mb-5">
-              What happens now?
+              {t("thankYou.whatNow")}
             </h3>
 
             <Step
               num="1"
               color="#00AEEF"
-              title="Technical Audit:"
-              text="We are currently running a pre-flight check on your design files to ensure print readiness."
+              title={t("thankYou.step1Title")}
+              text={t("thankYou.step1Text")}
             />
             <Step
               num="2"
               color="#EC008C"
-              title="Cost Analysis:"
-              text="We are comparing your uploaded invoice against our wholesale rates."
+              title={t("thankYou.step2Title")}
+              text={t("thankYou.step2Text")}
             />
             <Step
               num="3"
               color="#FFF200"
-              title="Your Quote:"
-              text="Expect a detailed savings report and final quote in your inbox within 24–48 hours (in working days)."
+              title={t("thankYou.step3Title")}
+              text={t("thankYou.step3Text")}
               last
             />
           </div>
@@ -78,9 +79,9 @@ function ThankYouPage() {
 
         {/* Email note */}
         <div className="text-sm text-muted-foreground bg-white/[0.03] p-4 rounded-lg border border-dashed border-border mb-10 leading-relaxed">
-          <strong className="text-foreground">Didn't add a design link?</strong>
+          <strong className="text-foreground">{t("thankYou.didntAdd")}</strong>
           <br />
-          To speed up the process, you can email your files directly to{" "}
+          {t("thankYou.emailFiles")}{" "}
           <a
             href="mailto:prints@masgroup.is"
             className="text-primary font-bold hover:text-foreground transition-colors"
@@ -93,7 +94,7 @@ function ThankYouPage() {
           to="/"
           className="inline-block px-10 py-4 bg-primary text-primary-foreground rounded-full font-bold uppercase tracking-[1px] hover:-translate-y-0.5 hover:shadow-[0_10px_20px_rgba(0,174,239,0.3)] transition-all"
         >
-          Back to Homepage
+          {t("thankYou.backHome")}
         </Link>
       </div>
     </main>

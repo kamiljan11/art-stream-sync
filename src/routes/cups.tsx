@@ -591,7 +591,7 @@ function CupsPage() {
                 loading="lazy"
                 width={1536}
                 height={1024}
-                className="rotate-[-6deg] w-[min(75%,260px)] h-auto drop-shadow-2xl"
+                className="rotate-[-6deg] w-[min(95%,460px)] h-auto drop-shadow-2xl"
               />
             </div>
 

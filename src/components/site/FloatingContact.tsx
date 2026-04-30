@@ -51,6 +51,13 @@ export function FloatingContact() {
     return () => window.removeEventListener("keydown", onKey);
   }, [open]);
 
+  // External trigger: any component can dispatch `floating-contact:open` to open the bubble
+  useEffect(() => {
+    const onOpen = () => setOpen(true);
+    window.addEventListener("floating-contact:open", onOpen);
+    return () => window.removeEventListener("floating-contact:open", onOpen);
+  }, []);
+
   function update<K extends keyof FormState>(k: K, v: FormState[K]) {
     setForm((p) => ({ ...p, [k]: v }));
     if (errors[k]) setErrors((p) => ({ ...p, [k]: undefined }));

@@ -96,14 +96,13 @@ export function FloatingContact() {
           setOpen(true);
           setSent(false);
         }}
-        className="fixed bottom-5 right-5 z-[60] flex items-center gap-2 rounded-full px-5 py-3.5 font-extrabold text-white shadow-2xl transition-all hover:scale-105 active:scale-95"
+        className="fixed bottom-5 right-5 z-[60] flex items-center justify-center rounded-full h-12 w-12 text-white shadow-2xl transition-all hover:scale-105 active:scale-95"
         style={{
           background: `linear-gradient(135deg, ${cyan} 0%, ${magenta} 100%)`,
           boxShadow: `0 10px 30px ${cyan}55, 0 4px 12px ${magenta}33`,
         }}
       >
         <MessageCircle className="h-5 w-5" />
-        <span className="hidden sm:inline text-sm tracking-wider">CONTACT US</span>
       </button>
 
       {/* Modal */}

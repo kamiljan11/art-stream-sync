@@ -148,20 +148,16 @@ function Index() {
         <div id="logic" className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div>
             <h2 className="text-4xl sm:text-5xl font-extrabold leading-[1.05] tracking-tight">
-              Why We Are <span style={{ color: "var(--brand-cyan)" }}>Cheaper.</span>
+              {t("cheaper.heading1")} <span style={{ color: "var(--brand-cyan)" }}>{t("cheaper.heading2")}</span>
             </h2>
             <div className="mt-8 space-y-6 max-w-prose">
               <div>
-                <p className="text-lg font-bold text-foreground mb-2">The logic.</p>
-                <p className="text-foreground/75 leading-relaxed">
-                  Local shops treat every order as a one-off. You pay for the machine setup, the labour and the retail overhead, every single time.
-                </p>
+                <p className="text-lg font-bold text-foreground mb-2">{t("cheaper.logicTitle")}</p>
+                <p className="text-foreground/75 leading-relaxed">{t("cheaper.logicBody")}</p>
               </div>
               <div>
-                <p className="text-lg font-bold text-foreground mb-2">The wholesale difference.</p>
-                <p className="text-foreground/75 leading-relaxed">
-                  We batch your job with hundreds of others on industrial runs. Setup costs are shared, retail markup is gone, and the saving lands on your invoice.
-                </p>
+                <p className="text-lg font-bold text-foreground mb-2">{t("cheaper.wholesaleTitle")}</p>
+                <p className="text-foreground/75 leading-relaxed">{t("cheaper.wholesaleBody")}</p>
               </div>
             </div>
           </div>

@@ -486,7 +486,7 @@ function CupsPage() {
                   onClick={() => window.dispatchEvent(new CustomEvent("floating-contact:open"))}
                   className="mt-3 self-start inline-flex items-center gap-1.5 rounded-md bg-slate-900 px-3 py-1.5 text-xs font-semibold text-white hover:bg-slate-800 transition-colors"
                 >
-                  {t("cupsPage.usp.askButton")} <ArrowRight size={12} />
+                  {t("cupsPage.uspAskButton")} <ArrowRight size={12} />
                 </button>
               )}
             </div>

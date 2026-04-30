@@ -220,6 +220,7 @@ const is = {
       { t: "Þinn eigin tengiliður", d: "Ein manneskja leiðir þig frá tilboði til afhendingar. Ekki viss hvað passar? Bara spurðu, við ráðleggjum." },
       { t: "Faglegt gæðaeftirlit", d: "Hver framleiðslulota gengur í gegnum margra þrepa gæðaeftirlit, prentnákvæmni, þéttleika húðunar, byggingu og matvælaöryggi, áður en hún er send." },
     ],
+    uspAskButton: "Spyrja núna",
     sizeGuide: {
       heading1: "Veldu réttu",
       heading2: "stærðina.",

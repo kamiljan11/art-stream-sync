@@ -16,13 +16,13 @@ import capCups from "@/assets/site/cap-cups.png";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "MAS Prints, Wholesale Print Prices. Guaranteed. Iceland." },
+      { title: "MAS Prints | Wholesale Print Prices. Guaranteed. Iceland." },
       {
         name: "description",
         content:
           "Direct access to high-capacity European printing factories. Offset & Digital. Icelandic quality. No retail markup.",
       },
-      { property: "og:title", content: "MAS Prints, Icelandic Print Brokerage" },
+      { property: "og:title", content: "MAS Prints | Icelandic Print Brokerage" },
       {
         property: "og:description",
         content: "Wholesale print prices guaranteed. Lowest price in Iceland or we beat it.",

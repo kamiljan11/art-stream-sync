@@ -391,9 +391,6 @@ function CupsPage() {
           <p className="mt-3 text-muted-foreground">
             Every paper line is available with standard Green PE or compostable BIO lining — just say the word.
           </p>
-          <p className="mt-2 text-sm text-muted-foreground">
-            Don't see what you need? <a href="#contact" className="text-primary font-semibold underline underline-offset-4 hover:opacity-80">Send us a request</a> — we can source almost anything in this category.
-          </p>
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
@@ -445,6 +442,10 @@ function CupsPage() {
             );
           })}
         </div>
+
+        <p className="mt-10 text-center text-sm text-muted-foreground max-w-2xl mx-auto">
+          Don't see what you need? <a href="#quote" className="text-primary font-semibold underline underline-offset-4 hover:opacity-80">Send us a request</a> — we can source almost anything in this category.
+        </p>
       </section>
 
       {/* SIZE GUIDE */}

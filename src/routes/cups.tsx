@@ -356,12 +356,15 @@ function CupsPage() {
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
-          {products.map((p) => (
+          {products.map((p, idx) => {
+            const tones = ["card-light-cyan", "card-light-pink", "card-light-yellow", "card-light-lime"];
+            const tone = tones[idx % tones.length];
+            return (
             <article
               key={p.title}
-              className="rounded-xl overflow-hidden border border-border bg-card flex flex-col group"
+              className={`overflow-hidden ${tone} flex flex-col group`}
             >
-              <div className="aspect-[16/9] sm:aspect-[4/3] overflow-hidden bg-background">
+              <div className="aspect-[16/9] sm:aspect-[4/3] overflow-hidden bg-white/60">
                 <img
                   src={p.img}
                   alt={p.title}
@@ -369,36 +372,37 @@ function CupsPage() {
                 />
               </div>
               <div className="p-6 flex flex-col flex-1">
-                <span className="text-[10px] font-semibold uppercase tracking-[0.15em] text-primary">
+                <span className="text-[10px] font-semibold uppercase tracking-[0.15em] text-sky-600">
                   {p.tag}
                 </span>
-                <h3 className="mt-2 font-bold text-lg leading-snug">{p.title}</h3>
-                <p className="text-xs text-muted-foreground mt-1 tracking-wider">{p.sizes}</p>
-                <p className="mt-3 text-sm text-foreground/75 leading-relaxed">{p.desc}</p>
+                <h3 className="mt-2 font-bold text-lg leading-snug text-slate-900">{p.title}</h3>
+                <p className="text-xs text-slate-500 mt-1 tracking-wider">{p.sizes}</p>
+                <p className="mt-3 text-sm text-slate-700 leading-relaxed">{p.desc}</p>
 
                 <ul className="mt-4 space-y-1.5">
                   {p.bullets.map((b) => (
-                    <li key={b} className="flex items-start gap-2 text-sm">
-                      <Check size={14} className="text-primary mt-0.5 flex-shrink-0" />
+                    <li key={b} className="flex items-start gap-2 text-sm text-slate-700">
+                      <Check size={14} className="text-sky-600 mt-0.5 flex-shrink-0" />
                       <span>{b}</span>
                     </li>
                   ))}
                 </ul>
 
-                <div className="mt-5 pt-4 border-t border-border text-xs">
-                  <div className="text-muted-foreground uppercase tracking-wider">Minimum order</div>
-                  <div className="font-semibold mt-0.5">{p.moq}</div>
+                <div className="mt-5 pt-4 border-t border-slate-200 text-xs">
+                  <div className="text-slate-500 uppercase tracking-wider">Minimum order</div>
+                  <div className="font-semibold mt-0.5 text-slate-900">{p.moq}</div>
                 </div>
 
                 <a
                   href="#quote"
-                  className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-primary hover:gap-2 transition-all"
+                  className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-sky-600 hover:gap-2 transition-all"
                 >
                   Ask for price <ArrowRight size={14} />
                 </a>
               </div>
             </article>
-          ))}
+            );
+          })}
         </div>
       </section>
 
@@ -604,7 +608,7 @@ function CupsPage() {
             ].map((c, i) => (
               <div
                 key={i}
-                className="group relative rounded-xl border bg-gradient-to-b from-card to-background p-6 pt-8 text-center transition hover:-translate-y-1 hover:shadow-lg"
+                className="group relative rounded-xl border bg-white p-6 pt-8 text-center transition hover:-translate-y-1 hover:shadow-lg"
                 style={{
                   borderColor: `${c.accent}55`,
                   boxShadow: `0 0 0 1px ${c.accent}11, 0 8px 30px -12px ${c.accent}33`,
@@ -642,7 +646,7 @@ function CupsPage() {
                   {c.sub}
                 </div>
 
-                <div className="mt-3 pt-3 border-t border-border/50 text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+                <div className="mt-3 pt-3 border-t border-slate-200 text-[10px] uppercase tracking-[0.2em] text-slate-500">
                   {c.tag}
                 </div>
               </div>
@@ -662,33 +666,37 @@ function CupsPage() {
               t: "Stable price",
               d: "The price you're quoted is the price you pay. VAT, customs, delivery — all included. No surprise add-ons on the invoice.",
               c: "#22d3ee",
+              tone: "card-light-cyan",
             },
             {
               t: "Predictable delivery",
               d: "Fixed schedule, fixed date. You stop chasing, we ship. VAT and customs already in the quote.",
               c: "#ec4899",
+              tone: "card-light-pink",
             },
             {
               t: "Same cup every batch",
               d: "Paper weight, lid fit, ink shade — locked in spec. Your January cup matches your July cup.",
               c: "#facc15",
+              tone: "card-light-yellow",
             },
             {
               t: "Icelandic invoice",
               d: "You get a proper Icelandic invoice in ISK, with our company ID number and VAT — fully deductible in your books. No \"import from Poland\" paperwork headaches.",
               c: "#84cc16",
+              tone: "card-light-lime",
             },
           ].map((w) => (
             <div
               key={w.t}
-              className="relative rounded-xl border border-border bg-card p-6 pt-7"
+              className={`relative ${w.tone} p-6 pt-7`}
             >
               <div
                 className="absolute top-0 left-6 right-6 h-[3px] rounded-b-full"
                 style={{ backgroundColor: w.c }}
               />
-              <h3 className="font-bold text-lg">{w.t}</h3>
-              <p className="mt-3 text-sm text-foreground/75 leading-relaxed">{w.d}</p>
+              <h3 className="font-bold text-lg text-slate-900">{w.t}</h3>
+              <p className="mt-3 text-sm text-slate-700 leading-relaxed">{w.d}</p>
             </div>
           ))}
         </div>
@@ -838,15 +846,26 @@ function CupsPage() {
           If something's not here — just ask in the form below.
         </p>
         <div className="mt-10 space-y-3">
-          {cupsFaqs.map((f) => (
-            <details key={f.q} className="group rounded-lg border border-border bg-card p-5">
-              <summary className="flex items-center justify-between cursor-pointer list-none font-semibold">
-                <span>{f.q}</span>
-                <span className="text-primary text-2xl group-open:rotate-45 transition-transform">+</span>
-              </summary>
-              <p className="mt-3 text-sm text-foreground/80 leading-relaxed">{f.a}</p>
-            </details>
-          ))}
+          {cupsFaqs.map((f, idx) => {
+            const tones = ["card-light-cyan", "card-light-pink", "card-light-yellow", "card-light-lime"];
+            const accents = ["#0ea5e9", "#ec4899", "#eab308", "#84cc16"];
+            const tone = tones[idx % tones.length];
+            const accent = accents[idx % accents.length];
+            return (
+              <details key={f.q} className={`group ${tone} p-5`}>
+                <summary className="flex items-center justify-between cursor-pointer list-none font-semibold text-slate-900">
+                  <span>{f.q}</span>
+                  <span
+                    className="text-2xl group-open:rotate-45 transition-transform"
+                    style={{ color: accent }}
+                  >
+                    +
+                  </span>
+                </summary>
+                <p className="mt-3 text-sm text-slate-700 leading-relaxed">{f.a}</p>
+              </details>
+            );
+          })}
         </div>
       </section>
 

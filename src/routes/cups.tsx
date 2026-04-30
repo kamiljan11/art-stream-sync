@@ -343,7 +343,7 @@ function CupsPage() {
         className="relative overflow-hidden"
         style={{ background: "var(--gradient-hero)" }}
       >
-        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-24 sm:py-32 text-center">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-24 sm:py-32 text-center animate-fade-in">
           <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight">
             Paper cups.{" "}
             <span className="bg-clip-text text-transparent" style={{ backgroundImage: "var(--gradient-cyan)" }}>
@@ -357,7 +357,7 @@ function CupsPage() {
           <div className="mt-10 flex flex-col items-center gap-3">
             <a
               href="#quote"
-              className="inline-flex items-center gap-2 rounded-md px-8 py-4 text-base font-semibold text-primary-foreground"
+              className="inline-flex items-center gap-2 rounded-md px-8 py-4 text-base font-semibold text-primary-foreground hover-glow"
               style={{ background: "var(--gradient-cyan)", boxShadow: "var(--shadow-glow)" }}
             >
               Get a quote <ArrowRight size={18} />

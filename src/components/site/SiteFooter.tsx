@@ -96,16 +96,7 @@ export function SiteFooter() {
           <TeamCard img={teamKamil} name="Kamil Jan" dept="Department in Iceland" />
         </div>
 
-        <div className="mt-12">
-          <a
-            href="#"
-            className="text-xs uppercase tracking-[0.25em] text-muted-foreground hover:text-primary transition-colors"
-          >
-            MAS PRINTS | Master Terms &amp; Service Guidelines
-          </a>
-        </div>
-
-        <div className="mt-6 text-xs text-muted-foreground/70">
+        <div className="mt-12 text-xs text-muted-foreground/70">
           © 2026 Mountain All Service ehf.
         </div>
       </div>

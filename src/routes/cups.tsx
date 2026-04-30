@@ -573,34 +573,84 @@ function CupsPage() {
       {/* WHY US */}
       <section id="why" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24">
         {/* CERTIFICATIONS */}
-        <div className="mb-20">
-          <p className="text-center text-xs uppercase tracking-[0.3em] text-muted-foreground">
-            Manufactured to
-          </p>
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-5">
-            {/* ISO 9001 */}
-            <div className="relative w-32 h-24 rounded-md border-2 border-[#1e6bd6] bg-card flex flex-col items-center justify-center">
-              <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-24 h-3 rounded-full bg-[#84cc16]" />
-              <div className="flex items-center gap-1 text-[#1e6bd6] font-extrabold text-xl">
-                <span className="text-[#84cc16]">✓</span>ISO
+        <div className="mb-24">
+          <div className="flex items-center justify-center gap-4 mb-10">
+            <span className="h-px w-12 bg-border" />
+            <p className="text-center text-[11px] uppercase tracking-[0.4em] text-muted-foreground font-semibold">
+              Manufactured to
+            </p>
+            <span className="h-px w-12 bg-border" />
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 max-w-3xl mx-auto">
+            {[
+              {
+                kind: "iso" as const,
+                main: "ISO",
+                sub: "9001 : 2015",
+                tag: "Quality management",
+                accent: "#1e6bd6",
+              },
+              {
+                kind: "iso" as const,
+                main: "ISO",
+                sub: "22000 : 2018",
+                tag: "Food safety",
+                accent: "#1e6bd6",
+              },
+              {
+                kind: "bio" as const,
+                main: "BIO",
+                sub: "Biodegradable",
+                tag: "EN 13432 compostable",
+                accent: "#84cc16",
+              },
+            ].map((c, i) => (
+              <div
+                key={i}
+                className="group relative rounded-xl border bg-gradient-to-b from-card to-background p-6 pt-8 text-center transition hover:-translate-y-1 hover:shadow-lg"
+                style={{
+                  borderColor: `${c.accent}55`,
+                  boxShadow: `0 0 0 1px ${c.accent}11, 0 8px 30px -12px ${c.accent}33`,
+                }}
+              >
+                {/* top accent bar */}
+                <div
+                  className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 h-1.5 w-20 rounded-full"
+                  style={{ background: `linear-gradient(90deg, transparent, ${c.accent}, transparent)` }}
+                />
+
+                <div className="flex items-center justify-center gap-2 mb-2">
+                  {c.kind === "iso" ? (
+                    <Check
+                      size={22}
+                      strokeWidth={3}
+                      className="rounded-full p-0.5"
+                      style={{ color: "#84cc16", background: "rgba(132,204,22,0.12)" }}
+                    />
+                  ) : (
+                    <Leaf size={22} strokeWidth={2.5} style={{ color: c.accent }} />
+                  )}
+                  <span
+                    className="text-3xl font-extrabold tracking-tight"
+                    style={{ color: c.accent }}
+                  >
+                    {c.main}
+                  </span>
+                </div>
+
+                <div
+                  className="text-sm font-bold tracking-wider"
+                  style={{ color: c.accent }}
+                >
+                  {c.sub}
+                </div>
+
+                <div className="mt-3 pt-3 border-t border-border/50 text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+                  {c.tag}
+                </div>
               </div>
-              <div className="text-[#1e6bd6] text-xs font-bold mt-1">9001 : 2015</div>
-            </div>
-            {/* ISO 22000 */}
-            <div className="relative w-32 h-24 rounded-md border-2 border-[#1e6bd6] bg-card flex flex-col items-center justify-center">
-              <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-24 h-3 rounded-full bg-[#84cc16]" />
-              <div className="flex items-center gap-1 text-[#1e6bd6] font-extrabold text-xl">
-                <span className="text-[#84cc16]">✓</span>ISO
-              </div>
-              <div className="text-[#1e6bd6] text-xs font-bold mt-1">22000 : 2018</div>
-            </div>
-            {/* BIO */}
-            <div className="w-32 h-24 rounded-md border-2 border-[#84cc16] bg-card flex flex-col items-center justify-center text-[#84cc16]">
-              <div className="flex items-center gap-1 font-extrabold text-lg">
-                <Leaf size={18} /> BIO
-              </div>
-              <div className="text-[11px] font-semibold mt-1">Biodegradable</div>
-            </div>
+            ))}
           </div>
         </div>
 

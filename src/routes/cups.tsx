@@ -387,9 +387,12 @@ function CupsPage() {
       {/* PRODUCTS GRID */}
       <section id="products" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24">
         <div className="text-center max-w-2xl mx-auto">
-          <h2 className="text-4xl font-extrabold">The full catalogue.</h2>
+          <h2 className="text-4xl font-extrabold">Our catalogue.</h2>
           <p className="mt-3 text-muted-foreground">
             Every paper line is available with standard Green PE or compostable BIO lining — just say the word.
+          </p>
+          <p className="mt-2 text-sm text-muted-foreground">
+            Don't see what you need? <a href="#contact" className="text-primary font-semibold underline underline-offset-4 hover:opacity-80">Send us a request</a> — we can source almost anything in this category.
           </p>
         </div>
 

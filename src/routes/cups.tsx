@@ -846,15 +846,26 @@ function CupsPage() {
           If something's not here — just ask in the form below.
         </p>
         <div className="mt-10 space-y-3">
-          {cupsFaqs.map((f) => (
-            <details key={f.q} className="group rounded-lg border border-border bg-card p-5">
-              <summary className="flex items-center justify-between cursor-pointer list-none font-semibold">
-                <span>{f.q}</span>
-                <span className="text-primary text-2xl group-open:rotate-45 transition-transform">+</span>
-              </summary>
-              <p className="mt-3 text-sm text-foreground/80 leading-relaxed">{f.a}</p>
-            </details>
-          ))}
+          {cupsFaqs.map((f, idx) => {
+            const tones = ["card-light-cyan", "card-light-pink", "card-light-yellow", "card-light-lime"];
+            const accents = ["#0ea5e9", "#ec4899", "#eab308", "#84cc16"];
+            const tone = tones[idx % tones.length];
+            const accent = accents[idx % accents.length];
+            return (
+              <details key={f.q} className={`group ${tone} p-5`}>
+                <summary className="flex items-center justify-between cursor-pointer list-none font-semibold text-slate-900">
+                  <span>{f.q}</span>
+                  <span
+                    className="text-2xl group-open:rotate-45 transition-transform"
+                    style={{ color: accent }}
+                  >
+                    +
+                  </span>
+                </summary>
+                <p className="mt-3 text-sm text-slate-700 leading-relaxed">{f.a}</p>
+              </details>
+            );
+          })}
         </div>
       </section>
 

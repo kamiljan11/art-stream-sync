@@ -609,6 +609,45 @@ function CupsPage() {
               </a>
             </div>
           </div>
+
+          {/* Circular by design, four-step loop (merged from former section) */}
+          <div className="mt-20 pt-16 border-t border-border/50">
+            <div className="text-center max-w-2xl mx-auto">
+              <span className="inline-block text-[10px] font-bold uppercase tracking-[0.2em] text-primary">
+                Circular economy
+              </span>
+              <h3 className="mt-3 text-3xl sm:text-4xl font-extrabold leading-[1.05] tracking-tight">
+                Circular by{" "}
+                <span style={{ color: "#84cc16" }}>design.</span>
+              </h3>
+              <p className="mt-4 text-foreground/75 leading-relaxed max-w-prose mx-auto">
+                Every BIO line follows a four-step loop: design it right, use it well, recover the material, put it back to work.
+              </p>
+            </div>
+
+            <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+              {[
+                { n: "01", t: "Design", d: "Plant-based PLA lining instead of fossil plastic. Print inks chosen to keep the cup compostable.", tone: "card-light-lime" },
+                { n: "02", t: "Use", d: "Same heat resistance, same hand-feel as a regular cup. No compromise for the customer or the barista.", tone: "card-light-cyan" },
+                { n: "03", t: "Recover", d: "EN 13432 certified, breaks down in industrial composting in weeks, not decades. Zero microplastics.", tone: "card-light-yellow" },
+                { n: "04", t: "Reuse", d: "Compost goes back into soil. Carbon stays in the loop. The cup becomes the next thing that grows.", tone: "card-light-pink" },
+              ].map((step) => (
+                <div key={step.n} className={`relative ${step.tone} p-6 pt-7`}>
+                  <div
+                    className="absolute top-0 left-6 right-6 h-[3px] rounded-b-full"
+                    style={{ backgroundColor: "#84cc16" }}
+                  />
+                  <div className="text-xs font-bold tracking-[0.2em] text-slate-500">{step.n}</div>
+                  <h4 className="mt-2 font-bold text-lg" style={{ color: "#84cc16" }}>{step.t}</h4>
+                  <p className="mt-3 text-sm text-slate-700 leading-relaxed">{step.d}</p>
+                </div>
+              ))}
+            </div>
+
+            <p className="mt-8 text-center text-xs text-muted-foreground max-w-xl mx-auto">
+              Need EN 13432 certificates or material data sheets for a tender or sustainability report? Just ask.
+            </p>
+          </div>
         </div>
       </section>
 

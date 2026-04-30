@@ -826,6 +826,8 @@ function CupsPage() {
 
 function CupsQuoteForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [needsDesign, setNeedsDesign] = useState<"yes" | "no" | "">("");
+  const [fileName, setFileName] = useState<string>("");
   if (submitted) {
     return (
       <div className="mt-10 text-center rounded-xl border border-border bg-card p-12">
@@ -867,13 +869,66 @@ function CupsQuoteForm() {
       />
       <SelectField label="Timing" options={["Standard (best price)", "Express (~1 week faster)", "Flexible"]} />
       <SelectField label="Lining" options={["Standard (Green PE)", "BIO (compostable)", "Don't know — advise me"]} />
+      {/* Design assistance + file upload — two-column block */}
+      <div className="sm:col-span-2 grid gap-4 sm:grid-cols-2 rounded-lg border border-border/70 bg-background/40 p-4">
+        <fieldset className="flex flex-col gap-2">
+          <legend className="text-xs font-medium uppercase tracking-wider text-muted-foreground mb-1">
+            Should we prepare the design for you?
+          </legend>
+          <label className="flex items-center gap-2 cursor-pointer text-sm">
+            <input
+              type="radio"
+              name="needsDesign"
+              value="yes"
+              checked={needsDesign === "yes"}
+              onChange={() => setNeedsDesign("yes")}
+              className="accent-primary h-4 w-4"
+            />
+            Yes, please — design it for me
+          </label>
+          <label className="flex items-center gap-2 cursor-pointer text-sm">
+            <input
+              type="radio"
+              name="needsDesign"
+              value="no"
+              checked={needsDesign === "no"}
+              onChange={() => setNeedsDesign("no")}
+              className="accent-primary h-4 w-4"
+            />
+            No, I have my own artwork
+          </label>
+        </fieldset>
+        <div className="flex flex-col gap-2">
+          <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
+            Upload artwork{" "}
+            <span
+              className="ml-1 inline-flex h-4 w-4 items-center justify-center rounded-full bg-primary/20 text-primary text-[10px]"
+              title="You can upload now or send later to our email."
+            >
+              i
+            </span>
+          </span>
+          <label className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-md border border-input bg-background px-3 py-2.5 text-sm font-medium hover:bg-muted transition-colors">
+            <input
+              type="file"
+              className="hidden"
+              accept=".pdf,.ai,.eps,.psd,.png,.jpg,.jpeg,.svg,.tif,.tiff"
+              onChange={(e) => setFileName(e.target.files?.[0]?.name ?? "")}
+            />
+            {fileName ? "Change file" : "Choose file"}
+          </label>
+          <span className="text-xs text-muted-foreground truncate">
+            {fileName || "PDF, AI, EPS, PSD, PNG, JPG, SVG — or send later by email"}
+          </span>
+        </div>
+      </div>
       <label className="sm:col-span-2 flex flex-col gap-1.5">
         <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
-          Notes (optional)
+          Additional questions or notes
         </span>
         <textarea
           rows={4}
-          placeholder="Sizes, colours, deadline, link to logo / artwork..."
+          placeholder="If you'd like to ask or tell us anything — write here. Sizes, colours, deadline, link to logo / artwork..."
           className="rounded-md border border-input bg-background px-3 py-2.5 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
         />
       </label>

@@ -4,7 +4,7 @@ import { useState } from "react";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { Reveal } from "@/components/site/Reveal";
-import { useT, useI18n } from "@/i18n/I18nProvider";
+import { useT, useTArray, useI18n } from "@/i18n/I18nProvider";
 import enMessages from "@/i18n/messages/en";
 import isMessages from "@/i18n/messages/is";
 import plMessages from "@/i18n/messages/pl";

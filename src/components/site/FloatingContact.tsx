@@ -142,24 +142,6 @@ export function FloatingContact() {
               </p>
             </div>
 
-            {/* Quick contact strip */}
-            <div className="grid grid-cols-2 gap-px bg-gray-200 border-b border-gray-200">
-              <a
-                href={PHONE_HREF}
-                className="flex items-center gap-2 bg-white px-4 py-3 text-sm hover:bg-gray-50"
-              >
-                <Phone className="h-4 w-4" style={{ color: cyan }} />
-                <span className="font-semibold">{PHONE}</span>
-              </a>
-              <a
-                href={`mailto:${EMAIL}`}
-                className="flex items-center gap-2 bg-white px-4 py-3 text-sm hover:bg-gray-50"
-              >
-                <Mail className="h-4 w-4" style={{ color: magenta }} />
-                <span className="font-semibold truncate">{EMAIL}</span>
-              </a>
-            </div>
-
             {/* Body */}
             <div className="overflow-y-auto p-6">
               {sent ? (

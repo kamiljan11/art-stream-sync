@@ -694,6 +694,73 @@ function CupsPage() {
         </div>
       </section>
 
+      {/* CIRCULAR BY DESIGN */}
+      <section className="border-y border-border bg-card/40">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-24">
+          <div className="text-center max-w-2xl mx-auto">
+            <span className="inline-block text-[10px] font-bold uppercase tracking-[0.2em] text-primary">
+              Circular economy
+            </span>
+            <h2 className="mt-3 text-4xl sm:text-5xl font-extrabold leading-[1.05] tracking-tight">
+              Circular by{" "}
+              <span style={{ color: "#84cc16" }}>design.</span>
+            </h2>
+            <p className="mt-4 text-foreground/75 leading-relaxed max-w-prose mx-auto">
+              We don't just sell cups — we build them to leave the bin behind. Every BIO line
+              follows a four-step loop: design it right, use it well, recover the material, put it
+              back to work.
+            </p>
+          </div>
+
+          <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {[
+              {
+                n: "01",
+                t: "Design",
+                d: "Plant-based PLA lining instead of fossil plastic. Print inks chosen to keep the cup compostable.",
+              },
+              {
+                n: "02",
+                t: "Use",
+                d: "Same heat resistance, same hand-feel as a regular cup. No compromise for the customer or the barista.",
+              },
+              {
+                n: "03",
+                t: "Recover",
+                d: "EN 13432 certified — breaks down in industrial composting in weeks, not decades. Zero microplastics.",
+              },
+              {
+                n: "04",
+                t: "Reuse",
+                d: "Compost goes back into soil. Carbon stays in the loop. The cup becomes the next thing that grows.",
+              },
+            ].map((step) => (
+              <div
+                key={step.n}
+                className="relative rounded-xl border border-border bg-card p-6 pt-7"
+              >
+                <div
+                  className="absolute top-0 left-6 right-6 h-[3px] rounded-b-full"
+                  style={{ backgroundColor: "#84cc16" }}
+                />
+                <div className="text-xs font-bold tracking-[0.2em] text-muted-foreground">
+                  {step.n}
+                </div>
+                <h3 className="mt-2 font-bold text-lg" style={{ color: "#84cc16" }}>
+                  {step.t}
+                </h3>
+                <p className="mt-3 text-sm text-foreground/75 leading-relaxed">{step.d}</p>
+              </div>
+            ))}
+          </div>
+
+          <p className="mt-10 text-center text-xs text-muted-foreground max-w-xl mx-auto">
+            Looking for documentation for a tender or sustainability report? We provide EN 13432
+            certificates and material data sheets on request.
+          </p>
+        </div>
+      </section>
+
       {/* HOW TO ORDER */}
       <section id="how" className="bg-card/40 border-y border-border">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-24">

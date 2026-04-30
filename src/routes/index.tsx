@@ -74,31 +74,31 @@ const capabilities = [
 const faqs = [
   {
     q: "Why are you so much cheaper?",
-    a: "Because we don't have the overhead. We don't pay for high-rent facilities in Reykjavík, a sales fleet, or expensive local maintenance. We connect you directly to the industrial source.",
+    a: "No overhead. No expensive Reykjavík office, no sales fleet — we connect you straight to the industrial source.",
   },
   {
     q: "Is the quality the same?",
-    a: "Yes. We use the same industrial Heidelberg/HP presses and the same paper weights (130g–300g) as the big Icelandic agencies. Often, we are printing in the exact same factories they outsource to.",
+    a: "Yes — same Heidelberg/HP presses, same paper weights (130–300 g) as the big Icelandic agencies. Often the exact same factories they outsource to.",
   },
   {
     q: "How does the Price Guarantee work?",
-    a: "Simple. If you find a lower price for the exact same print job (same quantity, paper weight, and finish) from a registered Icelandic printing company, show us their official quote before ordering or within 7 days of purchase. We will beat their price or refund the difference.",
+    a: "Find a lower official quote from a registered Icelandic printer for the exact same job — same quantity, paper, finish — before ordering or within 7 days. We beat it, or refund the difference.",
   },
   {
     q: "Do I get a valid invoice?",
-    a: "Absolutely. You are buying from Mountain All Service ehf., a registered Icelandic company (Kennitala: 690725-0450). You receive a fully compliant tax invoice (Faktura) with VSK stated.",
+    a: "Yes. You buy from Mountain All Service ehf. (Kt. 690725-0450) and get a compliant Icelandic tax invoice with VSK stated.",
   },
   {
     q: "Do I have to deal with Customs?",
-    a: "No. We handle all importation, VAT payment, and customs clearance. The price we quote is the final price delivered to your door. You don't deal with Tollstjóri.",
+    a: "No. We handle import, VAT and customs. The quoted price is the final price at your door — you never talk to Tollstjóri.",
   },
   {
     q: "Can you check my files?",
-    a: "Yes. We provide detailed instructions on how to prepare files. If your files need technical fixes to avoid printing errors, we will fix them for a fee. We also offer full design services at European rates.",
+    a: "Yes. We send file-prep instructions. Small technical fixes are paid by the hour; full design work is available at European rates.",
   },
   {
     q: "What if something is wrong?",
-    a: "We take full responsibility. If there is a printing error, we will reprint the order at our cost or provide a full refund.",
+    a: "We take full responsibility. Printing error? We reprint at our cost or refund in full.",
   },
 ];
 

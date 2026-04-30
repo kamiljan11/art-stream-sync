@@ -366,7 +366,7 @@ const en = {
         "Something else / mix",
       ],
       quantities: ["1,000 – 5,000", "5,000 – 20,000", "20,000 – 50,000", "50,000+"],
-      timings: ["Standard (best price)", "Express (~1 week faster)", "Flexible"],
+      timings: ["Standard (best price)", "Express (faster if possible)", "Flexible"],
       linings: ["Standard (Green PE)", "BIO (compostable)", "Don't know, advise me"],
     },
     productCatalog: [

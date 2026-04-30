@@ -109,7 +109,7 @@ function Index() {
 
       {/* HERO */}
       <section id="hero" className="relative overflow-hidden" style={{ background: "var(--gradient-hero)" }}>
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24 sm:py-32 text-center">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-24 sm:py-32 text-center">
           <CmykBar />
           <h1 className="mt-6 text-5xl sm:text-7xl font-extrabold tracking-tight uppercase">
             Wholesale{" "}
@@ -141,7 +141,7 @@ function Index() {
       <PartnersMarquee />
 
       {/* SECRET / LOGIC */}
-      <section id="secret" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24">
+      <section id="secret" className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-24">
         <div id="logic" className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div>
             <h2 className="text-4xl sm:text-5xl font-extrabold leading-[1.05] tracking-tight">
@@ -171,7 +171,7 @@ function Index() {
 
       {/* SAVINGS / MATH */}
       <section id="savings" className="bg-card/40 border-y border-border">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-24">
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="text-4xl sm:text-5xl font-extrabold">
               The Math Behind the <span style={{ color: "var(--brand-cyan)" }}>Guarantee.</span>
@@ -252,7 +252,7 @@ function Index() {
       </section>
 
       {/* LEGAL / PRICING */}
-      <section id="pricing" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24 border-t border-border">
+      <section id="pricing" className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-24 border-t border-border">
         <div id="legal" className="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
           <div>
             <h2 className="text-4xl sm:text-5xl font-extrabold leading-[1.05] tracking-tight">
@@ -291,7 +291,7 @@ function Index() {
 
       {/* PRODUCTS / CAPABILITIES */}
       <section id="products" className="bg-card/40 border-y border-border">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-24">
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="text-4xl sm:text-5xl font-extrabold">
               Industrial <span style={{ color: "var(--brand-cyan)" }}>Capabilities.</span>
@@ -318,7 +318,7 @@ function Index() {
       </section>
 
       {/* PROCESS */}
-      <section id="process" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24">
+      <section id="process" className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-24">
         <div className="text-center max-w-3xl mx-auto">
           <h2 className="text-4xl sm:text-5xl font-extrabold">
             3 STEPS TO <span style={{ color: "var(--brand-cyan)" }}>LOWER COSTS</span>

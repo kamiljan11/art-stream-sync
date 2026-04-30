@@ -311,7 +311,7 @@ function Index() {
               img={capCups}
               items={["Single-Wall Paper Cups", "Double-Wall Thermal Cups", "Eco-Friendly BIO Cups", "Paper & Plastic Lids", "Wooden Stirrers"]}
               accent={accentFor(6)}
-              cta={{ label: "Read More", to: "/cups" }}
+              cta={{ label: "Explore Cups Range", to: "/cups" }}
             />
           </div>
         </div>

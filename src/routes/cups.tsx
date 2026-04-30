@@ -281,61 +281,29 @@ function CupsPage() {
       {/* HERO */}
       <section
         id="cups"
-        className="relative overflow-hidden border-b border-border"
+        className="relative overflow-hidden"
         style={{ background: "var(--gradient-hero)" }}
       >
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 sm:py-28 grid lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <span className="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-wider rounded-full bg-primary/10 text-primary">
-              Wholesale · Delivered DDP to Iceland
-            </span>
-            <h1 className="mt-6 text-4xl sm:text-6xl font-extrabold tracking-tight leading-[1.05]">
-              Custom paper &amp; plastic cups —{" "}
-              <span
-                className="bg-clip-text text-transparent"
-                style={{ backgroundImage: "var(--gradient-cyan)" }}
-              >
-                European factory price
-              </span>
-              , Icelandic invoice.
-            </h1>
-            <p className="mt-6 text-lg text-muted-foreground max-w-xl">
-              Single-wall, premium thermal, sleeve, transparent rPET, ice cream
-              bowls, lids, straws and stirrers. From 1,000 pieces. One price,
-              one date, one contact in ISK.
-            </p>
-            <div className="mt-8 flex flex-col sm:flex-row gap-3">
-              <a
-                href="#quote"
-                className="inline-flex items-center justify-center gap-2 rounded-md px-7 py-4 text-base font-semibold text-primary-foreground"
-                style={{ background: "var(--gradient-cyan)", boxShadow: "var(--shadow-glow)" }}
-              >
-                Get a fixed quote <ArrowRight size={18} />
-              </a>
-              <a
-                href="#products"
-                className="inline-flex items-center justify-center gap-2 rounded-md px-7 py-4 text-base font-semibold border border-border bg-card hover:bg-card/70"
-              >
-                Browse the catalogue
-              </a>
-            </div>
-            <p className="mt-4 text-sm text-muted-foreground">
-              Reply within 24 working hours · VAT, customs &amp; inland delivery included
-            </p>
-          </div>
-
-          <div className="relative">
-            <div className="aspect-[4/5] rounded-2xl overflow-hidden border border-border shadow-2xl">
-              <img src={heroCups} alt="Custom branded paper cup" className="w-full h-full object-cover" />
-            </div>
-            <div className="absolute -bottom-6 -left-6 hidden sm:block rounded-xl border border-border bg-card p-4 shadow-xl">
-              <div className="text-2xl font-extrabold text-primary">CMYK ∞</div>
-              <div className="text-xs uppercase tracking-wider text-muted-foreground">Unlimited colours</div>
-            </div>
-            <div className="absolute -top-6 -right-6 hidden sm:block rounded-xl border border-border bg-card p-4 shadow-xl">
-              <div className="text-2xl font-extrabold text-primary">DDP</div>
-              <div className="text-xs uppercase tracking-wider text-muted-foreground">All-in ISK price</div>
-            </div>
+        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-24 sm:py-32 text-center">
+          <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight">
+            Paper cups.{" "}
+            <span className="bg-clip-text text-transparent" style={{ backgroundImage: "var(--gradient-cyan)" }}>
+              Wholesale prices.
+            </span>{" "}
+            Delivered in Iceland.
+          </h1>
+          <p className="mt-6 text-lg text-muted-foreground">
+            Custom print from 1,000 pieces. One price, one schedule, one contact.
+          </p>
+          <div className="mt-10 flex flex-col items-center gap-3">
+            <a
+              href="#quote"
+              className="inline-flex items-center gap-2 rounded-md px-8 py-4 text-base font-semibold text-primary-foreground"
+              style={{ background: "var(--gradient-cyan)", boxShadow: "var(--shadow-glow)" }}
+            >
+              Get a quote <ArrowRight size={18} />
+            </a>
+            <p className="text-sm text-muted-foreground">Fixed ISK quote in 24 hours. No contract.</p>
           </div>
         </div>
       </section>

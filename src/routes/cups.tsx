@@ -4,6 +4,7 @@ import { useState } from "react";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { Reveal } from "@/components/site/Reveal";
+import { useT } from "@/i18n/I18nProvider";
 
 import cupEveryday from "@/assets/site/cup-everyday.jpg";
 import cupPremium from "@/assets/site/cup-premium.jpg";
@@ -334,6 +335,7 @@ const cupsFaqs = [
 /* ────────────────────────────────────────────────────────────────────────── */
 
 function CupsPage() {
+  const t = useT();
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SiteHeader />
@@ -346,14 +348,14 @@ function CupsPage() {
       >
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-24 sm:py-32 text-center animate-fade-in">
           <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight">
-            Paper cups.{" "}
+            {t("cupsHero.line1")}{" "}
             <span className="bg-clip-text text-transparent" style={{ backgroundImage: "var(--gradient-cyan)" }}>
-              Wholesale prices.
+              {t("cupsHero.line2")}
             </span>{" "}
-            Delivered in Iceland.
+            {t("cupsHero.line3")}
           </h1>
           <p className="mt-6 text-lg text-foreground/80 leading-relaxed">
-            Custom print from 1,000 pieces. One price, one schedule, one contact.
+            {t("cupsHero.sub")}
           </p>
           <div className="mt-10 flex flex-col items-center gap-3">
             <a
@@ -361,9 +363,9 @@ function CupsPage() {
               className="inline-flex items-center gap-2 rounded-md px-8 py-4 text-base font-semibold text-primary-foreground hover-glow"
               style={{ background: "var(--gradient-cyan)", boxShadow: "var(--shadow-glow)" }}
             >
-              Get a quote <ArrowRight size={18} />
+              {t("cupsHero.cta")} <ArrowRight size={18} />
             </a>
-            <p className="text-sm text-muted-foreground">Fixed ISK quote in 24 hours. No contract.</p>
+            <p className="text-sm text-muted-foreground">{t("cupsHero.badge")}</p>
           </div>
         </div>
       </section>

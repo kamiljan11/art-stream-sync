@@ -2,6 +2,7 @@ import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/r
 
 import appCss from "../styles.css?url";
 import { FloatingContact } from "@/components/site/FloatingContact";
+import { I18nProvider } from "@/i18n/I18nProvider";
 
 function NotFoundComponent() {
   return (
@@ -71,9 +72,9 @@ function RootShell({ children }: { children: React.ReactNode }) {
 
 function RootComponent() {
   return (
-    <>
+    <I18nProvider>
       <Outlet />
       <FloatingContact />
-    </>
+    </I18nProvider>
   );
 }

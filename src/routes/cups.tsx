@@ -232,67 +232,63 @@ const sizeGuide = [
 const cupsFaqs = [
   {
     q: "What's the minimum order for printed cups?",
-    a: "1,000 pieces per design for paper cups, 800 (one carton) for transparent plastic cups. Below that the per-unit price stops making sense — you'd pay more than at a retail shop. Plain white cups without print: from one carton.",
+    a: "1,000 pcs per design for paper cups, 800 (one carton) for transparent plastic. Below that the per-unit price stops making sense. Plain white cups without print: from one carton.",
   },
   {
     q: "How long does delivery to Iceland take?",
-    a: "Realistic timing: 4–6 weeks for printed paper cups, 5–6 weeks for thermal and transparent plastic cups, 2–3 weeks for stock items (plain cups, lids, straws, stirrers). Express tier shaves about a week off printed orders. The exact date is locked in your quote — we ship from mainland Europe and clear Icelandic customs for you.",
+    a: "Printed paper cups: 4–6 weeks. Thermal & transparent plastic: 5–6 weeks. Stock items (plain cups, lids, straws, stirrers): 2–3 weeks. Express shaves about a week off printed orders. The exact date is locked in your quote — we clear Icelandic customs for you.",
   },
   {
     q: "Are customs, VAT and delivery included?",
-    a: "Yes. Every quote is all-in ISK, delivered to your door (Delivered Duty Paid). Icelandic VAT, customs and inland transport from Reykjavík port to your address are all in the price. No surprise fees when the pallet lands.",
+    a: "Yes. Every quote is all-in ISK, delivered to your door. VAT, customs and inland transport from Reykjavík port — all included. No surprise fees when the pallet lands.",
   },
   {
     q: "How many colours can I print?",
-    a: "Paper cups: unlimited full-colour printing at no extra cost — go full-bleed photographic if you want. Transparent plastic cups: max 4 spot colours, solid blocks only (no tonal gradients). QR codes and capacity markings are both supported.",
+    a: "Paper cups: unlimited full-colour printing at no extra cost — full-bleed photographs welcome. Transparent plastic: max 4 spot colours, solid blocks only (no gradients). QR codes and capacity markings are supported on both.",
   },
   {
     q: "Can I order eco / biodegradable cups?",
-    a: "Yes — every paper line can be ordered with a BIO (compostable PLA) lining instead of standard Green PE. Same feel, same heat resistance, but no microplastics and EN 13432 industrial-compostable. Just ask in the quote form.",
-  },
-  {
-    q: "What file formats do you accept for artwork?",
-    a: "Vector files work best — Adobe Illustrator (.ai), PDF, EPS or SVG. Colours can be standard print (CMYK) or specific Pantone shades. We have ready arc-shaped templates for every cup size and will send you the right one. Simple logos we often prepare for free; complex artwork is quoted separately.",
+    a: "Yes — every paper line can be ordered with a BIO (compostable PLA) lining instead of standard Green PE. Same feel, same heat resistance, no microplastics, EN 13432 compostable. Just tick it in the quote form.",
   },
   {
     q: "Can I see samples first?",
-    a: "Yes. Plain stock samples are free. Custom-printed samples carry a small production fee, deducted from your first real order.",
+    a: "Yes. Plain stock samples are free. Custom-printed samples carry a small production fee — deducted from your first real order.",
   },
   {
     q: "Will every batch look identical?",
-    a: "Within ±15% colour variance between production runs (industry standard). Red stays red — but the exact shade can shift slightly batch to batch. Paper weight, lid fit and dimensions are locked in spec.",
+    a: "Within ±15% colour variance between runs (industry standard). Red stays red — but the exact shade can shift slightly. Paper weight, lid fit and dimensions are locked in spec.",
   },
   {
     q: "Do you deliver outside the capital area?",
-    a: "Yes. We're based in Njarðvík and ship anywhere in Iceland — Reykjavík, Akureyri, Vestfirðir, Egilsstaðir, Westman Islands. Inland transport is included in the quote.",
+    a: "Yes. We're based in Njarðvík and ship anywhere in Iceland — Reykjavík, Akureyri, Vestfirðir, Egilsstaðir, Westman Islands. Inland transport is in the quote.",
   },
   {
     q: "Do I need a long-term contract?",
-    a: "No. Every order is independent. Order once and never come back, or set up a recurring delivery — your call.",
+    a: "No. Every order is independent. Order once or set up a recurring delivery — your call.",
   },
   {
     q: "I don't know how to prepare artwork — can you help?",
-    a: "Yes. Send us your logo, the colours you want and where it should sit on the cup. For simple jobs we prepare the artwork for you, free. For more complex designs we'll quote a small one-off setup fee before we start.",
+    a: "Yes. Send us your logo, the colours and where it should sit on the cup. Simple jobs we prepare for free; complex designs get a small one-off setup fee, quoted upfront.",
   },
   {
     q: "Can I put a QR code on my cups?",
-    a: "Yes — very common for menus, loyalty programs and Instagram links. Send it as a vector file or a sharp 300 dpi image. We'll print a 1:1 test on the proof so you can scan it before the full run starts.",
+    a: "Yes — common for menus, loyalty and Instagram. Send it as vector or a sharp 300 dpi image. We test-scan a 1:1 print on the proof before the full run.",
   },
   {
     q: "Will the colour on my screen match the finished cups?",
-    a: "Close, but not 100%. Screens use light, cups use ink on paper — and there's a normal ±15% colour variance between print runs. If a brand colour has to be exact, tell us your Pantone code and we'll print a Pantone match (small extra cost) instead of standard CMYK.",
+    a: "Close, but not 100%. Screens use light, cups use ink — plus a normal ±15% variance between runs. If a brand colour must be exact, send a Pantone code and we'll print a Pantone match (small extra cost).",
   },
   {
     q: "Can I add liquid level markings (0.2 L, 0.3 L)?",
-    a: "Yes, on the outside of the cup. Because cup walls taper, we recommend ordering a sample first so we can measure exact fill heights before locking the artwork.",
+    a: "Yes, on the outside. Because cup walls taper, order a sample first so we can measure the exact fill heights before locking the artwork.",
   },
   {
     q: "Can the inside of the cup be printed?",
-    a: "No. The inner coating that keeps the cup leak-proof and food-safe also blocks ink — printing only happens on the outside.",
+    a: "No. The leak-proof, food-safe inner coating also blocks ink — printing is exterior-only.",
   },
   {
     q: "What file formats do you accept and which template should I use?",
-    a: "Editable vector files: .ai (Adobe Illustrator), .cdr (CorelDraw) or editable .pdf. Every cup size has its own arc-shaped template — tell us the size and lining you want and we'll email the right one back to you.",
+    a: "Editable vector files: .ai (Illustrator), .cdr (CorelDraw) or editable .pdf. Every cup size has its own arc-shaped template — tell us the size and lining and we'll email the right one back.",
   },
 ];
 

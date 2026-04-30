@@ -287,24 +287,29 @@ function Index() {
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-24">
           <Reveal className="text-center max-w-3xl mx-auto">
             <h2 className="text-4xl sm:text-5xl font-extrabold">
-              Industrial <span style={{ color: "var(--brand-cyan)" }}>Capabilities.</span>
+              {t("capabilities.heading1")} <span style={{ color: "var(--brand-cyan)" }}>{t("capabilities.heading2")}</span>
             </h2>
-            <p className="mt-4 text-foreground/75 max-w-xl mx-auto leading-relaxed">
-              Everything your business prints, from daily essentials to industrial runs and custom packaging.
-            </p>
+            <p className="mt-4 text-foreground/75 max-w-xl mx-auto leading-relaxed">{t("capabilities.sub")}</p>
           </Reveal>
 
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-[30px] mt-[50px]">
             {capabilities.map((c, idx) => (
-              <ProductCard key={c.n} {...c} accent={accentFor(idx)} />
+              <ProductCard
+                key={c.n}
+                n={c.n}
+                title={t(`capabilities.${c.key}.title`)}
+                img={c.img}
+                items={(t(`capabilities.${c.key}.items`) as unknown as string[]) ?? []}
+                accent={accentFor(idx)}
+              />
             ))}
             <ProductCard
               n="07"
-              title="PAPER CUPS"
+              title={t("capabilities.cups.title")}
               img={capCups}
-              items={["Single-Wall Paper Cups", "Double-Wall Thermal Cups", "Eco-Friendly BIO Cups", "Paper & Plastic Lids", "Wooden Stirrers"]}
+              items={(t("capabilities.cups.items") as unknown as string[]) ?? []}
               accent={accentFor(6)}
-              cta={{ label: "Explore Cups Range", to: "/cups" }}
+              cta={{ label: t("capabilities.cups.cta"), to: "/cups" }}
             />
           </div>
         </div>

@@ -380,7 +380,7 @@ const is = {
       {
         tag: "Tvíveggja · premium",
         title: "Premium hita tvíveggja bolli",
-        sizes: "250 · 300 · 400 ml (≈ 8 · 10 · 14 oz)",
+        sizes: "250 · 300 · 400 ml",
         desc: "Topp tvíveggja bolli. Heitt kaffi inni, kaldar hendur úti. Okkar val fyrir kaffihús, take-away og kaffihorn hótela.",
         bullets: ["Bestu þægindi fyrir hendur með heitum drykkjum", "Premium tilfinning, mött eða gljáandi áferð", "Endurvinnanleg eða niðurbrjótanleg innri húðun"],
         moq: "1.000 stk",

@@ -380,7 +380,7 @@ const pl = {
       {
         tag: "Dwuwarstwowy · premium",
         title: "Premium termiczny kubek dwuwarstwowy",
-        sizes: "250 · 300 · 400 ml (≈ 8 · 10 · 14 oz)",
+        sizes: "250 · 300 · 400 ml",
         desc: "Top z dwuwarstwowych. Gorąca kawa w środku, chłodne dłonie na zewnątrz. Nasz wybór dla kawiarni, na wynos i hotelowych kącików kawowych.",
         bullets: ["Najlepszy komfort dłoni przy gorących napojach", "Premium odczucie, mat lub połysk", "Bariera wewnętrzna do recyklingu lub kompostowalna"],
         moq: "1 000 szt.",

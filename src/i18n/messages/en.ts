@@ -380,7 +380,7 @@ const en = {
       {
         tag: "Double-wall · premium",
         title: "Premium thermal double-wall cup",
-        sizes: "250 · 300 · 400 ml (≈ 8 · 10 · 14 oz)",
+        sizes: "250 · 300 · 400 ml",
         desc: "Top-of-range double-wall cup. Hot coffee inside, cool hands outside. Our pick for cafés, takeaway and hotel coffee corners.",
         bullets: ["Best-in-class hand comfort on hot drinks", "Premium feel, matte or gloss finish", "Recyclable or compostable inner lining"],
         moq: "1,000 pcs",

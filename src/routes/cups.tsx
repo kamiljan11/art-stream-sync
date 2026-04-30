@@ -718,38 +718,42 @@ function CupsPage() {
                 n: "01",
                 t: "Design",
                 d: "Plant-based PLA lining instead of fossil plastic. Print inks chosen to keep the cup compostable.",
+                tone: "card-light-lime",
               },
               {
                 n: "02",
                 t: "Use",
                 d: "Same heat resistance, same hand-feel as a regular cup. No compromise for the customer or the barista.",
+                tone: "card-light-cyan",
               },
               {
                 n: "03",
                 t: "Recover",
                 d: "EN 13432 certified — breaks down in industrial composting in weeks, not decades. Zero microplastics.",
+                tone: "card-light-yellow",
               },
               {
                 n: "04",
                 t: "Reuse",
                 d: "Compost goes back into soil. Carbon stays in the loop. The cup becomes the next thing that grows.",
+                tone: "card-light-pink",
               },
             ].map((step) => (
               <div
                 key={step.n}
-                className="relative rounded-xl border border-border bg-card p-6 pt-7"
+                className={`relative ${step.tone} p-6 pt-7`}
               >
                 <div
                   className="absolute top-0 left-6 right-6 h-[3px] rounded-b-full"
                   style={{ backgroundColor: "#84cc16" }}
                 />
-                <div className="text-xs font-bold tracking-[0.2em] text-muted-foreground">
+                <div className="text-xs font-bold tracking-[0.2em] text-slate-500">
                   {step.n}
                 </div>
                 <h3 className="mt-2 font-bold text-lg" style={{ color: "#84cc16" }}>
                   {step.t}
                 </h3>
-                <p className="mt-3 text-sm text-foreground/75 leading-relaxed">{step.d}</p>
+                <p className="mt-3 text-sm text-slate-700 leading-relaxed">{step.d}</p>
               </div>
             ))}
           </div>
@@ -767,20 +771,17 @@ function CupsPage() {
           <h2 className="text-4xl font-extrabold text-center">How to order.</h2>
           <div className="grid md:grid-cols-4 gap-6 mt-12">
             {[
-              { n: "1", t: "Send the brief", d: "Size, quantity, lining (PE or BIO), logo or full artwork." },
-              { n: "2", t: "Get a fixed quote", d: "In ISK within 24 working hours. All-in price — VAT, customs and delivery to your door included." },
-              { n: "3", t: "Free artwork adaptation", d: "We adapt your logo or graphics to the cup template — completely free with every order. Digital proof before any press starts." },
-              { n: "4", t: "Pallet at your door", d: "We track production and freight. You stop chasing." },
+              { n: "1", t: "Send the brief", d: "Size, quantity, lining (PE or BIO), logo or full artwork.", tone: "card-light-cyan", accent: "#0ea5e9" },
+              { n: "2", t: "Get a fixed quote", d: "In ISK within 24 working hours. All-in price — VAT, customs and delivery to your door included.", tone: "card-light-pink", accent: "#ec4899" },
+              { n: "3", t: "Free artwork adaptation", d: "We adapt your logo or graphics to the cup template — completely free with every order. Digital proof before any press starts.", tone: "card-light-yellow", accent: "#eab308" },
+              { n: "4", t: "Pallet at your door", d: "We track production and freight. You stop chasing.", tone: "card-light-lime", accent: "#84cc16" },
             ].map((s) => (
-              <div key={s.n} className="rounded-xl border border-border bg-card p-6">
-                <div
-                  className="text-5xl font-extrabold bg-clip-text text-transparent"
-                  style={{ backgroundImage: "var(--gradient-cyan)" }}
-                >
+              <div key={s.n} className={`${s.tone} p-6`}>
+                <div className="text-5xl font-extrabold" style={{ color: s.accent }}>
                   {s.n}
                 </div>
-                <h3 className="mt-4 text-lg font-bold">{s.t}</h3>
-              <p className="mt-3 text-sm text-foreground/75 leading-relaxed">{s.d}</p>
+                <h3 className="mt-4 text-lg font-bold text-slate-900">{s.t}</h3>
+                <p className="mt-3 text-sm text-slate-700 leading-relaxed">{s.d}</p>
               </div>
             ))}
           </div>
@@ -791,35 +792,39 @@ function CupsPage() {
               {
                 t: "From just 1,000 pcs",
                 d: "Low minimum order — perfect for small cafés, events and pilot runs. Scale up whenever you're ready.",
+                tone: "card-light-cyan",
+                accent: "#0ea5e9",
               },
               {
                 t: "Free artwork adaptation",
                 d: "Send your logo in any usable format — we adapt it to the cup template at no extra cost with every order.",
+                tone: "card-light-pink",
+                accent: "#ec4899",
               },
               {
                 t: "Your dedicated contact",
                 d: "One person guides you from quote to delivery. Not sure which product fits? Just ask — we'll advise.",
+                tone: "card-light-yellow",
+                accent: "#eab308",
               },
               {
                 t: "Professional QC system",
                 d: "Every batch passes a multi-stage quality check — print accuracy, lining seal, structure and food-safety compliance — before it ships.",
+                tone: "card-light-lime",
+                accent: "#84cc16",
               },
             ].map((u) => (
-              <div
-                key={u.t}
-                className="rounded-xl border border-primary/30 bg-card p-5"
-                style={{ boxShadow: "0 0 0 1px rgba(132,204,22,0.05)" }}
-              >
+              <div key={u.t} className={`${u.tone} p-5`}>
                 <div className="flex items-center gap-2">
                   <span
-                    className="inline-flex h-6 w-6 items-center justify-center rounded-full text-xs font-bold text-primary-foreground"
-                    style={{ background: "var(--gradient-cyan)" }}
+                    className="inline-flex h-6 w-6 items-center justify-center rounded-full text-xs font-bold text-white"
+                    style={{ backgroundColor: u.accent }}
                   >
                     ✓
                   </span>
-                  <h3 className="font-bold text-base">{u.t}</h3>
+                  <h3 className="font-bold text-base text-slate-900">{u.t}</h3>
                 </div>
-                <p className="mt-2 text-sm text-foreground/75 leading-relaxed">{u.d}</p>
+                <p className="mt-2 text-sm text-slate-700 leading-relaxed">{u.d}</p>
               </div>
             ))}
           </div>

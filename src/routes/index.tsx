@@ -186,7 +186,7 @@ function Index() {
               tint="magenta"
               icon={<X className="text-[color:var(--brand-magenta)]" strokeWidth={3} />}
               title="NO STORAGE"
-              text="Storage adds ~15% to the price. We skip it — straight from factory to your door. You pay for the print, not the warehouse."
+              text="Storage adds ~15% to the price. We skip it — straight from factory to your door."
             />
             <FeatureCard
               tint="cyan"

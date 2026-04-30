@@ -270,7 +270,7 @@ const sizeGuide = [
 const cupsFaqs = [
   {
     q: "What's the minimum order for printed cups?",
-    a: "1,000 pcs per design for paper cups, 800 (one carton) for transparent plastic. Below that the per-unit price stops making sense. Plain white cups without print: from one carton.",
+    a: "1,000 pcs per design — applies to all cups: paper, transparent plastic and BIO bowls. Below that the per-unit price stops making sense.",
   },
   {
     q: "How long does delivery to Iceland take?",

@@ -578,21 +578,43 @@ function CupsPage() {
             {/* RIGHT (desktop) / SECOND (mobile): warning sticker on green panel */}
             <div
               className="relative rounded-2xl overflow-hidden flex items-center justify-center p-10 sm:p-14 aspect-square md:aspect-[4/5] max-w-md mx-auto w-full order-1 md:order-2"
-              style={{ background: "linear-gradient(135deg, #c5d9a4 0%, #b9d18f 100%)" }}
+              style={{ background: "linear-gradient(135deg, #c5d9a4 0%, #9bbf73 100%)" }}
             >
+              {/* Decorative dotted grid */}
+              <div
+                aria-hidden
+                className="absolute inset-0 opacity-30"
+                style={{
+                  backgroundImage:
+                    "radial-gradient(circle, rgba(0,0,0,0.18) 1px, transparent 1px)",
+                  backgroundSize: "18px 18px",
+                }}
+              />
+              {/* Soft glow behind sticker */}
+              <div
+                aria-hidden
+                className="absolute inset-0"
+                style={{
+                  background:
+                    "radial-gradient(ellipse at center, rgba(255,255,255,0.55) 0%, transparent 60%)",
+                }}
+              />
+
               <span className="absolute top-4 left-4 inline-block px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider rounded-md bg-black/80 text-white">
                 {cp.eco.euMark}
               </span>
 
-              {/* The sticker */}
-              <img
-                src={euPlasticMarking}
-                alt={cp.eco.euAlt}
-                loading="lazy"
-                width={1536}
-                height={1024}
-                className="rotate-[-6deg] w-[min(95%,460px)] h-auto drop-shadow-2xl"
-              />
+              {/* The sticker — larger, on a clean white card to mimic a printed label */}
+              <div className="relative rotate-[-4deg] w-[min(92%,420px)] rounded-xl bg-white p-4 sm:p-5 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.45)] ring-1 ring-black/5">
+                <img
+                  src={euPlasticMarking}
+                  alt={cp.eco.euAlt}
+                  loading="lazy"
+                  width={1536}
+                  height={1024}
+                  className="block w-full h-auto rounded-md"
+                />
+              </div>
             </div>
 
             {/* LEFT (desktop) / FIRST (mobile): copy */}

@@ -571,32 +571,77 @@ function CupsPage() {
 
       {/* WHY US */}
       <section id="why" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24">
+        {/* CERTIFICATIONS */}
+        <div className="mb-20">
+          <p className="text-center text-xs uppercase tracking-[0.3em] text-muted-foreground">
+            Manufactured to
+          </p>
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-5">
+            {/* ISO 9001 */}
+            <div className="relative w-32 h-24 rounded-md border-2 border-[#1e6bd6] bg-card flex flex-col items-center justify-center">
+              <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-24 h-3 rounded-full bg-[#84cc16]" />
+              <div className="flex items-center gap-1 text-[#1e6bd6] font-extrabold text-xl">
+                <span className="text-[#84cc16]">✓</span>ISO
+              </div>
+              <div className="text-[#1e6bd6] text-xs font-bold mt-1">9001 : 2015</div>
+            </div>
+            {/* ISO 22000 */}
+            <div className="relative w-32 h-24 rounded-md border-2 border-[#1e6bd6] bg-card flex flex-col items-center justify-center">
+              <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-24 h-3 rounded-full bg-[#84cc16]" />
+              <div className="flex items-center gap-1 text-[#1e6bd6] font-extrabold text-xl">
+                <span className="text-[#84cc16]">✓</span>ISO
+              </div>
+              <div className="text-[#1e6bd6] text-xs font-bold mt-1">22000 : 2018</div>
+            </div>
+            {/* BIO */}
+            <div className="w-32 h-24 rounded-md border-2 border-[#84cc16] bg-card flex flex-col items-center justify-center text-[#84cc16]">
+              <div className="flex items-center gap-1 font-extrabold text-lg">
+                <Leaf size={18} /> BIO
+              </div>
+              <div className="text-[11px] font-semibold mt-1">Biodegradable</div>
+            </div>
+          </div>
+        </div>
+
         <div className="text-center max-w-2xl mx-auto">
-          <h2 className="text-4xl font-extrabold">Why us.</h2>
+          <h2 className="text-4xl font-extrabold">
+            Why <span className="bg-clip-text text-transparent" style={{ backgroundImage: "var(--gradient-cyan)" }}>us.</span>
+          </h2>
           <p className="mt-3 text-muted-foreground">No contract. Test us on one pallet.</p>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-10">
           {[
             {
-              t: "All-in ISK price",
-              d: "Icelandic VAT, customs, port handling, inland transport — every króna in the quote. The price you sign is the price you pay.",
+              t: "Stable price",
+              d: "The price you're quoted is the price you pay. VAT, customs, delivery — all included. No surprise add-ons on the invoice.",
+              c: "#22d3ee",
             },
             {
-              t: "Honest Iceland timing",
-              d: "Production + sea freight to Reykjavík + customs + delivery — we quote the real date, not the factory date. Then we hit it.",
+              t: "Predictable delivery",
+              d: "Fixed schedule, fixed date. You stop chasing, we ship. VAT and customs already in the quote.",
+              c: "#ec4899",
             },
             {
               t: "Same cup every batch",
               d: "Paper weight, lid fit, ink shade — locked in spec. Your January cup matches your July cup.",
+              c: "#facc15",
             },
             {
               t: "Icelandic invoice",
-              d: "A proper Icelandic invoice in ISK with our company ID number and VAT — fully deductible. No European customs paperwork on your desk.",
+              d: "You get a proper Icelandic invoice in ISK, with our company ID number and VAT — fully deductible in your books. No \"import from Poland\" paperwork headaches.",
+              c: "#84cc16",
             },
           ].map((w) => (
-            <div key={w.t} className="rounded-xl border border-border bg-card p-6">
-              <h3 className="font-bold">{w.t}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{w.d}</p>
+            <div
+              key={w.t}
+              className="relative rounded-xl border border-border bg-card p-6 pt-7"
+            >
+              <div
+                className="absolute top-0 left-6 right-6 h-[3px] rounded-b-full"
+                style={{ backgroundColor: w.c }}
+              />
+              <h3 className="font-bold text-lg">{w.t}</h3>
+              <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{w.d}</p>
             </div>
           ))}
         </div>

@@ -5,6 +5,7 @@ import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { PartnersMarquee } from "@/components/site/Marquee";
 import { QuoteForm } from "@/components/site/QuoteForm";
+import { Reveal } from "@/components/site/Reveal";
 import capMarketing from "@/assets/site/cap-marketing.jpg";
 import capPublishing from "@/assets/site/cap-publishing.png";
 import capPackaging from "@/assets/site/cap-packaging.jpg";

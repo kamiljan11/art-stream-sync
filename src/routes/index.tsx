@@ -795,7 +795,7 @@ function IndustrialStandards() {
       <h3 className="md:hidden text-3xl font-extrabold text-center mb-10 leading-tight tracking-tight">
         Industrial <span style={{ color: "var(--brand-cyan)" }}>Standards.</span>
       </h3>
-      <div className="relative max-w-[1100px] mx-auto flex flex-col md:flex-row md:flex-wrap md:justify-center md:items-center items-center gap-10 md:gap-[50px]">
+      <div className="relative max-w-[1100px] mx-auto flex flex-col md:grid md:grid-cols-4 md:justify-items-center md:items-center items-center gap-10 md:gap-6 lg:gap-10">
         <div
           aria-hidden
           className="md:hidden absolute top-2 bottom-2 left-1/2 -translate-x-1/2 w-px"

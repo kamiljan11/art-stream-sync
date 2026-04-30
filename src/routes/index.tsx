@@ -125,7 +125,7 @@ function Index() {
           <div className="mt-10 flex flex-col items-center gap-4">
             <a
               href="#quote"
-              className="inline-flex items-center gap-2 rounded-md px-8 py-4 text-base font-semibold text-primary-foreground"
+              className="inline-flex items-center gap-2 rounded-md px-8 py-4 text-base font-semibold text-primary-foreground hover-glow"
               style={{ background: "var(--gradient-cyan)", boxShadow: "var(--shadow-glow)" }}
             >
               Get your printing quote <ArrowRight size={18} />
@@ -240,7 +240,7 @@ function Index() {
             <div className="mt-10 text-center">
               <a
                 href="#quote"
-                className="inline-flex items-center gap-2 rounded-md px-6 py-3 text-base font-semibold text-primary-foreground"
+                className="inline-flex items-center gap-2 rounded-md px-6 py-3 text-base font-semibold text-primary-foreground hover-glow"
                 style={{ background: "var(--gradient-cyan)" }}
               >
                 Get Your Winning Quote <ArrowRight size={18} />
@@ -347,7 +347,7 @@ function Index() {
         <div className="mt-12 text-center">
           <a
             href="#quote"
-            className="inline-flex items-center gap-2 rounded-md px-6 py-3 text-base font-semibold text-primary-foreground"
+            className="inline-flex items-center gap-2 rounded-md px-6 py-3 text-base font-semibold text-primary-foreground hover-glow"
             style={{ background: "var(--gradient-cyan)" }}
           >
             Get Your Quote Now <ArrowRight size={18} />

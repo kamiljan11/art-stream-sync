@@ -754,19 +754,6 @@ function CupsPage() {
         </div>
       </section>
 
-      {/* Bottom strip */}
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 text-center text-sm text-muted-foreground">
-        Part of the{" "}
-        <Link to="/" className="text-primary hover:underline">
-          MAS Prints
-        </Link>{" "}
-        family ·{" "}
-        <a href="mailto:prints@masgroup.is" className="text-primary hover:underline">
-          prints@masgroup.is
-        </a>{" "}
-        · Njarðvík
-      </section>
-
       <SiteFooter />
     </div>
   );

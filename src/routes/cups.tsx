@@ -487,19 +487,19 @@ function CupsPage() {
             Over 30 brands have already printed with us — a small slice below. Yours could be next.
           </p>
         </div>
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 mt-12">
+        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-2 mt-12">
           {portfolio.map((p) => (
             <div
               key={p.label}
-              className="group relative aspect-square rounded-lg overflow-hidden border border-border bg-card"
+              className="group relative aspect-square rounded-md overflow-hidden border border-border bg-card"
             >
               <img
                 src={p.img}
                 alt={p.label}
                 className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
               />
-              <div className="absolute inset-x-0 bottom-0 p-3 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition">
-                <p className="text-xs text-white font-medium">{p.label}</p>
+              <div className="absolute inset-x-0 bottom-0 p-2 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition">
+                <p className="text-[10px] text-white font-medium leading-tight">{p.label}</p>
               </div>
             </div>
           ))}

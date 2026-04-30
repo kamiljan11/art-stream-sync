@@ -334,13 +334,13 @@ function CupsPage() {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 mt-12">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
           {products.map((p) => (
             <article
               key={p.title}
               className="rounded-xl overflow-hidden border border-border bg-card flex flex-col group"
             >
-              <div className="aspect-[4/3] overflow-hidden bg-background">
+              <div className="aspect-[16/9] sm:aspect-[4/3] overflow-hidden bg-background">
                 <img
                   src={p.img}
                   alt={p.title}

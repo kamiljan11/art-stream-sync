@@ -386,12 +386,12 @@ function CupsPage() {
 
       {/* PRODUCTS GRID */}
       <section id="products" className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-24">
-        <div className="text-center max-w-2xl mx-auto">
+        <Reveal className="text-center max-w-2xl mx-auto">
           <h2 className="text-4xl font-extrabold">Our <span style={{ color: "var(--brand-cyan)" }}>catalogue.</span></h2>
           <p className="mt-3 text-muted-foreground">
             Every paper line is available with standard Green PE or compostable BIO lining, just say the word.
           </p>
-        </div>
+        </Reveal>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
           {products.map((p, idx) => {
@@ -474,12 +474,12 @@ function CupsPage() {
       {/* SIZE GUIDE */}
       <section className="bg-card/40 border-y border-border">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-20">
-          <div className="text-center">
+          <Reveal className="text-center">
             <h2 className="text-4xl font-extrabold">Pick the right <span style={{ color: "var(--brand-cyan)" }}>size.</span></h2>
             <p className="mt-3 text-muted-foreground">
               ml / oz reference and what each size is normally used for.
             </p>
-          </div>
+          </Reveal>
           <div className="mt-10 overflow-x-auto rounded-xl border border-border bg-card">
             <table className="w-full text-sm">
               <thead>
@@ -758,12 +758,12 @@ function CupsPage() {
           </div>
         </div>
 
-        <div className="text-center max-w-2xl mx-auto">
+        <Reveal className="text-center max-w-2xl mx-auto">
           <h2 className="text-4xl font-extrabold">
             Why <span style={{ color: "var(--brand-cyan)" }}>us.</span>
           </h2>
           <p className="mt-3 text-foreground/75">No contract. Test us on one pallet.</p>
-        </div>
+        </Reveal>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-10">
           {[
             {
@@ -810,7 +810,9 @@ function CupsPage() {
       {/* HOW TO ORDER */}
       <section id="how" className="bg-card/40 border-y border-border">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-24">
-          <h2 className="text-4xl font-extrabold text-center">How to <span style={{ color: "var(--brand-cyan)" }}>order.</span></h2>
+          <Reveal>
+            <h2 className="text-4xl font-extrabold text-center">How to <span style={{ color: "var(--brand-cyan)" }}>order.</span></h2>
+          </Reveal>
           <div className="grid md:grid-cols-4 gap-6 mt-12">
             {[
               { n: "1", t: "Send the brief", d: "Size, quantity, lining (PE or BIO), logo or full artwork.", tone: "card-light-cyan", accent: "#0ea5e9" },
@@ -832,10 +834,12 @@ function CupsPage() {
 
       {/* FAQ */}
       <section id="faq" className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-24">
-        <h2 className="text-4xl font-extrabold text-center">Frequently asked <span style={{ color: "var(--brand-cyan)" }}>questions.</span></h2>
-        <p className="text-center mt-3 text-foreground/75">
-          If something's not here, just ask in the form below.
-        </p>
+        <Reveal>
+          <h2 className="text-4xl font-extrabold text-center">Frequently asked <span style={{ color: "var(--brand-cyan)" }}>questions.</span></h2>
+          <p className="text-center mt-3 text-foreground/75">
+            If something's not here, just ask in the form below.
+          </p>
+        </Reveal>
         <div className="mt-10 space-y-3">
           {cupsFaqs.map((f, idx) => {
             const tones = ["card-light-cyan", "card-light-pink", "card-light-yellow", "card-light-lime"];

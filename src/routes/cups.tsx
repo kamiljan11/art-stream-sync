@@ -35,13 +35,13 @@ export const Route = createFileRoute("/cups")({
       {
         name: "description",
         content:
-          "Custom-printed paper cups, thermal cups, plastic rPET cups, ice cream bowls, lids, straws and stirrers. From 1,000 pcs. Fixed ISK quote — VAT, customs & delivery to Iceland included.",
+          "Custom-printed paper cups, thermal cups, transparent recycled-plastic cups, ice cream bowls, lids, straws and stirrers. From 1,000 pieces. Fixed ISK quote — VAT, customs and delivery to Iceland included.",
       },
       { property: "og:title", content: "Custom paper & plastic cups — wholesale in Iceland" },
       {
         property: "og:description",
         content:
-          "Single-wall, double-wall thermal, eco BIO, transparent rPET, lids, straws & stirrers. CMYK unlimited colours. Delivered DDP to Iceland.",
+          "Single-wall, double-wall thermal, compostable BIO, transparent recycled plastic, lids, straws and stirrers. Unlimited print colours. Delivered to your door in Iceland with VAT and customs included.",
       },
       { property: "og:image", content: heroCups },
     ],
@@ -72,10 +72,10 @@ const products: Product[] = [
     title: "Single-wall paper cup with your print",
     sizes: "100 · 180 · 250 · 300 · 400 ml",
     desc:
-      "The workhorse advertising cup. Light, stackable, full-wrap CMYK print with no colour limit. Perfect for water dispensers, juice & lemonade bars, events, offices and dental practices.",
+      "The workhorse advertising cup. Light, stackable, full-wrap print with no colour limit. Perfect for water dispensers, juice and lemonade bars, events, offices and dental practices.",
     bullets: [
-      "Unlimited CMYK colours — no upcharge",
-      "Green PE (recyclable) or BIO (compostable) lining",
+      "Unlimited full-colour printing — no upcharge",
+      "Recyclable or compostable inner lining",
       "Logo-only or full-wrap print",
     ],
     moq: "1,000 pcs",
@@ -91,7 +91,7 @@ const products: Product[] = [
     bullets: [
       "Best-in-class hand comfort on hot drinks",
       "Premium feel — matte or gloss finish",
-      "Green PE or BIO lining",
+      "Recyclable or compostable inner lining",
     ],
     moq: "1,000 pcs",
     lead: "5–6 weeks standard · 3–4 weeks express",
@@ -106,7 +106,7 @@ const products: Product[] = [
     bullets: [
       "Extra insulation vs. single-wall",
       "Lower cost than premium thermal",
-      "Logo-only or full-wrap CMYK print",
+      "Logo-only or full-wrap colour print",
     ],
     moq: "1,000 pcs",
     lead: "4–5 weeks standard · 3 weeks express",
@@ -119,8 +119,8 @@ const products: Product[] = [
     desc:
       "No-print, no-fuss cups straight from stock. Ideal for water stations, vending, gyms, pools and offices. Sold by the carton — no minimum print run.",
     bullets: [
-      "From 1 carton per size — no print MOQ",
-      "Green PE or BIO lining",
+      "From 1 carton per size — no print minimum",
+      "Recyclable or compostable inner lining",
       "Same paper quality as our printed lines",
     ],
     moq: "1 carton/size",
@@ -128,15 +128,15 @@ const products: Product[] = [
   },
   {
     img: cupTransparent,
-    tag: "rPET · transparent",
-    title: "Transparent rPET plastic cup",
+    tag: "Recycled plastic · transparent",
+    title: "Transparent recycled-plastic cup",
     sizes: "300 · 400 · 500 ml",
     desc:
-      "Crystal-clear cup for cold drinks — smoothies, iced coffee, juices, beer, cocktails. Made from rPET (recycled PET). The legal replacement for the old PP plastic cups.",
+      "Crystal-clear cup for cold drinks — smoothies, iced coffee, juices, beer, cocktails. Made from recycled PET plastic. The legal replacement for the old single-use plastic cups.",
     bullets: [
-      "Made from recycled PET (rPET)",
-      "Up to 4 Pantone colours — solid blocks (no gradients)",
-      "NOT for hot drinks",
+      "Made from recycled PET plastic",
+      "Up to 4 spot colours — solid blocks only (no gradients)",
+      "Not suitable for hot drinks",
     ],
     moq: "800 pcs (1 carton)",
     lead: "5–6 weeks standard · 3–4 weeks express",
@@ -160,7 +160,7 @@ const products: Product[] = [
     img: cupLids,
     tag: "Lids · paper & plastic",
     title: "Lids for every cup we sell",
-    sizes: "for 100 · 180 · 250 · 300 · 400 ml + rPET",
+    sizes: "for 100 · 180 · 250 · 300 · 400 ml + plastic cups",
     desc:
       "We match lids to cups so you don't have to. Flat and dome lids in white or black. 250 ml lids also come in green, red, orange, gold and silver.",
     bullets: [
@@ -181,7 +181,7 @@ const products: Product[] = [
     bullets: [
       "EU single-use plastics compliant",
       "Black in stock — colours by order",
-      "Bulk-packed for HORECA",
+      "Bulk-packed for cafés and restaurants",
     ],
     moq: "From 1 pack",
     lead: "2–3 weeks (stock) · 4–5 weeks special colours",
@@ -213,7 +213,7 @@ const portfolio = [
   { img: p37, label: "Café bar · matched cups + bowl" },
   { img: p10, label: "Office · minimal logo" },
   { img: p17, label: "Brand identity wrap" },
-  { img: p24, label: "HORECA · wrap print" },
+  { img: p24, label: "Restaurant · wrap print" },
   { img: p30, label: "Restaurant · 2-colour" },
   { img: p38, label: "Coffee chain · brand colours" },
   { img: p12, label: "Boutique café · clean logo" },
@@ -225,25 +225,25 @@ const sizeGuide = [
   { ml: "250 ml", oz: "8 oz", use: "Standard coffee, cold drinks" },
   { ml: "300 ml", oz: "12 oz", use: "Latte, juice, lemonade" },
   { ml: "400 ml", oz: "16 oz", use: "Big coffee, shakes, beer" },
-  { ml: "500 ml", oz: "—", use: "rPET only — large cold drinks, beer" },
+  { ml: "500 ml", oz: "—", use: "Plastic cups only — large cold drinks, beer" },
 ];
 
 const cupsFaqs = [
   {
     q: "What's the minimum order for printed cups?",
-    a: "1,000 pieces per design for paper cups, 800 (1 carton) for plastic rPET. Below that the per-unit price stops making sense — you'd pay more than at a retail shop. Plain white cups without print: from 1 carton.",
+    a: "1,000 pieces per design for paper cups, 800 (one carton) for transparent plastic cups. Below that the per-unit price stops making sense — you'd pay more than at a retail shop. Plain white cups without print: from one carton.",
   },
   {
     q: "How long does delivery to Iceland take?",
-    a: "Realistic timing: 4–6 weeks for printed paper cups, 5–6 weeks for thermal and rPET, 2–3 weeks for stock items (plain cups, lids, straws, stirrers). Express tier shaves about a week off printed orders. The exact date is locked in your quote — we ship from EU mainland and clear Icelandic customs for you.",
+    a: "Realistic timing: 4–6 weeks for printed paper cups, 5–6 weeks for thermal and transparent plastic cups, 2–3 weeks for stock items (plain cups, lids, straws, stirrers). Express tier shaves about a week off printed orders. The exact date is locked in your quote — we ship from mainland Europe and clear Icelandic customs for you.",
   },
   {
     q: "Are customs, VAT and delivery included?",
-    a: "Yes. Every quote is all-in ISK — DDP (Delivered Duty Paid). VSK, customs and inland transport from Reykjavík port to your door are all in the price. No surprise fees when the pallet lands.",
+    a: "Yes. Every quote is all-in ISK, delivered to your door (Delivered Duty Paid). Icelandic VAT, customs and inland transport from Reykjavík port to your address are all in the price. No surprise fees when the pallet lands.",
   },
   {
     q: "How many colours can I print?",
-    a: "Paper cups: unlimited CMYK colours at no extra cost — go full-bleed photographic if you want. Plastic rPET cups: max 4 Pantone colours, solid blocks only (no tonal gradients). QR codes and capacity markings are both supported.",
+    a: "Paper cups: unlimited full-colour printing at no extra cost — go full-bleed photographic if you want. Transparent plastic cups: max 4 spot colours, solid blocks only (no tonal gradients). QR codes and capacity markings are both supported.",
   },
   {
     q: "Can I order eco / biodegradable cups?",
@@ -251,7 +251,7 @@ const cupsFaqs = [
   },
   {
     q: "What file formats do you accept for artwork?",
-    a: "AI, PDF, EPS or SVG in vector. Colours in CMYK or Pantone. We have ready arc-shaped templates for every cup size — we'll send you the right one. Simple logos we often prepare for free; complex artwork is quoted separately.",
+    a: "Vector files work best — Adobe Illustrator (.ai), PDF, EPS or SVG. Colours can be standard print (CMYK) or specific Pantone shades. We have ready arc-shaped templates for every cup size and will send you the right one. Simple logos we often prepare for free; complex artwork is quoted separately.",
   },
   {
     q: "Can I see samples first?",
@@ -313,8 +313,8 @@ function CupsPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
           {[
             { v: "1,000+", l: "Min. order" },
-            { v: "∞", l: "CMYK colours" },
-            { v: "DDP ISK", l: "All-in price" },
+            { v: "∞", l: "Print colours" },
+            { v: "All-in", l: "ISK price" },
             { v: "EN 13432", l: "BIO certified" },
           ].map((s) => (
             <div key={s.l}>
@@ -499,7 +499,7 @@ function CupsPage() {
           {[
             {
               t: "All-in ISK price",
-              d: "VSK, customs, port handling, inland transport — every króna in the quote. The price you sign is the price you pay.",
+              d: "Icelandic VAT, customs, port handling, inland transport — every króna in the quote. The price you sign is the price you pay.",
             },
             {
               t: "Honest Iceland timing",
@@ -511,7 +511,7 @@ function CupsPage() {
             },
             {
               t: "Icelandic invoice",
-              d: "A proper Icelandic invoice in ISK with our kennitala and VSK — fully deductible. No EU customs paperwork on your desk.",
+              d: "A proper Icelandic invoice in ISK with our company ID number and VAT — fully deductible. No European customs paperwork on your desk.",
             },
           ].map((w) => (
             <div key={w.t} className="rounded-xl border border-border bg-card p-6">
@@ -529,7 +529,7 @@ function CupsPage() {
           <div className="grid md:grid-cols-4 gap-6 mt-12">
             {[
               { n: "1", t: "Send the brief", d: "Size, quantity, lining (PE or BIO), logo or full artwork." },
-              { n: "2", t: "Get a fixed quote", d: "In ISK within 24 working hours. All-in DDP — VAT, customs, delivery." },
+              { n: "2", t: "Get a fixed quote", d: "In ISK within 24 working hours. All-in price — VAT, customs and delivery to your door included." },
               { n: "3", t: "We approve artwork", d: "Free help on simple logos. Digital proof before any press starts." },
               { n: "4", t: "Pallet at your door", d: "We track production and freight. You stop chasing." },
             ].map((s) => (
@@ -626,7 +626,7 @@ function CupsQuoteForm() {
           "Premium thermal double-wall cup",
           "Sleeve double-wall cup (budget)",
           "Plain white paper cup (stock, no print)",
-          "Transparent rPET plastic cup (cold drinks)",
+          "Transparent plastic cup (cold drinks)",
           "Eco / BIO line (compostable lining)",
           "Ice cream / dessert bowl",
           "Lids (paper or plastic)",

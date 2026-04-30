@@ -441,11 +441,11 @@ function CupsPage() {
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24">
         <div className="text-center max-w-2xl mx-auto">
           <span className="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-wider rounded-full bg-primary/10 text-primary">
-            Real production
+            30+ brands &amp; counting
           </span>
-          <h2 className="mt-4 text-4xl font-extrabold">Cups we've made.</h2>
+          <h2 className="mt-4 text-4xl font-extrabold">Trusted with their cups.</h2>
           <p className="mt-3 text-muted-foreground">
-            A small slice of the brands running on our presses. Yours could be next.
+            Over 30 brands have already printed with us — a small slice below. Yours could be next.
           </p>
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 mt-12">

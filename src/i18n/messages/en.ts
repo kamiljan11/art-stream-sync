@@ -302,7 +302,7 @@ const en = {
         { n: "1", t: "Send the brief", d: "Size, quantity, lining (PE or BIO), logo or full artwork." },
         { n: "2", t: "Get a fixed quote", d: "In ISK within 24 working hours. All-in price, VAT, customs and delivery to your door included." },
         { n: "3", t: "Free artwork adaptation", d: "We adapt your logo or graphics to the cup template, completely free with every order. Digital proof before any press starts." },
-        { n: "4", t: "Pallet at your door", d: "We track production and freight. You stop chasing." },
+        { n: "4", t: "Package at your door", d: "We track production and freight. You stop chasing." },
       ],
     },
     faq: {

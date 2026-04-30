@@ -1,5 +1,6 @@
 import teamArek from "@/assets/site/team-arek.png";
 import teamKamil from "@/assets/site/team-kamil.png";
+import { useT } from "@/i18n/I18nProvider";
 
 const C = "#00AEEF";
 const M = "#EC008C";
@@ -78,13 +79,14 @@ function TeamCard({
 }
 
 export function SiteFooter() {
+  const t = useT();
   return (
     <footer className="border-t border-border bg-background">
       <div className="mx-auto max-w-3xl px-5 py-16 sm:py-20 text-center flex flex-col items-center">
         <FooterLogo />
 
         <p className="mt-6 text-sm text-muted-foreground leading-relaxed max-w-md">
-          is a brand of Mountain All Service ehf.
+          {t("footer.brand")}
           <br />
           Kennitala: 690725-0450 • VSK Nr: 158052
           <br />
@@ -92,12 +94,12 @@ export function SiteFooter() {
         </p>
 
         <div className="mt-10 flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center w-full max-w-[640px]">
-          <TeamCard img={teamArek} name="Arek" dept="Department in Poland" />
-          <TeamCard img={teamKamil} name="Kamil Jan" dept="Department in Iceland" />
+          <TeamCard img={teamArek} name="Arek" dept={t("footer.deptPoland")} />
+          <TeamCard img={teamKamil} name="Kamil Jan" dept={t("footer.deptIceland")} />
         </div>
 
         <div className="mt-12 text-xs text-muted-foreground/70">
-          © 2026 Mountain All Service ehf.
+          {t("footer.copyright")}
         </div>
       </div>
     </footer>

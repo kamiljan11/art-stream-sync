@@ -105,7 +105,7 @@ const products: Product[] = [
     img: cupPremium,
     tag: "Double-wall · premium",
     title: "Premium thermal double-wall cup",
-    sizes: "250 · 300 · 400 ml (8 · 12 · 16 oz)",
+    sizes: "250 · 300 · 400 ml (≈ 8 · 10 · 14 oz)",
     desc:
       "Top-of-range double-wall cup. Hot coffee inside, cool hands outside. Our pick for cafés, takeaway and hotel coffee corners.",
     bullets: [

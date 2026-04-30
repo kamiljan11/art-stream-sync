@@ -356,12 +356,15 @@ function CupsPage() {
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
-          {products.map((p) => (
+          {products.map((p, idx) => {
+            const tones = ["card-light-cyan", "card-light-pink", "card-light-yellow", "card-light-lime"];
+            const tone = tones[idx % tones.length];
+            return (
             <article
               key={p.title}
-              className="rounded-xl overflow-hidden border border-border bg-card flex flex-col group"
+              className={`overflow-hidden ${tone} flex flex-col group`}
             >
-              <div className="aspect-[16/9] sm:aspect-[4/3] overflow-hidden bg-background">
+              <div className="aspect-[16/9] sm:aspect-[4/3] overflow-hidden bg-white/60">
                 <img
                   src={p.img}
                   alt={p.title}
@@ -369,36 +372,37 @@ function CupsPage() {
                 />
               </div>
               <div className="p-6 flex flex-col flex-1">
-                <span className="text-[10px] font-semibold uppercase tracking-[0.15em] text-primary">
+                <span className="text-[10px] font-semibold uppercase tracking-[0.15em] text-sky-600">
                   {p.tag}
                 </span>
-                <h3 className="mt-2 font-bold text-lg leading-snug">{p.title}</h3>
-                <p className="text-xs text-muted-foreground mt-1 tracking-wider">{p.sizes}</p>
-                <p className="mt-3 text-sm text-foreground/75 leading-relaxed">{p.desc}</p>
+                <h3 className="mt-2 font-bold text-lg leading-snug text-slate-900">{p.title}</h3>
+                <p className="text-xs text-slate-500 mt-1 tracking-wider">{p.sizes}</p>
+                <p className="mt-3 text-sm text-slate-700 leading-relaxed">{p.desc}</p>
 
                 <ul className="mt-4 space-y-1.5">
                   {p.bullets.map((b) => (
-                    <li key={b} className="flex items-start gap-2 text-sm">
-                      <Check size={14} className="text-primary mt-0.5 flex-shrink-0" />
+                    <li key={b} className="flex items-start gap-2 text-sm text-slate-700">
+                      <Check size={14} className="text-sky-600 mt-0.5 flex-shrink-0" />
                       <span>{b}</span>
                     </li>
                   ))}
                 </ul>
 
-                <div className="mt-5 pt-4 border-t border-border text-xs">
-                  <div className="text-muted-foreground uppercase tracking-wider">Minimum order</div>
-                  <div className="font-semibold mt-0.5">{p.moq}</div>
+                <div className="mt-5 pt-4 border-t border-slate-200 text-xs">
+                  <div className="text-slate-500 uppercase tracking-wider">Minimum order</div>
+                  <div className="font-semibold mt-0.5 text-slate-900">{p.moq}</div>
                 </div>
 
                 <a
                   href="#quote"
-                  className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-primary hover:gap-2 transition-all"
+                  className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-sky-600 hover:gap-2 transition-all"
                 >
                   Ask for price <ArrowRight size={14} />
                 </a>
               </div>
             </article>
-          ))}
+            );
+          })}
         </div>
       </section>
 

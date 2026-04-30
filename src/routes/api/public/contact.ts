@@ -50,8 +50,11 @@ export const Route = createFileRoute("/api/public/contact")({
         // attached to project), we still return success, the submission is
         // saved and visible in the database.
         try {
-          // @ts-expect-error - package is added by setup_email_infra; safe to skip if absent.
-          const mod = await import("@lovable.dev/email-js");
+          // Resolve dynamically via a variable so Rollup doesn't try to bundle
+          // this optional package at build time. It's installed at runtime by
+          // setup_email_infra; if absent we just skip sending.
+          const emailPkg = "@lovable.dev/email-js";
+          const mod: any = await import(/* @vite-ignore */ emailPkg);
           const sendLovableEmail = mod.sendLovableEmail;
           const SENDER = "MAS Prints <prints@notify.reykjawwwik.is>";
           const INTERNAL_TO = "prints@masgroup.is";

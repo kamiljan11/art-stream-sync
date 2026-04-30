@@ -109,7 +109,7 @@ function Index() {
 
       {/* HERO */}
       <section id="hero" className="relative overflow-hidden" style={{ background: "var(--gradient-hero)" }}>
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-24 sm:py-32 text-center">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-24 sm:py-32 text-center animate-fade-in">
           <CmykBar />
           <h1 className="mt-6 text-5xl sm:text-7xl font-extrabold tracking-tight uppercase">
             Wholesale{" "}

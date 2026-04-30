@@ -17,15 +17,34 @@ import euPlasticMarking from "@/assets/site/eu-plastic-marking.png";
 
 import heroCups from "@/assets/site/portfolio/hero-cups.jpg";
 import p2 from "@/assets/site/portfolio/p2.jpg";
+import p4 from "@/assets/site/portfolio/p4.jpg";
+import p7 from "@/assets/site/portfolio/p7.jpg";
+import p8 from "@/assets/site/portfolio/p8.jpg";
+import p9 from "@/assets/site/portfolio/p9.jpg";
 import p10 from "@/assets/site/portfolio/p10.jpg";
+import p11 from "@/assets/site/portfolio/p11.jpg";
 import p12 from "@/assets/site/portfolio/p12.jpg";
+import p13 from "@/assets/site/portfolio/p13.jpg";
+import p14 from "@/assets/site/portfolio/p14.jpg";
 import p15 from "@/assets/site/portfolio/p15.jpg";
+import p16 from "@/assets/site/portfolio/p16.jpg";
 import p17 from "@/assets/site/portfolio/p17.jpg";
+import p18 from "@/assets/site/portfolio/p18.jpg";
+import p19 from "@/assets/site/portfolio/p19.jpg";
 import p20 from "@/assets/site/portfolio/p20.jpg";
+import p21 from "@/assets/site/portfolio/p21.jpg";
+import p23 from "@/assets/site/portfolio/p23.jpg";
 import p24 from "@/assets/site/portfolio/p24.jpg";
+import p27 from "@/assets/site/portfolio/p27.jpg";
 import p28 from "@/assets/site/portfolio/p28.jpg";
+import p29 from "@/assets/site/portfolio/p29.jpg";
 import p30 from "@/assets/site/portfolio/p30.jpg";
+import p31 from "@/assets/site/portfolio/p31.jpg";
+import p32 from "@/assets/site/portfolio/p32.jpg";
 import p33 from "@/assets/site/portfolio/p33.jpg";
+import p34 from "@/assets/site/portfolio/p34.jpg";
+import p35 from "@/assets/site/portfolio/p35.jpg";
+import p36 from "@/assets/site/portfolio/p36.jpg";
 import p37 from "@/assets/site/portfolio/p37.jpg";
 import p38 from "@/assets/site/portfolio/p38.jpg";
 
@@ -207,17 +226,36 @@ const products: Product[] = [
 /* Real client examples (rebranded — shown as portfolio without naming source) */
 const portfolio = [
   { img: p2, label: "Event branding · single-wall" },
-  { img: p15, label: "Food brand · double-wall + bowl" },
-  { img: p20, label: "Café · pattern wrap" },
-  { img: p28, label: "Yellow brand · 3-size set" },
-  { img: p33, label: "Festival · full-bleed gradient" },
-  { img: p37, label: "Café bar · matched cups + bowl" },
+  { img: p4, label: "Brand wrap · single-wall" },
+  { img: p7, label: "Café · clean print" },
+  { img: p8, label: "Brand identity · cups" },
+  { img: p9, label: "Pattern wrap" },
   { img: p10, label: "Office · minimal logo" },
-  { img: p17, label: "Brand identity wrap" },
-  { img: p24, label: "Restaurant · wrap print" },
-  { img: p30, label: "Restaurant · 2-colour" },
-  { img: p38, label: "Coffee chain · brand colours" },
+  { img: p11, label: "Brand colours · matched set" },
   { img: p12, label: "Boutique café · clean logo" },
+  { img: p13, label: "Restaurant · 2-colour" },
+  { img: p14, label: "Café · custom artwork" },
+  { img: p15, label: "Food brand · double-wall + bowl" },
+  { img: p16, label: "Brand wrap · full colour" },
+  { img: p17, label: "Brand identity wrap" },
+  { img: p18, label: "Café · pattern print" },
+  { img: p19, label: "Event series · matched cups" },
+  { img: p20, label: "Café · pattern wrap" },
+  { img: p21, label: "Brand colours · clean" },
+  { img: p23, label: "Restaurant · custom set" },
+  { img: p24, label: "Restaurant · wrap print" },
+  { img: p27, label: "Coffee shop · brand wrap" },
+  { img: p28, label: "Yellow brand · 3-size set" },
+  { img: p29, label: "Brand series · sizes" },
+  { img: p30, label: "Restaurant · 2-colour" },
+  { img: p31, label: "Café · matched cups" },
+  { img: p32, label: "Brand wrap · full bleed" },
+  { img: p33, label: "Festival · full-bleed gradient" },
+  { img: p34, label: "Café · brand identity" },
+  { img: p35, label: "Pattern · full wrap" },
+  { img: p36, label: "Restaurant · matched set" },
+  { img: p37, label: "Café bar · matched cups + bowl" },
+  { img: p38, label: "Coffee chain · brand colours" },
 ];
 
 const sizeGuide = [

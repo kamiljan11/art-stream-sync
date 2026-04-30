@@ -4,7 +4,10 @@ import { useState } from "react";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { Reveal } from "@/components/site/Reveal";
-import { useT } from "@/i18n/I18nProvider";
+import { useT, useI18n } from "@/i18n/I18nProvider";
+import enMessages from "@/i18n/messages/en";
+import isMessages from "@/i18n/messages/is";
+import plMessages from "@/i18n/messages/pl";
 
 import cupEveryday from "@/assets/site/cup-everyday.jpg";
 import cupPremium from "@/assets/site/cup-premium.jpg";
@@ -336,6 +339,14 @@ const cupsFaqs = [
 
 function CupsPage() {
   const t = useT();
+  const { locale } = useI18n();
+  const dict = locale === "is" ? isMessages : locale === "pl" ? plMessages : enMessages;
+  const cp = dict.cupsPage;
+  // Merge product images with translated catalog
+  const productImgs = [cupEveryday, cupPremium, cupLogo, cupWater, cupTransparent, cupIcecream, cupLids, cupStraws, cupStirrers];
+  const translatedProducts = cp.productCatalog.map((p, i) => ({ ...p, img: productImgs[i], lead: products[i].lead }));
+  const sizeRows = cp.sizeGuide.rows;
+  const cupsFaqsT = cp.faq.items;
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SiteHeader />
@@ -374,10 +385,10 @@ function CupsPage() {
       <section className="border-b border-border bg-card/30">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
           {[
-            { v: "1,000+", l: "Min. order" },
-            { v: "∞", l: "Print colours" },
-            { v: "All-in", l: "ISK price" },
-            { v: "EN 13432", l: "BIO certified" },
+            { v: "1,000+", l: cp.trust.minOrder },
+            { v: "∞", l: cp.trust.printColours },
+            { v: "All-in", l: cp.trust.iskPrice },
+            { v: "EN 13432", l: cp.trust.bioCertified },
           ].map((s) => (
             <div key={s.l}>
               <div className="text-2xl font-extrabold text-primary">{s.v}</div>
@@ -390,14 +401,14 @@ function CupsPage() {
       {/* PRODUCTS GRID */}
       <section id="products" className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-24">
         <Reveal className="text-center max-w-2xl mx-auto">
-          <h2 className="text-4xl font-extrabold">Our <span style={{ color: "var(--brand-cyan)" }}>catalogue.</span></h2>
+          <h2 className="text-4xl font-extrabold">{cp.catalogue.heading1} <span style={{ color: "var(--brand-cyan)" }}>{cp.catalogue.heading2}</span></h2>
           <p className="mt-3 text-muted-foreground">
-            Every paper line is available with standard Green PE or compostable BIO lining, just say the word.
+            {cp.catalogue.sub}
           </p>
         </Reveal>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
-          {products.map((p, idx) => {
+          {translatedProducts.map((p, idx) => {
             const tones = ["card-light-cyan", "card-light-pink", "card-light-yellow", "card-light-lime"];
             const tone = tones[idx % tones.length];
             return (
@@ -430,7 +441,7 @@ function CupsPage() {
                 </ul>
 
                 <div className="mt-5 pt-4 border-t border-slate-200 text-xs">
-                  <div className="text-slate-500 uppercase tracking-wider">Minimum order</div>
+                  <div className="text-slate-500 uppercase tracking-wider">{cp.catalogue.minOrderLabel}</div>
                   <div className="font-semibold mt-0.5 text-slate-900">{p.moq}</div>
                 </div>
 
@@ -438,7 +449,7 @@ function CupsPage() {
                   href="#quote"
                   className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-sky-600 hover:gap-2 transition-all"
                 >
-                  Ask for price <ArrowRight size={14} />
+                  {cp.catalogue.askPrice} <ArrowRight size={14} />
                 </a>
               </div>
             </article>
@@ -447,16 +458,16 @@ function CupsPage() {
         </div>
 
         <p className="mt-10 text-center text-sm text-muted-foreground max-w-2xl mx-auto">
-          Don't see what you need? <a href="#quote" className="text-primary font-semibold underline underline-offset-4 hover:opacity-80">Send us a request</a>, we can source almost anything in this category.
+          {cp.catalogue.dontSee} <a href="#quote" className="text-primary font-semibold underline underline-offset-4 hover:opacity-80">{cp.catalogue.sendRequest}</a>{cp.catalogue.sourceAnything}
         </p>
 
         {/* USP strip, why people order with us */}
         <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {[
-            { t: "From just 1,000 pcs", d: "Low minimum order, perfect for small cafés, events and pilot runs. Scale up whenever you're ready.", tone: "card-light-cyan", accent: "#0ea5e9" },
-            { t: "Free artwork adaptation", d: "Send your logo in any usable format, we adapt it to the cup template at no extra cost with every order.", tone: "card-light-pink", accent: "#ec4899" },
-            { t: "Your dedicated contact", d: "One person guides you from quote to delivery. Not sure which product fits? Just ask, we'll advise.", tone: "card-light-yellow", accent: "#eab308" },
-            { t: "Professional QC system", d: "Every batch passes a multi-stage quality check, print accuracy, lining seal, structure and food-safety compliance, before it ships.", tone: "card-light-lime", accent: "#84cc16" },
+            { ...cp.usp[0], tone: "card-light-cyan", accent: "#0ea5e9" },
+            { ...cp.usp[1], tone: "card-light-pink", accent: "#ec4899" },
+            { ...cp.usp[2], tone: "card-light-yellow", accent: "#eab308" },
+            { ...cp.usp[3], tone: "card-light-lime", accent: "#84cc16" },
           ].map((u) => (
             <div key={u.t} className={`${u.tone} p-5 hover-lift-light`}>
               <div className="flex items-center gap-2">
@@ -478,22 +489,22 @@ function CupsPage() {
       <section className="bg-card/40 border-y border-border">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-20">
           <Reveal className="text-center">
-            <h2 className="text-4xl font-extrabold">Pick the right <span style={{ color: "var(--brand-cyan)" }}>size.</span></h2>
+            <h2 className="text-4xl font-extrabold">{cp.sizeGuide.heading1} <span style={{ color: "var(--brand-cyan)" }}>{cp.sizeGuide.heading2}</span></h2>
             <p className="mt-3 text-muted-foreground">
-              ml / oz reference and what each size is normally used for.
+              {cp.sizeGuide.sub}
             </p>
           </Reveal>
           <div className="mt-10 overflow-x-auto rounded-xl border border-border bg-card">
             <table className="w-full text-sm">
               <thead>
                 <tr className="text-left text-xs uppercase tracking-wider text-muted-foreground border-b border-border">
-                  <th className="px-6 py-4">Capacity</th>
-                  <th className="px-6 py-4">oz</th>
-                  <th className="px-6 py-4">Typical use</th>
+                  <th className="px-6 py-4">{cp.sizeGuide.capacity}</th>
+                  <th className="px-6 py-4">{cp.sizeGuide.oz}</th>
+                  <th className="px-6 py-4">{cp.sizeGuide.use}</th>
                 </tr>
               </thead>
               <tbody>
-                {sizeGuide.map((r) => (
+                {sizeRows.map((r) => (
                   <tr key={r.ml} className="border-b border-border last:border-0">
                     <td className="px-6 py-4 font-semibold">{r.ml}</td>
                     <td className="px-6 py-4 text-primary font-mono">{r.oz}</td>
@@ -510,11 +521,11 @@ function CupsPage() {
       <section className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-24">
         <div className="text-center max-w-2xl mx-auto">
           <span className="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-wider rounded-full bg-primary/10 text-primary">
-            30+ brands &amp; counting
+            {cp.portfolio.badge}
           </span>
-          <h2 className="mt-4 text-4xl font-extrabold">Trusted with their <span style={{ color: "var(--brand-cyan)" }}>cups.</span></h2>
+          <h2 className="mt-4 text-4xl font-extrabold">{cp.portfolio.heading1} <span style={{ color: "var(--brand-cyan)" }}>{cp.portfolio.heading2}</span></h2>
           <p className="mt-3 text-muted-foreground">
-            Over 30 brands have already printed with us, a small slice below. Yours could be next.
+            {cp.portfolio.sub}
           </p>
         </div>
         <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-2 mt-12">
@@ -547,10 +558,10 @@ function CupsPage() {
           {/* Heading */}
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="text-4xl sm:text-5xl font-extrabold leading-tight">
-              Check your cup.{" "}
-              <span style={{ color: "#84cc16" }}>Does it have this mark?</span>
+              {cp.eco.heading1}{" "}
+              <span style={{ color: "#84cc16" }}>{cp.eco.heading2}</span>
             </h2>
-            <p className="mt-4 text-muted-foreground">If yes, it has plastic inside.</p>
+            <p className="mt-4 text-muted-foreground">{cp.eco.ifYes}</p>
           </div>
 
           {/* Two-column body, text left, image right on desktop */}
@@ -561,13 +572,13 @@ function CupsPage() {
               style={{ background: "linear-gradient(135deg, #c5d9a4 0%, #b9d18f 100%)" }}
             >
               <span className="absolute top-4 left-4 inline-block px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider rounded-md bg-black/80 text-white">
-                EU mandatory marking
+                {cp.eco.euMark}
               </span>
 
               {/* The sticker */}
               <img
                 src={euPlasticMarking}
-                alt="Official EU mandatory marking sticker for plastic-lined cups: red no-plastic-cup icon, blue turtle icon, and bilingual PLASTIC IN PRODUCT / PLAISTEACH SA TÁIRGE label"
+                alt={cp.eco.euAlt}
                 loading="lazy"
                 width={1536}
                 height={1024}
@@ -585,36 +596,36 @@ function CupsPage() {
                   boxShadow: "0 0 30px rgba(250,204,21,0.4)",
                 }}
               >
-                ★ Top pick in Iceland
+                {cp.eco.topPick}
               </span>
 
               <h3 className="mt-5 text-3xl sm:text-4xl font-extrabold leading-tight">
-                Drop the plastic. Keep the{" "}
-                <span style={{ color: "#84cc16" }}>cup.</span>
+                {cp.eco.h3p1}{" "}
+                <span style={{ color: "#84cc16" }}>{cp.eco.h3p2}</span>
               </h3>
 
               <div className="mt-6 space-y-5 text-foreground/80 leading-relaxed">
                 <p>
-                  <span className="text-foreground font-semibold">Most "paper" cups have a plastic lining inside.</span>{" "}
-                  Pour in hot coffee and a single cup can release up to{" "}
-                  <span className="text-foreground font-semibold">25,000 microplastic particles straight into the drink.</span>
+                  <span className="text-foreground font-semibold">{cp.eco.p1a}</span>{" "}
+                  {cp.eco.p1b}{" "}
+                  <span className="text-foreground font-semibold">{cp.eco.p1c}</span>
                 </p>
                 <p>
-                  <span className="text-foreground font-semibold">Then the cup goes in the bin.</span> It takes up to 20 years to break down, and every year more of it ends up in the ocean.
+                  <span className="text-foreground font-semibold">{cp.eco.p2a}</span> {cp.eco.p2b}
                 </p>
                 <p>
-                  Our eco line swaps the plastic for a{" "}
-                  <span className="text-foreground font-semibold">plant-based, compostable PLA lining</span>. Same feel, same heat resistance, same taste, but{" "}
-                  <span className="text-foreground font-semibold">zero microplastics</span>, and it breaks down in industrial composting. Works for hot coffee, cold drinks and ice cream.
+                  {cp.eco.p3a}{" "}
+                  <span className="text-foreground font-semibold">{cp.eco.p3b}</span>{cp.eco.p3c}{" "}
+                  <span className="text-foreground font-semibold">{cp.eco.p3d}</span>{cp.eco.p3e}
                 </p>
               </div>
 
               {/* Stats */}
               <div className="mt-8 grid grid-cols-3 gap-6">
                 {[
-                  { v: "100%", l: "FSC paper" },
-                  { v: "PLA", l: "Compostable lining" },
-                  { v: "EN 13432", l: "Certified" },
+                  { v: "100%", l: cp.eco.stat1 },
+                  { v: "PLA", l: cp.eco.stat2 },
+                  { v: "EN 13432", l: cp.eco.stat3 },
                 ].map((b) => (
                   <div key={b.l}>
                     <div className="text-2xl sm:text-3xl font-extrabold" style={{ color: "#84cc16" }}>
@@ -631,7 +642,7 @@ function CupsPage() {
                 className="mt-8 inline-flex items-center gap-2 rounded-full px-7 py-3 text-sm font-bold uppercase tracking-wider border-2 transition hover:bg-[#84cc16] hover:text-black"
                 style={{ borderColor: "#84cc16", color: "#84cc16" }}
               >
-                Ask for eco quote <ArrowRight size={16} />
+                {cp.eco.ctaEco} <ArrowRight size={16} />
               </a>
             </div>
           </div>
@@ -640,23 +651,23 @@ function CupsPage() {
           <div className="mt-20 pt-16 border-t border-border/50">
             <div className="text-center max-w-2xl mx-auto">
               <span className="inline-block text-[10px] font-bold uppercase tracking-[0.2em] text-primary">
-                Circular economy
+                {cp.eco.circLabel}
               </span>
               <h3 className="mt-3 text-3xl sm:text-4xl font-extrabold leading-[1.05] tracking-tight">
-                Circular by{" "}
-                <span style={{ color: "#84cc16" }}>design.</span>
+                {cp.eco.circHeading1}{" "}
+                <span style={{ color: "#84cc16" }}>{cp.eco.circHeading2}</span>
               </h3>
               <p className="mt-4 text-foreground/75 leading-relaxed max-w-prose mx-auto">
-                Every BIO line follows a four-step loop: design it right, use it well, recover the material, put it back to work.
+                {cp.eco.circSub}
               </p>
             </div>
 
             <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
               {[
-                { n: "01", t: "Design", d: "Plant-based PLA lining instead of fossil plastic. Print inks chosen to keep the cup compostable.", tone: "card-light-lime" },
-                { n: "02", t: "Use", d: "Same heat resistance, same hand-feel as a regular cup. No compromise for the customer or the barista.", tone: "card-light-cyan" },
-                { n: "03", t: "Recover", d: "EN 13432 certified, breaks down in industrial composting in weeks, not decades. Zero microplastics.", tone: "card-light-yellow" },
-                { n: "04", t: "Reuse", d: "Compost goes back into soil. Carbon stays in the loop. The cup becomes the next thing that grows.", tone: "card-light-pink" },
+                { ...cp.eco.steps[0], tone: "card-light-lime" },
+                { ...cp.eco.steps[1], tone: "card-light-cyan" },
+                { ...cp.eco.steps[2], tone: "card-light-yellow" },
+                { ...cp.eco.steps[3], tone: "card-light-pink" },
               ].map((step) => (
                 <div key={step.n} className={`relative ${step.tone} p-6 pt-7`}>
                   <div
@@ -671,7 +682,7 @@ function CupsPage() {
             </div>
 
             <p className="mt-8 text-center text-xs text-muted-foreground max-w-xl mx-auto">
-              Need EN 13432 certificates or material data sheets for a tender or sustainability report? Just ask.
+              {cp.eco.ask}
             </p>
           </div>
         </div>
@@ -684,7 +695,7 @@ function CupsPage() {
           <div className="flex items-center justify-center gap-4 mb-10">
             <span className="h-px w-12 bg-border" />
             <p className="text-center text-[11px] uppercase tracking-[0.4em] text-muted-foreground font-semibold">
-              Manufactured to
+              {cp.why.manufacturedTo}
             </p>
             <span className="h-px w-12 bg-border" />
           </div>
@@ -693,23 +704,23 @@ function CupsPage() {
             {[
               {
                 kind: "iso" as const,
-                main: "ISO",
-                sub: "9001 : 2015",
-                tag: "Quality management",
+                main: cp.why.certs[0].main,
+                sub: cp.why.certs[0].sub,
+                tag: cp.why.certs[0].tag,
                 accent: "#1e6bd6",
               },
               {
                 kind: "iso" as const,
-                main: "ISO",
-                sub: "22000 : 2018",
-                tag: "Food safety",
+                main: cp.why.certs[1].main,
+                sub: cp.why.certs[1].sub,
+                tag: cp.why.certs[1].tag,
                 accent: "#1e6bd6",
               },
               {
                 kind: "bio" as const,
-                main: "BIO",
-                sub: "Biodegradable",
-                tag: "EN 13432 compostable",
+                main: cp.why.certs[2].main,
+                sub: cp.why.certs[2].sub,
+                tag: cp.why.certs[2].tag,
                 accent: "#84cc16",
               },
             ].map((c, i) => (
@@ -763,36 +774,16 @@ function CupsPage() {
 
         <Reveal className="text-center max-w-2xl mx-auto">
           <h2 className="text-4xl font-extrabold">
-            Why <span style={{ color: "var(--brand-cyan)" }}>us.</span>
+            {cp.why.heading1} <span style={{ color: "var(--brand-cyan)" }}>{cp.why.heading2}</span>
           </h2>
-          <p className="mt-3 text-foreground/75">No contract. Test us on one pallet.</p>
+          <p className="mt-3 text-foreground/75">{cp.why.sub}</p>
         </Reveal>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-10">
           {[
-            {
-              t: "Stable price",
-              d: "The price you're quoted is the price you pay. VAT, customs, delivery, all included. No surprise add-ons on the invoice.",
-              c: "#22d3ee",
-              tone: "card-light-cyan",
-            },
-            {
-              t: "Predictable delivery",
-              d: "Fixed schedule, fixed date. You stop chasing, we ship. VAT and customs already in the quote.",
-              c: "#ec4899",
-              tone: "card-light-pink",
-            },
-            {
-              t: "Same cup every batch",
-              d: "Paper weight, lid fit, ink shade, locked in spec. Your January cup matches your July cup.",
-              c: "#facc15",
-              tone: "card-light-yellow",
-            },
-            {
-              t: "Icelandic invoice",
-              d: "You get a proper Icelandic invoice in ISK, with our company ID number and VAT, fully deductible in your books. No \"import from Poland\" paperwork headaches.",
-              c: "#84cc16",
-              tone: "card-light-lime",
-            },
+            { ...cp.why.items[0], c: "#22d3ee", tone: "card-light-cyan" },
+            { ...cp.why.items[1], c: "#ec4899", tone: "card-light-pink" },
+            { ...cp.why.items[2], c: "#facc15", tone: "card-light-yellow" },
+            { ...cp.why.items[3], c: "#84cc16", tone: "card-light-lime" },
           ].map((w) => (
             <div
               key={w.t}
@@ -814,14 +805,14 @@ function CupsPage() {
       <section id="how" className="bg-card/40 border-y border-border">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-24">
           <Reveal>
-            <h2 className="text-4xl font-extrabold text-center">How to <span style={{ color: "var(--brand-cyan)" }}>order.</span></h2>
+            <h2 className="text-4xl font-extrabold text-center">{cp.how.heading1} <span style={{ color: "var(--brand-cyan)" }}>{cp.how.heading2}</span></h2>
           </Reveal>
           <div className="grid md:grid-cols-4 gap-6 mt-12">
             {[
-              { n: "1", t: "Send the brief", d: "Size, quantity, lining (PE or BIO), logo or full artwork.", tone: "card-light-cyan", accent: "#0ea5e9" },
-              { n: "2", t: "Get a fixed quote", d: "In ISK within 24 working hours. All-in price, VAT, customs and delivery to your door included.", tone: "card-light-pink", accent: "#ec4899" },
-              { n: "3", t: "Free artwork adaptation", d: "We adapt your logo or graphics to the cup template, completely free with every order. Digital proof before any press starts.", tone: "card-light-yellow", accent: "#eab308" },
-              { n: "4", t: "Pallet at your door", d: "We track production and freight. You stop chasing.", tone: "card-light-lime", accent: "#84cc16" },
+              { ...cp.how.steps[0], tone: "card-light-cyan", accent: "#0ea5e9" },
+              { ...cp.how.steps[1], tone: "card-light-pink", accent: "#ec4899" },
+              { ...cp.how.steps[2], tone: "card-light-yellow", accent: "#eab308" },
+              { ...cp.how.steps[3], tone: "card-light-lime", accent: "#84cc16" },
             ].map((s) => (
               <div key={s.n} className={`${s.tone} p-6 hover-lift-light`}>
                 <div className="text-5xl font-extrabold" style={{ color: s.accent }}>
@@ -838,13 +829,13 @@ function CupsPage() {
       {/* FAQ */}
       <section id="faq" className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-24">
         <Reveal>
-          <h2 className="text-4xl font-extrabold text-center">Frequently asked <span style={{ color: "var(--brand-cyan)" }}>questions.</span></h2>
+          <h2 className="text-4xl font-extrabold text-center">{cp.faq.heading1} <span style={{ color: "var(--brand-cyan)" }}>{cp.faq.heading2}</span></h2>
           <p className="text-center mt-3 text-foreground/75">
-            If something's not here, just ask in the form below.
+            {cp.faq.sub}
           </p>
         </Reveal>
         <div className="mt-10 space-y-3">
-          {cupsFaqs.map((f, idx) => {
+          {cupsFaqsT.map((f, idx) => {
             const tones = ["card-light-cyan", "card-light-pink", "card-light-yellow", "card-light-lime"];
             const accents = ["#0ea5e9", "#ec4899", "#eab308", "#84cc16"];
             const tone = tones[idx % tones.length];
@@ -871,8 +862,8 @@ function CupsPage() {
       <section id="quote" className="bg-card/40 border-y border-border">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-24">
           <div className="text-center">
-            <h2 className="text-4xl font-extrabold">Get a <span style={{ color: "var(--brand-cyan)" }}>quote.</span></h2>
-            <p className="mt-3 text-muted-foreground">Takes 60 seconds. Reply within 24 working hours.</p>
+            <h2 className="text-4xl font-extrabold">{cp.quote.heading1} <span style={{ color: "var(--brand-cyan)" }}>{cp.quote.heading2}</span></h2>
+            <p className="mt-3 text-muted-foreground">{cp.quote.sub}</p>
           </div>
           <CupsQuoteForm />
         </div>

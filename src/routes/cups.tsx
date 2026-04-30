@@ -769,7 +769,7 @@ function CupsPage() {
             {[
               { n: "1", t: "Send the brief", d: "Size, quantity, lining (PE or BIO), logo or full artwork." },
               { n: "2", t: "Get a fixed quote", d: "In ISK within 24 working hours. All-in price — VAT, customs and delivery to your door included." },
-              { n: "3", t: "We approve artwork", d: "Free help on simple logos. Digital proof before any press starts." },
+              { n: "3", t: "Free artwork adaptation", d: "We adapt your logo or graphics to the cup template — completely free with every order. Digital proof before any press starts." },
               { n: "4", t: "Pallet at your door", d: "We track production and freight. You stop chasing." },
             ].map((s) => (
               <div key={s.n} className="rounded-xl border border-border bg-card p-6">
@@ -781,6 +781,41 @@ function CupsPage() {
                 </div>
                 <h3 className="mt-4 text-lg font-bold">{s.t}</h3>
               <p className="mt-3 text-sm text-foreground/75 leading-relaxed">{s.d}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* USP strip — low MOQ, free design, dedicated contact */}
+          <div className="mt-12 grid md:grid-cols-3 gap-4">
+            {[
+              {
+                t: "From just 1,000 pcs",
+                d: "Low minimum order — perfect for small cafés, events and pilot runs. Scale up whenever you're ready.",
+              },
+              {
+                t: "Free artwork adaptation",
+                d: "Send your logo in any usable format — we adapt it to the cup template at no extra cost with every order.",
+              },
+              {
+                t: "Your dedicated contact",
+                d: "One person guides you from quote to delivery. Not sure which product fits? Just ask — we'll advise.",
+              },
+            ].map((u) => (
+              <div
+                key={u.t}
+                className="rounded-xl border border-primary/30 bg-background/60 p-5"
+                style={{ boxShadow: "0 0 0 1px rgba(132,204,22,0.05)" }}
+              >
+                <div className="flex items-center gap-2">
+                  <span
+                    className="inline-flex h-6 w-6 items-center justify-center rounded-full text-xs font-bold text-primary-foreground"
+                    style={{ background: "var(--gradient-cyan)" }}
+                  >
+                    ✓
+                  </span>
+                  <h3 className="font-bold text-base">{u.t}</h3>
+                </div>
+                <p className="mt-2 text-sm text-foreground/75 leading-relaxed">{u.d}</p>
               </div>
             ))}
           </div>

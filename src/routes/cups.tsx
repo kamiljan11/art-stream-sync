@@ -877,14 +877,16 @@ function CupsPage() {
 /* ────────────────────────────────────────────────────────────────────────── */
 
 function CupsQuoteForm() {
+  const t = useT();
+  const tArray = useTArray();
   const [submitted, setSubmitted] = useState(false);
   const [needsDesign, setNeedsDesign] = useState<"yes" | "no" | "">("");
   const [fileName, setFileName] = useState<string>("");
   if (submitted) {
     return (
       <div className="mt-10 text-center rounded-xl border border-border bg-card p-12">
-        <div className="text-2xl font-bold text-primary">Message Sent!</div>
-        <p className="mt-2 text-muted-foreground">We'll reply within 24 working hours.</p>
+        <div className="text-2xl font-bold text-primary">{t("cupsPage.quote.sentTitle")}</div>
+        <p className="mt-2 text-muted-foreground">{t("cupsPage.quote.sentSub")}</p>
       </div>
     );
   }
@@ -896,36 +898,26 @@ function CupsQuoteForm() {
       }}
       className="mt-10 grid gap-4 sm:grid-cols-2 rounded-xl border border-border bg-card p-6 sm:p-8"
     >
-      <Field label="Name" required />
-      <Field label="Email" type="email" required />
-      <Field label="Phone (optional)" className="sm:col-span-2" />
+      <Field label={t("cupsPage.quote.name")} required />
+      <Field label={t("cupsPage.quote.email")} type="email" required />
+      <Field label={t("cupsPage.quote.phone")} className="sm:col-span-2" />
       <SelectField
-        label="Product"
-        options={[
-          "Single-wall paper cup (printed)",
-          "Premium thermal double-wall cup",
-          "Sleeve double-wall cup (budget)",
-          "Plain white paper cup (stock, no print)",
-          "Transparent plastic cup (cold drinks)",
-          "Eco / BIO line (compostable lining)",
-          "Ice cream / dessert bowl",
-          "Lids (paper or plastic)",
-          "Paper straws",
-          "Wooden stirrers",
-          "Something else / mix",
-        ]}
+        label={t("cupsPage.quote.product")}
+        options={tArray("cupsPage.quote.products")}
+        placeholder={t("cupsPage.quote.selectPlaceholder")}
       />
       <SelectField
-        label="Quantity"
-        options={["1,000 – 5,000", "5,000 – 20,000", "20,000 – 50,000", "50,000+"]}
+        label={t("cupsPage.quote.quantity")}
+        options={tArray("cupsPage.quote.quantities")}
+        placeholder={t("cupsPage.quote.selectPlaceholder")}
       />
-      <SelectField label="Timing" options={["Standard (best price)", "Express (~1 week faster)", "Flexible"]} />
-      <SelectField label="Lining" options={["Standard (Green PE)", "BIO (compostable)", "Don't know, advise me"]} />
+      <SelectField label={t("cupsPage.quote.timing")} options={tArray("cupsPage.quote.timings")} placeholder={t("cupsPage.quote.selectPlaceholder")} />
+      <SelectField label={t("cupsPage.quote.lining")} options={tArray("cupsPage.quote.linings")} placeholder={t("cupsPage.quote.selectPlaceholder")} />
       {/* Design assistance + file upload, two-column block */}
       <div className="sm:col-span-2 grid gap-4 sm:grid-cols-2 rounded-lg border border-border/70 bg-card p-4">
         <fieldset className="flex flex-col gap-2">
           <legend className="text-xs font-medium uppercase tracking-wider text-muted-foreground mb-1">
-            Should we prepare the design for you?
+            {t("cupsPage.quote.designQuestion")}
           </legend>
           <label className="flex items-center gap-2 cursor-pointer text-sm">
             <input
@@ -936,7 +928,7 @@ function CupsQuoteForm() {
               onChange={() => setNeedsDesign("yes")}
               className="accent-primary h-4 w-4"
             />
-            Yes, please, design it for me
+            {t("cupsPage.quote.designYes")}
           </label>
           <label className="flex items-center gap-2 cursor-pointer text-sm">
             <input
@@ -947,15 +939,15 @@ function CupsQuoteForm() {
               onChange={() => setNeedsDesign("no")}
               className="accent-primary h-4 w-4"
             />
-            No, I have my own artwork
+            {t("cupsPage.quote.designNo")}
           </label>
         </fieldset>
         <div className="flex flex-col gap-2">
           <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
-            Upload artwork{" "}
+            {t("cupsPage.quote.uploadArtwork")}{" "}
             <span
               className="ml-1 inline-flex h-4 w-4 items-center justify-center rounded-full bg-primary/20 text-primary text-[10px]"
-              title="You can upload now or send later to our email."
+              title={t("cupsPage.quote.uploadHint")}
             >
               i
             </span>
@@ -967,20 +959,20 @@ function CupsQuoteForm() {
               accept=".pdf,.ai,.eps,.psd,.png,.jpg,.jpeg,.svg,.tif,.tiff"
               onChange={(e) => setFileName(e.target.files?.[0]?.name ?? "")}
             />
-            {fileName ? "Change file" : "Choose file"}
+            {fileName ? t("cupsPage.quote.changeFile") : t("cupsPage.quote.chooseFile")}
           </label>
           <span className="text-xs text-muted-foreground truncate">
-            {fileName || "PDF, AI, EPS, PSD, PNG, JPG, SVG, or send later by email"}
+            {fileName || t("cupsPage.quote.uploadPlaceholder")}
           </span>
         </div>
       </div>
       <label className="sm:col-span-2 flex flex-col gap-1.5">
         <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
-          Additional questions or notes
+          {t("cupsPage.quote.notes")}
         </span>
         <textarea
           rows={4}
-          placeholder="If you'd like to ask or tell us anything, write here. Sizes, colours, deadline, link to logo / artwork..."
+          placeholder={t("cupsPage.quote.notesPlaceholder")}
           className="rounded-md border border-input bg-background px-3 py-2.5 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
         />
       </label>
@@ -989,7 +981,7 @@ function CupsQuoteForm() {
         className="sm:col-span-2 mt-2 inline-flex items-center justify-center gap-2 rounded-md py-3 font-semibold text-primary-foreground"
         style={{ background: "var(--gradient-cyan)", boxShadow: "var(--shadow-glow)" }}
       >
-        Send <ArrowRight size={18} />
+        {t("cupsPage.quote.send")} <ArrowRight size={18} />
       </button>
     </form>
   );
@@ -1010,12 +1002,12 @@ function Field({
     </label>
   );
 }
-function SelectField({ label, options }: { label: string; options: string[] }) {
+function SelectField({ label, options, placeholder = "Select..." }: { label: string; options: string[]; placeholder?: string }) {
   return (
     <label className="flex flex-col gap-1.5">
       <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">{label}</span>
       <select className="rounded-md border border-input bg-background px-3 py-2.5 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/20">
-        <option value="">Select...</option>
+        <option value="">{placeholder}</option>
         {options.map((o) => (
           <option key={o}>{o}</option>
         ))}

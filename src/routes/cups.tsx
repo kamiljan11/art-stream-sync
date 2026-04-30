@@ -51,13 +51,13 @@ import p38 from "@/assets/site/portfolio/p38.jpg";
 export const Route = createFileRoute("/cups")({
   head: () => ({
     meta: [
-      { title: "Custom Paper & Plastic Cups, Wholesale in Iceland | MAS Prints" },
+      { title: "Custom Paper & Plastic Cups | Wholesale in Iceland | MAS Prints" },
       {
         name: "description",
         content:
           "Custom-printed paper cups, thermal cups, transparent recycled-plastic cups, ice cream bowls, lids, straws and stirrers. From 1,000 pieces. Fixed ISK quote, VAT, customs and delivery to Iceland included.",
       },
-      { property: "og:title", content: "Custom paper & plastic cups, wholesale in Iceland" },
+      { property: "og:title", content: "Custom paper & plastic cups | wholesale in Iceland" },
       {
         property: "og:description",
         content:

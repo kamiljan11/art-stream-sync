@@ -604,17 +604,15 @@ function CupsPage() {
                 {cp.eco.euMark}
               </span>
 
-              {/* The sticker — larger, on a clean white card to mimic a printed label */}
-              <div className="relative rotate-[-4deg] w-[min(92%,420px)] rounded-xl bg-white p-4 sm:p-5 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.45)] ring-1 ring-black/5">
-                <img
-                  src={euPlasticMarking}
-                  alt={cp.eco.euAlt}
-                  loading="lazy"
-                  width={1536}
-                  height={1024}
-                  className="block w-full h-auto rounded-md"
-                />
-              </div>
+              {/* The sticker — clean label, no background card */}
+              <img
+                src={euPlasticMarking}
+                alt={cp.eco.euAlt}
+                loading="lazy"
+                width={1536}
+                height={1024}
+                className="relative rotate-[-4deg] block w-[min(92%,440px)] h-auto drop-shadow-[0_18px_30px_rgba(0,0,0,0.35)]"
+              />
             </div>
 
             {/* LEFT (desktop) / FIRST (mobile): copy */}

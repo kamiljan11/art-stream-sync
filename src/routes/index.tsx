@@ -6,7 +6,7 @@ import { SiteFooter } from "@/components/site/SiteFooter";
 import { PartnersMarquee } from "@/components/site/Marquee";
 import { QuoteForm } from "@/components/site/QuoteForm";
 import { Reveal } from "@/components/site/Reveal";
-import { useT } from "@/i18n/I18nProvider";
+import { useT, useTArray } from "@/i18n/I18nProvider";
 import capMarketing from "@/assets/site/cap-marketing.jpg";
 import capPublishing from "@/assets/site/cap-publishing.png";
 import capPackaging from "@/assets/site/cap-packaging.jpg";
@@ -37,75 +37,51 @@ export const Route = createFileRoute("/")({
 const capabilities = [
   {
     n: "01",
+    key: "marketing",
     title: "MARKETING",
     img: capMarketing,
     items: ["Business Cards & Stationery", "Flyers & Folded Leaflets", "Roll-Up Banners (Events)", "Presentation Folders", "Branded Notepads"],
   },
   {
     n: "02",
+    key: "publishing",
     title: "PUBLISHING",
     img: capPublishing,
     items: ["Product Catalogs", "Magazines", "Hardcover Books", "Softcover Books", "Training Manuals"],
   },
   {
     n: "03",
+    key: "packaging",
     title: "PACKAGING",
     img: capPackaging,
     items: ["Product Boxes", "Mailer/Shipping Boxes", "Paper Bags", "Stickers & Labels", "Cardboard Sleeves"],
   },
   {
     n: "04",
+    key: "decals",
     title: "VEHICLE DECALS",
     img: capDecals,
     items: ["Rear Window Stickers", "Die-Cut Vinyl Lettering", "One-Way Vision (Perforated)", "Bumper Stickers", "Weather-Proof Vinyl"],
   },
   {
     n: "05",
+    key: "magnetic",
     title: "MAGNETIC SIGNS",
     img: capMagnetic,
     items: ["Removable Car Magnets", "Van Door Branding", "High-Grip 0.85mm Sheet", "Temporary Promotion", "Reusable & Durable"],
   },
   {
     n: "06",
+    key: "apparel",
     title: "BRANDED APPAREL",
     img: capApparel,
     items: ["Screen Printed T-Shirts", "Embroidered Polos", "Corporate Hoodies", "High-Vis Safety Vests", "Caps & Beanies"],
   },
 ];
 
-const faqs = [
-  {
-    q: "Why are you so much cheaper?",
-    a: "No overhead. No expensive Reykjavík office, no sales fleet, we connect you straight to the industrial source.",
-  },
-  {
-    q: "Is the quality the same?",
-    a: "Yes, same Heidelberg/HP presses, same paper weights (130–300 g) as the big Icelandic agencies. Often the exact same factories they outsource to.",
-  },
-  {
-    q: "How does the Price Guarantee work?",
-    a: "Find a lower official quote from a registered Icelandic printer for the exact same job, same quantity, paper, finish, before ordering or within 7 days. We beat it, or refund the difference.",
-  },
-  {
-    q: "Do I get a valid invoice?",
-    a: "Yes. You buy from Mountain All Service ehf. (Kt. 690725-0450) and get a compliant Icelandic tax invoice with VSK stated.",
-  },
-  {
-    q: "Do I have to deal with Customs?",
-    a: "No. We handle import, VAT and customs. The quoted price is the final price at your door, you never talk to Tollstjóri.",
-  },
-  {
-    q: "Can you check my files?",
-    a: "Yes. We send file-prep instructions. Small technical fixes are paid by the hour; full design work is available at European rates.",
-  },
-  {
-    q: "What if something is wrong?",
-    a: "We take full responsibility. Printing error? We reprint at our cost or refund in full.",
-  },
-];
-
 function Index() {
   const t = useT();
+  const tArray = useTArray();
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SiteHeader />
@@ -148,20 +124,16 @@ function Index() {
         <div id="logic" className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div>
             <h2 className="text-4xl sm:text-5xl font-extrabold leading-[1.05] tracking-tight">
-              Why We Are <span style={{ color: "var(--brand-cyan)" }}>Cheaper.</span>
+              {t("cheaper.heading1")} <span style={{ color: "var(--brand-cyan)" }}>{t("cheaper.heading2")}</span>
             </h2>
             <div className="mt-8 space-y-6 max-w-prose">
               <div>
-                <p className="text-lg font-bold text-foreground mb-2">The logic.</p>
-                <p className="text-foreground/75 leading-relaxed">
-                  Local shops treat every order as a one-off. You pay for the machine setup, the labour and the retail overhead, every single time.
-                </p>
+                <p className="text-lg font-bold text-foreground mb-2">{t("cheaper.logicTitle")}</p>
+                <p className="text-foreground/75 leading-relaxed">{t("cheaper.logicBody")}</p>
               </div>
               <div>
-                <p className="text-lg font-bold text-foreground mb-2">The wholesale difference.</p>
-                <p className="text-foreground/75 leading-relaxed">
-                  We batch your job with hundreds of others on industrial runs. Setup costs are shared, retail markup is gone, and the saving lands on your invoice.
-                </p>
+                <p className="text-lg font-bold text-foreground mb-2">{t("cheaper.wholesaleTitle")}</p>
+                <p className="text-foreground/75 leading-relaxed">{t("cheaper.wholesaleBody")}</p>
               </div>
             </div>
           </div>
@@ -177,58 +149,56 @@ function Index() {
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-24">
           <Reveal className="text-center max-w-3xl mx-auto">
             <h2 className="text-4xl sm:text-5xl font-extrabold">
-              The Math Behind the <span style={{ color: "var(--brand-cyan)" }}>Guarantee.</span>
+              {t("math.heading1")} <span style={{ color: "var(--brand-cyan)" }}>{t("math.heading2")}</span>
             </h2>
-            <p className="mt-4 text-foreground/75 max-w-xl mx-auto leading-relaxed">
-              We removed every cost that doesn't make your print better.
-            </p>
+            <p className="mt-4 text-foreground/75 max-w-xl mx-auto leading-relaxed">{t("math.sub")}</p>
           </Reveal>
 
           <div className="grid md:grid-cols-3 gap-6 mt-12">
             <FeatureCard
               tint="magenta"
               icon={<X className="text-[color:var(--brand-magenta)]" strokeWidth={3} />}
-              title="NO STORAGE"
-              text="Storage adds ~15% to the price. We skip it, straight from factory to your door."
+              title={t("math.cards.noStorageTitle")}
+              text={t("math.cards.noStorageBody")}
             />
             <FeatureCard
               tint="cyan"
               icon={<X className="text-[color:var(--brand-cyan)]" strokeWidth={3} />}
-              title="NO FANCY OFFICE"
-              text="No expensive office in 101 Reykjavík. We work online, so our rent isn't on your invoice."
+              title={t("math.cards.noOfficeTitle")}
+              text={t("math.cards.noOfficeBody")}
             />
             <FeatureCard
               tint="yellow"
               icon={<Check style={{ color: "var(--brand-yellow)" }} strokeWidth={3} />}
-              title="LOCAL & FAST"
-              text="We work from Njarðvík, next to the airport. Out of the expensive city, still fully local."
+              title={t("math.cards.localFastTitle")}
+              text={t("math.cards.localFastBody")}
             />
           </div>
 
           {/* Comparison table */}
           <div className="mt-16">
             <h3 className="text-3xl sm:text-4xl font-extrabold text-center">
-              COMPARE THE <span style={{ color: "var(--brand-cyan)" }}>MODEL.</span>
+              {t("math.compareHeading1")} <span style={{ color: "var(--brand-cyan)" }}>{t("math.compareHeading2")}</span>
             </h3>
-            <p className="text-center mt-2 text-foreground/75">Same machines. Same paper. Lower overhead.</p>
+            <p className="text-center mt-2 text-foreground/75">{t("math.compareSub")}</p>
 
             <div className="mt-8 overflow-x-auto">
               <table className="w-full text-sm border border-border rounded-lg overflow-hidden">
                 <thead className="bg-muted">
                   <tr>
-                    <th className="text-left px-4 py-3 font-semibold">Feature</th>
-                    <th className="text-left px-4 py-3 font-semibold">Local Retailer</th>
-                    <th className="text-left px-4 py-3 font-semibold text-primary">MAS WHOLESALE</th>
+                    <th className="text-left px-4 py-3 font-semibold">{t("math.table.colFeature")}</th>
+                    <th className="text-left px-4 py-3 font-semibold">{t("math.table.colLocal")}</th>
+                    <th className="text-left px-4 py-3 font-semibold text-primary">{t("math.table.colMas")}</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-border">
                   {[
-                    ["Quality", "✓ Industrial Standard", "✓ Industrial Standard"],
-                    ["Setup Cost", "High (You pay full)", "✓ Shared (Batched)"],
-                    ["Overhead", "High (Rent/Staff)", "✓ ZERO"],
-                    ["Customs/VAT", "✓ Included", "✓ Included (We Handle)"],
-                    ["Price Guarantee", "✗ None", "✓ WE BEAT ANY QUOTE"],
-                    ["Final Cost", "Retail Markup", "✓ WHOLESALE"],
+                    [t("math.table.rowQuality"), t("math.table.sameStandard"), t("math.table.sameStandard")],
+                    [t("math.table.rowSetup"), t("math.table.setupLocal"), t("math.table.setupMas")],
+                    [t("math.table.rowOverhead"), t("math.table.overheadLocal"), t("math.table.overheadMas")],
+                    [t("math.table.rowCustoms"), t("math.table.customsLocal"), t("math.table.customsMas")],
+                    [t("math.table.rowGuarantee"), t("math.table.guaranteeLocal"), t("math.table.guaranteeMas")],
+                    [t("math.table.rowFinal"), t("math.table.finalLocal"), t("math.table.finalMas")],
                   ].map(([f, l, m]) => (
                     <tr key={f}>
                       <td className="px-4 py-3 font-medium">{f}</td>
@@ -259,27 +229,23 @@ function Index() {
         <div id="legal" className="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
           <div>
             <h2 className="text-4xl sm:text-5xl font-extrabold leading-[1.05] tracking-tight">
-              Wholesale Pricing.<br />
-              <span style={{ color: "var(--brand-cyan)" }}>100% Legal.</span>
+              {t("legal.heading1")}<br />
+              <span style={{ color: "var(--brand-cyan)" }}>{t("legal.heading2")}</span>
             </h2>
             <div className="mt-8 space-y-6 max-w-prose">
               <div>
-                <p className="text-lg font-bold text-foreground mb-2">No hidden fees.</p>
+                <p className="text-lg font-bold text-foreground mb-2">{t("legal.noFeesTitle")}</p>
+                <p className="text-foreground/75 leading-relaxed">{t("legal.noFeesBody")}</p>
+              </div>
+              <div>
+                <p className="text-lg font-bold text-foreground mb-2">{t("legal.invoiceTitle")}</p>
                 <p className="text-foreground/75 leading-relaxed">
-                  Cheap foreign quotes often come with a surprise bill from Tollurinn. Not here, the price we quote is the final price at your door. Customs is on us.
+                  {t("legal.invoiceBodyPart1")} <span className="text-foreground font-semibold">{t("legal.invoiceCompany")}</span> {t("legal.invoiceBodyPart2")}
                 </p>
               </div>
               <div>
-                <p className="text-lg font-bold text-foreground mb-2">Valid tax invoice.</p>
-                <p className="text-foreground/75 leading-relaxed">
-                  MAS Prints is a brand of <span className="text-foreground font-semibold">Mountain All Service ehf.</span> (Kt. 690725-0450). You get a compliant Icelandic invoice with VSK, claim your tax back instantly.
-                </p>
-              </div>
-              <div>
-                <p className="text-lg font-bold text-foreground mb-2">Local accountability.</p>
-                <p className="text-foreground/75 leading-relaxed">
-                  Not a faceless website, a registered Icelandic company based in Njarðvík.
-                </p>
+                <p className="text-lg font-bold text-foreground mb-2">{t("legal.accountabilityTitle")}</p>
+                <p className="text-foreground/75 leading-relaxed">{t("legal.accountabilityBody")}</p>
               </div>
             </div>
           </div>
@@ -297,24 +263,29 @@ function Index() {
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-24">
           <Reveal className="text-center max-w-3xl mx-auto">
             <h2 className="text-4xl sm:text-5xl font-extrabold">
-              Industrial <span style={{ color: "var(--brand-cyan)" }}>Capabilities.</span>
+              {t("capabilities.heading1")} <span style={{ color: "var(--brand-cyan)" }}>{t("capabilities.heading2")}</span>
             </h2>
-            <p className="mt-4 text-foreground/75 max-w-xl mx-auto leading-relaxed">
-              Everything your business prints, from daily essentials to industrial runs and custom packaging.
-            </p>
+            <p className="mt-4 text-foreground/75 max-w-xl mx-auto leading-relaxed">{t("capabilities.sub")}</p>
           </Reveal>
 
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-[30px] mt-[50px]">
             {capabilities.map((c, idx) => (
-              <ProductCard key={c.n} {...c} accent={accentFor(idx)} />
+              <ProductCard
+                key={c.n}
+                n={c.n}
+                title={t(`capabilities.${c.key}.title`)}
+                img={c.img}
+                items={tArray(`capabilities.${c.key}.items`)}
+                accent={accentFor(idx)}
+              />
             ))}
             <ProductCard
               n="07"
-              title="PAPER CUPS"
+              title={t("capabilities.cups.title")}
               img={capCups}
-              items={["Single-Wall Paper Cups", "Double-Wall Thermal Cups", "Eco-Friendly BIO Cups", "Paper & Plastic Lids", "Wooden Stirrers"]}
+              items={tArray("capabilities.cups.items")}
               accent={accentFor(6)}
-              cta={{ label: "Explore Cups Range", to: "/cups" }}
+              cta={{ label: t("capabilities.cups.cta"), to: "/cups" }}
             />
           </div>
         </div>
@@ -324,24 +295,24 @@ function Index() {
       <section id="process" className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-24">
         <Reveal className="text-center max-w-3xl mx-auto">
           <h2 className="text-4xl sm:text-5xl font-extrabold">
-            3 STEPS TO <span style={{ color: "var(--brand-cyan)" }}>LOWER COSTS</span>
+            {t("process.heading1")} <span style={{ color: "var(--brand-cyan)" }}>{t("process.heading2")}</span>
           </h2>
           <p className="mt-4 text-foreground/75 max-w-xl mx-auto leading-relaxed">
-            <span className="text-foreground font-semibold">Wholesale access. Zero hassle.</span>
+            <span className="text-foreground font-semibold">{t("process.sub")}</span>
           </p>
         </Reveal>
 
         <div className="grid md:grid-cols-3 gap-6 mt-12">
           {[
-            { n: "01", color: "var(--brand-cyan)", tone: "card-light-cyan", t: "REQUEST OR AUDIT", d: "Tell us what you need, or upload a recent invoice for a free price audit." },
-            { n: "02", color: "var(--brand-magenta)", tone: "card-light-pink", t: "QUOTE & GUARANTEE", d: "We send a wholesale price. Find a lower Icelandic offer? We beat it. You approve the proof." },
-            { n: "03", color: "var(--brand-yellow)", tone: "card-light-yellow", t: "PRINT & DELIVER", d: "We handle production, customs and logistics. The box lands at your door with one ISK invoice." },
+            { n: "01", color: "var(--brand-cyan)", tone: "card-light-cyan", title: t("process.s1Title"), d: t("process.s1Body") },
+            { n: "02", color: "var(--brand-magenta)", tone: "card-light-pink", title: t("process.s2Title"), d: t("process.s2Body") },
+            { n: "03", color: "var(--brand-yellow)", tone: "card-light-yellow", title: t("process.s3Title"), d: t("process.s3Body") },
           ].map((s) => (
             <div key={s.n} className={`${s.tone} p-8`}>
               <div className="text-6xl font-extrabold" style={{ color: s.color }}>
                 {s.n}
               </div>
-              <h3 className="mt-4 text-xl font-extrabold tracking-wide text-slate-900">{s.t}</h3>
+              <h3 className="mt-4 text-xl font-extrabold tracking-wide text-slate-900">{s.title}</h3>
               <p className="mt-3 text-sm text-slate-700">{s.d}</p>
             </div>
           ))}
@@ -364,14 +335,19 @@ function Index() {
       <section id="faq" className="bg-background">
         <div className="mx-auto max-w-[1000px] px-5 py-20">
           <h2 className="text-4xl sm:text-[2.5rem] font-extrabold text-center mt-0 mb-2.5 leading-tight">
-            Frequently Asked Questions
+            {t("faqs.heading")}
           </h2>
           <p className="text-center text-[#aaa] max-w-[600px] mx-auto mb-[50px] text-base">
-            Everything you need to know before printing with us.
+            {t("faqs.sub")}
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-[30px]">
-            {faqs.map((f, i) => (
-              <FaqCard key={f.q} q={f.q} a={f.a} accent={accentFor(i)} />
+            {[1, 2, 3, 4, 5, 6, 7].map((i) => (
+              <FaqCard
+                key={i}
+                q={t(`faqs.q${i}`)}
+                a={t(`faqs.a${i}`)}
+                accent={accentFor(i - 1)}
+              />
             ))}
           </div>
         </div>
@@ -549,6 +525,7 @@ function Pill({ label, sub, tone }: { label: string; sub: string; tone: "muted" 
 }
 
 function CheaperFlow() {
+  const t = useT();
   const cyan = "var(--brand-cyan)";
   return (
     <div className="w-full max-w-[550px]" style={{ filter: "drop-shadow(0 10px 30px rgba(0,0,0,0.6))" }}>
@@ -601,35 +578,34 @@ function CheaperFlow() {
         {/* YOUR PROJECT box */}
         <foreignObject x="20" y="105" width="110" height="70">
           <div className="w-full h-full rounded-lg border border-border bg-card flex flex-col items-center justify-center text-center">
-            <div className="font-extrabold text-[13px] tracking-wider text-foreground leading-tight">YOUR</div>
-            <div className="font-extrabold text-[13px] tracking-wider text-foreground leading-tight">PROJECT</div>
+            <div className="font-extrabold text-[12px] tracking-wider text-foreground leading-tight px-1">{t("cheaper.flow.yourProject")}</div>
           </div>
         </foreignObject>
 
         {/* LOCAL SHOP box */}
         <foreignObject x="290" y="35" width="110" height="70">
           <div className="w-full h-full rounded-lg border border-border bg-background flex flex-col items-center justify-center text-center px-2">
-            <div className="font-extrabold text-[12px] tracking-wider text-muted-foreground leading-tight">LOCAL SHOP</div>
-            <div className="text-[9px] tracking-widest text-muted-foreground/70 mt-1">HIGH OVERHEAD</div>
+            <div className="font-extrabold text-[12px] tracking-wider text-muted-foreground leading-tight">{t("cheaper.flow.localShop")}</div>
+            <div className="text-[9px] tracking-widest text-muted-foreground/70 mt-1">{t("cheaper.flow.localOverhead")}</div>
           </div>
         </foreignObject>
 
         {/* MAS BATCH box */}
         <foreignObject x="290" y="175" width="110" height="70">
           <div className="w-full h-full rounded-lg border-2 flex flex-col items-center justify-center text-center px-2" style={{ borderColor: cyan, background: "hsl(var(--background))" }}>
-            <div className="font-extrabold text-[12px] tracking-wider leading-tight" style={{ color: cyan }}>MAS BATCH</div>
-            <div className="text-[9px] tracking-widest text-muted-foreground mt-1">SHARED COSTS</div>
+            <div className="font-extrabold text-[12px] tracking-wider leading-tight" style={{ color: cyan }}>{t("cheaper.flow.masBatch")}</div>
+            <div className="text-[9px] tracking-widest text-muted-foreground mt-1">{t("cheaper.flow.sharedCosts")}</div>
           </div>
         </foreignObject>
 
         {/* RETAIL label */}
         <text x="450" y="74" fill="rgba(255,255,255,0.7)" fontWeight="800" fontSize="13" fontFamily="inherit" letterSpacing="0.5">
-          ▸ RETAIL $$$
+          {t("cheaper.flow.retail")}
         </text>
 
         {/* WHOLESALE label */}
         <text x="450" y="214" fill={cyan} fontWeight="800" fontSize="13" fontFamily="inherit" letterSpacing="0.5">
-          WHOLESALE
+          {t("cheaper.flow.wholesale")}
         </text>
       </svg>
     </div>
@@ -637,6 +613,7 @@ function CheaperFlow() {
 }
 
 function LegalFlow() {
+  const t = useT();
   const cyan = "var(--brand-cyan)";
   return (
     <div
@@ -657,8 +634,8 @@ function LegalFlow() {
         {/* EU FACTORY box */}
         <foreignObject x="120" y="20" width="240" height="60">
           <div className="w-full h-full rounded-lg border border-border bg-card flex flex-col items-center justify-center text-center">
-            <div className="font-extrabold text-[13px] tracking-wider text-foreground">EU FACTORY</div>
-            <div className="text-[10px] tracking-widest text-muted-foreground mt-0.5">SOURCE</div>
+            <div className="font-extrabold text-[13px] tracking-wider text-foreground">{t("legal.flow.euFactory")}</div>
+            <div className="text-[10px] tracking-widest text-muted-foreground mt-0.5">{t("legal.flow.source")}</div>
           </div>
         </foreignObject>
 
@@ -672,7 +649,7 @@ function LegalFlow() {
               MAS PRINTS
             </div>
             <div className="mt-3 grid grid-cols-2 gap-2 w-full">
-              {["ICELANDIC KENNITALA", "CUSTOMS PAID", "VAT (VSK) INVOICE", "LOCAL SUPPORT"].map((b) => (
+              {[t("legal.flow.kennitala"), t("legal.flow.customs"), t("legal.flow.vat"), t("legal.flow.support")].map((b) => (
                 <div
                   key={b}
                   className="rounded border border-border bg-card/60 px-2 py-1.5 text-[10px] font-bold tracking-wider text-muted-foreground text-center"
@@ -687,8 +664,8 @@ function LegalFlow() {
         {/* YOU box */}
         <foreignObject x="120" y="460" width="240" height="60">
           <div className="w-full h-full rounded-lg border-2 flex flex-col items-center justify-center text-center" style={{ borderColor: cyan, background: "hsl(var(--background))" }}>
-            <div className="font-extrabold text-[13px] tracking-wider" style={{ color: cyan }}>YOU</div>
-            <div className="text-[10px] tracking-widest text-muted-foreground mt-0.5">SAFE DELIVERY</div>
+            <div className="font-extrabold text-[13px] tracking-wider" style={{ color: cyan }}>{t("legal.flow.you")}</div>
+            <div className="text-[10px] tracking-widest text-muted-foreground mt-0.5">{t("legal.flow.delivery")}</div>
           </div>
         </foreignObject>
       </svg>
@@ -787,16 +764,17 @@ function ProductCard({
 }
 
 function IndustrialStandards() {
+  const t = useT();
   const items = [
-    { Icon: Factory, t: "Industrial Capacity", d: "High-volume factory scale", color: "var(--brand-cyan)" },
-    { Icon: ShieldCheck, t: "Technical Safety", d: "We audit your files for errors", color: "var(--brand-magenta)" },
-    { Icon: Palette, t: "Color Accuracy", d: "Perfectly calibrated output", color: "var(--brand-yellow)" },
-    { Icon: Leaf, t: "Premium Stock", d: "Sustainable high-end paper", color: "#22c55e" },
+    { Icon: Factory, title: t("standards.capacity"), d: t("standards.capacitySub"), color: "var(--brand-cyan)" },
+    { Icon: ShieldCheck, title: t("standards.safety"), d: t("standards.safetySub"), color: "var(--brand-magenta)" },
+    { Icon: Palette, title: t("standards.color"), d: t("standards.colorSub"), color: "var(--brand-yellow)" },
+    { Icon: Leaf, title: t("standards.stock"), d: t("standards.stockSub"), color: "#22c55e" },
   ];
   return (
     <div className="mt-20 px-5 py-10 md:py-[60px]">
       <h3 className="md:hidden text-3xl font-extrabold text-center mb-10 leading-tight tracking-tight">
-        Industrial <span style={{ color: "var(--brand-cyan)" }}>Standards.</span>
+        {t("standards.heading1")} <span style={{ color: "var(--brand-cyan)" }}>{t("standards.heading2")}</span>
       </h3>
       <div className="relative max-w-[1100px] mx-auto flex flex-col md:grid md:grid-cols-4 md:justify-items-center md:items-center items-center gap-10 md:gap-6 lg:gap-10">
         <div
@@ -807,9 +785,9 @@ function IndustrialStandards() {
               "linear-gradient(to bottom, transparent, hsl(var(--foreground) / 0.1) 20%, hsl(var(--foreground) / 0.1) 80%, transparent)",
           }}
         />
-        {items.map(({ Icon, t, d, color }) => (
+        {items.map(({ Icon, title, d, color }) => (
           <div
-            key={t}
+            key={title}
             className="relative z-10 flex flex-col md:flex-row items-center text-center md:text-left gap-2.5 md:gap-[15px] opacity-70 md:opacity-80 hover:opacity-100 hover:-translate-y-[5px] transition-all duration-300"
           >
             <Icon
@@ -818,7 +796,7 @@ function IndustrialStandards() {
               strokeWidth={2}
             />
             <div className="leading-tight">
-              <div className="text-sm md:text-[0.9rem] font-bold tracking-wide">{t}</div>
+              <div className="text-sm md:text-[0.9rem] font-bold tracking-wide">{title}</div>
               <div className="text-[0.7rem] text-muted-foreground font-normal mt-0.5">{d}</div>
             </div>
           </div>

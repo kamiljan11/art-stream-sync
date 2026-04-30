@@ -119,8 +119,8 @@ function Index() {
             <br />
             Prices. Guaranteed.
           </h1>
-          <p className="mt-6 max-w-2xl mx-auto text-lg text-muted-foreground">
-            Direct access to high-capacity European printing factories. Offset & Digital. Icelandic quality. No retail markup.
+          <p className="mt-6 max-w-2xl mx-auto text-lg text-foreground/75 leading-relaxed">
+            Direct access to European print factories. Icelandic invoice, no retail markup.
           </p>
           <div className="mt-10 flex flex-col items-center gap-4">
             <a
@@ -144,20 +144,20 @@ function Index() {
       <section id="secret" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24">
         <div id="logic" className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div>
-            <h2 className="text-4xl sm:text-5xl font-extrabold leading-tight">
+            <h2 className="text-4xl sm:text-5xl font-extrabold leading-[1.05] tracking-tight">
               Why We Are <span style={{ color: "var(--brand-cyan)" }}>Cheaper.</span>
             </h2>
-            <div className="mt-8 space-y-6">
+            <div className="mt-8 space-y-6 max-w-prose">
               <div>
-                <p className="text-lg font-bold text-foreground mb-2">The Logic Behind the Guarantee.</p>
-                <p className="text-muted-foreground leading-relaxed">
-                  Local print shops often treat small orders as "one-off" jobs. You pay for the machine setup, the labor, and the local retail overhead.
+                <p className="text-lg font-bold text-foreground mb-2">The logic.</p>
+                <p className="text-foreground/75 leading-relaxed">
+                  Local shops treat every order as a one-off. You pay for the machine setup, the labour and the retail overhead — every single time.
                 </p>
               </div>
               <div>
-                <p className="text-lg font-bold text-foreground mb-2">The Wholesale Difference.</p>
-                <p className="text-muted-foreground leading-relaxed">
-                  We don't print alone. We batch your order with hundreds of others in massive industrial runs directly at the factory. We split the setup costs, bypass the retail markup, and pass the savings directly to you.
+                <p className="text-lg font-bold text-foreground mb-2">The wholesale difference.</p>
+                <p className="text-foreground/75 leading-relaxed">
+                  We batch your job with hundreds of others on industrial runs. Setup costs are shared, retail markup is gone, and the saving lands on your invoice.
                 </p>
               </div>
             </div>
@@ -176,8 +176,8 @@ function Index() {
             <h2 className="text-4xl sm:text-5xl font-extrabold">
               The Math Behind the <span style={{ color: "var(--brand-cyan)" }}>Guarantee.</span>
             </h2>
-            <p className="mt-4 text-muted-foreground">
-              How can we promise the lowest price? Simple. We removed every cost that doesn't make your print better.
+            <p className="mt-4 text-foreground/75 max-w-xl mx-auto leading-relaxed">
+              We removed every cost that doesn't make your print better.
             </p>
           </div>
 
@@ -186,19 +186,19 @@ function Index() {
               tint="magenta"
               icon={<X className="text-[color:var(--brand-magenta)]" strokeWidth={3} />}
               title="NO STORAGE"
-              text="Storage costs add 15% to the price. We skip it. Your order goes from the factory straight to your door. You pay for the product, not for a warehouse."
+              text="Storage adds ~15% to the price. We skip it — straight from factory to your door. You pay for the print, not the warehouse."
             />
             <FeatureCard
               tint="cyan"
               icon={<X className="text-[color:var(--brand-cyan)]" strokeWidth={3} />}
               title="NO FANCY OFFICE"
-              text="We don't have an expensive office in 101 Reykjavík. We work online so you don't have to pay for our rent in your invoice."
+              text="No expensive office in 101 Reykjavík. We work online — so our rent isn't on your invoice."
             />
             <FeatureCard
               tint="yellow"
               icon={<Check style={{ color: "var(--brand-yellow)" }} strokeWidth={3} />}
               title="LOCAL & FAST"
-              text="We work from Njarðvík, right next to the airport. We stay out of the expensive city center to lower your costs while keeping our service local."
+              text="We work from Njarðvík, next to the airport. Out of the expensive city — still fully local."
             />
           </div>
 
@@ -207,7 +207,7 @@ function Index() {
             <h3 className="text-3xl sm:text-4xl font-extrabold text-center">
               COMPARE THE <span style={{ color: "var(--brand-cyan)" }}>MODEL.</span>
             </h3>
-            <p className="text-center mt-2 text-muted-foreground">Same machines. Same paper. Drastically lower overhead.</p>
+            <p className="text-center mt-2 text-foreground/75">Same machines. Same paper. Lower overhead.</p>
 
             <div className="mt-8 overflow-x-auto">
               <table className="w-full text-sm border border-border rounded-lg overflow-hidden">
@@ -255,27 +255,27 @@ function Index() {
       <section id="pricing" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24 border-t border-border">
         <div id="legal" className="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
           <div>
-            <h2 className="text-4xl sm:text-5xl font-extrabold leading-tight">
+            <h2 className="text-4xl sm:text-5xl font-extrabold leading-[1.05] tracking-tight">
               Wholesale Pricing.<br />
               <span style={{ color: "var(--brand-cyan)" }}>100% Legal.</span>
             </h2>
-            <div className="mt-8 space-y-6">
+            <div className="mt-8 space-y-6 max-w-prose">
               <div>
-                <p className="text-lg font-bold text-foreground mb-2">No Hidden Fees.</p>
-                <p className="text-muted-foreground leading-relaxed">
-                  Cheap quotes from abroad often come with a surprise bill from Icelandic Customs (Tollurinn). Not with us. The price we quote is the final price delivered to your door. We pay the import duties.
+                <p className="text-lg font-bold text-foreground mb-2">No hidden fees.</p>
+                <p className="text-foreground/75 leading-relaxed">
+                  Cheap foreign quotes often come with a surprise bill from Tollurinn. Not here — the price we quote is the final price at your door. Customs is on us.
                 </p>
               </div>
               <div>
-                <p className="text-lg font-bold text-foreground mb-2">Valid Tax Invoice.</p>
-                <p className="text-muted-foreground leading-relaxed">
-                  MAS PRINTS is a brand of <span className="text-foreground font-semibold">Mountain All Service ehf.</span> (Kt: 690725-0450). You receive a fully compliant Icelandic invoice with VSK stated, so you can claim your tax back instantly.
+                <p className="text-lg font-bold text-foreground mb-2">Valid tax invoice.</p>
+                <p className="text-foreground/75 leading-relaxed">
+                  MAS Prints is a brand of <span className="text-foreground font-semibold">Mountain All Service ehf.</span> (Kt. 690725-0450). You get a compliant Icelandic invoice with VSK — claim your tax back instantly.
                 </p>
               </div>
               <div>
-                <p className="text-lg font-bold text-foreground mb-2">Local Accountability.</p>
-                <p className="text-muted-foreground leading-relaxed">
-                  We are not a faceless website. We are a registered Icelandic company based in Njarðvík.
+                <p className="text-lg font-bold text-foreground mb-2">Local accountability.</p>
+                <p className="text-foreground/75 leading-relaxed">
+                  Not a faceless website — a registered Icelandic company based in Njarðvík.
                 </p>
               </div>
             </div>
@@ -296,8 +296,8 @@ function Index() {
             <h2 className="text-4xl sm:text-5xl font-extrabold">
               Industrial <span style={{ color: "var(--brand-cyan)" }}>Capabilities.</span>
             </h2>
-            <p className="mt-4 text-muted-foreground">
-              Everything your business needs to print. From daily essentials to high-volume industrial runs and custom packaging.
+            <p className="mt-4 text-foreground/75 max-w-xl mx-auto leading-relaxed">
+              Everything your business prints — from daily essentials to industrial runs and custom packaging.
             </p>
           </div>
 
@@ -323,16 +323,16 @@ function Index() {
           <h2 className="text-4xl sm:text-5xl font-extrabold">
             3 STEPS TO <span style={{ color: "var(--brand-cyan)" }}>LOWER COSTS</span>
           </h2>
-          <p className="mt-4 text-muted-foreground">
-            We simplified the industrial print process. <span className="text-foreground font-semibold">Wholesale access. Zero hassle.</span>
+          <p className="mt-4 text-foreground/75 max-w-xl mx-auto leading-relaxed">
+            <span className="text-foreground font-semibold">Wholesale access. Zero hassle.</span>
           </p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-6 mt-12">
           {[
-            { n: "01", color: "var(--brand-cyan)", tint: "var(--tint-cyan)", t: "REQUEST OR AUDIT", d: "New project? Tell us what you need. Already printing somewhere else? Upload a recent invoice for a free price audit." },
-            { n: "02", color: "var(--brand-magenta)", tint: "var(--tint-magenta)", t: "QUOTE & GUARANTEE", d: "We send you a wholesale price. If you find a lower valid offer in Iceland, we beat it. You approve the final digital proof." },
-            { n: "03", color: "var(--brand-yellow)", tint: "var(--tint-yellow)", t: "PRINT & DELIVER", d: "We handle production, customs clearance, and logistics. You receive the box at your door with one local invoice in ISK." },
+            { n: "01", color: "var(--brand-cyan)", tint: "var(--tint-cyan)", t: "REQUEST OR AUDIT", d: "Tell us what you need — or upload a recent invoice for a free price audit." },
+            { n: "02", color: "var(--brand-magenta)", tint: "var(--tint-magenta)", t: "QUOTE & GUARANTEE", d: "We send a wholesale price. Find a lower Icelandic offer? We beat it. You approve the proof." },
+            { n: "03", color: "var(--brand-yellow)", tint: "var(--tint-yellow)", t: "PRINT & DELIVER", d: "We handle production, customs and logistics. The box lands at your door with one ISK invoice." },
           ].map((s) => (
             <div key={s.n} className="rounded-xl border border-border p-8" style={{ background: s.tint }}>
               <div className="text-6xl font-extrabold" style={{ color: s.color }}>
@@ -363,8 +363,8 @@ function Index() {
           <h2 className="text-4xl sm:text-[2.5rem] font-extrabold text-center mt-0 mb-2.5 leading-tight">
             Frequently Asked Questions
           </h2>
-          <p className="text-center text-[#888] max-w-[600px] mx-auto mb-[50px] text-base">
-            Everything you need to know about printing with MAS Prints.
+          <p className="text-center text-[#aaa] max-w-[600px] mx-auto mb-[50px] text-base">
+            Everything you need to know before printing with us.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-[30px]">
             {faqs.map((f, i) => (

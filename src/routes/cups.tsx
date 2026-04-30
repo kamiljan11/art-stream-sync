@@ -804,49 +804,6 @@ function CupsPage() {
               </div>
             ))}
           </div>
-
-          {/* USP strip, low MOQ, free design, dedicated contact, QC */}
-          <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {[
-              {
-                t: "From just 1,000 pcs",
-                d: "Low minimum order, perfect for small cafés, events and pilot runs. Scale up whenever you're ready.",
-                tone: "card-light-cyan",
-                accent: "#0ea5e9",
-              },
-              {
-                t: "Free artwork adaptation",
-                d: "Send your logo in any usable format, we adapt it to the cup template at no extra cost with every order.",
-                tone: "card-light-pink",
-                accent: "#ec4899",
-              },
-              {
-                t: "Your dedicated contact",
-                d: "One person guides you from quote to delivery. Not sure which product fits? Just ask, we'll advise.",
-                tone: "card-light-yellow",
-                accent: "#eab308",
-              },
-              {
-                t: "Professional QC system",
-                d: "Every batch passes a multi-stage quality check, print accuracy, lining seal, structure and food-safety compliance, before it ships.",
-                tone: "card-light-lime",
-                accent: "#84cc16",
-              },
-            ].map((u) => (
-              <div key={u.t} className={`${u.tone} p-5`}>
-                <div className="flex items-center gap-2">
-                  <span
-                    className="inline-flex h-6 w-6 items-center justify-center rounded-full text-xs font-bold text-white"
-                    style={{ backgroundColor: u.accent }}
-                  >
-                    ✓
-                  </span>
-                  <h3 className="font-bold text-base text-slate-900">{u.t}</h3>
-                </div>
-                <p className="mt-2 text-sm text-slate-700 leading-relaxed">{u.d}</p>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 

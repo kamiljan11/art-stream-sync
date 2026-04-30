@@ -556,6 +556,7 @@ function Pill({ label, sub, tone }: { label: string; sub: string; tone: "muted" 
 }
 
 function CheaperFlow() {
+  const t = useT();
   const cyan = "var(--brand-cyan)";
   return (
     <div className="w-full max-w-[550px]" style={{ filter: "drop-shadow(0 10px 30px rgba(0,0,0,0.6))" }}>
@@ -608,35 +609,34 @@ function CheaperFlow() {
         {/* YOUR PROJECT box */}
         <foreignObject x="20" y="105" width="110" height="70">
           <div className="w-full h-full rounded-lg border border-border bg-card flex flex-col items-center justify-center text-center">
-            <div className="font-extrabold text-[13px] tracking-wider text-foreground leading-tight">YOUR</div>
-            <div className="font-extrabold text-[13px] tracking-wider text-foreground leading-tight">PROJECT</div>
+            <div className="font-extrabold text-[12px] tracking-wider text-foreground leading-tight px-1">{t("cheaper.flow.yourProject")}</div>
           </div>
         </foreignObject>
 
         {/* LOCAL SHOP box */}
         <foreignObject x="290" y="35" width="110" height="70">
           <div className="w-full h-full rounded-lg border border-border bg-background flex flex-col items-center justify-center text-center px-2">
-            <div className="font-extrabold text-[12px] tracking-wider text-muted-foreground leading-tight">LOCAL SHOP</div>
-            <div className="text-[9px] tracking-widest text-muted-foreground/70 mt-1">HIGH OVERHEAD</div>
+            <div className="font-extrabold text-[12px] tracking-wider text-muted-foreground leading-tight">{t("cheaper.flow.localShop")}</div>
+            <div className="text-[9px] tracking-widest text-muted-foreground/70 mt-1">{t("cheaper.flow.localOverhead")}</div>
           </div>
         </foreignObject>
 
         {/* MAS BATCH box */}
         <foreignObject x="290" y="175" width="110" height="70">
           <div className="w-full h-full rounded-lg border-2 flex flex-col items-center justify-center text-center px-2" style={{ borderColor: cyan, background: "hsl(var(--background))" }}>
-            <div className="font-extrabold text-[12px] tracking-wider leading-tight" style={{ color: cyan }}>MAS BATCH</div>
-            <div className="text-[9px] tracking-widest text-muted-foreground mt-1">SHARED COSTS</div>
+            <div className="font-extrabold text-[12px] tracking-wider leading-tight" style={{ color: cyan }}>{t("cheaper.flow.masBatch")}</div>
+            <div className="text-[9px] tracking-widest text-muted-foreground mt-1">{t("cheaper.flow.sharedCosts")}</div>
           </div>
         </foreignObject>
 
         {/* RETAIL label */}
         <text x="450" y="74" fill="rgba(255,255,255,0.7)" fontWeight="800" fontSize="13" fontFamily="inherit" letterSpacing="0.5">
-          ▸ RETAIL $$$
+          {t("cheaper.flow.retail")}
         </text>
 
         {/* WHOLESALE label */}
         <text x="450" y="214" fill={cyan} fontWeight="800" fontSize="13" fontFamily="inherit" letterSpacing="0.5">
-          WHOLESALE
+          {t("cheaper.flow.wholesale")}
         </text>
       </svg>
     </div>
@@ -644,6 +644,7 @@ function CheaperFlow() {
 }
 
 function LegalFlow() {
+  const t = useT();
   const cyan = "var(--brand-cyan)";
   return (
     <div
@@ -664,8 +665,8 @@ function LegalFlow() {
         {/* EU FACTORY box */}
         <foreignObject x="120" y="20" width="240" height="60">
           <div className="w-full h-full rounded-lg border border-border bg-card flex flex-col items-center justify-center text-center">
-            <div className="font-extrabold text-[13px] tracking-wider text-foreground">EU FACTORY</div>
-            <div className="text-[10px] tracking-widest text-muted-foreground mt-0.5">SOURCE</div>
+            <div className="font-extrabold text-[13px] tracking-wider text-foreground">{t("legal.flow.euFactory")}</div>
+            <div className="text-[10px] tracking-widest text-muted-foreground mt-0.5">{t("legal.flow.source")}</div>
           </div>
         </foreignObject>
 
@@ -679,7 +680,7 @@ function LegalFlow() {
               MAS PRINTS
             </div>
             <div className="mt-3 grid grid-cols-2 gap-2 w-full">
-              {["ICELANDIC KENNITALA", "CUSTOMS PAID", "VAT (VSK) INVOICE", "LOCAL SUPPORT"].map((b) => (
+              {[t("legal.flow.kennitala"), t("legal.flow.customs"), t("legal.flow.vat"), t("legal.flow.support")].map((b) => (
                 <div
                   key={b}
                   className="rounded border border-border bg-card/60 px-2 py-1.5 text-[10px] font-bold tracking-wider text-muted-foreground text-center"
@@ -694,8 +695,8 @@ function LegalFlow() {
         {/* YOU box */}
         <foreignObject x="120" y="460" width="240" height="60">
           <div className="w-full h-full rounded-lg border-2 flex flex-col items-center justify-center text-center" style={{ borderColor: cyan, background: "hsl(var(--background))" }}>
-            <div className="font-extrabold text-[13px] tracking-wider" style={{ color: cyan }}>YOU</div>
-            <div className="text-[10px] tracking-widest text-muted-foreground mt-0.5">SAFE DELIVERY</div>
+            <div className="font-extrabold text-[13px] tracking-wider" style={{ color: cyan }}>{t("legal.flow.you")}</div>
+            <div className="text-[10px] tracking-widest text-muted-foreground mt-0.5">{t("legal.flow.delivery")}</div>
           </div>
         </foreignObject>
       </svg>

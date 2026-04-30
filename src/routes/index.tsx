@@ -6,7 +6,7 @@ import { SiteFooter } from "@/components/site/SiteFooter";
 import { PartnersMarquee } from "@/components/site/Marquee";
 import { QuoteForm } from "@/components/site/QuoteForm";
 import { Reveal } from "@/components/site/Reveal";
-import { useT } from "@/i18n/I18nProvider";
+import { useT, useTArray } from "@/i18n/I18nProvider";
 import capMarketing from "@/assets/site/cap-marketing.jpg";
 import capPublishing from "@/assets/site/cap-publishing.png";
 import capPackaging from "@/assets/site/cap-packaging.jpg";
@@ -112,6 +112,7 @@ const faqs = [
 
 function Index() {
   const t = useT();
+  const tArray = useTArray();
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SiteHeader />
@@ -305,7 +306,7 @@ function Index() {
                 n={c.n}
                 title={t(`capabilities.${c.key}.title`)}
                 img={c.img}
-                items={(t(`capabilities.${c.key}.items`) as unknown as string[]) ?? []}
+                items={tArray(`capabilities.${c.key}.items`)}
                 accent={accentFor(idx)}
               />
             ))}
@@ -313,7 +314,7 @@ function Index() {
               n="07"
               title={t("capabilities.cups.title")}
               img={capCups}
-              items={(t("capabilities.cups.items") as unknown as string[]) ?? []}
+              items={tArray("capabilities.cups.items")}
               accent={accentFor(6)}
               cta={{ label: t("capabilities.cups.cta"), to: "/cups" }}
             />

@@ -1,18 +1,9 @@
 import { useState } from "react";
 import { ShieldCheck } from "lucide-react";
-
-const productTypes = [
-  "Business Cards",
-  "Flyers / Leaflets",
-  "Booklets / Catalogs",
-  "Stickers / Labels",
-  "Banners / Signs",
-  "Packaging / Boxes",
-  "Clothing / Apparel",
-  "Other",
-];
+import { useT, useTArray } from "@/i18n/I18nProvider";
 
 export function QuoteForm() {
+  const t = useT();
   const [tab, setTab] = useState<"new" | "audit">("new");
   const [submitted, setSubmitted] = useState(false);
 
@@ -21,10 +12,10 @@ export function QuoteForm() {
       <div className="max-w-[650px] mx-auto text-center relative z-10">
         {/* Heading */}
         <h2 className="text-[2.2rem] md:text-[3rem] leading-none font-black uppercase tracking-tight m-0 mb-[15px] text-foreground">
-          GET YOUR QUOTE.
+          {t("homeQuote.heading")}
         </h2>
         <p className="text-[#888] text-[1.05rem] md:text-[1.1rem] mb-10">
-          100% Lowest Price Guarantee. Wholesale Direct.
+          {t("homeQuote.sub")}
         </p>
 
         {/* Form box (white) */}
@@ -36,14 +27,14 @@ export function QuoteForm() {
               onClick={() => setTab("new")}
               accent="#00AEEF"
             >
-              New Project Quote
+              {t("homeQuote.tabNew")}
             </TabBtn>
             <TabBtn
               active={tab === "audit"}
               onClick={() => setTab("audit")}
               accent="#EC008C"
             >
-              Price Match Audit
+              {t("homeQuote.tabAudit")}
             </TabBtn>
           </div>
 
@@ -52,10 +43,10 @@ export function QuoteForm() {
             {submitted ? (
               <div className="text-center py-12">
                 <div className="text-2xl font-bold" style={{ color: tab === "new" ? "#00AEEF" : "#EC008C" }}>
-                  Message Sent!
+                  {t("homeQuote.sentTitle")}
                 </div>
                 <p className="mt-2 text-[#555]">
-                  We have received your message and will reply as soon as possible.
+                  {t("homeQuote.sentSub")}
                 </p>
               </div>
             ) : (
@@ -92,14 +83,14 @@ export function QuoteForm() {
                         : "0 4px 12px rgba(236, 0, 140, 0.25)";
                   }}
                 >
-                  {tab === "new" ? "Get My Quote" : "Beat My Price"}
+                  {tab === "new" ? t("homeQuote.submitNew") : t("homeQuote.submitAudit")}
                 </button>
 
                 <div className="flex items-center justify-center gap-2 mt-5 text-[0.85rem] text-[#888] font-semibold">
                   <ShieldCheck size={16} style={{ color: tab === "new" ? "#00AEEF" : "#EC008C" }} />
                   {tab === "new"
-                    ? "We guarantee the best price in Iceland."
-                    : "We beat any valid local quote or refund the difference."}
+                    ? t("homeQuote.guaranteeNew")
+                    : t("homeQuote.guaranteeAudit")}
                 </div>
               </form>
             )}
@@ -146,30 +137,33 @@ function TabBtn({
 }
 
 function NewProjectFields() {
+  const t = useT();
+  const productTypes = useTArray()("homeQuote.products");
   return (
     <>
-      <Input label="Name / Company" required />
-      <Input label="Email Address" type="email" placeholder="you@company.is" required />
-      <Input label="Phone Number" type="tel" />
+      <Input label={t("homeQuote.nameCompany")} required />
+      <Input label={t("homeQuote.emailAddress")} type="email" placeholder={t("homeQuote.emailPlaceholder")} required />
+      <Input label={t("homeQuote.phoneNumber")} type="tel" />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4">
-        <Select label="Product Type" options={productTypes} />
-        <Input label="Quantity" />
+        <Select label={t("homeQuote.productType")} options={productTypes} />
+        <Input label={t("homeQuote.quantity")} />
       </div>
-      <Textarea label="Project Details" />
-      <Input label="Design Files Link (Optional)" hint="Required for files larger than 25MB." />
+      <Textarea label={t("homeQuote.projectDetails")} />
+      <Input label={t("homeQuote.designLink")} hint={t("homeQuote.designLinkHint")} />
     </>
   );
 }
 
 function AuditFields() {
+  const t = useT();
   return (
     <>
-      <Input label="Company Name" required />
-      <Input label="Email Address" type="email" placeholder="you@company.is" required />
-      <Input label="Phone Number" type="tel" />
-      <FileInput label="Upload Competitor Invoice / Quote" hint="We use this to beat their price." />
-      <Input label="Design Files Link (Optional)" hint="Sharing artwork helps us verify specs faster." />
-      <Input label="Current Cost (Optional)" />
+      <Input label={t("homeQuote.companyName")} required />
+      <Input label={t("homeQuote.emailAddress")} type="email" placeholder={t("homeQuote.emailPlaceholder")} required />
+      <Input label={t("homeQuote.phoneNumber")} type="tel" />
+      <FileInput label={t("homeQuote.uploadInvoice")} hint={t("homeQuote.uploadInvoiceHint")} />
+      <Input label={t("homeQuote.designLink")} hint={t("homeQuote.designLinkAuditHint")} />
+      <Input label={t("homeQuote.currentCost")} />
     </>
   );
 }
@@ -209,13 +203,14 @@ function Textarea({ label, ...props }: React.TextareaHTMLAttributes<HTMLTextArea
 }
 
 function Select({ label, options }: { label: string; options: string[] }) {
+  const t = useT();
   return (
     <div className="mb-5">
       <label className="block text-[0.8rem] font-extrabold text-[#222] mb-2 uppercase tracking-[0.5px]">
         {label}
       </label>
       <select className="w-full px-4 py-[14px] text-base border-2 border-[#eee] rounded-lg bg-[#f9f9f9] text-[#333] focus:outline-none focus:border-[#333] focus:bg-white transition-colors">
-        <option value="">Select...</option>
+        <option value="">{t("homeQuote.selectPlaceholder")}</option>
         {options.map((o) => (
           <option key={o}>{o}</option>
         ))}

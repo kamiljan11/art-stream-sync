@@ -1,24 +1,25 @@
 import { useEffect, useState } from "react";
 import { MessageCircle, X, Phone, Mail, Send, CheckCircle2 } from "lucide-react";
 import { z } from "zod";
+import { useT } from "@/i18n/I18nProvider";
 
 const cyan = "#00AEEF";
 const magenta = "#EC008C";
 
-const schema = z.object({
-  name: z.string().trim().min(1, "Name is required").max(100),
-  email: z.string().trim().email("Invalid email").max(255),
-  phone: z.string().trim().min(4, "Phone is required").max(40),
-  message: z.string().trim().min(1, "Message is required").max(2000),
-});
-
-type FormState = z.infer<typeof schema>;
+type FormState = { name: string; email: string; phone: string; message: string };
 
 const PHONE = "+354 779 0000";
 const PHONE_HREF = "tel:+3547790000";
 const EMAIL = "prints@masgroup.is";
 
 export function FloatingContact() {
+  const t = useT();
+  const schema = z.object({
+    name: z.string().trim().min(1, t("floating.errNameReq")).max(100),
+    email: z.string().trim().email(t("floating.errEmailInvalid")).max(255),
+    phone: z.string().trim().min(4, t("floating.errPhoneReq")).max(40),
+    message: z.string().trim().min(1, t("floating.errMessageReq")).max(2000),
+  });
   const [open, setOpen] = useState(false);
   const [form, setForm] = useState<FormState>({
     name: "",
@@ -80,7 +81,7 @@ export function FloatingContact() {
       setForm({ name: "", email: "", phone: "", message: "" });
     } catch (err) {
       console.error(err);
-      setErrors({ message: "Something went wrong. Please try again or email us directly." });
+      setErrors({ message: t("floating.errFailed") });
     } finally {
       setSubmitting(false);
     }
@@ -91,7 +92,7 @@ export function FloatingContact() {
       {/* Floating button */}
       <button
         type="button"
-        aria-label="Open contact form"
+        aria-label={t("floating.open")}
         onClick={() => {
           setOpen(true);
           setSent(false);
@@ -129,16 +130,16 @@ export function FloatingContact() {
             >
               <button
                 onClick={() => setOpen(false)}
-                aria-label="Close"
+                aria-label={t("floating.close")}
                 className="absolute top-3 right-3 rounded-full p-1.5 hover:bg-white/20 transition-colors"
               >
                 <X className="h-5 w-5" />
               </button>
               <h2 id="floating-contact-title" className="text-xl font-extrabold tracking-wider">
-                GET IN TOUCH
+                {t("floating.title")}
               </h2>
               <p className="text-sm text-white/90 mt-1">
-                Send us a message, we usually reply within a few business hours.
+                {t("floating.sub")}
               </p>
             </div>
 
@@ -147,9 +148,9 @@ export function FloatingContact() {
               {sent ? (
                 <div className="text-center py-8">
                   <CheckCircle2 className="mx-auto h-14 w-14" style={{ color: cyan }} />
-                  <h3 className="mt-4 text-lg font-extrabold">Message sent!</h3>
+                  <h3 className="mt-4 text-lg font-extrabold">{t("floating.sentTitle")}</h3>
                   <p className="mt-2 text-sm text-gray-600">
-                    Thanks for reaching out. We'll be in touch shortly.
+                    {t("floating.sentSub")}
                   </p>
                   <button
                     type="button"
@@ -157,20 +158,20 @@ export function FloatingContact() {
                     className="mt-6 rounded-lg px-5 py-2.5 text-sm font-bold text-white"
                     style={{ background: cyan }}
                   >
-                    Close
+                    {t("floating.closeBtn")}
                   </button>
                 </div>
               ) : (
                 <form onSubmit={onSubmit} className="space-y-3">
                   <Field
-                    label="Name"
+                    label={t("floating.name")}
                     value={form.name}
                     onChange={(v) => update("name", v)}
                     error={errors.name}
                     autoComplete="name"
                   />
                   <Field
-                    label="Email"
+                    label={t("floating.email")}
                     type="email"
                     value={form.email}
                     onChange={(v) => update("email", v)}
@@ -178,7 +179,7 @@ export function FloatingContact() {
                     autoComplete="email"
                   />
                   <Field
-                    label="Phone"
+                    label={t("floating.phone")}
                     type="tel"
                     value={form.phone}
                     onChange={(v) => update("phone", v)}
@@ -188,7 +189,7 @@ export function FloatingContact() {
                   />
                   <div>
                     <label className="block text-xs font-bold uppercase tracking-wider text-gray-600 mb-1">
-                      Message
+                      {t("floating.message")}
                     </label>
                     <textarea
                       value={form.message}
@@ -196,7 +197,7 @@ export function FloatingContact() {
                       rows={4}
                       className="w-full rounded-lg border border-gray-300 bg-gray-50 px-3 py-2.5 text-sm text-gray-900 outline-none focus:border-transparent focus:ring-2"
                       style={{ ["--tw-ring-color" as any]: cyan }}
-                      placeholder="Tell us what you'd like to print..."
+                      placeholder={t("floating.messagePlaceholder")}
                     />
                     {errors.message && (
                       <p className="mt-1 text-xs text-red-600">{errors.message}</p>
@@ -212,11 +213,11 @@ export function FloatingContact() {
                     }}
                   >
                     <Send className="h-4 w-4" />
-                    {submitting ? "SENDING..." : "SEND MESSAGE"}
+                    {submitting ? t("floating.sending") : t("floating.send")}
                   </button>
 
                   <p className="text-[11px] text-gray-500 text-center pt-1">
-                    By submitting, you agree to be contacted regarding your inquiry.
+                    {t("floating.consent")}
                   </p>
                 </form>
               )}

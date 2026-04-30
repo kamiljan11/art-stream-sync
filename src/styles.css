@@ -87,7 +87,12 @@
   --brand-magenta: #EC008C;
   --brand-dark: #0A0A0A;
   --brand-panel: #091A21;
-  --gradient-hero: radial-gradient(ellipse at top, color-mix(in oklab, var(--primary) 22%, transparent), transparent 60%), linear-gradient(180deg, #0A0A0A 0%, #050505 100%);
+  --gradient-hero:
+    radial-gradient(ellipse 60% 50% at 15% 15%, rgba(0, 174, 239, 0.22), transparent 60%),
+    radial-gradient(ellipse 55% 50% at 85% 20%, rgba(236, 0, 140, 0.18), transparent 60%),
+    radial-gradient(ellipse 65% 55% at 80% 90%, rgba(255, 230, 0, 0.14), transparent 60%),
+    radial-gradient(ellipse 60% 55% at 20% 95%, rgba(255, 255, 255, 0.10), transparent 60%),
+    linear-gradient(180deg, #0A0A0A 0%, #050505 100%);
   --gradient-cyan: linear-gradient(135deg, #00AEEF 0%, #0086C9 100%);
   --gradient-accent: linear-gradient(135deg, #EC008C 0%, #C4007A 100%);
   --shadow-glow: 0 10px 40px -10px color-mix(in oklab, var(--primary) 50%, transparent);

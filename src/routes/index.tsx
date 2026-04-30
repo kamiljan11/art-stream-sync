@@ -173,14 +173,14 @@ function Index() {
       {/* SAVINGS / MATH */}
       <section id="savings" className="bg-card/40 border-y border-border">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-24">
-          <div className="text-center max-w-3xl mx-auto">
+          <Reveal className="text-center max-w-3xl mx-auto">
             <h2 className="text-4xl sm:text-5xl font-extrabold">
               The Math Behind the <span style={{ color: "var(--brand-cyan)" }}>Guarantee.</span>
             </h2>
             <p className="mt-4 text-foreground/75 max-w-xl mx-auto leading-relaxed">
               We removed every cost that doesn't make your print better.
             </p>
-          </div>
+          </Reveal>
 
           <div className="grid md:grid-cols-3 gap-6 mt-12">
             <FeatureCard
@@ -293,14 +293,14 @@ function Index() {
       {/* PRODUCTS / CAPABILITIES */}
       <section id="products" className="bg-card/40 border-y border-border">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-24">
-          <div className="text-center max-w-3xl mx-auto">
+          <Reveal className="text-center max-w-3xl mx-auto">
             <h2 className="text-4xl sm:text-5xl font-extrabold">
               Industrial <span style={{ color: "var(--brand-cyan)" }}>Capabilities.</span>
             </h2>
             <p className="mt-4 text-foreground/75 max-w-xl mx-auto leading-relaxed">
               Everything your business prints, from daily essentials to industrial runs and custom packaging.
             </p>
-          </div>
+          </Reveal>
 
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-[30px] mt-[50px]">
             {capabilities.map((c, idx) => (
@@ -320,14 +320,14 @@ function Index() {
 
       {/* PROCESS */}
       <section id="process" className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-24">
-        <div className="text-center max-w-3xl mx-auto">
+        <Reveal className="text-center max-w-3xl mx-auto">
           <h2 className="text-4xl sm:text-5xl font-extrabold">
             3 STEPS TO <span style={{ color: "var(--brand-cyan)" }}>LOWER COSTS</span>
           </h2>
           <p className="mt-4 text-foreground/75 max-w-xl mx-auto leading-relaxed">
             <span className="text-foreground font-semibold">Wholesale access. Zero hassle.</span>
           </p>
-        </div>
+        </Reveal>
 
         <div className="grid md:grid-cols-3 gap-6 mt-12">
           {[

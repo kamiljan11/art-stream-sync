@@ -364,15 +364,9 @@ function CupsPage() {
                   ))}
                 </ul>
 
-                <div className="mt-5 pt-4 border-t border-border grid grid-cols-2 gap-3 text-xs">
-                  <div>
-                    <div className="text-muted-foreground uppercase tracking-wider">MOQ</div>
-                    <div className="font-semibold mt-0.5">{p.moq}</div>
-                  </div>
-                  <div>
-                    <div className="text-muted-foreground uppercase tracking-wider">Lead time</div>
-                    <div className="font-semibold mt-0.5">{p.lead}</div>
-                  </div>
+                <div className="mt-5 pt-4 border-t border-border text-xs">
+                  <div className="text-muted-foreground uppercase tracking-wider">MOQ</div>
+                  <div className="font-semibold mt-0.5">{p.moq}</div>
                 </div>
 
                 <a

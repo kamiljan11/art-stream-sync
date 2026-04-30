@@ -51,13 +51,13 @@ import p38 from "@/assets/site/portfolio/p38.jpg";
 export const Route = createFileRoute("/cups")({
   head: () => ({
     meta: [
-      { title: "Custom Paper & Plastic Cups — Wholesale in Iceland | MAS Prints" },
+      { title: "Custom Paper & Plastic Cups | Wholesale in Iceland | MAS Prints" },
       {
         name: "description",
         content:
-          "Custom-printed paper cups, thermal cups, transparent recycled-plastic cups, ice cream bowls, lids, straws and stirrers. From 1,000 pieces. Fixed ISK quote — VAT, customs and delivery to Iceland included.",
+          "Custom-printed paper cups, thermal cups, transparent recycled-plastic cups, ice cream bowls, lids, straws and stirrers. From 1,000 pieces. Fixed ISK quote, VAT, customs and delivery to Iceland included.",
       },
-      { property: "og:title", content: "Custom paper & plastic cups — wholesale in Iceland" },
+      { property: "og:title", content: "Custom paper & plastic cups | wholesale in Iceland" },
       {
         property: "og:description",
         content:
@@ -70,7 +70,7 @@ export const Route = createFileRoute("/cups")({
 });
 
 /* ──────────────────────────────────────────────────────────────────────────
-   PRODUCT CATALOG (rebranded — no supplier mention)
+   PRODUCT CATALOG (rebranded, no supplier mention)
    Lead times = factory production + ~7–10 working days sea/air to Iceland
    ────────────────────────────────────────────────────────────────────────── */
 
@@ -94,7 +94,7 @@ const products: Product[] = [
     desc:
       "The workhorse cup. Light, stackable, full-wrap print with no colour limit. For events, offices, juice bars and water dispensers.",
     bullets: [
-      "Unlimited full-colour printing — no upcharge",
+      "Unlimited full-colour printing, no upcharge",
       "Recyclable or compostable inner lining",
       "Logo-only or full-wrap print",
     ],
@@ -110,7 +110,7 @@ const products: Product[] = [
       "Top-of-range double-wall cup. Hot coffee inside, cool hands outside. Our pick for cafés, takeaway and hotel coffee corners.",
     bullets: [
       "Best-in-class hand comfort on hot drinks",
-      "Premium feel — matte or gloss finish",
+      "Premium feel, matte or gloss finish",
       "Recyclable or compostable inner lining",
     ],
     moq: "1,000 pcs",
@@ -122,7 +122,7 @@ const products: Product[] = [
     title: "Sleeve double-wall cup (budget)",
     sizes: "100 · 250 · 300 ml",
     desc:
-      "Budget double-wall — thicker than single-wall, cheaper than premium. A solid middle ground for hot coffee, tea and mulled wine.",
+      "Budget double-wall, thicker than single-wall, cheaper than premium. A solid middle ground for hot coffee, tea and mulled wine.",
     bullets: [
       "Extra insulation vs. single-wall",
       "Lower cost than premium thermal",
@@ -137,7 +137,7 @@ const products: Product[] = [
     title: "Plain white paper cup (stock)",
     sizes: "100 · 180 · 250 · 300 · 400 ml",
     desc:
-      "No-print, no-fuss cups straight from stock. Ideal for water stations, vending, gyms and offices. Sold by the carton — no print minimum.",
+      "No-print, no-fuss cups straight from stock. Ideal for water stations, vending, gyms and offices. Sold by the carton, no print minimum.",
     bullets: [
       "From 1,000 pcs per size",
       "Recyclable or compostable inner lining",
@@ -152,10 +152,10 @@ const products: Product[] = [
     title: "Transparent recycled-plastic cup",
     sizes: "300 · 400 · 500 ml",
     desc:
-      "Crystal-clear cup for cold drinks — smoothies, iced coffee, beer, cocktails. Recycled PET. The legal replacement for old single-use plastic cups.",
+      "Crystal-clear cup for cold drinks, smoothies, iced coffee, beer, cocktails. Recycled PET. The legal replacement for old single-use plastic cups.",
     bullets: [
       "Made from recycled PET plastic",
-      "Up to 4 spot colours — solid blocks only (no gradients)",
+      "Up to 4 spot colours, solid blocks only (no gradients)",
       "Not suitable for hot drinks",
     ],
     moq: "1,000 pcs",
@@ -200,7 +200,7 @@ const products: Product[] = [
       "Plastic-free paper straws, straight or bendy. Black in stock; other colours by order. Bundle with cups for synced delivery.",
     bullets: [
       "EU single-use plastics compliant",
-      "Black in stock — colours by order",
+      "Black in stock, colours by order",
       "Bulk-packed for cafés and restaurants",
     ],
     moq: "From 1 pack",
@@ -223,7 +223,7 @@ const products: Product[] = [
   },
 ];
 
-/* Real client examples (rebranded — shown as portfolio without naming source) */
+/* Real client examples (rebranded, shown as portfolio without naming source) */
 const portfolio = [
   { img: p2, label: "Event branding · single-wall" },
   { img: p4, label: "Brand wrap · single-wall" },
@@ -264,57 +264,57 @@ const sizeGuide = [
   { ml: "250 ml", oz: "≈ 8 oz", use: "Standard coffee, cold drinks" },
   { ml: "300 ml", oz: "≈ 10 oz", use: "Latte, juice, lemonade" },
   { ml: "400 ml", oz: "≈ 14 oz", use: "Big coffee, shakes, beer" },
-  { ml: "500 ml", oz: "≈ 17 oz", use: "Plastic cups only — large cold drinks, beer" },
+  { ml: "500 ml", oz: "≈ 17 oz", use: "Plastic cups only, large cold drinks, beer" },
 ];
 
 const cupsFaqs = [
   {
     q: "What's the minimum order for printed cups?",
-    a: "1,000 pcs per design — applies to all cups: paper, transparent plastic and BIO bowls. Below that the per-unit price stops making sense.",
+    a: "1,000 pcs per design, applies to all cups: paper, transparent plastic and BIO bowls. Below that the per-unit price stops making sense.",
   },
   {
     q: "How long does delivery to Iceland take?",
-    a: "Printed paper cups: 4–6 weeks. Thermal & transparent plastic: 5–6 weeks. Stock items (plain cups, lids, straws, stirrers): 2–3 weeks. Express shaves about a week off printed orders. The exact date is locked in your quote — we clear Icelandic customs for you.",
+    a: "Printed paper cups: 4–6 weeks. Thermal & transparent plastic: 5–6 weeks. Stock items (plain cups, lids, straws, stirrers): 2–3 weeks. Express shaves about a week off printed orders. The exact date is locked in your quote, we clear Icelandic customs for you.",
   },
   {
     q: "Are customs, VAT and delivery included?",
-    a: "Yes. Every quote is all-in ISK, delivered to your door. VAT, customs and inland transport from Reykjavík port — all included. No surprise fees when the pallet lands.",
+    a: "Yes. Every quote is all-in ISK, delivered to your door. VAT, customs and inland transport from Reykjavík port, all included. No surprise fees when the pallet lands.",
   },
   {
     q: "How many colours can I print?",
-    a: "Paper cups: unlimited full-colour printing at no extra cost — full-bleed photographs welcome. Transparent plastic: max 4 spot colours, solid blocks only (no gradients). QR codes and capacity markings are supported on both.",
+    a: "Paper cups: unlimited full-colour printing at no extra cost, full-bleed photographs welcome. Transparent plastic: max 4 spot colours, solid blocks only (no gradients). QR codes and capacity markings are supported on both.",
   },
   {
     q: "Can I order eco / biodegradable cups?",
-    a: "Yes — every paper line can be ordered with a BIO (compostable PLA) lining instead of standard Green PE. Same feel, same heat resistance, no microplastics, EN 13432 compostable. Just tick it in the quote form.",
+    a: "Yes, every paper line can be ordered with a BIO (compostable PLA) lining instead of standard Green PE. Same feel, same heat resistance, no microplastics, EN 13432 compostable. Just tick it in the quote form.",
   },
   {
     q: "Can I see samples first?",
-    a: "Yes. Plain stock samples are free. Custom-printed samples carry a small production fee — deducted from your first real order.",
+    a: "Yes. Plain stock samples are free. Custom-printed samples carry a small production fee, deducted from your first real order.",
   },
   {
     q: "Will every batch look identical?",
-    a: "Within ±15% colour variance between runs (industry standard). Red stays red — but the exact shade can shift slightly. Paper weight, lid fit and dimensions are locked in spec.",
+    a: "Within ±15% colour variance between runs (industry standard). Red stays red, but the exact shade can shift slightly. Paper weight, lid fit and dimensions are locked in spec.",
   },
   {
     q: "Do you deliver outside the capital area?",
-    a: "Yes. We're based in Njarðvík and ship anywhere in Iceland — Reykjavík, Akureyri, Vestfirðir, Egilsstaðir, Westman Islands. Inland transport is in the quote.",
+    a: "Yes. We're based in Njarðvík and ship anywhere in Iceland, Reykjavík, Akureyri, Vestfirðir, Egilsstaðir, Westman Islands. Inland transport is in the quote.",
   },
   {
     q: "Do I need a long-term contract?",
-    a: "No. Every order is independent. Order once or set up a recurring delivery — your call.",
+    a: "No. Every order is independent. Order once or set up a recurring delivery, your call.",
   },
   {
-    q: "I don't know how to prepare artwork — can you help?",
+    q: "I don't know how to prepare artwork, can you help?",
     a: "Yes. Send us your logo, the colours and where it should sit on the cup. Simple jobs we prepare for free; complex designs get a small one-off setup fee, quoted upfront.",
   },
   {
     q: "Can I put a QR code on my cups?",
-    a: "Yes — common for menus, loyalty and Instagram. Send it as vector or a sharp 300 dpi image. We test-scan a 1:1 print on the proof before the full run.",
+    a: "Yes, common for menus, loyalty and Instagram. Send it as vector or a sharp 300 dpi image. We test-scan a 1:1 print on the proof before the full run.",
   },
   {
     q: "Will the colour on my screen match the finished cups?",
-    a: "Close, but not 100%. Screens use light, cups use ink — plus a normal ±15% variance between runs. If a brand colour must be exact, send a Pantone code and we'll print a Pantone match (small extra cost).",
+    a: "Close, but not 100%. Screens use light, cups use ink, plus a normal ±15% variance between runs. If a brand colour must be exact, send a Pantone code and we'll print a Pantone match (small extra cost).",
   },
   {
     q: "Can I add liquid level markings (0.2 L, 0.3 L)?",
@@ -322,11 +322,11 @@ const cupsFaqs = [
   },
   {
     q: "Can the inside of the cup be printed?",
-    a: "No. The leak-proof, food-safe inner coating also blocks ink — printing is exterior-only.",
+    a: "No. The leak-proof, food-safe inner coating also blocks ink, printing is exterior-only.",
   },
   {
     q: "What file formats do you accept and which template should I use?",
-    a: "Editable vector files: .ai (Illustrator), .cdr (CorelDraw) or editable .pdf. Every cup size has its own arc-shaped template — tell us the size and lining and we'll email the right one back.",
+    a: "Editable vector files: .ai (Illustrator), .cdr (CorelDraw) or editable .pdf. Every cup size has its own arc-shaped template, tell us the size and lining and we'll email the right one back.",
   },
 ];
 
@@ -389,7 +389,7 @@ function CupsPage() {
         <div className="text-center max-w-2xl mx-auto">
           <h2 className="text-4xl font-extrabold">Our catalogue.</h2>
           <p className="mt-3 text-muted-foreground">
-            Every paper line is available with standard Green PE or compostable BIO lining — just say the word.
+            Every paper line is available with standard Green PE or compostable BIO lining, just say the word.
           </p>
         </div>
 
@@ -444,7 +444,7 @@ function CupsPage() {
         </div>
 
         <p className="mt-10 text-center text-sm text-muted-foreground max-w-2xl mx-auto">
-          Don't see what you need? <a href="#quote" className="text-primary font-semibold underline underline-offset-4 hover:opacity-80">Send us a request</a> — we can source almost anything in this category.
+          Don't see what you need? <a href="#quote" className="text-primary font-semibold underline underline-offset-4 hover:opacity-80">Send us a request</a>, we can source almost anything in this category.
         </p>
       </section>
 
@@ -488,7 +488,7 @@ function CupsPage() {
           </span>
           <h2 className="mt-4 text-4xl font-extrabold">Trusted with their cups.</h2>
           <p className="mt-3 text-muted-foreground">
-            Over 30 brands have already printed with us — a small slice below. Yours could be next.
+            Over 30 brands have already printed with us, a small slice below. Yours could be next.
           </p>
         </div>
         <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-2 mt-12">
@@ -527,7 +527,7 @@ function CupsPage() {
             <p className="mt-4 text-muted-foreground">If yes, it has plastic inside.</p>
           </div>
 
-          {/* Two-column body — text left, image right on desktop */}
+          {/* Two-column body, text left, image right on desktop */}
           <div className="mt-16 grid md:grid-cols-[7fr_5fr] gap-10 md:gap-16 items-center">
             {/* RIGHT (desktop) / SECOND (mobile): warning sticker on green panel */}
             <div
@@ -574,11 +574,11 @@ function CupsPage() {
                   <span className="text-foreground font-semibold">25,000 microplastic particles straight into the drink.</span>
                 </p>
                 <p>
-                  <span className="text-foreground font-semibold">Then the cup goes in the bin.</span> It takes up to 20 years to break down — and every year more of it ends up in the ocean.
+                  <span className="text-foreground font-semibold">Then the cup goes in the bin.</span> It takes up to 20 years to break down, and every year more of it ends up in the ocean.
                 </p>
                 <p>
                   Our eco line swaps the plastic for a{" "}
-                  <span className="text-foreground font-semibold">plant-based, compostable PLA lining</span>. Same feel, same heat resistance, same taste — but{" "}
+                  <span className="text-foreground font-semibold">plant-based, compostable PLA lining</span>. Same feel, same heat resistance, same taste, but{" "}
                   <span className="text-foreground font-semibold">zero microplastics</span>, and it breaks down in industrial composting. Works for hot coffee, cold drinks and ice cream.
                 </p>
               </div>
@@ -706,7 +706,7 @@ function CupsPage() {
           {[
             {
               t: "Stable price",
-              d: "The price you're quoted is the price you pay. VAT, customs, delivery — all included. No surprise add-ons on the invoice.",
+              d: "The price you're quoted is the price you pay. VAT, customs, delivery, all included. No surprise add-ons on the invoice.",
               c: "#22d3ee",
               tone: "card-light-cyan",
             },
@@ -718,13 +718,13 @@ function CupsPage() {
             },
             {
               t: "Same cup every batch",
-              d: "Paper weight, lid fit, ink shade — locked in spec. Your January cup matches your July cup.",
+              d: "Paper weight, lid fit, ink shade, locked in spec. Your January cup matches your July cup.",
               c: "#facc15",
               tone: "card-light-yellow",
             },
             {
               t: "Icelandic invoice",
-              d: "You get a proper Icelandic invoice in ISK, with our company ID number and VAT — fully deductible in your books. No \"import from Poland\" paperwork headaches.",
+              d: "You get a proper Icelandic invoice in ISK, with our company ID number and VAT, fully deductible in your books. No \"import from Poland\" paperwork headaches.",
               c: "#84cc16",
               tone: "card-light-lime",
             },
@@ -756,7 +756,7 @@ function CupsPage() {
               <span style={{ color: "#84cc16" }}>design.</span>
             </h2>
             <p className="mt-4 text-foreground/75 leading-relaxed max-w-prose mx-auto">
-              We don't just sell cups — we build them to leave the bin behind. Every BIO line
+              We don't just sell cups, we build them to leave the bin behind. Every BIO line
               follows a four-step loop: design it right, use it well, recover the material, put it
               back to work.
             </p>
@@ -779,7 +779,7 @@ function CupsPage() {
               {
                 n: "03",
                 t: "Recover",
-                d: "EN 13432 certified — breaks down in industrial composting in weeks, not decades. Zero microplastics.",
+                d: "EN 13432 certified, breaks down in industrial composting in weeks, not decades. Zero microplastics.",
                 tone: "card-light-yellow",
               },
               {
@@ -822,8 +822,8 @@ function CupsPage() {
           <div className="grid md:grid-cols-4 gap-6 mt-12">
             {[
               { n: "1", t: "Send the brief", d: "Size, quantity, lining (PE or BIO), logo or full artwork.", tone: "card-light-cyan", accent: "#0ea5e9" },
-              { n: "2", t: "Get a fixed quote", d: "In ISK within 24 working hours. All-in price — VAT, customs and delivery to your door included.", tone: "card-light-pink", accent: "#ec4899" },
-              { n: "3", t: "Free artwork adaptation", d: "We adapt your logo or graphics to the cup template — completely free with every order. Digital proof before any press starts.", tone: "card-light-yellow", accent: "#eab308" },
+              { n: "2", t: "Get a fixed quote", d: "In ISK within 24 working hours. All-in price, VAT, customs and delivery to your door included.", tone: "card-light-pink", accent: "#ec4899" },
+              { n: "3", t: "Free artwork adaptation", d: "We adapt your logo or graphics to the cup template, completely free with every order. Digital proof before any press starts.", tone: "card-light-yellow", accent: "#eab308" },
               { n: "4", t: "Pallet at your door", d: "We track production and freight. You stop chasing.", tone: "card-light-lime", accent: "#84cc16" },
             ].map((s) => (
               <div key={s.n} className={`${s.tone} p-6`}>
@@ -836,30 +836,30 @@ function CupsPage() {
             ))}
           </div>
 
-          {/* USP strip — low MOQ, free design, dedicated contact, QC */}
+          {/* USP strip, low MOQ, free design, dedicated contact, QC */}
           <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
               {
                 t: "From just 1,000 pcs",
-                d: "Low minimum order — perfect for small cafés, events and pilot runs. Scale up whenever you're ready.",
+                d: "Low minimum order, perfect for small cafés, events and pilot runs. Scale up whenever you're ready.",
                 tone: "card-light-cyan",
                 accent: "#0ea5e9",
               },
               {
                 t: "Free artwork adaptation",
-                d: "Send your logo in any usable format — we adapt it to the cup template at no extra cost with every order.",
+                d: "Send your logo in any usable format, we adapt it to the cup template at no extra cost with every order.",
                 tone: "card-light-pink",
                 accent: "#ec4899",
               },
               {
                 t: "Your dedicated contact",
-                d: "One person guides you from quote to delivery. Not sure which product fits? Just ask — we'll advise.",
+                d: "One person guides you from quote to delivery. Not sure which product fits? Just ask, we'll advise.",
                 tone: "card-light-yellow",
                 accent: "#eab308",
               },
               {
                 t: "Professional QC system",
-                d: "Every batch passes a multi-stage quality check — print accuracy, lining seal, structure and food-safety compliance — before it ships.",
+                d: "Every batch passes a multi-stage quality check, print accuracy, lining seal, structure and food-safety compliance, before it ships.",
                 tone: "card-light-lime",
                 accent: "#84cc16",
               },
@@ -885,7 +885,7 @@ function CupsPage() {
       <section id="faq" className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-24">
         <h2 className="text-4xl font-extrabold text-center">Frequently asked questions.</h2>
         <p className="text-center mt-3 text-foreground/75">
-          If something's not here — just ask in the form below.
+          If something's not here, just ask in the form below.
         </p>
         <div className="mt-10 space-y-3">
           {cupsFaqs.map((f, idx) => {
@@ -973,8 +973,8 @@ function CupsQuoteForm() {
         options={["1,000 – 5,000", "5,000 – 20,000", "20,000 – 50,000", "50,000+"]}
       />
       <SelectField label="Timing" options={["Standard (best price)", "Express (~1 week faster)", "Flexible"]} />
-      <SelectField label="Lining" options={["Standard (Green PE)", "BIO (compostable)", "Don't know — advise me"]} />
-      {/* Design assistance + file upload — two-column block */}
+      <SelectField label="Lining" options={["Standard (Green PE)", "BIO (compostable)", "Don't know, advise me"]} />
+      {/* Design assistance + file upload, two-column block */}
       <div className="sm:col-span-2 grid gap-4 sm:grid-cols-2 rounded-lg border border-border/70 bg-card p-4">
         <fieldset className="flex flex-col gap-2">
           <legend className="text-xs font-medium uppercase tracking-wider text-muted-foreground mb-1">
@@ -989,7 +989,7 @@ function CupsQuoteForm() {
               onChange={() => setNeedsDesign("yes")}
               className="accent-primary h-4 w-4"
             />
-            Yes, please — design it for me
+            Yes, please, design it for me
           </label>
           <label className="flex items-center gap-2 cursor-pointer text-sm">
             <input
@@ -1023,7 +1023,7 @@ function CupsQuoteForm() {
             {fileName ? "Change file" : "Choose file"}
           </label>
           <span className="text-xs text-muted-foreground truncate">
-            {fileName || "PDF, AI, EPS, PSD, PNG, JPG, SVG — or send later by email"}
+            {fileName || "PDF, AI, EPS, PSD, PNG, JPG, SVG, or send later by email"}
           </span>
         </div>
       </div>
@@ -1033,7 +1033,7 @@ function CupsQuoteForm() {
         </span>
         <textarea
           rows={4}
-          placeholder="If you'd like to ask or tell us anything — write here. Sizes, colours, deadline, link to logo / artwork..."
+          placeholder="If you'd like to ask or tell us anything, write here. Sizes, colours, deadline, link to logo / artwork..."
           className="rounded-md border border-input bg-background px-3 py-2.5 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
         />
       </label>

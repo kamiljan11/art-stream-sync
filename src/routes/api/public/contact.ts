@@ -47,7 +47,7 @@ export const Route = createFileRoute("/api/public/contact")({
 
         // Try to send confirmation + internal notification via Lovable Emails.
         // If the email infrastructure isn't fully wired yet (e.g. domain not
-        // attached to project), we still return success — the submission is
+        // attached to project), we still return success, the submission is
         // saved and visible in the database.
         try {
           // @ts-expect-error - package is added by setup_email_infra; safe to skip if absent.
@@ -60,7 +60,7 @@ export const Route = createFileRoute("/api/public/contact")({
           await sendLovableEmail({
             from: SENDER,
             to: [email],
-            subject: "We received your message — MAS Prints",
+            subject: "We received your message, MAS Prints",
             html: confirmationHtml({ name }),
           });
 

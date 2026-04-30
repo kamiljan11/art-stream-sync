@@ -3,13 +3,13 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 export const Route = createFileRoute("/thank-you")({
   head: () => ({
     meta: [
-      { title: "Request Received — MAS Prints" },
+      { title: "Request Received, MAS Prints" },
       {
         name: "description",
         content:
           "Thank you for your request. Our team will review your files and send you a detailed quote within 24–48 working hours.",
       },
-      { property: "og:title", content: "Request Received — MAS Prints" },
+      { property: "og:title", content: "Request Received, MAS Prints" },
       {
         property: "og:description",
         content:

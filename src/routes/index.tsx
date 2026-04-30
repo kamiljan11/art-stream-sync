@@ -253,27 +253,23 @@ function Index() {
         <div id="legal" className="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
           <div>
             <h2 className="text-4xl sm:text-5xl font-extrabold leading-[1.05] tracking-tight">
-              Wholesale Pricing.<br />
-              <span style={{ color: "var(--brand-cyan)" }}>100% Legal.</span>
+              {t("legal.heading1")}<br />
+              <span style={{ color: "var(--brand-cyan)" }}>{t("legal.heading2")}</span>
             </h2>
             <div className="mt-8 space-y-6 max-w-prose">
               <div>
-                <p className="text-lg font-bold text-foreground mb-2">No hidden fees.</p>
+                <p className="text-lg font-bold text-foreground mb-2">{t("legal.noFeesTitle")}</p>
+                <p className="text-foreground/75 leading-relaxed">{t("legal.noFeesBody")}</p>
+              </div>
+              <div>
+                <p className="text-lg font-bold text-foreground mb-2">{t("legal.invoiceTitle")}</p>
                 <p className="text-foreground/75 leading-relaxed">
-                  Cheap foreign quotes often come with a surprise bill from Tollurinn. Not here, the price we quote is the final price at your door. Customs is on us.
+                  {t("legal.invoiceBodyPart1")} <span className="text-foreground font-semibold">{t("legal.invoiceCompany")}</span> {t("legal.invoiceBodyPart2")}
                 </p>
               </div>
               <div>
-                <p className="text-lg font-bold text-foreground mb-2">Valid tax invoice.</p>
-                <p className="text-foreground/75 leading-relaxed">
-                  MAS Prints is a brand of <span className="text-foreground font-semibold">Mountain All Service ehf.</span> (Kt. 690725-0450). You get a compliant Icelandic invoice with VSK, claim your tax back instantly.
-                </p>
-              </div>
-              <div>
-                <p className="text-lg font-bold text-foreground mb-2">Local accountability.</p>
-                <p className="text-foreground/75 leading-relaxed">
-                  Not a faceless website, a registered Icelandic company based in Njarðvík.
-                </p>
+                <p className="text-lg font-bold text-foreground mb-2">{t("legal.accountabilityTitle")}</p>
+                <p className="text-foreground/75 leading-relaxed">{t("legal.accountabilityBody")}</p>
               </div>
             </div>
           </div>

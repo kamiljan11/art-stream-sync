@@ -794,16 +794,17 @@ function ProductCard({
 }
 
 function IndustrialStandards() {
+  const t = useT();
   const items = [
-    { Icon: Factory, t: "Industrial Capacity", d: "High-volume factory scale", color: "var(--brand-cyan)" },
-    { Icon: ShieldCheck, t: "Technical Safety", d: "We audit your files for errors", color: "var(--brand-magenta)" },
-    { Icon: Palette, t: "Color Accuracy", d: "Perfectly calibrated output", color: "var(--brand-yellow)" },
-    { Icon: Leaf, t: "Premium Stock", d: "Sustainable high-end paper", color: "#22c55e" },
+    { Icon: Factory, title: t("standards.capacity"), d: t("standards.capacitySub"), color: "var(--brand-cyan)" },
+    { Icon: ShieldCheck, title: t("standards.safety"), d: t("standards.safetySub"), color: "var(--brand-magenta)" },
+    { Icon: Palette, title: t("standards.color"), d: t("standards.colorSub"), color: "var(--brand-yellow)" },
+    { Icon: Leaf, title: t("standards.stock"), d: t("standards.stockSub"), color: "#22c55e" },
   ];
   return (
     <div className="mt-20 px-5 py-10 md:py-[60px]">
       <h3 className="md:hidden text-3xl font-extrabold text-center mb-10 leading-tight tracking-tight">
-        Industrial <span style={{ color: "var(--brand-cyan)" }}>Standards.</span>
+        {t("standards.heading1")} <span style={{ color: "var(--brand-cyan)" }}>{t("standards.heading2")}</span>
       </h3>
       <div className="relative max-w-[1100px] mx-auto flex flex-col md:grid md:grid-cols-4 md:justify-items-center md:items-center items-center gap-10 md:gap-6 lg:gap-10">
         <div
@@ -814,9 +815,9 @@ function IndustrialStandards() {
               "linear-gradient(to bottom, transparent, hsl(var(--foreground) / 0.1) 20%, hsl(var(--foreground) / 0.1) 80%, transparent)",
           }}
         />
-        {items.map(({ Icon, t, d, color }) => (
+        {items.map(({ Icon, title, d, color }) => (
           <div
-            key={t}
+            key={title}
             className="relative z-10 flex flex-col md:flex-row items-center text-center md:text-left gap-2.5 md:gap-[15px] opacity-70 md:opacity-80 hover:opacity-100 hover:-translate-y-[5px] transition-all duration-300"
           >
             <Icon
@@ -825,7 +826,7 @@ function IndustrialStandards() {
               strokeWidth={2}
             />
             <div className="leading-tight">
-              <div className="text-sm md:text-[0.9rem] font-bold tracking-wide">{t}</div>
+              <div className="text-sm md:text-[0.9rem] font-bold tracking-wide">{title}</div>
               <div className="text-[0.7rem] text-muted-foreground font-normal mt-0.5">{d}</div>
             </div>
           </div>

@@ -340,7 +340,7 @@ function CupsPage() {
               key={p.title}
               className="rounded-xl overflow-hidden border border-border bg-card flex flex-col group"
             >
-              <div className="aspect-[4/3] overflow-hidden bg-background">
+              <div className="aspect-[16/9] sm:aspect-[4/3] overflow-hidden bg-background">
                 <img
                   src={p.img}
                   alt={p.title}

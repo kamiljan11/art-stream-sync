@@ -330,16 +330,16 @@ function Index() {
 
         <div className="grid md:grid-cols-3 gap-6 mt-12">
           {[
-            { n: "01", color: "var(--brand-cyan)", tint: "var(--tint-cyan)", t: "REQUEST OR AUDIT", d: "Tell us what you need — or upload a recent invoice for a free price audit." },
-            { n: "02", color: "var(--brand-magenta)", tint: "var(--tint-magenta)", t: "QUOTE & GUARANTEE", d: "We send a wholesale price. Find a lower Icelandic offer? We beat it. You approve the proof." },
-            { n: "03", color: "var(--brand-yellow)", tint: "var(--tint-yellow)", t: "PRINT & DELIVER", d: "We handle production, customs and logistics. The box lands at your door with one ISK invoice." },
+            { n: "01", color: "var(--brand-cyan)", tone: "card-light-cyan", t: "REQUEST OR AUDIT", d: "Tell us what you need — or upload a recent invoice for a free price audit." },
+            { n: "02", color: "var(--brand-magenta)", tone: "card-light-pink", t: "QUOTE & GUARANTEE", d: "We send a wholesale price. Find a lower Icelandic offer? We beat it. You approve the proof." },
+            { n: "03", color: "var(--brand-yellow)", tone: "card-light-yellow", t: "PRINT & DELIVER", d: "We handle production, customs and logistics. The box lands at your door with one ISK invoice." },
           ].map((s) => (
-            <div key={s.n} className="rounded-xl border border-border p-8" style={{ background: s.tint }}>
+            <div key={s.n} className={`${s.tone} p-8`}>
               <div className="text-6xl font-extrabold" style={{ color: s.color }}>
                 {s.n}
               </div>
-              <h3 className="mt-4 text-xl font-extrabold tracking-wide">{s.t}</h3>
-              <p className="mt-3 text-sm text-muted-foreground">{s.d}</p>
+              <h3 className="mt-4 text-xl font-extrabold tracking-wide text-slate-900">{s.t}</h3>
+              <p className="mt-3 text-sm text-slate-700">{s.d}</p>
             </div>
           ))}
         </div>

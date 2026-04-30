@@ -5,6 +5,7 @@ import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { PartnersMarquee } from "@/components/site/Marquee";
 import { QuoteForm } from "@/components/site/QuoteForm";
+import { Reveal } from "@/components/site/Reveal";
 import capMarketing from "@/assets/site/cap-marketing.jpg";
 import capPublishing from "@/assets/site/cap-publishing.png";
 import capPackaging from "@/assets/site/cap-packaging.jpg";
@@ -109,7 +110,7 @@ function Index() {
 
       {/* HERO */}
       <section id="hero" className="relative overflow-hidden" style={{ background: "var(--gradient-hero)" }}>
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-24 sm:py-32 text-center">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-24 sm:py-32 text-center animate-fade-in">
           <CmykBar />
           <h1 className="mt-6 text-5xl sm:text-7xl font-extrabold tracking-tight uppercase">
             Wholesale{" "}
@@ -125,7 +126,7 @@ function Index() {
           <div className="mt-10 flex flex-col items-center gap-4">
             <a
               href="#quote"
-              className="inline-flex items-center gap-2 rounded-md px-8 py-4 text-base font-semibold text-primary-foreground"
+              className="inline-flex items-center gap-2 rounded-md px-8 py-4 text-base font-semibold text-primary-foreground hover-glow"
               style={{ background: "var(--gradient-cyan)", boxShadow: "var(--shadow-glow)" }}
             >
               Get your printing quote <ArrowRight size={18} />
@@ -172,14 +173,14 @@ function Index() {
       {/* SAVINGS / MATH */}
       <section id="savings" className="bg-card/40 border-y border-border">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-24">
-          <div className="text-center max-w-3xl mx-auto">
+          <Reveal className="text-center max-w-3xl mx-auto">
             <h2 className="text-4xl sm:text-5xl font-extrabold">
               The Math Behind the <span style={{ color: "var(--brand-cyan)" }}>Guarantee.</span>
             </h2>
             <p className="mt-4 text-foreground/75 max-w-xl mx-auto leading-relaxed">
               We removed every cost that doesn't make your print better.
             </p>
-          </div>
+          </Reveal>
 
           <div className="grid md:grid-cols-3 gap-6 mt-12">
             <FeatureCard
@@ -240,7 +241,7 @@ function Index() {
             <div className="mt-10 text-center">
               <a
                 href="#quote"
-                className="inline-flex items-center gap-2 rounded-md px-6 py-3 text-base font-semibold text-primary-foreground"
+                className="inline-flex items-center gap-2 rounded-md px-6 py-3 text-base font-semibold text-primary-foreground hover-glow"
                 style={{ background: "var(--gradient-cyan)" }}
               >
                 Get Your Winning Quote <ArrowRight size={18} />
@@ -292,14 +293,14 @@ function Index() {
       {/* PRODUCTS / CAPABILITIES */}
       <section id="products" className="bg-card/40 border-y border-border">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-24">
-          <div className="text-center max-w-3xl mx-auto">
+          <Reveal className="text-center max-w-3xl mx-auto">
             <h2 className="text-4xl sm:text-5xl font-extrabold">
               Industrial <span style={{ color: "var(--brand-cyan)" }}>Capabilities.</span>
             </h2>
             <p className="mt-4 text-foreground/75 max-w-xl mx-auto leading-relaxed">
               Everything your business prints, from daily essentials to industrial runs and custom packaging.
             </p>
-          </div>
+          </Reveal>
 
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-[30px] mt-[50px]">
             {capabilities.map((c, idx) => (
@@ -319,14 +320,14 @@ function Index() {
 
       {/* PROCESS */}
       <section id="process" className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-24">
-        <div className="text-center max-w-3xl mx-auto">
+        <Reveal className="text-center max-w-3xl mx-auto">
           <h2 className="text-4xl sm:text-5xl font-extrabold">
             3 STEPS TO <span style={{ color: "var(--brand-cyan)" }}>LOWER COSTS</span>
           </h2>
           <p className="mt-4 text-foreground/75 max-w-xl mx-auto leading-relaxed">
             <span className="text-foreground font-semibold">Wholesale access. Zero hassle.</span>
           </p>
-        </div>
+        </Reveal>
 
         <div className="grid md:grid-cols-3 gap-6 mt-12">
           {[
@@ -347,7 +348,7 @@ function Index() {
         <div className="mt-12 text-center">
           <a
             href="#quote"
-            className="inline-flex items-center gap-2 rounded-md px-6 py-3 text-base font-semibold text-primary-foreground"
+            className="inline-flex items-center gap-2 rounded-md px-6 py-3 text-base font-semibold text-primary-foreground hover-glow"
             style={{ background: "var(--gradient-cyan)" }}
           >
             Get Your Quote Now <ArrowRight size={18} />

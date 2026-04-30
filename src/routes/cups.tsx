@@ -3,6 +3,7 @@ import { ArrowRight, Check, Leaf } from "lucide-react";
 import { useState } from "react";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
+import { Reveal } from "@/components/site/Reveal";
 
 import cupEveryday from "@/assets/site/cup-everyday.jpg";
 import cupPremium from "@/assets/site/cup-premium.jpg";
@@ -343,7 +344,7 @@ function CupsPage() {
         className="relative overflow-hidden"
         style={{ background: "var(--gradient-hero)" }}
       >
-        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-24 sm:py-32 text-center">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-24 sm:py-32 text-center animate-fade-in">
           <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight">
             Paper cups.{" "}
             <span className="bg-clip-text text-transparent" style={{ backgroundImage: "var(--gradient-cyan)" }}>
@@ -357,7 +358,7 @@ function CupsPage() {
           <div className="mt-10 flex flex-col items-center gap-3">
             <a
               href="#quote"
-              className="inline-flex items-center gap-2 rounded-md px-8 py-4 text-base font-semibold text-primary-foreground"
+              className="inline-flex items-center gap-2 rounded-md px-8 py-4 text-base font-semibold text-primary-foreground hover-glow"
               style={{ background: "var(--gradient-cyan)", boxShadow: "var(--shadow-glow)" }}
             >
               Get a quote <ArrowRight size={18} />
@@ -386,12 +387,12 @@ function CupsPage() {
 
       {/* PRODUCTS GRID */}
       <section id="products" className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-24">
-        <div className="text-center max-w-2xl mx-auto">
+        <Reveal className="text-center max-w-2xl mx-auto">
           <h2 className="text-4xl font-extrabold">Our <span style={{ color: "var(--brand-cyan)" }}>catalogue.</span></h2>
           <p className="mt-3 text-muted-foreground">
             Every paper line is available with standard Green PE or compostable BIO lining, just say the word.
           </p>
-        </div>
+        </Reveal>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
           {products.map((p, idx) => {
@@ -400,7 +401,7 @@ function CupsPage() {
             return (
             <article
               key={p.title}
-              className={`overflow-hidden ${tone} flex flex-col group`}
+              className={`overflow-hidden ${tone} flex flex-col group hover-lift-light`}
             >
               <div className="aspect-[16/9] sm:aspect-[4/3] overflow-hidden bg-white/60">
                 <img
@@ -455,7 +456,7 @@ function CupsPage() {
             { t: "Your dedicated contact", d: "One person guides you from quote to delivery. Not sure which product fits? Just ask, we'll advise.", tone: "card-light-yellow", accent: "#eab308" },
             { t: "Professional QC system", d: "Every batch passes a multi-stage quality check, print accuracy, lining seal, structure and food-safety compliance, before it ships.", tone: "card-light-lime", accent: "#84cc16" },
           ].map((u) => (
-            <div key={u.t} className={`${u.tone} p-5`}>
+            <div key={u.t} className={`${u.tone} p-5 hover-lift-light`}>
               <div className="flex items-center gap-2">
                 <span
                   className="inline-flex h-6 w-6 items-center justify-center rounded-full text-xs font-bold text-white"
@@ -474,12 +475,12 @@ function CupsPage() {
       {/* SIZE GUIDE */}
       <section className="bg-card/40 border-y border-border">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-20">
-          <div className="text-center">
+          <Reveal className="text-center">
             <h2 className="text-4xl font-extrabold">Pick the right <span style={{ color: "var(--brand-cyan)" }}>size.</span></h2>
             <p className="mt-3 text-muted-foreground">
               ml / oz reference and what each size is normally used for.
             </p>
-          </div>
+          </Reveal>
           <div className="mt-10 overflow-x-auto rounded-xl border border-border bg-card">
             <table className="w-full text-sm">
               <thead>
@@ -758,12 +759,12 @@ function CupsPage() {
           </div>
         </div>
 
-        <div className="text-center max-w-2xl mx-auto">
+        <Reveal className="text-center max-w-2xl mx-auto">
           <h2 className="text-4xl font-extrabold">
             Why <span style={{ color: "var(--brand-cyan)" }}>us.</span>
           </h2>
           <p className="mt-3 text-foreground/75">No contract. Test us on one pallet.</p>
-        </div>
+        </Reveal>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-10">
           {[
             {
@@ -793,7 +794,7 @@ function CupsPage() {
           ].map((w) => (
             <div
               key={w.t}
-              className={`relative ${w.tone} p-6 pt-7`}
+              className={`relative ${w.tone} p-6 pt-7 hover-lift-light`}
             >
               <div
                 className="absolute top-0 left-6 right-6 h-[3px] rounded-b-full"
@@ -810,7 +811,9 @@ function CupsPage() {
       {/* HOW TO ORDER */}
       <section id="how" className="bg-card/40 border-y border-border">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-24">
-          <h2 className="text-4xl font-extrabold text-center">How to <span style={{ color: "var(--brand-cyan)" }}>order.</span></h2>
+          <Reveal>
+            <h2 className="text-4xl font-extrabold text-center">How to <span style={{ color: "var(--brand-cyan)" }}>order.</span></h2>
+          </Reveal>
           <div className="grid md:grid-cols-4 gap-6 mt-12">
             {[
               { n: "1", t: "Send the brief", d: "Size, quantity, lining (PE or BIO), logo or full artwork.", tone: "card-light-cyan", accent: "#0ea5e9" },
@@ -818,7 +821,7 @@ function CupsPage() {
               { n: "3", t: "Free artwork adaptation", d: "We adapt your logo or graphics to the cup template, completely free with every order. Digital proof before any press starts.", tone: "card-light-yellow", accent: "#eab308" },
               { n: "4", t: "Pallet at your door", d: "We track production and freight. You stop chasing.", tone: "card-light-lime", accent: "#84cc16" },
             ].map((s) => (
-              <div key={s.n} className={`${s.tone} p-6`}>
+              <div key={s.n} className={`${s.tone} p-6 hover-lift-light`}>
                 <div className="text-5xl font-extrabold" style={{ color: s.accent }}>
                   {s.n}
                 </div>
@@ -832,10 +835,12 @@ function CupsPage() {
 
       {/* FAQ */}
       <section id="faq" className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-24">
-        <h2 className="text-4xl font-extrabold text-center">Frequently asked <span style={{ color: "var(--brand-cyan)" }}>questions.</span></h2>
-        <p className="text-center mt-3 text-foreground/75">
-          If something's not here, just ask in the form below.
-        </p>
+        <Reveal>
+          <h2 className="text-4xl font-extrabold text-center">Frequently asked <span style={{ color: "var(--brand-cyan)" }}>questions.</span></h2>
+          <p className="text-center mt-3 text-foreground/75">
+            If something's not here, just ask in the form below.
+          </p>
+        </Reveal>
         <div className="mt-10 space-y-3">
           {cupsFaqs.map((f, idx) => {
             const tones = ["card-light-cyan", "card-light-pink", "card-light-yellow", "card-light-lime"];

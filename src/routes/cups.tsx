@@ -608,7 +608,7 @@ function CupsPage() {
             ].map((c, i) => (
               <div
                 key={i}
-                className="group relative rounded-xl border bg-gradient-to-b from-card to-background p-6 pt-8 text-center transition hover:-translate-y-1 hover:shadow-lg"
+                className="group relative rounded-xl border bg-white p-6 pt-8 text-center transition hover:-translate-y-1 hover:shadow-lg"
                 style={{
                   borderColor: `${c.accent}55`,
                   boxShadow: `0 0 0 1px ${c.accent}11, 0 8px 30px -12px ${c.accent}33`,
@@ -646,7 +646,7 @@ function CupsPage() {
                   {c.sub}
                 </div>
 
-                <div className="mt-3 pt-3 border-t border-border/50 text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+                <div className="mt-3 pt-3 border-t border-slate-200 text-[10px] uppercase tracking-[0.2em] text-slate-500">
                   {c.tag}
                 </div>
               </div>
@@ -666,33 +666,37 @@ function CupsPage() {
               t: "Stable price",
               d: "The price you're quoted is the price you pay. VAT, customs, delivery — all included. No surprise add-ons on the invoice.",
               c: "#22d3ee",
+              tone: "card-light-cyan",
             },
             {
               t: "Predictable delivery",
               d: "Fixed schedule, fixed date. You stop chasing, we ship. VAT and customs already in the quote.",
               c: "#ec4899",
+              tone: "card-light-pink",
             },
             {
               t: "Same cup every batch",
               d: "Paper weight, lid fit, ink shade — locked in spec. Your January cup matches your July cup.",
               c: "#facc15",
+              tone: "card-light-yellow",
             },
             {
               t: "Icelandic invoice",
               d: "You get a proper Icelandic invoice in ISK, with our company ID number and VAT — fully deductible in your books. No \"import from Poland\" paperwork headaches.",
               c: "#84cc16",
+              tone: "card-light-lime",
             },
           ].map((w) => (
             <div
               key={w.t}
-              className="relative rounded-xl border border-border bg-card p-6 pt-7"
+              className={`relative ${w.tone} p-6 pt-7`}
             >
               <div
                 className="absolute top-0 left-6 right-6 h-[3px] rounded-b-full"
                 style={{ backgroundColor: w.c }}
               />
-              <h3 className="font-bold text-lg">{w.t}</h3>
-              <p className="mt-3 text-sm text-foreground/75 leading-relaxed">{w.d}</p>
+              <h3 className="font-bold text-lg text-slate-900">{w.t}</h3>
+              <p className="mt-3 text-sm text-slate-700 leading-relaxed">{w.d}</p>
             </div>
           ))}
         </div>

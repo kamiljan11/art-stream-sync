@@ -139,11 +139,11 @@ const products: Product[] = [
     desc:
       "No-print, no-fuss cups straight from stock. Ideal for water stations, vending, gyms and offices. Sold by the carton — no print minimum.",
     bullets: [
-      "From 1 carton per size — no print minimum",
+      "From 1,000 pcs per size",
       "Recyclable or compostable inner lining",
       "Same paper quality as our printed lines",
     ],
-    moq: "1 carton/size",
+    moq: "1,000 pcs",
     lead: "2–3 weeks to your door in Iceland",
   },
   {
@@ -158,7 +158,7 @@ const products: Product[] = [
       "Up to 4 spot colours — solid blocks only (no gradients)",
       "Not suitable for hot drinks",
     ],
-    moq: "800 pcs (1 carton)",
+    moq: "1,000 pcs",
     lead: "5–6 weeks standard · 3–4 weeks express",
   },
   {
@@ -173,7 +173,7 @@ const products: Product[] = [
       "Custom full-wrap print available",
       "Universal pre-designed pattern also in stock",
     ],
-    moq: "1,000 pcs (custom) · 1 carton (plain)",
+    moq: "1,000 pcs",
     lead: "3–5 weeks for printed · 2–3 weeks plain",
   },
   {
@@ -270,7 +270,7 @@ const sizeGuide = [
 const cupsFaqs = [
   {
     q: "What's the minimum order for printed cups?",
-    a: "1,000 pcs per design for paper cups, 800 (one carton) for transparent plastic. Below that the per-unit price stops making sense. Plain white cups without print: from one carton.",
+    a: "1,000 pcs per design — applies to all cups: paper, transparent plastic and BIO bowls. Below that the per-unit price stops making sense.",
   },
   {
     q: "How long does delivery to Iceland take?",

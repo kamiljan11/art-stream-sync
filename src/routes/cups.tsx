@@ -269,6 +269,30 @@ const cupsFaqs = [
     q: "Do I need a long-term contract?",
     a: "No. Every order is independent. Order once and never come back, or set up a recurring delivery — your call.",
   },
+  {
+    q: "I don't know how to prepare artwork — can you help?",
+    a: "Yes. Send us your logo, the colours you want and where it should sit on the cup. For simple jobs we prepare the artwork for you, free. For more complex designs we'll quote a small one-off setup fee before we start.",
+  },
+  {
+    q: "Can I put a QR code on my cups?",
+    a: "Yes — very common for menus, loyalty programs and Instagram links. Send it as a vector file or a sharp 300 dpi image. We'll print a 1:1 test on the proof so you can scan it before the full run starts.",
+  },
+  {
+    q: "Will the colour on my screen match the finished cups?",
+    a: "Close, but not 100%. Screens use light, cups use ink on paper — and there's a normal ±15% colour variance between print runs. If a brand colour has to be exact, tell us your Pantone code and we'll print a Pantone match (small extra cost) instead of standard CMYK.",
+  },
+  {
+    q: "Can I add liquid level markings (0.2 L, 0.3 L)?",
+    a: "Yes, on the outside of the cup. Because cup walls taper, we recommend ordering a sample first so we can measure exact fill heights before locking the artwork.",
+  },
+  {
+    q: "Can the inside of the cup be printed?",
+    a: "No. The inner coating that keeps the cup leak-proof and food-safe also blocks ink — printing only happens on the outside.",
+  },
+  {
+    q: "What file formats do you accept and which template should I use?",
+    a: "Editable vector files: .ai (Adobe Illustrator), .cdr (CorelDraw) or editable .pdf. Every cup size has its own arc-shaped template — tell us the size and lining you want and we'll email the right one back to you.",
+  },
 ];
 
 /* ────────────────────────────────────────────────────────────────────────── */

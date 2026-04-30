@@ -313,7 +313,7 @@ function CupsPage() {
             </span>{" "}
             Delivered in Iceland.
           </h1>
-          <p className="mt-6 text-lg text-muted-foreground">
+          <p className="mt-6 text-lg text-foreground/80 leading-relaxed">
             Custom print from 1,000 pieces. One price, one schedule, one contact.
           </p>
           <div className="mt-10 flex flex-col items-center gap-3">
@@ -374,7 +374,7 @@ function CupsPage() {
                 </span>
                 <h3 className="mt-2 font-bold text-lg leading-snug">{p.title}</h3>
                 <p className="text-xs text-muted-foreground mt-1 tracking-wider">{p.sizes}</p>
-                <p className="mt-3 text-sm text-muted-foreground">{p.desc}</p>
+                <p className="mt-3 text-sm text-foreground/75 leading-relaxed">{p.desc}</p>
 
                 <ul className="mt-4 space-y-1.5">
                   {p.bullets.map((b) => (
@@ -519,21 +519,19 @@ function CupsPage() {
                 <span style={{ color: "#84cc16" }}>cup.</span>
               </h3>
 
-              <div className="mt-6 space-y-5 text-muted-foreground leading-relaxed">
+              <div className="mt-6 space-y-5 text-foreground/80 leading-relaxed">
                 <p>
                   <span className="text-foreground font-semibold">Most "paper" cups have a plastic lining inside.</span>{" "}
-                  The moment hot coffee hits it, research shows a single cup can release up to{" "}
+                  Pour in hot coffee and a single cup can release up to{" "}
                   <span className="text-foreground font-semibold">25,000 microplastic particles straight into the drink.</span>
                 </p>
                 <p>
-                  <span className="text-foreground font-semibold">Then the cup goes in the bin.</span> It takes up to 20 years to break down, and every year more of it pollutes the oceans.
+                  <span className="text-foreground font-semibold">Then the cup goes in the bin.</span> It takes up to 20 years to break down — and every year more of it ends up in the ocean.
                 </p>
                 <p>
                   Our eco line swaps the plastic for a{" "}
-                  <span className="text-foreground font-semibold">plant-based, compostable PLA lining</span>. Works for{" "}
-                  <span className="text-foreground font-semibold">hot coffee, cold drinks, ice cream — any cup you already sell.</span>{" "}
-                  Same feel in the hand, same heat resistance, same taste in the drink — but{" "}
-                  <span className="text-foreground font-semibold">zero microplastics</span>, and it breaks down in industrial composting.
+                  <span className="text-foreground font-semibold">plant-based, compostable PLA lining</span>. Same feel, same heat resistance, same taste — but{" "}
+                  <span className="text-foreground font-semibold">zero microplastics</span>, and it breaks down in industrial composting. Works for hot coffee, cold drinks and ice cream.
                 </p>
               </div>
 
@@ -654,7 +652,7 @@ function CupsPage() {
           <h2 className="text-4xl font-extrabold">
             Why <span className="bg-clip-text text-transparent" style={{ backgroundImage: "var(--gradient-cyan)" }}>us.</span>
           </h2>
-          <p className="mt-3 text-muted-foreground">No contract. Test us on one pallet.</p>
+          <p className="mt-3 text-foreground/75">No contract. Test us on one pallet.</p>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-10">
           {[
@@ -688,7 +686,7 @@ function CupsPage() {
                 style={{ backgroundColor: w.c }}
               />
               <h3 className="font-bold text-lg">{w.t}</h3>
-              <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{w.d}</p>
+              <p className="mt-3 text-sm text-foreground/75 leading-relaxed">{w.d}</p>
             </div>
           ))}
         </div>
@@ -713,7 +711,7 @@ function CupsPage() {
                   {s.n}
                 </div>
                 <h3 className="mt-4 text-lg font-bold">{s.t}</h3>
-                <p className="mt-3 text-sm text-muted-foreground">{s.d}</p>
+              <p className="mt-3 text-sm text-foreground/75 leading-relaxed">{s.d}</p>
               </div>
             ))}
           </div>
@@ -723,7 +721,7 @@ function CupsPage() {
       {/* FAQ */}
       <section id="faq" className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-24">
         <h2 className="text-4xl font-extrabold text-center">Frequently asked questions.</h2>
-        <p className="text-center mt-3 text-muted-foreground">
+        <p className="text-center mt-3 text-foreground/75">
           If something's not here — just ask in the form below.
         </p>
         <div className="mt-10 space-y-3">
@@ -733,7 +731,7 @@ function CupsPage() {
                 <span>{f.q}</span>
                 <span className="text-primary text-2xl group-open:rotate-45 transition-transform">+</span>
               </summary>
-              <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{f.a}</p>
+              <p className="mt-3 text-sm text-foreground/80 leading-relaxed">{f.a}</p>
             </details>
           ))}
         </div>

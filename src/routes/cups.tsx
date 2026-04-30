@@ -480,14 +480,14 @@ function CupsPage() {
           </div>
 
           {/* Two-column body */}
-          <div className="mt-16 grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+          <div className="mt-16 grid lg:grid-cols-[5fr_7fr] gap-10 lg:gap-16 items-center">
             {/* LEFT: warning sticker on green panel */}
             <div
-              className="relative aspect-[4/3] rounded-2xl overflow-hidden flex items-center justify-center p-8 sm:p-12"
+              className="relative rounded-2xl overflow-hidden flex items-center justify-center p-10 sm:p-14 aspect-square lg:aspect-[4/5] max-w-md mx-auto w-full"
               style={{ background: "linear-gradient(135deg, #c5d9a4 0%, #b9d18f 100%)" }}
             >
-              <span className="absolute top-5 left-5 inline-block px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider rounded-md bg-black/80 text-white">
-                EU mandatory marking on plastic-lined cups
+              <span className="absolute top-4 left-4 inline-block px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider rounded-md bg-black/80 text-white">
+                EU mandatory marking
               </span>
 
               {/* The sticker */}
@@ -497,7 +497,7 @@ function CupsPage() {
                 loading="lazy"
                 width={1536}
                 height={1024}
-                className="rotate-[-6deg] w-[min(85%,360px)] h-auto drop-shadow-2xl"
+                className="rotate-[-6deg] w-[min(75%,260px)] h-auto drop-shadow-2xl"
               />
             </div>
 

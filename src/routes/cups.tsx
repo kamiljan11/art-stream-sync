@@ -13,6 +13,7 @@ import cupIcecream from "@/assets/site/cup-icecream.png";
 import cupLids from "@/assets/site/cup-lids.webp";
 import cupStraws from "@/assets/site/cup-straws.jpg";
 import cupStirrers from "@/assets/site/cup-stirrers.webp";
+import euPlasticMarking from "@/assets/site/eu-plastic-marking.png";
 
 import heroCups from "@/assets/site/portfolio/hero-cups.jpg";
 import p2 from "@/assets/site/portfolio/p2.jpg";
@@ -494,38 +495,14 @@ function CupsPage() {
               </span>
 
               {/* The sticker */}
-              <div
-                className="rotate-[-6deg] rounded-md overflow-hidden border-[3px] border-white shadow-2xl bg-white"
-                style={{ width: "min(80%, 320px)" }}
-              >
-                <div className="grid grid-cols-2">
-                  {/* Left: no-plastic icon on red */}
-                  <div className="aspect-square flex items-center justify-center" style={{ background: "#dc2626" }}>
-                    <svg viewBox="0 0 100 100" className="w-3/5 h-3/5" fill="none" stroke="white" strokeWidth="6">
-                      <circle cx="50" cy="50" r="40" />
-                      <line x1="22" y1="22" x2="78" y2="78" />
-                      <rect x="38" y="32" width="24" height="36" rx="2" />
-                      <line x1="38" y1="42" x2="62" y2="42" />
-                    </svg>
-                  </div>
-                  {/* Right: turtle on blue */}
-                  <div className="aspect-square flex items-center justify-center" style={{ background: "#3b82f6" }}>
-                    <svg viewBox="0 0 100 100" className="w-3/5 h-3/5" fill="none" stroke="white" strokeWidth="4">
-                      <ellipse cx="50" cy="55" rx="28" ry="20" />
-                      <path d="M40 45 L45 35 M50 42 L50 32 M60 45 L55 35" />
-                      <circle cx="78" cy="48" r="6" />
-                      <line x1="30" y1="65" x2="22" y2="72" />
-                      <line x1="70" y1="65" x2="78" y2="72" />
-                      <line x1="40" y1="75" x2="36" y2="84" />
-                      <line x1="60" y1="75" x2="64" y2="84" />
-                    </svg>
-                  </div>
-                </div>
-                <div className="bg-black text-white text-center py-2 px-2">
-                  <div className="text-[10px] sm:text-xs font-bold leading-tight">PLASTIC IN PRODUCT</div>
-                  <div className="text-[9px] sm:text-[10px] font-semibold leading-tight opacity-90">PLAISTEACH SA TÁIRGE</div>
-                </div>
-              </div>
+              <img
+                src={euPlasticMarking}
+                alt="Official EU mandatory marking sticker for plastic-lined cups: red no-plastic-cup icon, blue turtle icon, and bilingual PLASTIC IN PRODUCT / PLAISTEACH SA TÁIRGE label"
+                loading="lazy"
+                width={1536}
+                height={1024}
+                className="rotate-[-6deg] w-[min(85%,360px)] h-auto drop-shadow-2xl"
+              />
             </div>
 
             {/* RIGHT: copy */}

@@ -79,37 +79,6 @@ const capabilities = [
   },
 ];
 
-const faqs = [
-  {
-    q: "Why are you so much cheaper?",
-    a: "No overhead. No expensive Reykjavík office, no sales fleet, we connect you straight to the industrial source.",
-  },
-  {
-    q: "Is the quality the same?",
-    a: "Yes, same Heidelberg/HP presses, same paper weights (130–300 g) as the big Icelandic agencies. Often the exact same factories they outsource to.",
-  },
-  {
-    q: "How does the Price Guarantee work?",
-    a: "Find a lower official quote from a registered Icelandic printer for the exact same job, same quantity, paper, finish, before ordering or within 7 days. We beat it, or refund the difference.",
-  },
-  {
-    q: "Do I get a valid invoice?",
-    a: "Yes. You buy from Mountain All Service ehf. (Kt. 690725-0450) and get a compliant Icelandic tax invoice with VSK stated.",
-  },
-  {
-    q: "Do I have to deal with Customs?",
-    a: "No. We handle import, VAT and customs. The quoted price is the final price at your door, you never talk to Tollstjóri.",
-  },
-  {
-    q: "Can you check my files?",
-    a: "Yes. We send file-prep instructions. Small technical fixes are paid by the hour; full design work is available at European rates.",
-  },
-  {
-    q: "What if something is wrong?",
-    a: "We take full responsibility. Printing error? We reprint at our cost or refund in full.",
-  },
-];
-
 function Index() {
   const t = useT();
   const tArray = useTArray();

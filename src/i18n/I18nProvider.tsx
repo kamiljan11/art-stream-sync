@@ -11,6 +11,7 @@ type I18nContextValue = {
   locale: Locale;
   setLocale: (l: Locale) => void;
   t: (key: string, vars?: Record<string, string | number>) => string;
+  tArray: (key: string) => string[];
 };
 
 const I18nContext = createContext<I18nContextValue | null>(null);
@@ -77,7 +78,20 @@ export function I18nProvider({ children }: { children: ReactNode }) {
     [locale]
   );
 
-  const value = useMemo<I18nContextValue>(() => ({ locale, setLocale, t }), [locale, setLocale, t]);
+  const tArray = useCallback(
+    (key: string): string[] => {
+      const dict = dictionaries[locale];
+      const fallback = dictionaries[DEFAULT_LOCALE];
+      const raw = getNested(dict, key) ?? getNested(fallback, key);
+      return Array.isArray(raw) ? (raw as string[]) : [];
+    },
+    [locale]
+  );
+
+  const value = useMemo<I18nContextValue>(
+    () => ({ locale, setLocale, t, tArray }),
+    [locale, setLocale, t, tArray]
+  );
 
   return <I18nContext.Provider value={value}>{children}</I18nContext.Provider>;
 }
@@ -93,6 +107,10 @@ export function useI18n(): I18nContextValue {
         const raw = getNested(dictionaries[DEFAULT_LOCALE], key);
         return typeof raw === "string" ? raw : key;
       },
+      tArray: (key) => {
+        const raw = getNested(dictionaries[DEFAULT_LOCALE], key);
+        return Array.isArray(raw) ? (raw as string[]) : [];
+      },
     };
   }
   return ctx;
@@ -100,4 +118,8 @@ export function useI18n(): I18nContextValue {
 
 export function useT() {
   return useI18n().t;
+}
+
+export function useTArray() {
+  return useI18n().tArray;
 }

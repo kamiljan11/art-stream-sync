@@ -6,31 +6,42 @@ const M = "#EC008C";
 const Y = "#FFE600";
 const K = "#FFFFFF";
 
-function FooterCmykDots() {
-  // Pyramid: 1, 2, 3, 4 dots — top to bottom CMYK
-  const rows: string[][] = [
-    [C],
-    [C, M],
-    [C, M, Y],
-    [C, M, Y, K],
-  ];
+function FooterLogo() {
+  // Same SVG mark as the header (MasLogo) — scaled up for footer
   return (
-    <div className="flex flex-col items-center gap-[4px]">
-      {rows.map((row, i) => (
-        <div key={i} className="flex gap-[4px]">
-          {row.map((color, j) => (
-            <span
-              key={j}
-              className="block h-[9px] w-[9px] rounded-full"
-              style={{
-                backgroundColor: color,
-                boxShadow: `0 0 8px ${color}80`,
-              }}
-            />
-          ))}
-        </div>
-      ))}
-    </div>
+    <svg
+      height="56"
+      viewBox="0 0 350 50"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-label="MAS PRINTS — Icelandic Brokerage"
+    >
+      <g transform="translate(0, 5)">
+        <circle cx="25" cy="5" r="3.5" fill={C} />
+        <circle cx="20" cy="14" r="3.5" fill={M} />
+        <circle cx="30" cy="14" r="3.5" fill={M} />
+        <circle cx="15" cy="23" r="3.5" fill={Y} />
+        <circle cx="25" cy="23" r="3.5" fill={Y} />
+        <circle cx="35" cy="23" r="3.5" fill={Y} />
+        <circle cx="10" cy="32" r="3.5" fill={K} />
+        <circle cx="20" cy="32" r="3.5" fill={K} />
+        <circle cx="30" cy="32" r="3.5" fill={K} />
+        <circle cx="40" cy="32" r="3.5" fill={K} />
+      </g>
+      <text x="60" y="28" fontFamily="Inter, sans-serif" fontWeight="800" fontSize="26" fill="#fff">
+        MAS PRINTS
+      </text>
+      <text
+        x="61"
+        y="42"
+        fontFamily="Inter, sans-serif"
+        fontWeight="700"
+        fontSize="10"
+        fill={C}
+        letterSpacing="2"
+      >
+        ICELANDIC BROKERAGE
+      </text>
+    </svg>
   );
 }
 
@@ -70,13 +81,7 @@ export function SiteFooter() {
   return (
     <footer className="border-t border-border bg-background">
       <div className="mx-auto max-w-3xl px-5 py-16 sm:py-20 text-center flex flex-col items-center">
-        <FooterCmykDots />
-        <div className="mt-5 text-2xl sm:text-3xl font-extrabold tracking-[0.15em] text-foreground">
-          MAS PRINTS
-        </div>
-        <div className="text-[0.7rem] sm:text-xs tracking-[0.3em] text-primary mt-1">
-          ICELANDIC BROKERAGE
-        </div>
+        <FooterLogo />
 
         <p className="mt-6 text-sm text-muted-foreground leading-relaxed max-w-md">
           is a brand of Mountain All Service ehf.

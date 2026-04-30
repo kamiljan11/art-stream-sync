@@ -464,12 +464,12 @@ function CupsPage() {
         {/* USP strip, why people order with us */}
         <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {[
-            { ...cp.usp[0], tone: "card-light-cyan", accent: "#0ea5e9" },
-            { ...cp.usp[1], tone: "card-light-pink", accent: "#ec4899" },
-            { ...cp.usp[2], tone: "card-light-yellow", accent: "#eab308" },
-            { ...cp.usp[3], tone: "card-light-lime", accent: "#84cc16" },
+            { ...cp.usp[0], tone: "card-light-cyan", accent: "#0ea5e9", action: false },
+            { ...cp.usp[1], tone: "card-light-pink", accent: "#ec4899", action: false },
+            { ...cp.usp[2], tone: "card-light-yellow", accent: "#eab308", action: true },
+            { ...cp.usp[3], tone: "card-light-lime", accent: "#84cc16", action: false },
           ].map((u) => (
-            <div key={u.t} className={`${u.tone} p-5 hover-lift-light`}>
+            <div key={u.t} className={`${u.tone} p-5 hover-lift-light flex flex-col`}>
               <div className="flex items-center gap-2">
                 <span
                   className="inline-flex h-6 w-6 items-center justify-center rounded-full text-xs font-bold text-white"
@@ -480,6 +480,15 @@ function CupsPage() {
                 <h3 className="font-bold text-base text-slate-900">{u.t}</h3>
               </div>
               <p className="mt-2 text-sm text-slate-700 leading-relaxed">{u.d}</p>
+              {u.action && (
+                <button
+                  type="button"
+                  onClick={() => window.dispatchEvent(new CustomEvent("floating-contact:open"))}
+                  className="mt-3 self-start inline-flex items-center gap-1.5 rounded-md bg-slate-900 px-3 py-1.5 text-xs font-semibold text-white hover:bg-slate-800 transition-colors"
+                >
+                  {t("cupsPage.usp.askButton")} <ArrowRight size={12} />
+                </button>
+              )}
             </div>
           ))}
         </div>

@@ -366,7 +366,7 @@ const is = {
         "Eitthvað annað / blanda",
       ],
       quantities: ["1.000 – 5.000", "5.000 – 20.000", "20.000 – 50.000", "50.000+"],
-      timings: ["Hefðbundið (besta verð)", "Hraðsending (~1 viku fyrr)", "Sveigjanlegt"],
+      timings: ["Hefðbundið (besta verð)", "Hraðsending (hraðar ef hægt er)", "Sveigjanlegt"],
       linings: ["Hefðbundið (Green PE)", "BIO (niðurbrjótanlegt)", "Veit ekki, ráðleggðu"],
     },
     productCatalog: [

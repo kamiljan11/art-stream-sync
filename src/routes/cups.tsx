@@ -588,7 +588,7 @@ function CupsPage() {
                 {cp.eco.euMark}
               </span>
 
-              {/* The sticker — clean label, no background card */}
+              {/* The sticker, clean label, no background card */}
               <img
                 src={euPlasticMarking}
                 alt={cp.eco.euAlt}

@@ -207,7 +207,7 @@ const en = {
     catalogue: {
       heading1: "Our",
       heading2: "catalogue.",
-      sub: "Every paper line is available with standard Green PE or compostable BIO lining, just say the word.",
+      sub: "Every paper line is available with standard Green PE, compostable BIO lining, or water-based dispersion coating.",
       minOrderLabel: "Minimum order",
       askPrice: "Ask for price",
       dontSee: "Don't see what you need?",

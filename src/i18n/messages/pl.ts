@@ -207,7 +207,7 @@ const pl = {
     catalogue: {
       heading1: "Nasz",
       heading2: "katalog.",
-      sub: "Każda linia papierowa dostępna ze standardową barierą Green PE lub kompostowalną BIO, wystarczy powiedzieć.",
+      sub: "Każda linia papierowa dostępna ze standardową barierą Green PE, kompostowalną BIO lub powłoką wodno-dyspersyjną.",
       minOrderLabel: "Minimalne zamówienie",
       askPrice: "Zapytaj o cenę",
       dontSee: "Nie widzisz tego, czego szukasz?",

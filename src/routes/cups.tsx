@@ -15,7 +15,7 @@ import cupPremium from "@/assets/site/cup-premium.jpg";
 import cupLogo from "@/assets/site/cup-logo.jpg";
 import cupWater from "@/assets/site/cup-water.jpg";
 import cupTransparent from "@/assets/site/cup-transparent.webp";
-import cupIcecream from "@/assets/site/cup-icecream.png";
+import cupIcecream from "@/assets/site/cup-icecream.jpg";
 import cupLids from "@/assets/site/cup-lids.webp";
 import cupStraws from "@/assets/site/cup-straws.jpg";
 import cupStirrers from "@/assets/site/cup-stirrers.webp";
@@ -533,6 +533,8 @@ function CupsPage() {
               <img
                 src={p.img}
                 alt={p.label}
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
               />
               <div className="absolute inset-x-0 bottom-0 p-2 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition">

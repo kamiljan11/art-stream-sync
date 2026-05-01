@@ -3,7 +3,7 @@ import { useEffect, useMemo, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { Search, LogOut, Mail, FileText, RefreshCw, Plus } from "lucide-react";
 
-export const Route = createFileRoute("/admin")({
+export const Route = createFileRoute("/admin/")({
   head: () => ({ meta: [{ title: "Admin · MAS Prints" }, { name: "robots", content: "noindex, nofollow" }] }),
   component: AdminPage,
 });

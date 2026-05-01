@@ -432,7 +432,7 @@ const is = {
         sizes: "150 stk / pakki",
         desc: "Plastlaus pappírssogrör, bein eða sveigjanleg. Svört á lager; aðrir litir eftir pöntun. Sameina með bollum fyrir samstillta afhendingu.",
         bullets: ["ESB einnota plast samhæft", "Svört á lager, litir eftir pöntun", "Magnpakkað fyrir kaffihús og veitingastaði"],
-        moq: "Frá 1 pakka",
+        moq: "1.000 stk (u.þ.b. 7 pakkar)",
       },
       {
         tag: "Tré · niðurbrjótanlegt",
@@ -440,7 +440,7 @@ const is = {
         sizes: "1.000 stk / pakki",
         desc: "Sléttar náttúrulegar birki hrærur. Engin spóla, engin litarefni, ekkert plast. Matvælaöruggt og fullkomlega niðurbrjótanlegt.",
         bullets: ["Ómeðhöndlað náttúrulegt ljóst tré", "Matvælasnertu vottað", "100% niðurbrjótanlegt"],
-        moq: "Frá 1 pakka",
+        moq: "1.000 stk (1 pakki)",
       },
     ],
   },

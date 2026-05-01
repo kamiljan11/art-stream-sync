@@ -432,7 +432,7 @@ const pl = {
         sizes: "150 szt. / opak.",
         desc: "Słomki papierowe bez plastiku, proste lub łamane. Czarne w magazynie; inne kolory na zamówienie. Łącz z kubkami dla zsynchronizowanej dostawy.",
         bullets: ["Zgodne z dyrektywą UE o jednorazówkach", "Czarne w magazynie, kolory na zamówienie", "Pakowane hurtowo dla kawiarni i restauracji"],
-        moq: "Od 1 opakowania",
+        moq: "1 000 szt. (ok. 7 opak.)",
       },
       {
         tag: "Drewno · biodegradowalne",
@@ -440,7 +440,7 @@ const pl = {
         sizes: "1 000 szt. / opak.",
         desc: "Gładkie mieszadełka z naturalnej brzozy. Bez drzazg, bez barwników, bez plastiku. Bezpieczne dla żywności i w pełni biodegradowalne.",
         bullets: ["Nieobrobione naturalne jasne drewno", "Certyfikat kontaktu z żywnością", "100% biodegradowalne"],
-        moq: "Od 1 opakowania",
+        moq: "1 000 szt. (1 opak.)",
       },
     ],
   },

@@ -353,6 +353,7 @@ const is = {
       send: "Senda",
       selectPlaceholder: "Veldu...",
       products: [
+        "Veit ekki enn, ráðleggðu",
         "Einveggja pappírsbolli (prentaður)",
         "Premium hita tvíveggja bolli",
         "Hulstur tvíveggja bolli (ódýr)",
@@ -367,7 +368,7 @@ const is = {
       ],
       quantities: ["1.000 – 5.000", "5.000 – 20.000", "20.000 – 50.000", "50.000+"],
       timings: ["Hefðbundið (besta verð)", "Hraðsending (hraðar ef hægt er)", "Sveigjanlegt"],
-      linings: ["Hefðbundið (Green PE)", "BIO (niðurbrjótanlegt PLA)", "Vatnsdreifing (plastlaust, endurvinnanlegt)", "Veit ekki, ráðleggðu"],
+      linings: ["Veit ekki enn, ráðleggðu", "Hefðbundið (Green PE)", "BIO (niðurbrjótanlegt PLA)", "Vatnsdreifing (plastlaust, endurvinnanlegt)"],
     },
     productCatalog: [
       {

@@ -502,6 +502,7 @@ const en = {
     errPhoneReq: "Phone is required",
     errMessageReq: "Message is required",
     errFailed: "Something went wrong. Please try again or email us directly.",
+    needDesigner: "I need help from a graphic designer",
   },
   thankYou: {
     title: "Request",

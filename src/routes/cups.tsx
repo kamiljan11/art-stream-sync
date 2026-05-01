@@ -404,6 +404,9 @@ function CupsPage() {
                 <img
                   src={p.img}
                   alt={p.title}
+                  loading={idx < 3 ? "eager" : "lazy"}
+                  decoding="async"
+                  fetchPriority={idx < 3 ? "high" : "auto"}
                   className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
                 />
               </div>

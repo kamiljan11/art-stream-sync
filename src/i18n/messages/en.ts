@@ -35,7 +35,7 @@ const en = {
     line1: "Paper cups.",
     line2: "Wholesale prices.",
     line3: "Delivered in Iceland.",
-    sub: "Custom print from 1,000 pieces. Icelandic invoice. Customs clearance included. Delivered directly to your door.",
+    sub: "Custom print from 1,000 pieces. Icelandic invoice. Customs clearance included.",
     cta: "Get a quote",
     badge: "Fixed ISK quote in 24 hours. No contract.",
   },

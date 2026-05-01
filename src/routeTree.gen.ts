@@ -12,6 +12,9 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as ThankYouRouteImport } from './routes/thank-you'
 import { Route as CupsRouteImport } from './routes/cups'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AdminIndexRouteImport } from './routes/admin/index'
+import { Route as AdminLoginRouteImport } from './routes/admin/login'
+import { Route as ApiPublicQuoteRouteImport } from './routes/api/public/quote'
 import { Route as ApiPublicContactRouteImport } from './routes/api/public/contact'
 
 const ThankYouRoute = ThankYouRouteImport.update({
@@ -29,6 +32,21 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminIndexRoute = AdminIndexRouteImport.update({
+  id: '/admin/',
+  path: '/admin/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminLoginRoute = AdminLoginRouteImport.update({
+  id: '/admin/login',
+  path: '/admin/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiPublicQuoteRoute = ApiPublicQuoteRouteImport.update({
+  id: '/api/public/quote',
+  path: '/api/public/quote',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiPublicContactRoute = ApiPublicContactRouteImport.update({
   id: '/api/public/contact',
   path: '/api/public/contact',
@@ -39,34 +57,68 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/cups': typeof CupsRoute
   '/thank-you': typeof ThankYouRoute
+  '/admin/login': typeof AdminLoginRoute
+  '/admin/': typeof AdminIndexRoute
   '/api/public/contact': typeof ApiPublicContactRoute
+  '/api/public/quote': typeof ApiPublicQuoteRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/cups': typeof CupsRoute
   '/thank-you': typeof ThankYouRoute
+  '/admin/login': typeof AdminLoginRoute
+  '/admin': typeof AdminIndexRoute
   '/api/public/contact': typeof ApiPublicContactRoute
+  '/api/public/quote': typeof ApiPublicQuoteRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/cups': typeof CupsRoute
   '/thank-you': typeof ThankYouRoute
+  '/admin/login': typeof AdminLoginRoute
+  '/admin/': typeof AdminIndexRoute
   '/api/public/contact': typeof ApiPublicContactRoute
+  '/api/public/quote': typeof ApiPublicQuoteRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/cups' | '/thank-you' | '/api/public/contact'
+  fullPaths:
+    | '/'
+    | '/cups'
+    | '/thank-you'
+    | '/admin/login'
+    | '/admin/'
+    | '/api/public/contact'
+    | '/api/public/quote'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/cups' | '/thank-you' | '/api/public/contact'
-  id: '__root__' | '/' | '/cups' | '/thank-you' | '/api/public/contact'
+  to:
+    | '/'
+    | '/cups'
+    | '/thank-you'
+    | '/admin/login'
+    | '/admin'
+    | '/api/public/contact'
+    | '/api/public/quote'
+  id:
+    | '__root__'
+    | '/'
+    | '/cups'
+    | '/thank-you'
+    | '/admin/login'
+    | '/admin/'
+    | '/api/public/contact'
+    | '/api/public/quote'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CupsRoute: typeof CupsRoute
   ThankYouRoute: typeof ThankYouRoute
+  AdminLoginRoute: typeof AdminLoginRoute
+  AdminIndexRoute: typeof AdminIndexRoute
   ApiPublicContactRoute: typeof ApiPublicContactRoute
+  ApiPublicQuoteRoute: typeof ApiPublicQuoteRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -92,6 +144,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/': {
+      id: '/admin/'
+      path: '/admin'
+      fullPath: '/admin/'
+      preLoaderRoute: typeof AdminIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/login': {
+      id: '/admin/login'
+      path: '/admin/login'
+      fullPath: '/admin/login'
+      preLoaderRoute: typeof AdminLoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/quote': {
+      id: '/api/public/quote'
+      path: '/api/public/quote'
+      fullPath: '/api/public/quote'
+      preLoaderRoute: typeof ApiPublicQuoteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/public/contact': {
       id: '/api/public/contact'
       path: '/api/public/contact'
@@ -106,7 +179,10 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CupsRoute: CupsRoute,
   ThankYouRoute: ThankYouRoute,
+  AdminLoginRoute: AdminLoginRoute,
+  AdminIndexRoute: AdminIndexRoute,
   ApiPublicContactRoute: ApiPublicContactRoute,
+  ApiPublicQuoteRoute: ApiPublicQuoteRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

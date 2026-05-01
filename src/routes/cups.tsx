@@ -853,9 +853,24 @@ function CupsPage() {
 function CupsQuoteForm() {
   const t = useT();
   const tArray = useTArray();
+  const navigate = useNavigate();
   const [submitted, setSubmitted] = useState(false);
   const [needsDesign, setNeedsDesign] = useState<"yes" | "no" | "">("");
   const [fileName, setFileName] = useState<string>("");
+  const [submitting, setSubmitting] = useState(false);
+  const [errorMsg, setErrorMsg] = useState<string>("");
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    product: "",
+    quantity: "",
+    timing: "",
+    lining: "",
+    notes: "",
+  });
+  const update = (k: keyof typeof form) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) =>
+    setForm((f) => ({ ...f, [k]: e.target.value }));
   if (submitted) {
     return (
       <div className="mt-10 text-center rounded-xl border border-border bg-card p-12">
@@ -866,27 +881,64 @@ function CupsQuoteForm() {
   }
   return (
     <form
-      onSubmit={(e) => {
+      onSubmit={async (e) => {
         e.preventDefault();
-        setSubmitted(true);
+        if (submitting) return;
+        setErrorMsg("");
+        setSubmitting(true);
+        try {
+          const projectDetails = [
+            form.timing && `Timing: ${form.timing}`,
+            form.lining && `Lining: ${form.lining}`,
+            fileName && `Artwork file: ${fileName}`,
+            form.notes && `Notes: ${form.notes}`,
+          ]
+            .filter(Boolean)
+            .join("\n");
+          const res = await fetch("/api/public/quote", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              type: "new",
+              name: form.name,
+              email: form.email,
+              phone: form.phone,
+              productType: form.product,
+              quantity: form.quantity,
+              projectDetails,
+              needsDesigner: needsDesign === "yes",
+            }),
+          });
+          if (!res.ok) throw new Error("Submit failed");
+          setSubmitted(true);
+          navigate({ to: "/thank-you" });
+        } catch (err) {
+          setErrorMsg("Something went wrong. Please try again.");
+        } finally {
+          setSubmitting(false);
+        }
       }}
       className="mt-10 grid gap-4 sm:grid-cols-2 rounded-xl border border-border bg-card p-6 sm:p-8"
     >
-      <Field label={t("cupsPage.quote.name")} required />
-      <Field label={t("cupsPage.quote.email")} type="email" required />
-      <Field label={t("cupsPage.quote.phone")} className="sm:col-span-2" />
+      <Field label={t("cupsPage.quote.name")} required value={form.name} onChange={update("name")} />
+      <Field label={t("cupsPage.quote.email")} type="email" required value={form.email} onChange={update("email")} />
+      <Field label={t("cupsPage.quote.phone")} className="sm:col-span-2" value={form.phone} onChange={update("phone")} />
       <SelectField
         label={t("cupsPage.quote.product")}
         options={tArray("cupsPage.quote.products")}
         placeholder={t("cupsPage.quote.selectPlaceholder")}
+        value={form.product}
+        onChange={update("product")}
       />
       <SelectField
         label={t("cupsPage.quote.quantity")}
         options={tArray("cupsPage.quote.quantities")}
         placeholder={t("cupsPage.quote.selectPlaceholder")}
+        value={form.quantity}
+        onChange={update("quantity")}
       />
-      <SelectField label={t("cupsPage.quote.timing")} options={tArray("cupsPage.quote.timings")} placeholder={t("cupsPage.quote.selectPlaceholder")} />
-      <SelectField label={t("cupsPage.quote.lining")} options={tArray("cupsPage.quote.linings")} placeholder={t("cupsPage.quote.selectPlaceholder")} />
+      <SelectField label={t("cupsPage.quote.timing")} options={tArray("cupsPage.quote.timings")} placeholder={t("cupsPage.quote.selectPlaceholder")} value={form.timing} onChange={update("timing")} />
+      <SelectField label={t("cupsPage.quote.lining")} options={tArray("cupsPage.quote.linings")} placeholder={t("cupsPage.quote.selectPlaceholder")} value={form.lining} onChange={update("lining")} />
       {/* Design assistance + file upload, two-column block */}
       <div className="sm:col-span-2 grid gap-4 sm:grid-cols-2 rounded-lg border border-border/70 bg-card p-4">
         <fieldset className="flex flex-col gap-2">
@@ -947,15 +999,21 @@ function CupsQuoteForm() {
         <textarea
           rows={4}
           placeholder={t("cupsPage.quote.notesPlaceholder")}
+          value={form.notes}
+          onChange={update("notes")}
           className="rounded-md border border-input bg-background px-3 py-2.5 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
         />
       </label>
+      {errorMsg && (
+        <div className="sm:col-span-2 text-sm text-destructive">{errorMsg}</div>
+      )}
       <button
         type="submit"
+        disabled={submitting}
         className="sm:col-span-2 mt-2 inline-flex items-center justify-center gap-2 rounded-md py-3 font-semibold text-primary-foreground"
         style={{ background: "var(--gradient-cyan)", boxShadow: "var(--shadow-glow)" }}
       >
-        {t("cupsPage.quote.send")} <ArrowRight size={18} />
+        {submitting ? "..." : t("cupsPage.quote.send")} <ArrowRight size={18} />
       </button>
     </form>
   );
@@ -976,11 +1034,11 @@ function Field({
     </label>
   );
 }
-function SelectField({ label, options, placeholder = "Select..." }: { label: string; options: string[]; placeholder?: string }) {
+function SelectField({ label, options, placeholder = "Select...", value, onChange }: { label: string; options: string[]; placeholder?: string; value?: string; onChange?: (e: React.ChangeEvent<HTMLSelectElement>) => void }) {
   return (
     <label className="flex flex-col gap-1.5">
       <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">{label}</span>
-      <select className="rounded-md border border-input bg-background px-3 py-2.5 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/20">
+      <select value={value} onChange={onChange} className="rounded-md border border-input bg-background px-3 py-2.5 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/20">
         <option value="">{placeholder}</option>
         {options.map((o) => (
           <option key={o}>{o}</option>

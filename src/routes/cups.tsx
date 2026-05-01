@@ -556,7 +556,8 @@ function CupsPage() {
           {/* Heading */}
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="text-4xl sm:text-5xl font-extrabold leading-tight">
-              {cp.eco.heading1}{" "}
+              {cp.eco.heading1}
+              <br />
               <span style={{ color: "#84cc16" }}>{cp.eco.heading2}</span>
             </h2>
             <p className="mt-4 text-muted-foreground">{cp.eco.ifYes}</p>

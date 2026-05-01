@@ -290,7 +290,7 @@ const en = {
       sub: "No contract. Test us on one pallet.",
       items: [
         { t: "Stable price", d: "The price you're quoted is the price you pay. VAT, customs, delivery, all included. No surprise add-ons on the invoice." },
-        { t: "Predictable delivery", d: "Fixed schedule, fixed date. You stop chasing, we ship. VAT and customs already in the quote." },
+        { t: "Predictable delivery", d: "Fixed schedule, fixed date. We handle production and shipping so you don't have to follow up. VAT and customs already in the quote." },
         { t: "Same cup every batch", d: "Paper weight, lid fit, ink shade, locked in spec. Your January cup matches your July cup." },
         { t: "Icelandic invoice", d: "You get a proper Icelandic invoice in ISK, with our company ID number and VAT, fully deductible in your books. No \"import from Poland\" paperwork headaches." },
       ],
@@ -302,7 +302,7 @@ const en = {
         { n: "1", t: "Send the brief", d: "Size, quantity, lining (PE or BIO), logo or full artwork." },
         { n: "2", t: "Get a fixed quote", d: "In ISK within 24 working hours. All-in price, VAT, customs and delivery to your door included." },
         { n: "3", t: "Free artwork adaptation", d: "We adapt your logo or graphics to the cup template, completely free with every order. Digital proof before any press starts." },
-        { n: "4", t: "Package at your door", d: "We track production and freight. You stop chasing." },
+        { n: "4", t: "Package at your door", d: "We track production and freight and keep you updated." },
       ],
     },
     faq: {

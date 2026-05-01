@@ -801,14 +801,14 @@ function CupsPage() {
       </section>
 
       {/* FAQ */}
-      <section id="faq" className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-24">
+      <section id="faq" className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-24">
         <Reveal>
           <h2 className="text-4xl font-extrabold text-center">{cp.faq.heading1} <span style={{ color: "var(--brand-cyan)" }}>{cp.faq.heading2}</span></h2>
           <p className="text-center mt-3 text-foreground/75">
             {cp.faq.sub}
           </p>
         </Reveal>
-        <div className="mt-10 space-y-3">
+        <div className="mt-10 grid gap-4 md:grid-cols-2">
           {cupsFaqsT.map((f, idx) => {
             const tones = ["card-light-cyan", "card-light-pink", "card-light-yellow", "card-light-lime"];
             const accents = ["#0ea5e9", "#ec4899", "#eab308", "#84cc16"];

@@ -6,6 +6,8 @@ export function QuoteForm() {
   const t = useT();
   const [tab, setTab] = useState<"new" | "audit">("new");
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [formError, setFormError] = useState<string | null>(null);
 
   return (
     <div id="quote" className="bg-background py-20 px-5 relative">
@@ -51,15 +53,52 @@ export function QuoteForm() {
               </div>
             ) : (
               <form
-                onSubmit={(e) => {
+                onSubmit={async (e) => {
                   e.preventDefault();
-                  setSubmitted(true);
+                  setFormError(null);
+                  const fd = new FormData(e.currentTarget);
+                  const payload = {
+                    type: tab,
+                    name: String(fd.get("name") || ""),
+                    email: String(fd.get("email") || ""),
+                    phone: String(fd.get("phone") || ""),
+                    productType: String(fd.get("productType") || ""),
+                    quantity: String(fd.get("quantity") || ""),
+                    projectDetails: String(fd.get("projectDetails") || ""),
+                    designLink: String(fd.get("designLink") || ""),
+                    needsDesigner: fd.get("needsDesigner") === "on",
+                    currentCost: String(fd.get("currentCost") || ""),
+                  };
+                  if (!payload.name.trim() || !payload.email.trim()) {
+                    setFormError("Please fill in your name and email.");
+                    return;
+                  }
+                  setSubmitting(true);
+                  try {
+                    const res = await fetch("/api/public/quote", {
+                      method: "POST",
+                      headers: { "Content-Type": "application/json" },
+                      body: JSON.stringify(payload),
+                    });
+                    if (!res.ok) throw new Error("Request failed");
+                    setSubmitted(true);
+                  } catch (err) {
+                    console.error(err);
+                    setFormError("Sorry, something went wrong. Please try again.");
+                  } finally {
+                    setSubmitting(false);
+                  }
                 }}
               >
                 {tab === "new" ? <NewProjectFields /> : <AuditFields />}
 
+                {formError && (
+                  <p className="mb-3 text-sm font-semibold text-red-600">{formError}</p>
+                )}
+
                 <button
                   type="submit"
+                  disabled={submitting}
                   className="w-full py-[18px] mt-2.5 rounded-lg font-extrabold text-[1.05rem] md:text-[1.1rem] uppercase tracking-[1px] text-white transition-all duration-200 hover:-translate-y-0.5"
                   style={{
                     background: tab === "new" ? "#00AEEF" : "#EC008C",
@@ -83,7 +122,7 @@ export function QuoteForm() {
                         : "0 4px 12px rgba(236, 0, 140, 0.25)";
                   }}
                 >
-                  {tab === "new" ? t("homeQuote.submitNew") : t("homeQuote.submitAudit")}
+                  {submitting ? "Sending..." : (tab === "new" ? t("homeQuote.submitNew") : t("homeQuote.submitAudit"))}
                 </button>
 
                 <div className="flex items-center justify-center gap-2 mt-5 text-[0.85rem] text-[#888] font-semibold">
@@ -141,16 +180,16 @@ function NewProjectFields() {
   const productTypes = useTArray()("homeQuote.products");
   return (
     <>
-      <Input label={t("homeQuote.nameCompany")} required />
-      <Input label={t("homeQuote.emailAddress")} type="email" placeholder={t("homeQuote.emailPlaceholder")} required />
-      <Input label={t("homeQuote.phoneNumber")} type="tel" />
+      <Input name="name" label={t("homeQuote.nameCompany")} required />
+      <Input name="email" label={t("homeQuote.emailAddress")} type="email" placeholder={t("homeQuote.emailPlaceholder")} required />
+      <Input name="phone" label={t("homeQuote.phoneNumber")} type="tel" />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4">
-        <Select label={t("homeQuote.productType")} options={productTypes} />
-        <Input label={t("homeQuote.quantity")} />
+        <Select name="productType" label={t("homeQuote.productType")} options={productTypes} />
+        <Input name="quantity" label={t("homeQuote.quantity")} />
       </div>
-      <Textarea label={t("homeQuote.projectDetails")} />
-      <Input label={t("homeQuote.designLink")} hint={t("homeQuote.designLinkHint")} />
-      <Checkbox label={t("homeQuote.needDesigner")} accent="#00AEEF" />
+      <Textarea name="projectDetails" label={t("homeQuote.projectDetails")} />
+      <Input name="designLink" label={t("homeQuote.designLink")} hint={t("homeQuote.designLinkHint")} />
+      <Checkbox name="needsDesigner" label={t("homeQuote.needDesigner")} accent="#00AEEF" />
     </>
   );
 }
@@ -159,13 +198,13 @@ function AuditFields() {
   const t = useT();
   return (
     <>
-      <Input label={t("homeQuote.companyName")} required />
-      <Input label={t("homeQuote.emailAddress")} type="email" placeholder={t("homeQuote.emailPlaceholder")} required />
-      <Input label={t("homeQuote.phoneNumber")} type="tel" />
+      <Input name="name" label={t("homeQuote.companyName")} required />
+      <Input name="email" label={t("homeQuote.emailAddress")} type="email" placeholder={t("homeQuote.emailPlaceholder")} required />
+      <Input name="phone" label={t("homeQuote.phoneNumber")} type="tel" />
       <FileInput label={t("homeQuote.uploadInvoice")} hint={t("homeQuote.uploadInvoiceHint")} />
-      <Input label={t("homeQuote.designLink")} hint={t("homeQuote.designLinkAuditHint")} />
-      <Input label={t("homeQuote.currentCost")} />
-      <Checkbox label={t("homeQuote.needDesigner")} accent="#EC008C" />
+      <Input name="designLink" label={t("homeQuote.designLink")} hint={t("homeQuote.designLinkAuditHint")} />
+      <Input name="currentCost" label={t("homeQuote.currentCost")} />
+      <Checkbox name="needsDesigner" label={t("homeQuote.needDesigner")} accent="#EC008C" />
     </>
   );
 }
@@ -204,14 +243,14 @@ function Textarea({ label, ...props }: React.TextareaHTMLAttributes<HTMLTextArea
   );
 }
 
-function Select({ label, options }: { label: string; options: string[] }) {
+function Select({ label, options, name }: { label: string; options: string[]; name?: string }) {
   const t = useT();
   return (
     <div className="mb-5">
       <label className="block text-[0.8rem] font-extrabold text-[#222] mb-2 uppercase tracking-[0.5px]">
         {label}
       </label>
-      <select className="w-full px-4 py-[14px] text-base border-2 border-[#eee] rounded-lg bg-[#f9f9f9] text-[#333] focus:outline-none focus:border-[#333] focus:bg-white transition-colors">
+      <select name={name} className="w-full px-4 py-[14px] text-base border-2 border-[#eee] rounded-lg bg-[#f9f9f9] text-[#333] focus:outline-none focus:border-[#333] focus:bg-white transition-colors">
         <option value="">{t("homeQuote.selectPlaceholder")}</option>
         {options.map((o) => (
           <option key={o}>{o}</option>
@@ -236,12 +275,13 @@ function FileInput({ label, hint }: { label: string; hint?: string }) {
   );
 }
 
-function Checkbox({ label, accent }: { label: string; accent: string }) {
+function Checkbox({ label, accent, name }: { label: string; accent: string; name?: string }) {
   return (
     <div className="mb-5">
       <label className="flex items-center gap-3 cursor-pointer select-none rounded-lg border-2 border-[#eee] bg-[#f9f9f9] hover:bg-white hover:border-[#ddd] transition-colors px-4 py-[14px]">
         <input
           type="checkbox"
+          name={name}
           className="h-5 w-5 rounded border-gray-300 cursor-pointer"
           style={{ accentColor: accent }}
         />

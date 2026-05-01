@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as ThankYouRouteImport } from './routes/thank-you'
 import { Route as CupsRouteImport } from './routes/cups'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ApiPublicQuoteRouteImport } from './routes/api/public/quote'
 import { Route as ApiPublicContactRouteImport } from './routes/api/public/contact'
 
 const ThankYouRoute = ThankYouRouteImport.update({
@@ -29,6 +30,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicQuoteRoute = ApiPublicQuoteRouteImport.update({
+  id: '/api/public/quote',
+  path: '/api/public/quote',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiPublicContactRoute = ApiPublicContactRouteImport.update({
   id: '/api/public/contact',
   path: '/api/public/contact',
@@ -40,12 +46,14 @@ export interface FileRoutesByFullPath {
   '/cups': typeof CupsRoute
   '/thank-you': typeof ThankYouRoute
   '/api/public/contact': typeof ApiPublicContactRoute
+  '/api/public/quote': typeof ApiPublicQuoteRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/cups': typeof CupsRoute
   '/thank-you': typeof ThankYouRoute
   '/api/public/contact': typeof ApiPublicContactRoute
+  '/api/public/quote': typeof ApiPublicQuoteRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -53,13 +61,25 @@ export interface FileRoutesById {
   '/cups': typeof CupsRoute
   '/thank-you': typeof ThankYouRoute
   '/api/public/contact': typeof ApiPublicContactRoute
+  '/api/public/quote': typeof ApiPublicQuoteRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/cups' | '/thank-you' | '/api/public/contact'
+  fullPaths:
+    | '/'
+    | '/cups'
+    | '/thank-you'
+    | '/api/public/contact'
+    | '/api/public/quote'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/cups' | '/thank-you' | '/api/public/contact'
-  id: '__root__' | '/' | '/cups' | '/thank-you' | '/api/public/contact'
+  to: '/' | '/cups' | '/thank-you' | '/api/public/contact' | '/api/public/quote'
+  id:
+    | '__root__'
+    | '/'
+    | '/cups'
+    | '/thank-you'
+    | '/api/public/contact'
+    | '/api/public/quote'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -67,6 +87,7 @@ export interface RootRouteChildren {
   CupsRoute: typeof CupsRoute
   ThankYouRoute: typeof ThankYouRoute
   ApiPublicContactRoute: typeof ApiPublicContactRoute
+  ApiPublicQuoteRoute: typeof ApiPublicQuoteRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -92,6 +113,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/quote': {
+      id: '/api/public/quote'
+      path: '/api/public/quote'
+      fullPath: '/api/public/quote'
+      preLoaderRoute: typeof ApiPublicQuoteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/public/contact': {
       id: '/api/public/contact'
       path: '/api/public/contact'
@@ -107,6 +135,7 @@ const rootRouteChildren: RootRouteChildren = {
   CupsRoute: CupsRoute,
   ThankYouRoute: ThankYouRoute,
   ApiPublicContactRoute: ApiPublicContactRoute,
+  ApiPublicQuoteRoute: ApiPublicQuoteRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

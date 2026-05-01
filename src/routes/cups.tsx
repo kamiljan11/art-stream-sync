@@ -599,8 +599,8 @@ function CupsPage() {
                 src={euPlasticMarking}
                 alt={cp.eco.euAlt}
                 loading="lazy"
-                width={1536}
-                height={1024}
+                width={900}
+                height={604}
                 className="relative rotate-[-4deg] block w-[min(92%,440px)] h-auto drop-shadow-[0_18px_30px_rgba(0,0,0,0.35)]"
               />
             </div>

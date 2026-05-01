@@ -387,7 +387,7 @@ function CupsPage() {
           {[
             { v: "1,000+", l: cp.trust.minOrder },
             { v: "∞", l: cp.trust.printColours },
-            { v: "100%", l: cp.trust.iskPrice },
+            { v: "0", l: cp.trust.iskPrice },
             { v: "EN 13432", l: cp.trust.bioCertified },
           ].map((s) => (
             <div key={s.l}>

@@ -659,45 +659,6 @@ function CupsPage() {
               </a>
             </div>
           </div>
-
-          {/* Circular by design, four-step loop (merged from former section) */}
-          <div className="mt-20 pt-16 border-t border-border/50">
-            <div className="text-center max-w-2xl mx-auto">
-              <span className="inline-block text-[10px] font-bold uppercase tracking-[0.2em] text-primary">
-                {cp.eco.circLabel}
-              </span>
-              <h3 className="mt-3 text-3xl sm:text-4xl font-extrabold leading-[1.05] tracking-tight">
-                {cp.eco.circHeading1}{" "}
-                <span style={{ color: "#84cc16" }}>{cp.eco.circHeading2}</span>
-              </h3>
-              <p className="mt-4 text-foreground/75 leading-relaxed max-w-prose mx-auto">
-                {cp.eco.circSub}
-              </p>
-            </div>
-
-            <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-              {[
-                { ...cp.eco.steps[0], tone: "card-light-lime" },
-                { ...cp.eco.steps[1], tone: "card-light-cyan" },
-                { ...cp.eco.steps[2], tone: "card-light-yellow" },
-                { ...cp.eco.steps[3], tone: "card-light-pink" },
-              ].map((step) => (
-                <div key={step.n} className={`relative ${step.tone} p-6 pt-7`}>
-                  <div
-                    className="absolute top-0 left-6 right-6 h-[3px] rounded-b-full"
-                    style={{ backgroundColor: "#84cc16" }}
-                  />
-                  <div className="text-xs font-bold tracking-[0.2em] text-slate-500">{step.n}</div>
-                  <h4 className="mt-2 font-bold text-lg" style={{ color: "#84cc16" }}>{step.t}</h4>
-                  <p className="mt-3 text-sm text-slate-700 leading-relaxed">{step.d}</p>
-                </div>
-              ))}
-            </div>
-
-            <p className="mt-8 text-center text-xs text-muted-foreground max-w-xl mx-auto">
-              {cp.eco.ask}
-            </p>
-          </div>
         </div>
       </section>
 

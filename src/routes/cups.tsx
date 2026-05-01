@@ -19,7 +19,7 @@ import cupIcecream from "@/assets/site/cup-icecream.jpg";
 import cupLids from "@/assets/site/cup-lids.webp";
 import cupStraws from "@/assets/site/cup-straws.jpg";
 import cupStirrers from "@/assets/site/cup-stirrers.webp";
-import euPlasticMarking from "@/assets/site/eu-plastic-marking.png";
+import euPlasticMarking from "@/assets/site/eu-plastic-marking.jpg";
 
 import heroCups from "@/assets/site/portfolio/hero-cups.jpg";
 import p2 from "@/assets/site/portfolio/p2.jpg";

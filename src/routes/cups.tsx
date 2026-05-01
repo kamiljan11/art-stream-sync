@@ -19,7 +19,7 @@ import cupIcecream from "@/assets/site/cup-icecream.jpg";
 import cupLids from "@/assets/site/cup-lids.webp";
 import cupStraws from "@/assets/site/cup-straws.jpg";
 import cupStirrers from "@/assets/site/cup-stirrers.webp";
-import euPlasticMarking from "@/assets/site/eu-plastic-marking.png";
+import euPlasticMarking from "@/assets/site/eu-plastic-marking.jpg";
 
 import heroCups from "@/assets/site/portfolio/hero-cups.jpg";
 import p2 from "@/assets/site/portfolio/p2.jpg";
@@ -599,8 +599,8 @@ function CupsPage() {
                 src={euPlasticMarking}
                 alt={cp.eco.euAlt}
                 loading="lazy"
-                width={1536}
-                height={1024}
+                width={900}
+                height={604}
                 className="relative rotate-[-4deg] block w-[min(92%,440px)] h-auto drop-shadow-[0_18px_30px_rgba(0,0,0,0.35)]"
               />
             </div>

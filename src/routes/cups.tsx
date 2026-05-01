@@ -533,6 +533,8 @@ function CupsPage() {
               <img
                 src={p.img}
                 alt={p.label}
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
               />
               <div className="absolute inset-x-0 bottom-0 p-2 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition">

@@ -432,7 +432,7 @@ const en = {
         sizes: "150 pcs / pack",
         desc: "Plastic-free paper straws, straight or bendy. Black in stock; other colours by order. Bundle with cups for synced delivery.",
         bullets: ["EU single-use plastics compliant", "Black in stock, colours by order", "Bulk-packed for cafés and restaurants"],
-        moq: "From 1 pack",
+        moq: "1,000 pcs (approx. 7 packs)",
       },
       {
         tag: "Wood · biodegradable",
@@ -440,7 +440,7 @@ const en = {
         sizes: "1,000 pcs / pack",
         desc: "Smooth natural-birch stirrers. No splinters, no dyes, no plastic. Food-safe and fully biodegradable.",
         bullets: ["Untreated natural light wood", "Food-contact certified", "100% biodegradable"],
-        moq: "From 1 pack",
+        moq: "1,000 pcs (1 pack)",
       },
     ],
   },

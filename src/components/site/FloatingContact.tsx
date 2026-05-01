@@ -6,7 +6,7 @@ import { useT } from "@/i18n/I18nProvider";
 const cyan = "#00AEEF";
 const magenta = "#EC008C";
 
-type FormState = { name: string; email: string; phone: string; message: string };
+type FormState = { name: string; email: string; phone: string; message: string; needsDesigner: boolean };
 
 const PHONE = "+354 779 0000";
 const PHONE_HREF = "tel:+3547790000";
@@ -19,6 +19,7 @@ export function FloatingContact() {
     email: z.string().trim().email(t("floating.errEmailInvalid")).max(255),
     phone: z.string().trim().min(4, t("floating.errPhoneReq")).max(40),
     message: z.string().trim().min(1, t("floating.errMessageReq")).max(2000),
+    needsDesigner: z.boolean(),
   });
   const [open, setOpen] = useState(false);
   const [form, setForm] = useState<FormState>({
@@ -26,6 +27,7 @@ export function FloatingContact() {
     email: "",
     phone: "",
     message: "",
+    needsDesigner: false,
   });
   const [errors, setErrors] = useState<Partial<Record<keyof FormState, string>>>({});
   const [submitting, setSubmitting] = useState(false);
@@ -85,7 +87,7 @@ export function FloatingContact() {
       });
       if (!res.ok) throw new Error("Request failed");
       setSent(true);
-      setForm({ name: "", email: "", phone: "", message: "" });
+      setForm({ name: "", email: "", phone: "", message: "", needsDesigner: false });
     } catch (err) {
       console.error(err);
       setErrors({ message: t("floating.errFailed") });
@@ -210,6 +212,18 @@ export function FloatingContact() {
                       <p className="mt-1 text-xs text-red-600">{errors.message}</p>
                     )}
                   </div>
+
+                  <label className="flex items-start gap-3 cursor-pointer select-none rounded-lg border border-gray-200 bg-gray-50 hover:bg-gray-100 transition-colors px-3 py-2.5">
+                    <input
+                      type="checkbox"
+                      checked={form.needsDesigner}
+                      onChange={(e) => update("needsDesigner", e.target.checked)}
+                      className="mt-0.5 h-4 w-4 rounded border-gray-300 cursor-pointer accent-[#00AEEF]"
+                    />
+                    <span className="text-sm font-medium text-gray-800 leading-snug">
+                      {t("floating.needDesigner")}
+                    </span>
+                  </label>
 
                   <button
                     type="submit"

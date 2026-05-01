@@ -9,14 +9,14 @@ export interface TemplateEntry {
   to?: string
 }
 
-import { template as contactConfirmation } from './contact-confirmation'
-import { template as contactInternal } from './contact-internal'
 import { template as quoteConfirmation } from './quote-confirmation'
 import { template as quoteInternal } from './quote-internal'
+import { template as contactConfirmation } from './contact-confirmation'
+import { template as contactInternal } from './contact-internal'
 
 export const TEMPLATES: Record<string, TemplateEntry> = {
-  'contact-confirmation': contactConfirmation,
-  'contact-internal': contactInternal,
   'quote-confirmation': quoteConfirmation,
   'quote-internal': quoteInternal,
+  'contact-confirmation': contactConfirmation,
+  'contact-internal': contactInternal,
 }

@@ -376,7 +376,6 @@ function CupsPage() {
             >
               {t("cupsHero.cta")} <ArrowRight size={18} />
             </a>
-            <p className="text-sm text-muted-foreground">{t("cupsHero.badge")}</p>
           </div>
         </div>
       </section>

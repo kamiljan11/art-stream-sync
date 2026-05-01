@@ -14,30 +14,117 @@ export type Database = {
   }
   public: {
     Tables: {
-      contact_submissions: {
+      admin_users: {
         Row: {
           created_at: string
           email: string
           id: string
-          message: string
-          name: string
-          phone: string
         }
         Insert: {
           created_at?: string
           email: string
           id?: string
-          message: string
-          name: string
-          phone: string
         }
         Update: {
           created_at?: string
           email?: string
           id?: string
+        }
+        Relationships: []
+      }
+      contact_submissions: {
+        Row: {
+          created_at: string
+          email: string
+          extra: Json
+          id: string
+          internal_notes: string | null
+          message: string
+          name: string
+          phone: string
+          status: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          extra?: Json
+          id?: string
+          internal_notes?: string | null
+          message: string
+          name: string
+          phone: string
+          status?: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          extra?: Json
+          id?: string
+          internal_notes?: string | null
           message?: string
           name?: string
           phone?: string
+          status?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      quote_submissions: {
+        Row: {
+          created_at: string
+          current_cost: string | null
+          design_link: string | null
+          email: string
+          extra: Json
+          id: string
+          internal_notes: string | null
+          name: string
+          needs_designer: boolean
+          phone: string | null
+          product_type: string | null
+          project_details: string | null
+          quantity: string | null
+          status: string
+          type: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          current_cost?: string | null
+          design_link?: string | null
+          email: string
+          extra?: Json
+          id?: string
+          internal_notes?: string | null
+          name: string
+          needs_designer?: boolean
+          phone?: string | null
+          product_type?: string | null
+          project_details?: string | null
+          quantity?: string | null
+          status?: string
+          type?: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          current_cost?: string | null
+          design_link?: string | null
+          email?: string
+          extra?: Json
+          id?: string
+          internal_notes?: string | null
+          name?: string
+          needs_designer?: boolean
+          phone?: string | null
+          product_type?: string | null
+          project_details?: string | null
+          quantity?: string | null
+          status?: string
+          type?: string
+          updated_at?: string
         }
         Relationships: []
       }
@@ -46,7 +133,7 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      is_admin: { Args: never; Returns: boolean }
     }
     Enums: {
       [_ in never]: never

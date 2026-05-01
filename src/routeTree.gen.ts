@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as UnsubscribeRouteImport } from './routes/unsubscribe'
 import { Route as ThankYouRouteImport } from './routes/thank-you'
 import { Route as CupsRouteImport } from './routes/cups'
 import { Route as IndexRouteImport } from './routes/index'
@@ -22,6 +23,11 @@ import { Route as LovableEmailTransactionalSendRouteImport } from './routes/lova
 import { Route as LovableEmailTransactionalPreviewRouteImport } from './routes/lovable/email/transactional/preview'
 import { Route as LovableEmailQueueProcessRouteImport } from './routes/lovable/email/queue/process'
 
+const UnsubscribeRoute = UnsubscribeRouteImport.update({
+  id: '/unsubscribe',
+  path: '/unsubscribe',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ThankYouRoute = ThankYouRouteImport.update({
   id: '/thank-you',
   path: '/thank-you',
@@ -90,6 +96,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/cups': typeof CupsRoute
   '/thank-you': typeof ThankYouRoute
+  '/unsubscribe': typeof UnsubscribeRoute
   '/admin/login': typeof AdminLoginRoute
   '/email/unsubscribe': typeof EmailUnsubscribeRoute
   '/admin/': typeof AdminIndexRoute
@@ -104,6 +111,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/cups': typeof CupsRoute
   '/thank-you': typeof ThankYouRoute
+  '/unsubscribe': typeof UnsubscribeRoute
   '/admin/login': typeof AdminLoginRoute
   '/email/unsubscribe': typeof EmailUnsubscribeRoute
   '/admin': typeof AdminIndexRoute
@@ -119,6 +127,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/cups': typeof CupsRoute
   '/thank-you': typeof ThankYouRoute
+  '/unsubscribe': typeof UnsubscribeRoute
   '/admin/login': typeof AdminLoginRoute
   '/email/unsubscribe': typeof EmailUnsubscribeRoute
   '/admin/': typeof AdminIndexRoute
@@ -135,6 +144,7 @@ export interface FileRouteTypes {
     | '/'
     | '/cups'
     | '/thank-you'
+    | '/unsubscribe'
     | '/admin/login'
     | '/email/unsubscribe'
     | '/admin/'
@@ -149,6 +159,7 @@ export interface FileRouteTypes {
     | '/'
     | '/cups'
     | '/thank-you'
+    | '/unsubscribe'
     | '/admin/login'
     | '/email/unsubscribe'
     | '/admin'
@@ -163,6 +174,7 @@ export interface FileRouteTypes {
     | '/'
     | '/cups'
     | '/thank-you'
+    | '/unsubscribe'
     | '/admin/login'
     | '/email/unsubscribe'
     | '/admin/'
@@ -178,6 +190,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CupsRoute: typeof CupsRoute
   ThankYouRoute: typeof ThankYouRoute
+  UnsubscribeRoute: typeof UnsubscribeRoute
   AdminLoginRoute: typeof AdminLoginRoute
   EmailUnsubscribeRoute: typeof EmailUnsubscribeRoute
   AdminIndexRoute: typeof AdminIndexRoute
@@ -191,6 +204,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/unsubscribe': {
+      id: '/unsubscribe'
+      path: '/unsubscribe'
+      fullPath: '/unsubscribe'
+      preLoaderRoute: typeof UnsubscribeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/thank-you': {
       id: '/thank-you'
       path: '/thank-you'
@@ -282,6 +302,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CupsRoute: CupsRoute,
   ThankYouRoute: ThankYouRoute,
+  UnsubscribeRoute: UnsubscribeRoute,
   AdminLoginRoute: AdminLoginRoute,
   EmailUnsubscribeRoute: EmailUnsubscribeRoute,
   AdminIndexRoute: AdminIndexRoute,

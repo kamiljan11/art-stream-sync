@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { useNavigate } from "@tanstack/react-router";
 import { ShieldCheck } from "lucide-react";
 import { useT, useTArray } from "@/i18n/I18nProvider";
 
 export function QuoteForm() {
   const t = useT();
+  const navigate = useNavigate();
   const [tab, setTab] = useState<"new" | "audit">("new");
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -82,6 +84,7 @@ export function QuoteForm() {
                     });
                     if (!res.ok) throw new Error("Request failed");
                     setSubmitted(true);
+                    navigate({ to: "/thank-you" });
                   } catch (err) {
                     console.error(err);
                     setFormError("Sorry, something went wrong. Please try again.");

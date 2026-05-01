@@ -261,7 +261,7 @@ const en = {
       p3b: "plant-based, compostable PLA lining",
       p3c: ". Same feel, same heat resistance, same taste, but",
       p3d: "zero microplastics",
-      p3e: ", and it breaks down in industrial composting. Works for hot coffee, cold drinks and ice cream.",
+      p3e: ", and it breaks down in industrial composting. We also offer a water-based dispersion coating — a thin water-based barrier instead of plastic, fully recyclable with regular paper. Works for hot coffee, cold drinks and ice cream.",
       stat1: "FSC paper",
       stat2: "Compostable lining",
       stat3: "Certified",

@@ -261,7 +261,7 @@ const is = {
       p3b: "plöntu-byggða, niðurbrjótanlega PLA húðun",
       p3c: ". Sama tilfinning, sami hitaþol, sama bragð, en",
       p3d: "núll örplast",
-      p3e: ", og brotnar niður í iðnaðarmoltun. Virkar fyrir heitt kaffi, kalda drykki og ís.",
+      p3e: ", og brotnar niður í iðnaðarmoltun. Við bjóðum einnig vatnsbasaða húðun — þunnt vatnsbasað lag í staðinn fyrir plast, að fullu endurvinnanlegt með venjulegum pappír. Virkar fyrir heitt kaffi, kalda drykki og ís.",
       stat1: "FSC pappír",
       stat2: "Niðurbrjótanleg húðun",
       stat3: "Vottað",

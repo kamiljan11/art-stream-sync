@@ -235,3 +235,18 @@ function FileInput({ label, hint }: { label: string; hint?: string }) {
     </div>
   );
 }
+
+function Checkbox({ label, accent }: { label: string; accent: string }) {
+  return (
+    <div className="mb-5">
+      <label className="flex items-center gap-3 cursor-pointer select-none rounded-lg border-2 border-[#eee] bg-[#f9f9f9] hover:bg-white hover:border-[#ddd] transition-colors px-4 py-[14px]">
+        <input
+          type="checkbox"
+          className="h-5 w-5 rounded border-gray-300 cursor-pointer"
+          style={{ accentColor: accent }}
+        />
+        <span className="text-[0.95rem] font-bold text-[#222]">{label}</span>
+      </label>
+    </div>
+  );
+}

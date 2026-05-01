@@ -10,7 +10,8 @@ import { supabaseAdmin } from '@/integrations/supabase/client.server'
 
 const SITE_NAME = 'MAS Prints'
 const SENDER_DOMAIN = 'notify.prints.masgroup.is'
-const FROM_DOMAIN = 'prints.masgroup.is'
+const FROM_DOMAIN = 'masgroup.is'
+const FROM_LOCAL = 'prints'
 
 function generateToken(): string {
   const bytes = new Uint8Array(32)
@@ -100,7 +101,7 @@ export async function enqueueTemplateEmail(args: EnqueueArgs): Promise<{ ok: boo
     payload: {
       message_id: messageId,
       to: recipient,
-      from: `${SITE_NAME} <noreply@${FROM_DOMAIN}>`,
+      from: `${SITE_NAME} <${FROM_LOCAL}@${FROM_DOMAIN}>`,
       sender_domain: SENDER_DOMAIN,
       subject: resolvedSubject,
       html,

@@ -34,7 +34,7 @@ export const Route = createFileRoute("/api/public/contact")({
 
         const { data: row, error: insertError } = await supabaseAdmin
           .from("contact_submissions")
-          .insert({ name, email, phone, message, needs_designer: needsDesigner })
+          .insert({ name, email, phone, message, needs_designer: needsDesigner } as any)
           .select("id")
           .single();
 

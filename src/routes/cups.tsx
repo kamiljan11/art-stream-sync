@@ -383,11 +383,10 @@ function CupsPage() {
 
       {/* TRUST STRIP */}
       <section className="border-b border-border bg-card/30">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-8 grid grid-cols-3 gap-6 text-center">
           {[
             { v: "1,000+", l: cp.trust.minOrder },
             { v: "∞", l: cp.trust.printColours },
-            { v: "0", l: cp.trust.iskPrice },
             { v: "EN 13432", l: cp.trust.bioCertified },
           ].map((s) => (
             <div key={s.l}>

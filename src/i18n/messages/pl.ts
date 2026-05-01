@@ -367,7 +367,7 @@ const pl = {
       ],
       quantities: ["1 000 – 5 000", "5 000 – 20 000", "20 000 – 50 000", "50 000+"],
       timings: ["Standard (najlepsza cena)", "Express (szybciej, jeśli możliwe)", "Elastyczny"],
-      linings: ["Standard (Green PE)", "BIO (kompostowalna)", "Nie wiem, doradźcie"],
+      linings: ["Standard (Green PE)", "BIO (kompostowalna PLA)", "Dyspersja wodna (bez plastiku, recykling)", "Nie wiem, doradźcie"],
     },
     productCatalog: [
       {

@@ -19,6 +19,7 @@ export const Route = createFileRoute("/api/public/quote")({
     handlers: {
       POST: async ({ request }) => {
         const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+        const { enqueueTemplateEmail } = await import("@/lib/email/enqueue.server");
 
         let payload: unknown;
         try {
@@ -56,6 +57,35 @@ export const Route = createFileRoute("/api/public/quote")({
         if (error) {
           console.error("[quote] insert error:", error);
           return Response.json({ error: "Failed to save quote" }, { status: 500 });
+        }
+
+        try {
+          await enqueueTemplateEmail({
+            templateName: "quote-confirmation",
+            to: d.email,
+            templateData: { name: d.name, type: d.type },
+            idempotencyKey: `quote-confirm-${row.id}`,
+          });
+          await enqueueTemplateEmail({
+            templateName: "quote-internal",
+            to: "prints@masgroup.is",
+            templateData: {
+              type: d.type,
+              name: d.name,
+              email: d.email,
+              phone: d.phone,
+              productType: d.productType,
+              quantity: d.quantity,
+              projectDetails: d.projectDetails,
+              designLink: d.designLink,
+              needsDesigner: d.needsDesigner,
+              currentCost: d.currentCost,
+            },
+            idempotencyKey: `quote-internal-${row.id}`,
+            internal: true,
+          });
+        } catch (err) {
+          console.warn("[quote] email enqueue failed:", err);
         }
 
         return Response.json({ ok: true, id: row.id });

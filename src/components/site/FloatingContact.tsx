@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "@tanstack/react-router";
 import { MessageCircle, X, Phone, Mail, Send, CheckCircle2 } from "lucide-react";
 import { z } from "zod";
 import { useT } from "@/i18n/I18nProvider";
@@ -14,6 +15,7 @@ const EMAIL = "prints@masgroup.is";
 
 export function FloatingContact() {
   const t = useT();
+  const navigate = useNavigate();
   const schema = z.object({
     name: z.string().trim().min(1, t("floating.errNameReq")).max(100),
     email: z.string().trim().email(t("floating.errEmailInvalid")).max(255),
@@ -88,6 +90,8 @@ export function FloatingContact() {
       if (!res.ok) throw new Error("Request failed");
       setSent(true);
       setForm({ name: "", email: "", phone: "", message: "", needsDesigner: false });
+      setOpen(false);
+      navigate({ to: "/thank-you" });
     } catch (err) {
       console.error(err);
       setErrors({ message: t("floating.errFailed") });

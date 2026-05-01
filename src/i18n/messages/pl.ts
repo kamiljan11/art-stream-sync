@@ -396,10 +396,10 @@ const pl = {
       },
       {
         tag: "Magazyn · bez nadruku",
-        title: "Czysty biały kubek papierowy (z magazynu)",
+        title: "Kubki papierowe z magazynu (białe i kolorowe)",
         sizes: "100 · 180 · 250 · 300 · 400 ml",
-        desc: "Czyste kubki dostępne bezpośrednio z magazynu. Sprawdzą się przy dystrybutorach wody, w automatach, na siłowniach i w biurach. Sprzedawane kartonami, bez minimum druku.",
-        bullets: ["Od 1 000 szt. na rozmiar", "Bariera wewnętrzna do recyklingu lub kompostowalna", "Ta sama jakość papieru co linie z nadrukiem"],
+        desc: "Kubki bez nadruku dostępne z magazynu w kolorze białym i pastelowych odcieniach (różowy, niebieski, szary i inne). Sprawdzą się przy dystrybutorach wody, w automatach, na siłowniach i w biurach. Sprzedawane kartonami, bez minimum druku.",
+        bullets: ["Białe i pastelowe kolory dostępne od ręki", "Od 1 000 szt. na rozmiar", "Bariera wewnętrzna do recyklingu lub kompostowalna"],
         moq: "1 000 szt.",
       },
       {

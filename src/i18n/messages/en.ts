@@ -396,10 +396,10 @@ const en = {
       },
       {
         tag: "Stock · no print",
-        title: "Plain white paper cup (stock)",
+        title: "Plain paper cups (stock, white & colours)",
         sizes: "100 · 180 · 250 · 300 · 400 ml",
-        desc: "Plain cups available directly from stock. Suitable for water stations, vending machines, gyms and offices. Sold by the carton, no print minimum.",
-        bullets: ["From 1,000 pcs per size", "Recyclable or compostable inner lining", "Same paper quality as our printed lines"],
+        desc: "Unprinted cups available directly from stock in white and pastel colours (pink, blue, grey and more). Suitable for water stations, vending machines, gyms and offices. Sold by the carton, no print minimum.",
+        bullets: ["White and assorted pastel colours in stock", "From 1,000 pcs per size", "Recyclable or compostable inner lining"],
         moq: "1,000 pcs",
       },
       {

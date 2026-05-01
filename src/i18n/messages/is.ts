@@ -396,10 +396,10 @@ const is = {
       },
       {
         tag: "Lager · óprentað",
-        title: "Sléttur hvítur pappírsbolli (lager)",
+        title: "Pappírsbollar úr lager (hvítir og litaðir)",
         sizes: "100 · 180 · 250 · 300 · 400 ml",
-        desc: "Sléttir bollar beint úr lager. Hentar fyrir vatnsstöðvar, sjálfsala, líkamsræktarstöðvar og skrifstofur. Seldir í kassa, ekkert prentlágmark.",
-        bullets: ["Frá 1.000 stk á stærð", "Endurvinnanleg eða niðurbrjótanleg innri húðun", "Sami pappírsgæði og prentaðar línur okkar"],
+        desc: "Óprentaðir bollar beint úr lager í hvítu og pastellitum (bleikum, bláum, gráum o.fl.). Hentar fyrir vatnsstöðvar, sjálfsala, líkamsræktarstöðvar og skrifstofur. Seldir í kassa, ekkert prentlágmark.",
+        bullets: ["Hvítt og pastellitir til á lager", "Frá 1.000 stk á stærð", "Endurvinnanleg eða niðurbrjótanleg innri húðun"],
         moq: "1.000 stk",
       },
       {

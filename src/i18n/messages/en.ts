@@ -353,6 +353,7 @@ const en = {
       send: "Send",
       selectPlaceholder: "Select...",
       products: [
+        "Not sure yet, advise me",
         "Single-wall paper cup (printed)",
         "Premium thermal double-wall cup",
         "Sleeve double-wall cup (budget)",
@@ -367,7 +368,7 @@ const en = {
       ],
       quantities: ["1,000 – 5,000", "5,000 – 20,000", "20,000 – 50,000", "50,000+"],
       timings: ["Standard (best price)", "Express (faster if possible)", "Flexible"],
-      linings: ["Standard (Green PE)", "BIO (compostable PLA)", "Water-based dispersion (plastic-free, recyclable)", "Don't know, advise me"],
+      linings: ["Not sure yet, advise me", "Standard (Green PE)", "BIO (compostable PLA)", "Water-based dispersion (plastic-free, recyclable)"],
     },
     productCatalog: [
       {

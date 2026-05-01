@@ -502,6 +502,7 @@ const is = {
     errPhoneReq: "Sími er nauðsynlegur",
     errMessageReq: "Skilaboð eru nauðsynleg",
     errFailed: "Eitthvað fór úrskeiðis. Reyndu aftur eða sendu okkur tölvupóst beint.",
+    needDesigner: "Ég þarf aðstoð frá grafískum hönnuði",
   },
   thankYou: {
     title: "Beiðni",

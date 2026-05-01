@@ -502,6 +502,7 @@ const pl = {
     errPhoneReq: "Telefon jest wymagany",
     errMessageReq: "Wiadomość jest wymagana",
     errFailed: "Coś poszło nie tak. Spróbuj ponownie lub napisz do nas bezpośrednio.",
+    needDesigner: "Potrzebuję pomocy grafika",
   },
   thankYou: {
     title: "Zapytanie",

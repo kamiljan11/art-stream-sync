@@ -6,6 +6,7 @@ const contactSchema = z.object({
   email: z.string().trim().email().max(255),
   phone: z.string().trim().min(4).max(40),
   message: z.string().trim().min(1).max(2000),
+  needsDesigner: z.boolean().optional().default(false),
 });
 
 export const Route = createFileRoute("/api/public/contact")({
@@ -29,11 +30,11 @@ export const Route = createFileRoute("/api/public/contact")({
           );
         }
 
-        const { name, email, phone, message } = parsed.data;
+        const { name, email, phone, message, needsDesigner } = parsed.data;
 
         const { data: row, error: insertError } = await supabaseAdmin
           .from("contact_submissions")
-          .insert({ name, email, phone, message })
+          .insert({ name, email, phone, message, needs_designer: needsDesigner } as any)
           .select("id")
           .single();
 
@@ -73,7 +74,7 @@ export const Route = createFileRoute("/api/public/contact")({
             to: [INTERNAL_TO],
             replyTo: email,
             subject: `New contact request from ${name}`,
-            html: internalHtml({ name, email, phone, message }),
+            html: internalHtml({ name, email, phone, message, needsDesigner }),
           });
         } catch (err) {
           console.warn(
@@ -117,6 +118,7 @@ function internalHtml(d: {
   email: string;
   phone: string;
   message: string;
+  needsDesigner?: boolean;
 }) {
   return `
     <div style="font-family: Inter, Arial, sans-serif; max-width: 560px; margin: 0 auto; padding: 24px; color:#111;">
@@ -125,6 +127,7 @@ function internalHtml(d: {
         <tr><td style="padding:6px 0; color:#666; width:90px;">Name</td><td>${escapeHtml(d.name)}</td></tr>
         <tr><td style="padding:6px 0; color:#666;">Email</td><td>${escapeHtml(d.email)}</td></tr>
         <tr><td style="padding:6px 0; color:#666;">Phone</td><td>${escapeHtml(d.phone)}</td></tr>
+        <tr><td style="padding:6px 0; color:#666;">Needs designer</td><td>${d.needsDesigner ? "Yes" : "No"}</td></tr>
       </table>
       <h3 style="margin:20px 0 8px; font-size:14px;">Message</h3>
       <div style="white-space:pre-wrap; font-size:14px; line-height:1.6; padding:12px; background:#f5f5f5; border-radius:8px;">${escapeHtml(d.message)}</div>

@@ -470,6 +470,7 @@ const is = {
     uploadInvoiceHint: "Við notum þetta til að slá verð þeirra.",
     currentCost: "Núverandi kostnaður (valfrjálst)",
     selectPlaceholder: "Veldu...",
+    needDesigner: "Ég þarf aðstoð frá grafískum hönnuði",
     products: [
       "Nafnspjöld",
       "Bæklingar / Auglýsingaspjöld",

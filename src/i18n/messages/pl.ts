@@ -470,6 +470,7 @@ const pl = {
     uploadInvoiceHint: "Używamy tego, by pobić ich cenę.",
     currentCost: "Obecny koszt (opcjonalnie)",
     selectPlaceholder: "Wybierz...",
+    needDesigner: "Potrzebuję pomocy grafika",
     products: [
       "Wizytówki",
       "Ulotki / Foldery",

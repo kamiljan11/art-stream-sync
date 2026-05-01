@@ -150,6 +150,7 @@ function NewProjectFields() {
       </div>
       <Textarea label={t("homeQuote.projectDetails")} />
       <Input label={t("homeQuote.designLink")} hint={t("homeQuote.designLinkHint")} />
+      <Checkbox label={t("homeQuote.needDesigner")} accent="#00AEEF" />
     </>
   );
 }
@@ -164,6 +165,7 @@ function AuditFields() {
       <FileInput label={t("homeQuote.uploadInvoice")} hint={t("homeQuote.uploadInvoiceHint")} />
       <Input label={t("homeQuote.designLink")} hint={t("homeQuote.designLinkAuditHint")} />
       <Input label={t("homeQuote.currentCost")} />
+      <Checkbox label={t("homeQuote.needDesigner")} accent="#EC008C" />
     </>
   );
 }
@@ -230,6 +232,21 @@ function FileInput({ label, hint }: { label: string; hint?: string }) {
         className="w-full p-2.5 bg-[#f9f9f9] border-2 border-dashed border-[#ddd] rounded-lg text-[0.9rem] text-[#555] cursor-pointer hover:border-[#bbb] transition-colors file:mr-3 file:py-1.5 file:px-3 file:rounded-md file:border-0 file:text-xs file:font-bold file:bg-[#eee] file:text-[#333]"
       />
       {hint && <p className="mt-1.5 text-xs text-[#888]">{hint}</p>}
+    </div>
+  );
+}
+
+function Checkbox({ label, accent }: { label: string; accent: string }) {
+  return (
+    <div className="mb-5">
+      <label className="flex items-center gap-3 cursor-pointer select-none rounded-lg border-2 border-[#eee] bg-[#f9f9f9] hover:bg-white hover:border-[#ddd] transition-colors px-4 py-[14px]">
+        <input
+          type="checkbox"
+          className="h-5 w-5 rounded border-gray-300 cursor-pointer"
+          style={{ accentColor: accent }}
+        />
+        <span className="text-[0.95rem] font-bold text-[#222]">{label}</span>
+      </label>
     </div>
   );
 }

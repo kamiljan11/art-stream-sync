@@ -470,6 +470,7 @@ const en = {
     uploadInvoiceHint: "We use this to beat their price.",
     currentCost: "Current Cost (Optional)",
     selectPlaceholder: "Select...",
+    needDesigner: "I need help from a graphic designer",
     products: [
       "Business Cards",
       "Flyers / Leaflets",

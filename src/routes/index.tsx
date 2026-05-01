@@ -383,9 +383,9 @@ function FeatureCard({ icon, title, text, tint = "cyan" }: { icon: React.ReactNo
         boxShadow: "0 10px 30px rgba(0, 0, 0, 0.3)",
       }}
     >
-      <div className="flex items-center gap-3.5">
-        <span className="inline-flex h-7 w-7 items-center justify-center">{icon}</span>
-        <h3 className="font-extrabold tracking-wider text-[#111] text-[1.05rem]">{title}</h3>
+      <div className="flex items-start gap-3.5">
+        <span className="inline-flex h-7 w-7 items-center justify-center shrink-0">{icon}</span>
+        <h3 className="font-extrabold tracking-wider text-[#111] text-[1.05rem] leading-tight min-h-[2.6em] flex items-center">{title}</h3>
       </div>
       <p className="mt-5 text-[0.95rem] text-[#555] leading-relaxed">{text}</p>
     </div>

@@ -15,7 +15,7 @@ import cupPremium from "@/assets/site/cup-premium.jpg";
 import cupLogo from "@/assets/site/cup-logo.jpg";
 import cupWater from "@/assets/site/cup-water.jpg";
 import cupTransparent from "@/assets/site/cup-transparent.webp";
-import cupIcecream from "@/assets/site/cup-icecream.png";
+import cupIcecream from "@/assets/site/cup-icecream.jpg";
 import cupLids from "@/assets/site/cup-lids.webp";
 import cupStraws from "@/assets/site/cup-straws.jpg";
 import cupStirrers from "@/assets/site/cup-stirrers.webp";

@@ -150,6 +150,7 @@ function NewProjectFields() {
       </div>
       <Textarea label={t("homeQuote.projectDetails")} />
       <Input label={t("homeQuote.designLink")} hint={t("homeQuote.designLinkHint")} />
+      <Checkbox label={t("homeQuote.needDesigner")} accent="#00AEEF" />
     </>
   );
 }
@@ -164,6 +165,7 @@ function AuditFields() {
       <FileInput label={t("homeQuote.uploadInvoice")} hint={t("homeQuote.uploadInvoiceHint")} />
       <Input label={t("homeQuote.designLink")} hint={t("homeQuote.designLinkAuditHint")} />
       <Input label={t("homeQuote.currentCost")} />
+      <Checkbox label={t("homeQuote.needDesigner")} accent="#EC008C" />
     </>
   );
 }

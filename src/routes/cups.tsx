@@ -384,7 +384,7 @@ function CupsPage() {
       {/* TRUST STRIP */}
       {/* PRODUCTS GRID */}
       <section id="products" className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-24">
-        <Reveal className="text-center max-w-2xl mx-auto">
+        <Reveal className="text-center max-w-2xl mx-auto" threshold={0} rootMargin="0px 0px 0px 0px">
           <h2 className="text-4xl font-extrabold">{cp.catalogue.heading1} <span style={{ color: "var(--brand-cyan)" }}>{cp.catalogue.heading2}</span></h2>
           <p className="mt-3 text-muted-foreground">
             {cp.catalogue.sub}

@@ -1042,7 +1042,7 @@ function CupsQuoteForm() {
       <button
         type="submit"
         disabled={submitting}
-        className="sm:col-span-2 mt-2 inline-flex items-center justify-center gap-2 rounded-md py-3 font-semibold text-primary-foreground"
+        className="sm:col-span-2 mt-2 inline-flex items-center justify-center gap-2 rounded-md py-3 font-semibold text-white"
         style={{ background: "var(--gradient-cyan)", boxShadow: "var(--shadow-glow)" }}
       >
         {submitting ? "..." : t("cupsPage.quote.send")} <ArrowRight size={18} />

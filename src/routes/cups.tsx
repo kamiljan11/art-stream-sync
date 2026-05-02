@@ -964,7 +964,7 @@ function CupsQuoteForm() {
           setSubmitting(false);
         }
       }}
-      className="mt-10 grid gap-4 sm:grid-cols-2 rounded-xl border border-border bg-card p-6 sm:p-8"
+      className="mt-10 grid gap-4 sm:grid-cols-2 rounded-2xl bg-white p-6 sm:p-8 shadow-[0_20px_50px_rgba(0,0,0,0.5)] text-[#333]"
     >
       <Field label={t("cupsPage.quote.name")} required value={form.name} onChange={update("name")} />
       <Field label={t("cupsPage.quote.email")} type="email" required value={form.email} onChange={update("email")} />
@@ -986,45 +986,45 @@ function CupsQuoteForm() {
       <SelectField label={t("cupsPage.quote.timing")} options={tArray("cupsPage.quote.timings")} placeholder={t("cupsPage.quote.selectPlaceholder")} value={form.timing} onChange={update("timing")} />
       <SelectField label={t("cupsPage.quote.lining")} options={tArray("cupsPage.quote.linings")} placeholder={t("cupsPage.quote.selectPlaceholder")} value={form.lining} onChange={update("lining")} />
       {/* Design assistance + file upload, two-column block */}
-      <div className="sm:col-span-2 grid gap-4 sm:grid-cols-2 rounded-lg border border-border/70 bg-card p-4">
+      <div className="sm:col-span-2 grid gap-4 sm:grid-cols-2 rounded-lg border-2 border-[#eee] bg-[#f9f9f9] p-4">
         <fieldset className="flex flex-col gap-2">
-          <legend className="text-xs font-medium uppercase tracking-wider text-muted-foreground mb-1">
+          <legend className="text-xs font-bold uppercase tracking-wider text-[#555] mb-1">
             {t("cupsPage.quote.designQuestion")}
           </legend>
-          <label className="flex items-center gap-2 cursor-pointer text-sm">
+          <label className="flex items-center gap-2 cursor-pointer text-sm text-[#333]">
             <input
               type="radio"
               name="needsDesign"
               value="yes"
               checked={needsDesign === "yes"}
               onChange={() => setNeedsDesign("yes")}
-              className="accent-primary h-4 w-4"
+              className="h-4 w-4 accent-[#00AEEF]"
             />
             {t("cupsPage.quote.designYes")}
           </label>
-          <label className="flex items-center gap-2 cursor-pointer text-sm">
+          <label className="flex items-center gap-2 cursor-pointer text-sm text-[#333]">
             <input
               type="radio"
               name="needsDesign"
               value="no"
               checked={needsDesign === "no"}
               onChange={() => setNeedsDesign("no")}
-              className="accent-primary h-4 w-4"
+              className="h-4 w-4 accent-[#00AEEF]"
             />
             {t("cupsPage.quote.designNo")}
           </label>
         </fieldset>
         <div className="flex flex-col gap-2">
-          <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
+          <span className="text-xs font-bold uppercase tracking-wider text-[#555]">
             {t("cupsPage.quote.uploadArtwork")}{" "}
             <span
-              className="ml-1 inline-flex h-4 w-4 items-center justify-center rounded-full bg-primary/20 text-primary text-[10px]"
+              className="ml-1 inline-flex h-4 w-4 items-center justify-center rounded-full bg-[#00AEEF]/20 text-[#00AEEF] text-[10px]"
               title={t("cupsPage.quote.uploadHint")}
             >
               i
             </span>
           </span>
-          <label className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-md border border-input bg-background px-3 py-2.5 text-sm font-medium hover:bg-muted transition-colors">
+          <label className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-lg border-2 border-dashed border-[#ddd] bg-white px-3 py-2.5 text-sm font-medium text-[#333] hover:border-[#bbb] transition-colors">
             <input
               type="file"
               className="hidden"
@@ -1033,13 +1033,13 @@ function CupsQuoteForm() {
             />
             {fileName ? t("cupsPage.quote.changeFile") : t("cupsPage.quote.chooseFile")}
           </label>
-          <span className="text-xs text-muted-foreground truncate">
+          <span className="text-xs text-[#777] truncate">
             {fileName || t("cupsPage.quote.uploadPlaceholder")}
           </span>
         </div>
       </div>
       <label className="sm:col-span-2 flex flex-col gap-1.5">
-        <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
+        <span className="text-xs font-bold uppercase tracking-wider text-[#555]">
           {t("cupsPage.quote.notes")}
         </span>
         <textarea
@@ -1047,7 +1047,7 @@ function CupsQuoteForm() {
           placeholder={t("cupsPage.quote.notesPlaceholder")}
           value={form.notes}
           onChange={update("notes")}
-          className="rounded-md border border-input bg-background px-3 py-2.5 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
+          className="rounded-lg border-2 border-[#eee] bg-[#f9f9f9] text-[#333] placeholder:text-[#999] px-4 py-[14px] text-sm outline-none focus:border-[#333] focus:bg-white transition-colors min-h-[100px] resize-y"
         />
       </label>
       {errorMsg && (
@@ -1072,10 +1072,10 @@ function Field({
 }: React.InputHTMLAttributes<HTMLInputElement> & { label: string }) {
   return (
     <label className={`flex flex-col gap-1.5 ${className}`}>
-      <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">{label}</span>
+      <span className="text-xs font-bold uppercase tracking-wider text-[#555]">{label}</span>
       <input
         {...p}
-        className="rounded-md border border-input bg-background px-3 py-2.5 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
+        className="rounded-lg border-2 border-[#eee] bg-[#f9f9f9] text-[#333] placeholder:text-[#999] px-4 py-[14px] text-sm outline-none focus:border-[#333] focus:bg-white transition-colors"
       />
     </label>
   );
@@ -1083,8 +1083,8 @@ function Field({
 function SelectField({ label, options, placeholder = "Select...", value, onChange }: { label: string; options: string[]; placeholder?: string; value?: string; onChange?: (e: React.ChangeEvent<HTMLSelectElement>) => void }) {
   return (
     <label className="flex flex-col gap-1.5">
-      <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">{label}</span>
-      <select value={value} onChange={onChange} className="rounded-md border border-input bg-background px-3 py-2.5 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/20">
+      <span className="text-xs font-bold uppercase tracking-wider text-[#555]">{label}</span>
+      <select value={value} onChange={onChange} className="rounded-lg border-2 border-[#eee] bg-[#f9f9f9] text-[#333] px-4 py-[14px] text-sm outline-none focus:border-[#333] focus:bg-white transition-colors">
         <option value="">{placeholder}</option>
         {options.map((o) => (
           <option key={o}>{o}</option>

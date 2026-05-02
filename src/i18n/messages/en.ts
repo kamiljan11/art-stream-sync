@@ -226,8 +226,8 @@ const en = {
     uspAskButton: "Ask now",
     midCta: {
       a: {
-        title: "Like what you see?",
-        sub: "Tell us what you need, get a fixed ISK quote in 24h.",
+        title: "Your cup. Your brand. Ready in weeks.",
+        sub: "Send us your brief — fixed ISK quote back in 24h (workdays).",
         button: "Get your custom cup",
       },
       b: {

@@ -10,8 +10,8 @@ import { supabaseAdmin } from '@/integrations/supabase/client.server'
 
 const SITE_NAME = 'MAS Prints'
 const SENDER_DOMAIN = 'notify.prints.masgroup.is'
-const FROM_DOMAIN = 'masgroup.is'
-const FROM_LOCAL = 'prints'
+const FROM_DOMAIN = 'prints.masgroup.is'
+const FROM_LOCAL = 'hello'
 
 function generateToken(): string {
   const bytes = new Uint8Array(32)

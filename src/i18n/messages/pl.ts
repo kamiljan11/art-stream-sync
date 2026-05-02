@@ -493,6 +493,10 @@ const pl = {
     needDesigner: "Potrzebuję pomocy grafika",
     consentLabel: "Zgadzam się na kontakt w sprawie tego zapytania. Nie udostępniamy Twoich danych nikomu innemu. Zobacz politykę prywatności.",
     consentRequired: "Potwierdź zgodę na kontakt.",
+    errNameReq: "Podaj imię (min. 2 znaki).",
+    errEmailInvalid: "Podaj poprawny adres email.",
+    errPhoneReq: "Podaj poprawny numer telefonu.",
+    errGeneric: "Uzupełnij wymagane pola.",
     products: [
       "Wizytówki",
       "Ulotki / Foldery",

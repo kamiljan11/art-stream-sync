@@ -493,6 +493,10 @@ const en = {
     needDesigner: "I need help from a graphic designer",
     consentLabel: "I agree to be contacted about this enquiry. We don't share your details with anyone else. See our privacy notice.",
     consentRequired: "Please confirm consent to be contacted.",
+    errNameReq: "Please enter your name (min 2 characters).",
+    errEmailInvalid: "Please enter a valid email address.",
+    errPhoneReq: "Please enter a valid phone number.",
+    errGeneric: "Please complete the required fields.",
     products: [
       "Business Cards",
       "Flyers / Leaflets",

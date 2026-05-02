@@ -79,7 +79,7 @@ export function SiteHeader() {
                 : "bg-background/50 px-4 sm:px-5 h-16"
             }`}
           >
-            <Link to="/" className="block shrink-0">
+            <Link to="/" className="block shrink-0 min-w-0 overflow-hidden">
               <MasLogo />
             </Link>
 
@@ -125,7 +125,7 @@ export function SiteHeader() {
               )}
             </nav>
 
-            <div className="flex items-center gap-2 sm:gap-3">
+            <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
               <LanguageSwitcher />
               <a
                 href={`${basePath}#quote`}
@@ -135,7 +135,7 @@ export function SiteHeader() {
                 {t("nav.getQuote")}
               </a>
               <button
-                className="lg:hidden p-2 text-foreground"
+                className="lg:hidden p-2 -mr-1 text-foreground shrink-0"
                 onClick={() => setOpen(!open)}
                 aria-label={t("nav.toggleMenu")}
               >
@@ -200,7 +200,7 @@ export function SiteHeader() {
 
 function MasLogo() {
   return (
-    <svg height="36" viewBox="0 0 350 50" xmlns="http://www.w3.org/2000/svg" aria-label="MAS PRINTS, Icelandic Brokerage">
+    <svg className="h-7 sm:h-9 w-auto" viewBox="0 0 350 50" xmlns="http://www.w3.org/2000/svg" aria-label="MAS PRINTS, Icelandic Brokerage">
       <g transform="translate(0, 5)">
         <circle cx="25" cy="5" r="3.5" fill="#00AEEF" />
         <circle cx="20" cy="14" r="3.5" fill="#EC008C" />

@@ -221,6 +221,18 @@ const is = {
       { t: "Faglegt gæðaeftirlit", d: "Hver framleiðslulota gengur í gegnum margra þrepa gæðaeftirlit, prentnákvæmni, þéttleika húðunar, byggingu og matvælaöryggi, áður en hún er send." },
     ],
     uspAskButton: "Spyrja núna",
+    midCta: {
+      a: {
+        title: "Líst þér vel á?",
+        sub: "Segðu okkur hvað þig vantar, fáðu fast tilboð í ISK innan 24 klst.",
+        button: "Fá tilboð",
+      },
+      b: {
+        title: "Eitthvað enn óljóst?",
+        sub: "Slepptu sendingaspjalli, biddu um tilboð og við pörum réttu vöruna við þína þörf.",
+        button: "Biðja um tilboð",
+      },
+    },
     sizeGuide: {
       heading1: "Veldu réttu",
       heading2: "stærðina.",

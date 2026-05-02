@@ -1,16 +1,24 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useLocation } from "@tanstack/react-router";
 import { useState, useEffect } from "react";
 import { Menu, X, Phone } from "lucide-react";
 import { useT } from "@/i18n/I18nProvider";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 
-// Anchors point to sections on the home page. We prefix with "/" so they
-// also work when the user is on /cups or any other route (cross-page nav).
-const navKeys = [
+// Home page sections
+const homeNav = [
   { key: "nav.secret", id: "secret" },
   { key: "nav.savings", id: "savings" },
   { key: "nav.process", id: "process" },
   { key: "nav.products", id: "products" },
+  { key: "nav.faq", id: "faq" },
+];
+
+// Cups page sections (must match section IDs in src/routes/cups.tsx)
+const cupsNav = [
+  { key: "nav.overview", id: "cups" },
+  { key: "nav.products", id: "products" },
+  { key: "nav.why", id: "why" },
+  { key: "nav.process", id: "how" },
   { key: "nav.faq", id: "faq" },
 ];
 
@@ -19,11 +27,14 @@ export function SiteHeader() {
   const [activeId, setActiveId] = useState<string>("");
   const [scrolled, setScrolled] = useState(false);
   const t = useT();
+  const location = useLocation();
+  const isCups = location.pathname.startsWith("/cups");
+  const navKeys = isCups ? cupsNav : homeNav;
+  const basePath = isCups ? "/cups" : "/";
 
   // Scroll-spy: highlight the section currently in view
   useEffect(() => {
     if (typeof window === "undefined") return;
-    if (window.location.pathname !== "/") return;
 
     const sections = navKeys
       .map((n) => document.getElementById(n.id))
@@ -41,7 +52,7 @@ export function SiteHeader() {
     );
     sections.forEach((s) => observer.observe(s));
     return () => observer.disconnect();
-  }, []);
+  }, [location.pathname]);
 
   // Track scroll for floating-nav background opacity
   useEffect(() => {
@@ -79,7 +90,7 @@ export function SiteHeader() {
                 return (
                   <a
                     key={n.key}
-                    href={`/#${n.id}`}
+                    href={`${basePath}#${n.id}`}
                     className={`relative px-3 py-1.5 rounded-full transition-colors ${
                       isActive
                         ? "text-foreground"
@@ -96,19 +107,28 @@ export function SiteHeader() {
                   </a>
                 );
               })}
-              <Link
-                to="/cups"
-                className="relative px-3 py-1.5 rounded-full text-muted-foreground hover:text-foreground transition-colors"
-                activeProps={{ className: "!text-foreground" }}
-              >
-                {t("nav.cups")}
-              </Link>
+              {isCups ? (
+                <Link
+                  to="/"
+                  className="relative px-3 py-1.5 rounded-full text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  {t("nav.backHome")}
+                </Link>
+              ) : (
+                <Link
+                  to="/cups"
+                  className="relative px-3 py-1.5 rounded-full text-muted-foreground hover:text-foreground transition-colors"
+                  activeProps={{ className: "!text-foreground" }}
+                >
+                  {t("nav.cups")}
+                </Link>
+              )}
             </nav>
 
             <div className="flex items-center gap-2 sm:gap-3">
               <LanguageSwitcher />
               <a
-                href="/#quote"
+                href={`${basePath}#quote`}
                 className="hidden sm:inline-flex items-center justify-center rounded-full px-4 py-2 text-xs font-bold uppercase tracking-wide text-primary-foreground"
                 style={{ background: "var(--gradient-cyan)" }}
               >
@@ -133,7 +153,7 @@ export function SiteHeader() {
                   return (
                     <a
                       key={n.key}
-                      href={`/#${n.id}`}
+                      href={`${basePath}#${n.id}`}
                       className={`text-sm transition-colors ${
                         isActive ? "text-foreground font-semibold" : "text-muted-foreground hover:text-foreground"
                       }`}
@@ -143,13 +163,23 @@ export function SiteHeader() {
                     </a>
                   );
                 })}
-                <Link
-                  to="/cups"
-                  className="text-sm text-muted-foreground hover:text-foreground"
-                  onClick={() => setOpen(false)}
-                >
-                  {t("nav.cups")}
-                </Link>
+                {isCups ? (
+                  <Link
+                    to="/"
+                    className="text-sm text-muted-foreground hover:text-foreground"
+                    onClick={() => setOpen(false)}
+                  >
+                    {t("nav.backHome")}
+                  </Link>
+                ) : (
+                  <Link
+                    to="/cups"
+                    className="text-sm text-muted-foreground hover:text-foreground"
+                    onClick={() => setOpen(false)}
+                  >
+                    {t("nav.cups")}
+                  </Link>
+                )}
                 <a
                   href="tel:+3547878617"
                   className="text-sm text-muted-foreground hover:text-foreground inline-flex items-center gap-2"

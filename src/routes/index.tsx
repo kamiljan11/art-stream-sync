@@ -354,7 +354,7 @@ function Index() {
       </section>
 
       {/* QUOTE */}
-      <section>
+      <section id="quote">
         <CmykBar className="pt-16" arrows />
         <QuoteForm />
       </section>

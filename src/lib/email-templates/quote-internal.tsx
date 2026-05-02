@@ -1,6 +1,8 @@
 import * as React from 'react'
-import { Body, Container, Head, Heading, Html, Preview, Section, Text } from '@react-email/components'
+import { Body, Button, Container, Head, Heading, Html, Preview, Section, Text } from '@react-email/components'
 import type { TemplateEntry } from './registry'
+
+const ADMIN_URL = 'https://art-stream-sync.lovable.app/admin'
 
 interface Props {
   type?: string
@@ -13,6 +15,7 @@ interface Props {
   designLink?: string
   needsDesigner?: boolean
   currentCost?: string
+  submissionId?: string
 }
 
 const QuoteInternalEmail = (p: Props) => (
@@ -33,6 +36,7 @@ const QuoteInternalEmail = (p: Props) => (
           <Row label="Current cost" value={p.currentCost} />
           <Row label="Design link" value={p.designLink} />
           <Row label="Needs designer" value={p.needsDesigner ? 'Yes' : 'No'} />
+          {p.submissionId ? <Row label="Submission ID" value={p.submissionId} /> : null}
         </Section>
         {p.projectDetails ? (
           <>
@@ -42,6 +46,9 @@ const QuoteInternalEmail = (p: Props) => (
             </Section>
           </>
         ) : null}
+        <Section style={{ textAlign: 'center', margin: '28px 0 8px' }}>
+          <Button href={ADMIN_URL} style={btn}>Open admin panel →</Button>
+        </Section>
       </Container>
     </Body>
   </Html>
@@ -72,3 +79,4 @@ const rowText = { fontSize: '14px', color: '#222', margin: '6px 0', lineHeight: 
 const rowLabel = { color: '#666', fontWeight: 700 as const }
 const messageBox = { backgroundColor: '#fafafa', border: '1px solid #eee', borderRadius: '10px', padding: '16px 20px' }
 const messageText = { fontSize: '14px', color: '#222', lineHeight: 1.6, margin: 0, whiteSpace: 'pre-wrap' as const }
+const btn = { backgroundColor: '#000', color: '#fff', padding: '12px 22px', borderRadius: '8px', fontWeight: 800 as const, fontSize: '14px', textDecoration: 'none', display: 'inline-block', textTransform: 'uppercase' as const, letterSpacing: '0.05em' }

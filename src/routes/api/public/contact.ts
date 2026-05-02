@@ -60,9 +60,8 @@ export const Route = createFileRoute("/api/public/contact")({
           await enqueueTemplateEmail({
             templateName: "contact-internal",
             to: INTERNAL_TO,
-            templateData: { name, email, phone, message, needsDesigner },
+            templateData: { name, email, phone, message, needsDesigner, submissionId: row.id },
             idempotencyKey: `contact-internal-${row.id}`,
-            internal: true,
           });
         } catch (err) {
           console.warn("[contact] email enqueue failed:", err);

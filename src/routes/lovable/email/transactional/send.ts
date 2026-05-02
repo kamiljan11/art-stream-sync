@@ -11,8 +11,8 @@ const SITE_NAME = "art-stream-sync"
 const SENDER_DOMAIN = "notify.prints.masgroup.is"
 // FROM_DOMAIN is the domain shown in the From: header (e.g., "example.com").
 // Can be the root domain when display_from_root is enabled — this is cosmetic only.
-const FROM_DOMAIN = "masgroup.is"
-const FROM_LOCAL = "prints"
+const FROM_DOMAIN = "prints.masgroup.is"
+const FROM_LOCAL = "hello"
 
 function redactEmail(email: string | null | undefined): string {
   if (!email) return '***'

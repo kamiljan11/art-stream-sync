@@ -8,7 +8,9 @@ const is = {
     pricing: "Verðskrá",
     legal: "Lagalegt",
     faq: "Algengar spurningar",
+    cups: "Bollar og lok",
     getQuote: "Fá tilboð",
+    replyPromise: "Tilboð innan 24 klst á virkum dögum",
     toggleMenu: "Opna valmynd",
   },
   language: {

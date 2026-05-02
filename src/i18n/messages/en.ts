@@ -8,7 +8,9 @@ const en = {
     pricing: "Pricing",
     legal: "Legal",
     faq: "FAQ",
+    cups: "Cups & Lids",
     getQuote: "Get Quote",
+    replyPromise: "Quote in 24h on workdays",
     toggleMenu: "Toggle menu",
   },
   language: {

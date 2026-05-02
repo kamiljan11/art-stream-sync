@@ -8,7 +8,9 @@ const pl = {
     pricing: "Cennik",
     legal: "Legalność",
     faq: "FAQ",
+    cups: "Kubki i wieczka",
     getQuote: "Wyceń",
+    replyPromise: "Wycena w 24h w dni robocze",
     toggleMenu: "Otwórz menu",
   },
   language: {

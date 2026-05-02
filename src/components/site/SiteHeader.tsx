@@ -106,12 +106,6 @@ export function SiteHeader() {
             </nav>
 
             <div className="flex items-center gap-2 sm:gap-3">
-              <a
-                href="tel:+3547878617"
-                className="hidden md:inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors"
-              >
-                <Phone size={12} /> +354 787 8617
-              </a>
               <LanguageSwitcher />
               <a
                 href="/#quote"

@@ -91,6 +91,14 @@ export function SiteFooter() {
           Kennitala: 690725-0450 • VSK Nr: 158052
           <br />
           Njarðarbraut 3i, 260 Njarðvík
+          <br />
+          <a href="tel:+3547878617" className="text-primary hover:underline">
+            +354 787 8617
+          </a>{" "}
+          •{" "}
+          <a href="mailto:prints@masgroup.is" className="text-primary hover:underline">
+            prints@masgroup.is
+          </a>
         </p>
 
         <div className="mt-10 flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center w-full max-w-[640px]">

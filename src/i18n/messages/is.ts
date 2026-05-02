@@ -493,6 +493,10 @@ const is = {
     needDesigner: "Ég þarf aðstoð frá grafískum hönnuði",
     consentLabel: "Ég samþykki að haft sé samband við mig vegna þessarar fyrirspurnar. Við deilum upplýsingum þínum ekki með öðrum. Sjá persónuverndartilkynningu.",
     consentRequired: "Vinsamlegast staðfestu samþykki fyrir sambandi.",
+    errNameReq: "Sláðu inn nafn (a.m.k. 2 stafir).",
+    errEmailInvalid: "Sláðu inn gilt netfang.",
+    errPhoneReq: "Sláðu inn gilt símanúmer.",
+    errGeneric: "Vinsamlegast fylltu út skyldureiti.",
     products: [
       "Nafnspjöld",
       "Bæklingar / Auglýsingaspjöld",

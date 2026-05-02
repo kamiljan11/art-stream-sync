@@ -656,7 +656,8 @@ function CupsPage() {
               </span>
 
               <h3 className="mt-5 text-3xl sm:text-4xl font-extrabold leading-tight">
-                {cp.eco.h3p1}{" "}
+                {cp.eco.h3p1}
+                <br />
                 <span style={{ color: "#84cc16" }}>{cp.eco.h3p2}</span>
               </h3>
 

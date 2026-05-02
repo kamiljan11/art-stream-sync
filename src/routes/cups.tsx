@@ -1039,7 +1039,7 @@ function CupsQuoteForm() {
         </div>
       </div>
       <label className="sm:col-span-2 flex flex-col gap-1.5">
-        <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
+        <span className="text-xs font-bold uppercase tracking-wider text-[#555]">
           {t("cupsPage.quote.notes")}
         </span>
         <textarea
@@ -1047,7 +1047,7 @@ function CupsQuoteForm() {
           placeholder={t("cupsPage.quote.notesPlaceholder")}
           value={form.notes}
           onChange={update("notes")}
-          className="rounded-md border border-input bg-background px-3 py-2.5 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
+          className="rounded-lg border-2 border-[#eee] bg-[#f9f9f9] text-[#333] placeholder:text-[#999] px-4 py-[14px] text-sm outline-none focus:border-[#333] focus:bg-white transition-colors min-h-[100px] resize-y"
         />
       </label>
       {errorMsg && (

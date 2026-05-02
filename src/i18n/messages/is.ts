@@ -215,6 +215,7 @@ const is = {
       dontSee: "Sérðu ekki það sem þú þarft?",
       sendRequest: "Sendu okkur fyrirspurn",
       sourceAnything: ", við getum útvegað nánast hvað sem er í þessum flokki.",
+      popularBadge: "★ Vinsælast",
     },
     usp: [
       { t: "Frá aðeins 1.000 stk", d: "Lág lágmarkspöntun, fullkomin fyrir lítil kaffihús, viðburði og prufukeyrslur. Stækkaðu þegar þú ert tilbúinn." },

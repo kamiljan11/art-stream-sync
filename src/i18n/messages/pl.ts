@@ -215,6 +215,7 @@ const pl = {
       dontSee: "Nie widzisz tego, czego szukasz?",
       sendRequest: "Wyślij zapytanie",
       sourceAnything: ", możemy sprowadzić praktycznie wszystko z tej kategorii.",
+      popularBadge: "★ Najczęściej zamawiane",
     },
     usp: [
       { t: "Już od 1 000 szt.", d: "Niski próg minimalnego zamówienia, idealny dla małych kawiarni, eventów i pilotaży. Skalujesz, gdy będziesz gotowy." },

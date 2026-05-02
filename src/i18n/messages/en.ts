@@ -215,6 +215,7 @@ const en = {
       dontSee: "Don't see what you need?",
       sendRequest: "Send us a request",
       sourceAnything: ", we can source almost anything in this category.",
+      popularBadge: "★ Most ordered",
     },
     usp: [
       { t: "From just 1,000 pcs", d: "Low minimum order, perfect for small cafés, events and pilot runs. Scale up whenever you're ready." },

@@ -80,9 +80,9 @@ export const Route = createFileRoute("/api/public/quote")({
               designLink: d.designLink,
               needsDesigner: d.needsDesigner,
               currentCost: d.currentCost,
+              submissionId: row.id,
             },
             idempotencyKey: `quote-internal-${row.id}`,
-            internal: true,
           });
         } catch (err) {
           console.warn("[quote] email enqueue failed:", err);

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "@tanstack/react-router";
 import { ShieldCheck } from "lucide-react";
+import { z } from "zod";
 import { useT, useTArray } from "@/i18n/I18nProvider";
 
 export function QuoteForm() {
@@ -10,6 +11,12 @@ export function QuoteForm() {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [formError, setFormError] = useState<string | null>(null);
+
+  const schema = z.object({
+    name: z.string().trim().min(2, t("homeQuote.errNameReq")).max(100),
+    email: z.string().trim().email(t("homeQuote.errEmailInvalid")).max(255),
+    phone: z.string().trim().min(4, t("homeQuote.errPhoneReq")).max(40),
+  });
 
   return (
     <div id="quote" className="bg-background py-20 px-5 relative">
@@ -71,8 +78,13 @@ export function QuoteForm() {
                     needsDesigner: fd.get("needsDesigner") === "on",
                     currentCost: String(fd.get("currentCost") || ""),
                   };
-                  if (!payload.name.trim() || !payload.email.trim()) {
-                    setFormError("Please fill in your name and email.");
+                  const parsed = schema.safeParse({
+                    name: payload.name,
+                    email: payload.email,
+                    phone: payload.phone,
+                  });
+                  if (!parsed.success) {
+                    setFormError(parsed.error.issues[0]?.message ?? t("homeQuote.errGeneric"));
                     return;
                   }
                   if (fd.get("consent") !== "on") {

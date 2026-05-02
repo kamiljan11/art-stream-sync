@@ -221,6 +221,18 @@ const pl = {
       { t: "Profesjonalna kontrola jakości", d: "Każda partia przechodzi wielostopniową kontrolę jakości, dokładność druku, szczelność bariery, struktura i zgodność z normami spożywczymi, zanim trafi do wysyłki." },
     ],
     uspAskButton: "Zapytaj teraz",
+    midCta: {
+      a: {
+        title: "Podoba się to, co widzisz?",
+        sub: "Powiedz, czego potrzebujesz, dostaniesz wycenę w ISK w 24h.",
+        button: "Wyceń moje zamówienie",
+      },
+      b: {
+        title: "Masz jeszcze pytania?",
+        sub: "Pomiń korespondencję, poproś o wycenę, a dobierzemy produkt do twojego briefu.",
+        button: "Zamów wycenę",
+      },
+    },
     sizeGuide: {
       heading1: "Wybierz właściwy",
       heading2: "rozmiar.",

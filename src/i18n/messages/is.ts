@@ -347,7 +347,7 @@ const is = {
       sentSub: "Við svörum innan 24 vinnustunda.",
       name: "Nafn",
       email: "Netfang",
-      phone: "Sími (valfrjálst)",
+      phone: "Sími",
       product: "Vara",
       quantity: "Magn",
       timing: "Tímasetning",

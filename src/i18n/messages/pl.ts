@@ -486,6 +486,8 @@ const pl = {
     currentCost: "Obecny koszt (opcjonalnie)",
     selectPlaceholder: "Wybierz...",
     needDesigner: "Potrzebuję pomocy grafika",
+    consentLabel: "Zgadzam się na kontakt w sprawie tego zapytania. Nie udostępniamy Twoich danych nikomu innemu. Zobacz politykę prywatności.",
+    consentRequired: "Potwierdź zgodę na kontakt.",
     products: [
       "Wizytówki",
       "Ulotki / Foldery",

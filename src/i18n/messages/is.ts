@@ -486,6 +486,8 @@ const is = {
     currentCost: "Núverandi kostnaður (valfrjálst)",
     selectPlaceholder: "Veldu...",
     needDesigner: "Ég þarf aðstoð frá grafískum hönnuði",
+    consentLabel: "Ég samþykki að haft sé samband við mig vegna þessarar fyrirspurnar. Við deilum upplýsingum þínum ekki með öðrum. Sjá persónuverndartilkynningu.",
+    consentRequired: "Vinsamlegast staðfestu samþykki fyrir sambandi.",
     products: [
       "Nafnspjöld",
       "Bæklingar / Auglýsingaspjöld",

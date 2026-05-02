@@ -486,6 +486,8 @@ const en = {
     currentCost: "Current Cost (Optional)",
     selectPlaceholder: "Select...",
     needDesigner: "I need help from a graphic designer",
+    consentLabel: "I agree to be contacted about this enquiry. We don't share your details with anyone else. See our privacy notice.",
+    consentRequired: "Please confirm consent to be contacted.",
     products: [
       "Business Cards",
       "Flyers / Leaflets",

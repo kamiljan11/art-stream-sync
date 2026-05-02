@@ -1072,10 +1072,10 @@ function Field({
 }: React.InputHTMLAttributes<HTMLInputElement> & { label: string }) {
   return (
     <label className={`flex flex-col gap-1.5 ${className}`}>
-      <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">{label}</span>
+      <span className="text-xs font-bold uppercase tracking-wider text-[#555]">{label}</span>
       <input
         {...p}
-        className="rounded-md border border-input bg-background px-3 py-2.5 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
+        className="rounded-lg border-2 border-[#eee] bg-[#f9f9f9] text-[#333] placeholder:text-[#999] px-4 py-[14px] text-sm outline-none focus:border-[#333] focus:bg-white transition-colors"
       />
     </label>
   );
@@ -1083,8 +1083,8 @@ function Field({
 function SelectField({ label, options, placeholder = "Select...", value, onChange }: { label: string; options: string[]; placeholder?: string; value?: string; onChange?: (e: React.ChangeEvent<HTMLSelectElement>) => void }) {
   return (
     <label className="flex flex-col gap-1.5">
-      <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">{label}</span>
-      <select value={value} onChange={onChange} className="rounded-md border border-input bg-background px-3 py-2.5 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/20">
+      <span className="text-xs font-bold uppercase tracking-wider text-[#555]">{label}</span>
+      <select value={value} onChange={onChange} className="rounded-lg border-2 border-[#eee] bg-[#f9f9f9] text-[#333] px-4 py-[14px] text-sm outline-none focus:border-[#333] focus:bg-white transition-colors">
         <option value="">{placeholder}</option>
         {options.map((o) => (
           <option key={o}>{o}</option>

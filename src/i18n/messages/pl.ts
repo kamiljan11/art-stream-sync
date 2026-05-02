@@ -8,7 +8,9 @@ const pl = {
     pricing: "Cennik",
     legal: "Legalność",
     faq: "FAQ",
+    cups: "Kubki i wieczka",
     getQuote: "Wyceń",
+    replyPromise: "Wycena w 24h w dni robocze",
     toggleMenu: "Otwórz menu",
   },
   language: {
@@ -213,6 +215,7 @@ const pl = {
       dontSee: "Nie widzisz tego, czego szukasz?",
       sendRequest: "Wyślij zapytanie",
       sourceAnything: ", możemy sprowadzić praktycznie wszystko z tej kategorii.",
+      popularBadge: "★ Najczęściej zamawiane",
     },
     usp: [
       { t: "Już od 1 000 szt.", d: "Niski próg minimalnego zamówienia, idealny dla małych kawiarni, eventów i pilotaży. Skalujesz, gdy będziesz gotowy." },
@@ -328,7 +331,7 @@ const pl = {
         { q: "Ile kolorów mogę wydrukować?", a: "Kubki papierowe: nieograniczony druk pełnokolorowy bez dopłaty, fotografie full-bleed mile widziane. Plastik transparentny: max 4 kolory pantonowe, tylko jednolite plamy (bez gradientów). Kody QR i oznaczenia pojemności obsługiwane na obu." },
         { q: "Czy mogę zamówić kubki eco / biodegradowalne?", a: "Tak, każdą linię papierową można zamówić z barierą BIO (kompostowalna PLA) zamiast standardowej Green PE. Ten sam dotyk, ta sama odporność na ciepło, bez mikroplastiku, EN 13432 kompostowalne. Wystarczy zaznaczyć w formularzu wyceny." },
         { q: "Czy mogę najpierw zobaczyć próbki?", a: "Tak. Czyste próbki magazynowe są darmowe. Próbki z indywidualnym nadrukiem mają niewielką opłatę produkcyjną, odejmowaną od pierwszego prawdziwego zamówienia." },
-        { q: "Czy każda partia będzie wyglądać identycznie?", a: "W zakresie ±15% wariancji koloru między produkcjami (standard branżowy). Czerwony zostaje czerwonym, ale dokładny odcień może się nieco różnić. Gramatura papieru, dopasowanie wieczka i wymiary są zablokowane w specyfikacji." },
+        { q: "Czy każda partia będzie wyglądać identycznie?", a: "Gramatura papieru, dopasowanie wieczka i wymiary są zablokowane w specyfikacji, każda partia jest taka sama. Kolor: standardowa branżowa wariancja ±15% odcienia między produkcjami (czerwony zostaje czerwony, dokładny ton może się nieco różnić). Potrzebujesz dokładnego koloru marki za każdym razem? Wyślij kod Pantone, zrobimy dopasowanie Pantone (mała dopłata)." },
         { q: "Czy dostarczacie poza obszar stołeczny?", a: "Tak. Mieścimy się w Njarðvíku i wysyłamy w dowolne miejsce na Islandii: Reykjavík, Akureyri, Vestfirðir, Egilsstaðir, Wyspy Westmańskie. Transport krajowy jest w wycenie." },
         { q: "Czy potrzebuję długoterminowego kontraktu?", a: "Nie. Każde zamówienie jest niezależne. Zamów raz lub ustaw cykliczną dostawę, twój wybór." },
         { q: "Nie wiem, jak przygotować grafikę, możecie pomóc?", a: "Tak. Wyślij nam logo, kolory i gdzie ma być umieszczone na kubku. Proste prace przygotowujemy za darmo; bardziej skomplikowane projekty mają niewielką jednorazową opłatę za przygotowanie, podaną z góry." },
@@ -484,6 +487,8 @@ const pl = {
     currentCost: "Obecny koszt (opcjonalnie)",
     selectPlaceholder: "Wybierz...",
     needDesigner: "Potrzebuję pomocy grafika",
+    consentLabel: "Zgadzam się na kontakt w sprawie tego zapytania. Nie udostępniamy Twoich danych nikomu innemu. Zobacz politykę prywatności.",
+    consentRequired: "Potwierdź zgodę na kontakt.",
     products: [
       "Wizytówki",
       "Ulotki / Foldery",

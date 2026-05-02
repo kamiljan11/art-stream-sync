@@ -1,18 +1,17 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Phone, Clock } from "lucide-react";
 import { useT } from "@/i18n/I18nProvider";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 
+// Anchors point to sections on the home page. We prefix with "/" so they
+// also work when the user is on /cups or any other route (cross-page nav).
 const navKeys = [
-  { key: "nav.secret", href: "#secret" },
-  { key: "nav.logic", href: "#logic" },
-  { key: "nav.savings", href: "#savings" },
-  { key: "nav.process", href: "#process" },
-  { key: "nav.products", href: "#products" },
-  { key: "nav.pricing", href: "#pricing" },
-  { key: "nav.legal", href: "#legal" },
-  { key: "nav.faq", href: "#faq" },
+  { key: "nav.secret", href: "/#secret" },
+  { key: "nav.savings", href: "/#savings" },
+  { key: "nav.process", href: "/#process" },
+  { key: "nav.products", href: "/#products" },
+  { key: "nav.faq", href: "/#faq" },
 ];
 
 export function SiteHeader() {
@@ -20,6 +19,20 @@ export function SiteHeader() {
   const t = useT();
   return (
     <header className="sticky top-0 z-50 bg-background/95 border-b border-border">
+      {/* Top trust bar */}
+      <div className="hidden sm:block bg-black/40 border-b border-white/5">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-8 flex items-center justify-between text-[11px] text-muted-foreground">
+          <div className="flex items-center gap-4">
+            <a href="tel:+3547878617" className="inline-flex items-center gap-1.5 hover:text-foreground transition-colors">
+              <Phone size={11} /> +354 787 8617
+            </a>
+            <span className="hidden md:inline-flex items-center gap-1.5">
+              <Clock size={11} /> {t("nav.replyPromise")}
+            </span>
+          </div>
+          <span className="hidden md:inline">Njarðarbraut 3i, 260 Njarðvík</span>
+        </div>
+      </div>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         <Link to="/" className="block">
           <MasLogo />
@@ -30,11 +43,14 @@ export function SiteHeader() {
               {t(n.key)}
             </a>
           ))}
+          <Link to="/cups" className="hover:text-foreground transition-colors" activeProps={{ className: "text-foreground font-semibold" }}>
+            {t("nav.cups")}
+          </Link>
         </nav>
         <div className="flex items-center gap-3">
           <LanguageSwitcher />
           <a
-            href="#quote"
+            href="/#quote"
             className="hidden sm:inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-semibold text-primary-foreground"
             style={{ background: "var(--gradient-cyan)" }}
           >
@@ -62,6 +78,20 @@ export function SiteHeader() {
                 {t(n.key)}
               </a>
             ))}
+            <Link
+              to="/cups"
+              className="text-sm text-muted-foreground hover:text-foreground"
+              onClick={() => setOpen(false)}
+            >
+              {t("nav.cups")}
+            </Link>
+            <a
+              href="tel:+3547878617"
+              className="text-sm text-muted-foreground hover:text-foreground inline-flex items-center gap-2"
+              onClick={() => setOpen(false)}
+            >
+              <Phone size={14} /> +354 787 8617
+            </a>
           </div>
         </div>
       )}

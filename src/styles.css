@@ -406,6 +406,13 @@ html {
   scrollbar-color: var(--brand-cyan) transparent;
 }
 
+/* Prevent any rogue element from creating a horizontal scrollbar on mobile */
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
 /* WebKit / Blink (Chrome, Safari, Edge) */
 ::-webkit-scrollbar {
   width: 12px;

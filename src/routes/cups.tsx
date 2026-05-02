@@ -496,7 +496,8 @@ function CupsPage() {
               {cp.sizeGuide.sub}
             </p>
           </Reveal>
-          <div className="mt-10 overflow-x-auto rounded-xl border border-border bg-card">
+          {/* Desktop: clean table */}
+          <div className="mt-10 hidden sm:block overflow-x-auto rounded-xl border border-border bg-card">
             <table className="w-full text-sm">
               <thead>
                 <tr className="text-left text-xs uppercase tracking-wider text-muted-foreground border-b border-border">
@@ -515,6 +516,22 @@ function CupsPage() {
                 ))}
               </tbody>
             </table>
+          </div>
+
+          {/* Mobile: stacked cards */}
+          <div className="mt-8 grid gap-3 sm:hidden">
+            {sizeRows.map((r) => (
+              <div
+                key={r.ml}
+                className="rounded-xl border border-border bg-card p-4 flex items-center gap-4"
+              >
+                <div className="shrink-0 flex flex-col items-center justify-center min-w-[72px] rounded-lg bg-primary/10 px-3 py-2">
+                  <span className="text-lg font-extrabold leading-none">{r.ml}</span>
+                  <span className="mt-1 text-[11px] font-mono text-primary">{r.oz}</span>
+                </div>
+                <p className="text-sm text-muted-foreground leading-snug flex-1">{r.use}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

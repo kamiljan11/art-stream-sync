@@ -221,6 +221,18 @@ const en = {
       { t: "Professional QC system", d: "Every batch passes a multi-stage quality check, print accuracy, lining seal, structure and food-safety compliance, before it ships." },
     ],
     uspAskButton: "Ask now",
+    midCta: {
+      a: {
+        title: "Like what you see?",
+        sub: "Tell us what you need, get a fixed ISK quote in 24h.",
+        button: "Get my quote",
+      },
+      b: {
+        title: "Still have questions?",
+        sub: "Skip the back-and-forth, request a quote and we'll match the right product to your brief.",
+        button: "Request a quote",
+      },
+    },
     sizeGuide: {
       heading1: "Pick the right",
       heading2: "size.",

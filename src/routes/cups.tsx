@@ -395,11 +395,17 @@ function CupsPage() {
           {translatedProducts.map((p, idx) => {
             const tones = ["card-light-cyan", "card-light-pink", "card-light-yellow", "card-light-lime"];
             const tone = tones[idx % tones.length];
+            const isPopular = idx === 0 || idx === 1 || idx === 6;
             return (
             <article
               key={p.title}
-              className={`overflow-hidden ${tone} flex flex-col group hover-lift-light`}
+              className={`relative overflow-hidden ${tone} flex flex-col group hover-lift-light`}
             >
+              {isPopular && (
+                <span className="absolute top-3 right-3 z-10 inline-flex items-center px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider rounded-full bg-amber-400 text-slate-900 shadow">
+                  {cp.catalogue.popularBadge}
+                </span>
+              )}
               <div className="aspect-[16/9] sm:aspect-[4/3] overflow-hidden bg-white/60">
                 <img
                   src={p.img}

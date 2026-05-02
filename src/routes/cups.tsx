@@ -883,7 +883,7 @@ function CupsPage() {
 
       {/* QUOTE */}
       <section id="quote" className="bg-card/40 border-y border-border">
-        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-24">
+        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-24 overflow-hidden">
           <div className="text-center">
             <h2 className="text-4xl font-extrabold">{cp.quote.heading1} <span style={{ color: "var(--brand-cyan)" }}>{cp.quote.heading2}</span></h2>
             <p className="mt-3 text-muted-foreground">{cp.quote.sub}</p>
@@ -967,7 +967,7 @@ function CupsQuoteForm() {
           setSubmitting(false);
         }
       }}
-      className="mt-10 grid gap-4 sm:grid-cols-2 rounded-2xl bg-white p-6 sm:p-8 shadow-[0_20px_50px_rgba(0,0,0,0.5)] text-[#333]"
+      className="mt-10 grid gap-4 sm:grid-cols-2 rounded-2xl bg-white p-5 sm:p-8 shadow-[0_20px_50px_rgba(0,0,0,0.5)] text-[#333] [&>*]:min-w-0"
     >
       <Field label={t("cupsPage.quote.name")} required value={form.name} onChange={update("name")} />
       <Field label={t("cupsPage.quote.email")} type="email" required value={form.email} onChange={update("email")} />

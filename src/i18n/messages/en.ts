@@ -347,7 +347,7 @@ const en = {
       sentSub: "We'll reply within 24 working hours.",
       name: "Name",
       email: "Email",
-      phone: "Phone (optional)",
+      phone: "Phone",
       product: "Product",
       quantity: "Quantity",
       timing: "Timing",

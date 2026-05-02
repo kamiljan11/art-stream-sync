@@ -883,7 +883,7 @@ function CupsPage() {
 
       {/* QUOTE */}
       <section id="quote" className="bg-card/40 border-y border-border">
-        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-24">
+        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-24 overflow-hidden">
           <div className="text-center">
             <h2 className="text-4xl font-extrabold">{cp.quote.heading1} <span style={{ color: "var(--brand-cyan)" }}>{cp.quote.heading2}</span></h2>
             <p className="mt-3 text-muted-foreground">{cp.quote.sub}</p>

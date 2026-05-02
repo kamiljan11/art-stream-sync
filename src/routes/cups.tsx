@@ -459,8 +459,8 @@ function CupsPage() {
           {[
             { ...cp.usp[0], tone: "card-light-cyan", accent: "#0ea5e9", action: false },
             { ...cp.usp[1], tone: "card-light-pink", accent: "#ec4899", action: false },
-            { ...cp.usp[2], tone: "card-light-yellow", accent: "#eab308", action: true },
-            { ...cp.usp[3], tone: "card-light-lime", accent: "#84cc16", action: false },
+            { ...cp.usp[3], tone: "card-light-yellow", accent: "#eab308", action: false },
+            { ...cp.usp[2], tone: "card-light-lime", accent: "#84cc16", action: true },
           ].map((u) => (
             <div key={u.t} className={`${u.tone} p-5 hover-lift-light flex flex-col`}>
               <div className="flex items-center gap-2">

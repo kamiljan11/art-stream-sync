@@ -228,7 +228,7 @@ const en = {
       a: {
         title: "Like what you see?",
         sub: "Tell us what you need, get a fixed ISK quote in 24h.",
-        button: "Get my quote",
+        button: "Get your custom cup",
       },
       b: {
         title: "Still have questions?",

@@ -90,7 +90,7 @@ function Index() {
       <section id="hero" className="relative overflow-hidden" style={{ background: "var(--gradient-hero)" }}>
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-24 sm:py-32 text-center animate-fade-in">
           <CmykBar />
-          <h1 className="mt-6 text-5xl sm:text-7xl font-extrabold tracking-tight uppercase">
+          <h1 className="mt-6 text-4xl sm:text-7xl font-extrabold tracking-tight uppercase break-words hyphens-auto">
             {t("hero.line1")}{" "}
             <span className="text-transparent" style={{ WebkitTextStroke: "1.5px hsl(0 0% 100% / 0.6)" }}>
               {t("hero.line2")}

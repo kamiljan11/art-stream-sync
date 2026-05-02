@@ -545,6 +545,26 @@ function CupsPage() {
         </div>
       </section>
 
+      {/* MID-CTA after Portfolio */}
+      <section className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 pb-16">
+        <div
+          className="rounded-2xl border border-border p-8 sm:p-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 text-center sm:text-left"
+          style={{ background: "var(--gradient-hero)" }}
+        >
+          <div>
+            <h3 className="text-2xl sm:text-3xl font-extrabold">{cp.midCta.a.title}</h3>
+            <p className="mt-2 text-foreground/80">{cp.midCta.a.sub}</p>
+          </div>
+          <a
+            href="#quote"
+            className="shrink-0 inline-flex items-center justify-center gap-2 rounded-md px-7 py-3.5 text-sm font-semibold text-primary-foreground hover-glow"
+            style={{ background: "var(--gradient-cyan)", boxShadow: "var(--shadow-glow)" }}
+          >
+            {cp.midCta.a.button} <ArrowRight size={16} />
+          </a>
+        </div>
+      </section>
+
       {/* ECO */}
       <section className="border-y border-border bg-card/40 relative">
         <div

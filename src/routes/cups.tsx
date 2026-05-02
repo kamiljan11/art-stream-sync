@@ -964,7 +964,7 @@ function CupsQuoteForm() {
           setSubmitting(false);
         }
       }}
-      className="mt-10 grid gap-4 sm:grid-cols-2 rounded-xl border border-border bg-card p-6 sm:p-8"
+      className="mt-10 grid gap-4 sm:grid-cols-2 rounded-2xl bg-white p-6 sm:p-8 shadow-[0_20px_50px_rgba(0,0,0,0.5)] text-[#333]"
     >
       <Field label={t("cupsPage.quote.name")} required value={form.name} onChange={update("name")} />
       <Field label={t("cupsPage.quote.email")} type="email" required value={form.email} onChange={update("email")} />

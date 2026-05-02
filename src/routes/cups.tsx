@@ -1012,7 +1012,7 @@ function CupsQuoteForm() {
             {t("cupsPage.quote.designNo")}
           </label>
         </fieldset>
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-2 min-w-0">
           <span className="text-xs font-bold uppercase tracking-wider text-[#555]">
             {t("cupsPage.quote.uploadArtwork")}{" "}
             <span
@@ -1031,7 +1031,7 @@ function CupsQuoteForm() {
             />
             {fileName ? t("cupsPage.quote.changeFile") : t("cupsPage.quote.chooseFile")}
           </label>
-          <span className="text-xs text-[#777] truncate">
+          <span className="text-xs text-[#777] break-words">
             {fileName || t("cupsPage.quote.uploadPlaceholder")}
           </span>
         </div>

@@ -968,7 +968,7 @@ function CupsQuoteForm() {
     >
       <Field label={t("cupsPage.quote.name")} required value={form.name} onChange={update("name")} />
       <Field label={t("cupsPage.quote.email")} type="email" required value={form.email} onChange={update("email")} />
-      <Field label={t("cupsPage.quote.phone")} className="sm:col-span-2" value={form.phone} onChange={update("phone")} />
+      <Field label={t("cupsPage.quote.phone")} type="tel" required className="sm:col-span-2" value={form.phone} onChange={update("phone")} />
       <SelectField
         label={t("cupsPage.quote.product")}
         options={tArray("cupsPage.quote.products")}

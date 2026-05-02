@@ -185,7 +185,7 @@ function NewProjectFields() {
     <>
       <Input name="name" label={t("homeQuote.nameCompany")} required />
       <Input name="email" label={t("homeQuote.emailAddress")} type="email" placeholder={t("homeQuote.emailPlaceholder")} required />
-      <Input name="phone" label={t("homeQuote.phoneNumber")} type="tel" />
+      <Input name="phone" label={t("homeQuote.phoneNumber")} type="tel" required />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4">
         <Select name="productType" label={t("homeQuote.productType")} options={productTypes} />
         <Input name="quantity" label={t("homeQuote.quantity")} />
@@ -203,7 +203,7 @@ function AuditFields() {
     <>
       <Input name="name" label={t("homeQuote.companyName")} required />
       <Input name="email" label={t("homeQuote.emailAddress")} type="email" placeholder={t("homeQuote.emailPlaceholder")} required />
-      <Input name="phone" label={t("homeQuote.phoneNumber")} type="tel" />
+      <Input name="phone" label={t("homeQuote.phoneNumber")} type="tel" required />
       <FileInput label={t("homeQuote.uploadInvoice")} hint={t("homeQuote.uploadInvoiceHint")} />
       <Input name="designLink" label={t("homeQuote.designLink")} hint={t("homeQuote.designLinkAuditHint")} />
       <Input name="currentCost" label={t("homeQuote.currentCost")} />

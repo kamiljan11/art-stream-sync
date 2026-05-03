@@ -744,7 +744,7 @@ function CupsPage() {
             ].map((c, i) => (
               <div
                 key={i}
-                className="group relative rounded-xl border bg-white p-3 pt-5 sm:p-6 sm:pt-8 text-center transition hover:-translate-y-1 hover:shadow-lg"
+                className="group relative overflow-hidden rounded-xl border bg-white p-3 pt-5 sm:p-6 sm:pt-8 text-center transition hover:-translate-y-1 hover:shadow-lg"
                 style={{
                   borderColor: `${c.accent}55`,
                   boxShadow: `0 0 0 1px ${c.accent}11, 0 8px 30px -12px ${c.accent}33`,
@@ -752,8 +752,8 @@ function CupsPage() {
               >
                 {/* top accent bar */}
                 <div
-                  className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 h-1.5 w-12 sm:w-20 rounded-full"
-                  style={{ background: `linear-gradient(90deg, transparent, ${c.accent}, transparent)` }}
+                  className="absolute top-0 left-0 right-0 h-1"
+                  style={{ background: c.accent }}
                 />
 
                 <div className="flex items-center justify-center gap-1 sm:gap-2 mb-1 sm:mb-2">

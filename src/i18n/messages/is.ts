@@ -3,6 +3,7 @@ const is = {
     secret: "Leyndarmálið",
     logic: "Rökfræði",
     savings: "Sparnaður",
+    compare: "Samanburður",
     process: "Ferli",
     products: "Vörur",
     pricing: "Verðskrá",

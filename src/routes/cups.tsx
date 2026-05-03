@@ -482,7 +482,7 @@ function CupsPage() {
       </section>
 
       {/* SIZE GUIDE */}
-      <section className="bg-card/40 border-y border-border">
+      <section id="sizes" className="bg-card/40 border-y border-border scroll-mt-24">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-20">
           <Reveal className="text-center">
             <h2 className="text-4xl font-extrabold">{cp.sizeGuide.heading1} <span style={{ color: "var(--brand-cyan)" }}>{cp.sizeGuide.heading2}</span></h2>
@@ -531,7 +531,7 @@ function CupsPage() {
       </section>
 
       {/* PORTFOLIO */}
-      <section className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-24">
+      <section id="portfolio" className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-24 scroll-mt-24">
         <div className="text-center max-w-2xl mx-auto">
           <span className="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-wider rounded-full bg-primary/10 text-primary">
             {cp.portfolio.badge}
@@ -583,7 +583,7 @@ function CupsPage() {
       </section>
 
       {/* ECO */}
-      <section className="border-y border-border bg-card/40 relative">
+      <section id="eco" className="border-y border-border bg-card/40 relative scroll-mt-24">
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0"

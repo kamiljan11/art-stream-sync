@@ -17,6 +17,9 @@ const homeNav = [
 const cupsNav = [
   { key: "nav.overview", id: "cups" },
   { key: "nav.products", id: "products" },
+  { key: "nav.sizes", id: "sizes" },
+  { key: "nav.portfolio", id: "portfolio" },
+  { key: "nav.eco", id: "eco" },
   { key: "nav.why", id: "why" },
   { key: "nav.process", id: "how" },
   { key: "nav.faq", id: "faq" },

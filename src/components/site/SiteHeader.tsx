@@ -151,15 +151,7 @@ export function SiteHeader() {
                 >
                   {t("nav.backHome")}
                 </Link>
-              ) : (
-                <Link
-                  to="/cups"
-                  className="relative px-3 py-1.5 rounded-full text-muted-foreground hover:text-foreground transition-colors"
-                  activeProps={{ className: "!text-foreground" }}
-                >
-                  {t("nav.cups")}
-                </Link>
-              )}
+              ) : null}
             </nav>
 
             <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
@@ -209,15 +201,7 @@ export function SiteHeader() {
                   >
                     {t("nav.backHome")}
                   </Link>
-                ) : (
-                  <Link
-                    to="/cups"
-                    className="text-sm text-muted-foreground hover:text-foreground"
-                    onClick={() => setOpen(false)}
-                  >
-                    {t("nav.cups")}
-                  </Link>
-                )}
+                ) : null}
                 <a
                   href="tel:+3547878617"
                   className="text-sm text-muted-foreground hover:text-foreground inline-flex items-center gap-2"

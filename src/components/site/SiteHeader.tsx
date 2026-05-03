@@ -8,6 +8,7 @@ import { LanguageSwitcher } from "./LanguageSwitcher";
 const homeNav = [
   { key: "nav.secret", id: "secret" },
   { key: "nav.savings", id: "savings" },
+  { key: "nav.pricing", id: "pricing" },
   { key: "nav.products", id: "products" },
   { key: "nav.process", id: "process" },
   { key: "nav.faq", id: "faq" },

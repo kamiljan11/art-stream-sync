@@ -87,10 +87,6 @@ export function QuoteForm() {
                     setFormError(parsed.error.issues[0]?.message ?? t("homeQuote.errGeneric"));
                     return;
                   }
-                  if (fd.get("consent") !== "on") {
-                    setFormError(t("homeQuote.consentRequired"));
-                    return;
-                  }
                   setSubmitting(true);
                   try {
                     const res = await fetch("/api/public/quote", {
@@ -110,20 +106,6 @@ export function QuoteForm() {
                 }}
               >
                 {tab === "new" ? <NewProjectFields /> : <AuditFields />}
-
-                {/* GDPR consent — required */}
-                <label className="mb-5 flex items-start gap-3 cursor-pointer select-none rounded-lg border-2 border-[#eee] bg-[#f9f9f9] hover:bg-white hover:border-[#ddd] transition-colors px-4 py-3">
-                  <input
-                    type="checkbox"
-                    name="consent"
-                    required
-                    className="mt-0.5 h-5 w-5 rounded border-gray-300 cursor-pointer"
-                    style={{ accentColor: tab === "new" ? "#00AEEF" : "#EC008C" }}
-                  />
-                  <span className="text-[0.8rem] text-[#444] leading-snug">
-                    {t("homeQuote.consentLabel")}
-                  </span>
-                </label>
 
                 {formError && (
                   <p className="mb-3 text-sm font-semibold text-red-600">{formError}</p>
@@ -157,6 +139,10 @@ export function QuoteForm() {
                 >
                   {submitting ? "Sending..." : (tab === "new" ? t("homeQuote.submitNew") : t("homeQuote.submitAudit"))}
                 </button>
+
+                <p className="mt-3 text-[0.75rem] text-[#888] text-center leading-snug px-2">
+                  {t("homeQuote.consentLabel")}
+                </p>
 
                 <div className="flex items-center justify-center gap-2 mt-5 text-[0.85rem] text-[#888] font-semibold">
                   <ShieldCheck size={16} style={{ color: tab === "new" ? "#00AEEF" : "#EC008C" }} />

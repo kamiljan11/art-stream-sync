@@ -171,7 +171,7 @@ const en = {
     cups: {
       title: "PAPER CUPS",
       items: ["Single-Wall Paper Cups", "Double-Wall Thermal Cups", "Eco-Friendly BIO Cups", "Paper & Plastic Lids", "Wooden Stirrers"],
-      cta: "Explore Cups Range",
+      cta: "Explore Cups",
     },
   },
   process: {

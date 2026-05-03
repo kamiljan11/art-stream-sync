@@ -1,4 +1,4 @@
-import { Link, useLocation } from "@tanstack/react-router";
+import { Link, useLocation, useNavigate } from "@tanstack/react-router";
 import { useState, useEffect } from "react";
 import { Menu, X, Phone } from "lucide-react";
 import { useT } from "@/i18n/I18nProvider";
@@ -28,13 +28,49 @@ export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
   const t = useT();
   const location = useLocation();
+  const navigate = useNavigate();
   const isCups = location.pathname.startsWith("/cups");
   const navKeys = isCups ? cupsNav : homeNav;
   const basePath = isCups ? "/cups" : "/";
 
+  // Smooth-scroll to a section. If we're on a different page, navigate first
+  // then scroll once the target section mounts.
+  function goToSection(e: React.MouseEvent, id: string) {
+    e.preventDefault();
+    setOpen(false);
+    const onCorrectPage =
+      (isCups && location.pathname.startsWith("/cups")) ||
+      (!isCups && location.pathname === "/");
+
+    const scrollTo = () => {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+        history.replaceState(null, "", `${basePath}#${id}`);
+      }
+    };
+
+    if (onCorrectPage) {
+      scrollTo();
+    } else {
+      navigate({ to: basePath, hash: id }).then(() => {
+        // wait a tick for the target page to render, then scroll
+        setTimeout(scrollTo, 80);
+      });
+    }
+  }
+
   // Scroll-spy: highlight the section currently in view
   useEffect(() => {
     if (typeof window === "undefined") return;
+
+    // On mount / route change: if URL has a hash, scroll to it once mounted
+    if (location.hash) {
+      setTimeout(() => {
+        const el = document.getElementById(location.hash);
+        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 80);
+    }
 
     const sections = navKeys
       .map((n) => document.getElementById(n.id))
@@ -91,6 +127,7 @@ export function SiteHeader() {
                   <a
                     key={n.key}
                     href={`${basePath}#${n.id}`}
+                    onClick={(e) => goToSection(e, n.id)}
                     className={`relative px-3 py-1.5 rounded-full transition-colors ${
                       isActive
                         ? "text-foreground"
@@ -129,6 +166,7 @@ export function SiteHeader() {
               <LanguageSwitcher />
               <a
                 href={`${basePath}#quote`}
+                onClick={(e) => goToSection(e, "quote")}
                 className="hidden sm:inline-flex items-center justify-center rounded-full px-4 py-2 text-xs font-bold uppercase tracking-wide text-primary-foreground"
                 style={{ background: "var(--gradient-cyan)" }}
               >
@@ -154,10 +192,10 @@ export function SiteHeader() {
                     <a
                       key={n.key}
                       href={`${basePath}#${n.id}`}
+                      onClick={(e) => goToSection(e, n.id)}
                       className={`text-sm transition-colors ${
                         isActive ? "text-foreground font-semibold" : "text-muted-foreground hover:text-foreground"
                       }`}
-                      onClick={() => setOpen(false)}
                     >
                       {t(n.key)}
                     </a>

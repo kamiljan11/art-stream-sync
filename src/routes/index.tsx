@@ -176,7 +176,7 @@ function Index() {
           </div>
 
           {/* Comparison table */}
-          <div className="mt-16">
+          <div id="compare" className="mt-16 scroll-mt-24">
             <h3 className="text-3xl sm:text-4xl font-extrabold text-center">
               {t("math.compareHeading1")} <span style={{ color: "var(--brand-cyan)" }}>{t("math.compareHeading2")}</span>
             </h3>

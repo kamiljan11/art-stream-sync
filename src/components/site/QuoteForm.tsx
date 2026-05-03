@@ -140,6 +140,10 @@ export function QuoteForm() {
                   {submitting ? "Sending..." : (tab === "new" ? t("homeQuote.submitNew") : t("homeQuote.submitAudit"))}
                 </button>
 
+                <p className="mt-3 text-[0.75rem] text-[#888] text-center leading-snug px-2">
+                  {t("homeQuote.consentLabel")}
+                </p>
+
                 <div className="flex items-center justify-center gap-2 mt-5 text-[0.85rem] text-[#888] font-semibold">
                   <ShieldCheck size={16} style={{ color: tab === "new" ? "#00AEEF" : "#EC008C" }} />
                   {tab === "new"

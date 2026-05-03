@@ -28,7 +28,10 @@ export function Reveal({
   id,
 }: RevealProps) {
   const ref = useRef<HTMLElement | null>(null);
-  const [visible, setVisible] = useState(false);
+  // Start visible so SSR/pre-hydration content is shown immediately.
+  // After mount we hide elements that are below the viewport, then reveal
+  // them via IntersectionObserver as the user scrolls.
+  const [visible, setVisible] = useState(true);
 
   useEffect(() => {
     const el = ref.current;
@@ -37,6 +40,14 @@ export function Reveal({
       setVisible(true);
       return;
     }
+    const rect = el.getBoundingClientRect();
+    const isBelowViewport = rect.top > window.innerHeight;
+    if (!isBelowViewport) {
+      // Already in/above viewport — keep visible, no need to observe.
+      setVisible(true);
+      return;
+    }
+    setVisible(false);
     const io = new IntersectionObserver(
       (entries) => {
         for (const e of entries) {

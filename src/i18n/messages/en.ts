@@ -3,6 +3,7 @@ const en = {
     secret: "The Secret",
     logic: "Logic",
     savings: "Savings",
+    compare: "Compare",
     process: "Process",
     products: "Products",
     pricing: "Pricing",

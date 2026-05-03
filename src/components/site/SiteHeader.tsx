@@ -112,7 +112,7 @@ export function SiteHeader() {
       >
         <div className="mx-auto max-w-7xl px-3 sm:px-6">
           <div
-            className={`flex items-center justify-between rounded-2xl border border-white/10 backdrop-blur-xl transition-all duration-300 ${
+            className={`grid grid-cols-[auto_1fr_auto] items-center gap-3 rounded-2xl border border-white/10 backdrop-blur-xl transition-all duration-300 ${
               scrolled
                 ? "bg-background/80 shadow-2xl px-4 sm:px-5 h-14"
                 : "bg-background/50 px-4 sm:px-5 h-16"
@@ -123,7 +123,8 @@ export function SiteHeader() {
             </Link>
 
             {/* Desktop floating pill nav (center) */}
-            <nav className="hidden lg:flex absolute left-1/2 -translate-x-1/2 items-center gap-1 rounded-full bg-black/40 border border-white/10 px-2 py-1.5 text-sm font-medium">
+            <nav className="hidden lg:flex min-w-0 items-center justify-center px-1">
+              <div className="flex max-w-full items-center gap-1 overflow-x-auto rounded-full border border-white/10 bg-black/40 px-2 py-1.5 text-xs xl:text-sm font-medium [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
               {navKeys.map((n) => {
                 const isActive = activeId === n.id;
                 return (
@@ -131,7 +132,7 @@ export function SiteHeader() {
                     key={n.key}
                     href={`${basePath}#${n.id}`}
                     onClick={(e) => goToSection(e, n.id)}
-                    className={`relative px-3 py-1.5 rounded-full transition-colors ${
+                    className={`relative shrink-0 whitespace-nowrap px-2.5 xl:px-3 py-1.5 rounded-full transition-colors ${
                       isActive
                         ? "text-foreground"
                         : "text-muted-foreground hover:text-foreground"
@@ -150,11 +151,12 @@ export function SiteHeader() {
               {isCups ? (
                 <Link
                   to="/"
-                  className="relative px-3 py-1.5 rounded-full text-muted-foreground hover:text-foreground transition-colors"
+                  className="relative shrink-0 whitespace-nowrap px-2.5 xl:px-3 py-1.5 rounded-full text-muted-foreground hover:text-foreground transition-colors"
                 >
                   {t("nav.backHome")}
                 </Link>
               ) : null}
+              </div>
             </nav>
 
             <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">

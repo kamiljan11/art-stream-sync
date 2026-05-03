@@ -1,5 +1,5 @@
 import { Link, useLocation, useNavigate } from "@tanstack/react-router";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Menu, X, Phone } from "lucide-react";
 import { useT } from "@/i18n/I18nProvider";
 import { LanguageSwitcher } from "./LanguageSwitcher";
@@ -30,6 +30,7 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const [activeId, setActiveId] = useState<string>("");
   const [scrolled, setScrolled] = useState(false);
+  const headerRef = useRef<HTMLElement | null>(null);
   const t = useT();
   const location = useLocation();
   const navigate = useNavigate();
@@ -37,29 +38,37 @@ export function SiteHeader() {
   const navKeys = isCups ? cupsNav : homeNav;
   const basePath = isCups ? "/cups" : "/";
 
+  const getScrollOffset = () => {
+    const headerHeight = headerRef.current?.offsetHeight ?? 88;
+    return headerHeight + 20;
+  };
+
+  const scrollToSection = (id: string, behavior: ScrollBehavior = "smooth") => {
+    const el = document.getElementById(id);
+    if (!el) return;
+
+    const top = el.getBoundingClientRect().top + window.scrollY - getScrollOffset();
+    window.scrollTo({ top: Math.max(0, top), behavior });
+    setActiveId(id);
+    history.replaceState(null, "", `${basePath}#${id}`);
+  };
+
   // Smooth-scroll to a section. If we're on a different page, navigate first
   // then scroll once the target section mounts.
   function goToSection(e: React.MouseEvent, id: string) {
     e.preventDefault();
     setOpen(false);
+    setActiveId(id);
     const onCorrectPage =
       (isCups && location.pathname.startsWith("/cups")) ||
       (!isCups && location.pathname === "/");
 
-    const scrollTo = () => {
-      const el = document.getElementById(id);
-      if (el) {
-        el.scrollIntoView({ behavior: "smooth", block: "start" });
-        history.replaceState(null, "", `${basePath}#${id}`);
-      }
-    };
-
     if (onCorrectPage) {
-      scrollTo();
+      scrollToSection(id);
     } else {
       navigate({ to: basePath, hash: id }).then(() => {
         // wait a tick for the target page to render, then scroll
-        setTimeout(scrollTo, 80);
+        setTimeout(() => scrollToSection(id), 80);
       });
     }
   }
@@ -68,31 +77,41 @@ export function SiteHeader() {
   useEffect(() => {
     if (typeof window === "undefined") return;
 
-    // On mount / route change: if URL has a hash, scroll to it once mounted
-    if (location.hash) {
-      setTimeout(() => {
-        const el = document.getElementById(location.hash);
-        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-      }, 80);
-    }
-
     const sections = navKeys
       .map((n) => document.getElementById(n.id))
       .filter((el): el is HTMLElement => Boolean(el));
     if (!sections.length) return;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-        if (visible[0]) setActiveId(visible[0].target.id);
-      },
-      { rootMargin: "-40% 0px -50% 0px", threshold: [0, 0.25, 0.5, 0.75, 1] },
-    );
-    sections.forEach((s) => observer.observe(s));
-    return () => observer.disconnect();
-  }, [location.pathname]);
+    const updateActiveSection = () => {
+      const marker = window.scrollY + getScrollOffset() + 40;
+      let current = sections[0]?.id ?? "";
+
+      for (const section of sections) {
+        if (section.offsetTop <= marker) {
+          current = section.id;
+        } else {
+          break;
+        }
+      }
+
+      setActiveId(current);
+    };
+
+    const hashId = decodeURIComponent(location.hash.replace(/^#/, ""));
+    if (hashId) {
+      setTimeout(() => scrollToSection(hashId, "auto"), 80);
+    } else {
+      updateActiveSection();
+    }
+
+    window.addEventListener("scroll", updateActiveSection, { passive: true });
+    window.addEventListener("resize", updateActiveSection);
+
+    return () => {
+      window.removeEventListener("scroll", updateActiveSection);
+      window.removeEventListener("resize", updateActiveSection);
+    };
+  }, [location.pathname, location.hash, navKeys]);
 
   // Track scroll for floating-nav background opacity
   useEffect(() => {
@@ -107,6 +126,7 @@ export function SiteHeader() {
     <>
       {/* Floating top bar — logo + actions, no edge-to-edge background */}
       <header
+        ref={headerRef}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled ? "py-2" : "py-3 sm:py-4"
         }`}

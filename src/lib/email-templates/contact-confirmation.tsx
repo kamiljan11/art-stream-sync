@@ -25,8 +25,7 @@ const ContactConfirmationEmail = ({ name }: Props) => (
           <Text style={cardTitle}>What happens next</Text>
           <Text style={cardText}>
             • We review your request<br />
-            • You'll get a fixed ISK quote within 24 hours<br />
-            • No contract, no commitment
+            • You'll get a fixed ISK quote within 24 hours
           </Text>
         </Section>
         <Text style={footer}>

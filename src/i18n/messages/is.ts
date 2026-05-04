@@ -433,6 +433,7 @@ const is = {
         lids: "Lok sem passa",
         straws: "Pappírssogrör",
         stirrers: "Tréhrærur",
+        iceCreamSticks: "Íspinnar",
         bioLining: "Uppfæra í BIO niðurbrjótanlega húðun",
       },
       products: [

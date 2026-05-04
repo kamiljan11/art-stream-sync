@@ -363,6 +363,8 @@ const en = {
       quantity: "Quantity",
       timing: "Timing",
       lining: "Lining",
+      size: "Size (ml)",
+      finish: "Colour / finish",
       designQuestion: "Should we prepare the design for you?",
       designYes: "Yes, please, design it for me",
       designNo: "No, I have my own artwork",
@@ -390,6 +392,18 @@ const en = {
       quantities: ["1,000 – 5,000", "5,000 – 20,000", "20,000 – 50,000", "50,000+"],
       timings: ["Standard (best price)", "Express (faster if possible)", "Flexible"],
       linings: ["Not sure yet, advise me", "Standard (Green PE)", "Compostable BIO (water-based dispersion, plastic-free)", "rPET (recycled plastic, for cold drinks)"],
+      byProduct: [
+        { sizes: [], finishes: [], showLining: false },
+        { sizes: ["100 ml", "180 ml", "200 ml", "300 ml", "400 ml", "Mix of sizes"], finishes: ["White paper", "Kraft (brown) paper"], showLining: true },
+        { sizes: ["100 ml", "180 ml", "200 ml", "300 ml", "400 ml", "Mix of sizes"], finishes: ["All white", "All kraft", "Kraft + white combo"], showLining: true },
+        { sizes: ["100 ml", "180 ml", "200 ml", "300 ml", "400 ml", "Mix of sizes"], finishes: ["White", "Kraft (brown)", "Pastel pattern", "Coffee-bean pattern", "Summer flamingo", "Winter Christmas"], showLining: true },
+        { sizes: ["300 ml", "400 ml", "500 ml", "Mix of sizes"], finishes: [], showLining: false },
+        { sizes: ["130 ml", "245 ml", "360 ml", "Mix of sizes"], finishes: ["White", "Kraft", "Pastel pattern", "Full-wrap custom print"], showLining: true },
+        { sizes: [], finishes: ["White", "Black", "Green", "Red", "Orange", "Gold", "Silver", "Other"], showLining: false },
+        { sizes: [], finishes: ["Black (stock)", "Other colour (by order)"], showLining: false },
+        { sizes: [], finishes: [], showLining: false },
+        { sizes: [], finishes: [], showLining: false },
+      ],
     },
     productCatalog: [
       {

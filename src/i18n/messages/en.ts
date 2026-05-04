@@ -234,7 +234,7 @@ const en = {
     uspAskButton: "Ask now",
     midCta: {
       a: {
-        title: "Your cup. Your brand. Ready in weeks.",
+        title: "Your cup. Your brand. Done right.",
         sub: "Send us your brief — fixed ISK quote back in 24h (workdays).",
         button: "Get your custom cup",
       },

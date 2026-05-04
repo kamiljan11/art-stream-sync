@@ -884,11 +884,11 @@ function CupsQuoteForm() {
     // productIdx maps to i18n productOptions:
     // 0 Not sure, 1 single-wall, 2 double-wall, 3 plain stock, 4 rPET,
     // 5 bowl, 6 lids, 7 straws, 8 stirrers, 9 something else
-    const cupIdxs = [1, 2, 3, 4]; // any cup (paper or rPET)
-    const hasAnyCup = items.some((i) => cupIdxs.includes(i.productIdx));
+    const cupOrBowlIdxs = [1, 2, 3, 4, 5]; // any cup (paper / rPET) or bowl
+    const hasAnyCupOrBowl = items.some((i) => cupOrBowlIdxs.includes(i.productIdx));
     const hasBowl = items.some((i) => i.productIdx === 5);
-    // Lids for cups
-    if (hasAnyCup && !haveIdx.has(6)) {
+    // Lids for cups and bowls (dome lids work for cold drinks/smoothies and dessert bowls)
+    if (hasAnyCupOrBowl && !haveIdx.has(6)) {
       out.push({ key: "lids", label: addonLabels.lids, productIdx: 6 });
     }
     // Straws for rPET cold cup or bowl (smoothies / desserts)
@@ -898,6 +898,13 @@ function CupsQuoteForm() {
     // Stirrers for any hot paper cup (single-wall, double-wall, stock plain) or ice-cream sticks for bowls
     if ((items.some((i) => i.productIdx === 1 || i.productIdx === 2 || i.productIdx === 3) || hasBowl) && !haveIdx.has(8)) {
       out.push({ key: "stirrers", label: addonLabels.stirrers, productIdx: 8 });
+    }
+    // BIO lining upsell: any paper cup / bowl already in list whose lining isn't BIO
+    const hasNonBioPaperItem = items.some(
+      (i) => [1, 2, 3, 5].includes(i.productIdx) && i.lining && !/bio/i.test(i.lining)
+    );
+    if (hasNonBioPaperItem && !dismissedAddons.includes("bioLining")) {
+      out.push({ key: "bioLining", label: addonLabels.bioLining, productIdx: -1 });
     }
     return out.filter((a) => !dismissedAddons.includes(a.key));
   };
@@ -932,10 +939,24 @@ function CupsQuoteForm() {
   const addAddonItem = (a: Addon) => {
     // One-click add to list — no extra config screen.
     // Sales rep advises on size/qty, user can edit afterwards if they want.
-    setItems((arr) => [
-      ...arr,
-      { ...emptyDraft, productIdx: a.productIdx, product: productOptions[a.productIdx] },
-    ]);
+    if (a.productIdx < 0) {
+      // Modifier-style addon (e.g. BIO lining upgrade): apply to existing eligible items
+      if (a.key === "bioLining") {
+        const bioLabel = dict.cupsPage.quote.linings.find((l) => /bio/i.test(l)) || "";
+        setItems((arr) =>
+          arr.map((it) =>
+            [1, 2, 3, 5].includes(it.productIdx) && it.lining && !/bio/i.test(it.lining)
+              ? { ...it, lining: bioLabel || it.lining }
+              : it
+          )
+        );
+      }
+    } else {
+      setItems((arr) => [
+        ...arr,
+        { ...emptyDraft, productIdx: a.productIdx, product: productOptions[a.productIdx] },
+      ]);
+    }
     setDismissedAddons((d) => [...d, a.key]);
   };
 

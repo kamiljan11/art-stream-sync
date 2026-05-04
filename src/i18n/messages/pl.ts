@@ -284,7 +284,7 @@ const pl = {
       p3b: "powłokę wodno-dyspersyjną",
       p3c: ": w pełni bez plastiku, kompostowalna w warunkach domowych, z certyfikatem EN 13432. Ten sam dotyk, ta sama odporność na ciepło, ten sam smak, ale",
       p3d: "zero mikroplastiku",
-      p3e: ". Dobieramy właściwą technologię do każdego produktu, kompostowalną, nadającą się do recyklingu lub jedno i drugie, bo dbanie o środowisko to dla nas standard, a nie dodatek. Sprawdza się przy gorącej kawie, zimnych napojach i lodach.",
+      p3e: ". Dobieramy właściwą technologię do każdego produktu, bo dbanie o środowisko to dla nas standard, a nie dodatek. Sprawdza się przy gorącej kawie, zimnych napojach i lodach.",
       stat1: "Papier FSC",
       stat2: "Bez plastiku",
       stat3: "Certyfikowana",

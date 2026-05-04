@@ -230,7 +230,7 @@ const is = {
       { t: "Frá aðeins 1.000 stk", d: "Lág lágmarkspöntun, fullkomin fyrir lítil kaffihús, viðburði og prufukeyrslur. Stækkaðu þegar þú ert tilbúinn." },
       { t: "Ókeypis aðlögun á hönnun", d: "Sendu lógóið þitt á hvaða nothæfu sniði sem er, við aðlögum það að bollasniðmátinu án aukakostnaðar með hverri pöntun." },
       { t: "Þinn eigin tengiliður", d: "Ein manneskja leiðir þig frá tilboði til afhendingar. Ekki viss hvað passar? Bara spurðu, við ráðleggjum." },
-      { t: "Faglegt gæðaeftirlit", d: "Hver framleiðslulota gengur í gegnum margra þrepa gæðaeftirlit, prentnákvæmni, þéttleika húðunar, byggingu og matvælaöryggi, áður en hún er send." },
+      { t: "Faglegt gæðaeftirlit", d: "Hver framleiðslulota gengur í gegnum margra þrepa gæðaeftirlit — prentnákvæmni, þéttleika húðunar, byggingu og matvælaöryggi — áður en hún er send. Í samræmi við ströng evrópsk gæðastaðla." },
       { t: "Vottorð fylgja hverri pöntun", d: "Hverri pöntun fylgja evrópsk vottorð fyrir tiltekna vöru (matvælasnerting, EN 13432 fyrir BIO o.fl.) — ekki almenn kínversk skjöl. Tilbúið fyrir útboð og úttektir." },
     ],
     uspAskButton: "Spyrja núna",

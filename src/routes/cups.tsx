@@ -1300,7 +1300,10 @@ function CupsQuoteForm() {
                   <button
                     key={p}
                     type="button"
-                    onClick={() => setDraft({ ...emptyDraft, productIdx: i, product: p })}
+                    onClick={() => {
+                      setDraft({ ...emptyDraft, productIdx: i, product: p });
+                      setTimeout(() => setStep(2), 120);
+                    }}
                     className={`text-left rounded-lg border-2 px-4 py-3 text-sm transition-colors ${
                       draft.productIdx === i
                         ? "border-[#00AEEF] bg-[#00AEEF]/5 text-[#222] font-semibold"
@@ -1327,7 +1330,10 @@ function CupsQuoteForm() {
                   <button
                     key={p}
                     type="button"
-                    onClick={() => setDraft({ ...emptyDraft, productIdx: i, product: p })}
+                    onClick={() => {
+                      setDraft({ ...emptyDraft, productIdx: i, product: p });
+                      setTimeout(() => setStep(2), 120);
+                    }}
                     className={`text-left rounded-lg border-2 border-dashed px-4 py-3 text-sm transition-colors ${
                       draft.productIdx === i
                         ? "border-[#00AEEF] bg-[#00AEEF]/5 text-[#222] font-semibold"

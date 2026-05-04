@@ -1088,6 +1088,7 @@ function CupsQuoteForm() {
       });
       if (!res.ok) throw new Error("Submit failed");
       setSubmitted(true);
+      try { window.localStorage.removeItem(STORAGE_KEY); } catch { /* ignore */ }
       navigate({ to: "/thank-you" });
     } catch {
       setErrorMsg("Something went wrong. Please try again.");

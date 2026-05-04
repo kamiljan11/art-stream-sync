@@ -362,6 +362,8 @@ const pl = {
       quantity: "Ilość",
       timing: "Termin",
       lining: "Bariera",
+      size: "Rozmiar (ml)",
+      finish: "Kolor / wykończenie",
       designQuestion: "Czy mamy przygotować dla Ciebie projekt?",
       designYes: "Tak, proszę zaprojektujcie",
       designNo: "Nie, mam własną grafikę",
@@ -389,6 +391,18 @@ const pl = {
       quantities: ["1 000 – 5 000", "5 000 – 20 000", "20 000 – 50 000", "50 000+"],
       timings: ["Standard (najlepsza cena)", "Express (szybciej, jeśli możliwe)", "Elastyczny"],
       linings: ["Nie wiem jeszcze, doradźcie", "Standard (Green PE)", "Kompostowalna BIO (dyspersja wodna, bez plastiku)", "rPET (recyklowany plastik, na zimne napoje)"],
+      byProduct: [
+        { sizes: [], finishes: [], showLining: false },
+        { sizes: ["100 ml", "180 ml", "200 ml", "300 ml", "400 ml", "Mix rozmiarów"], finishes: ["Papier biały", "Papier kraft (brązowy)"], showLining: true },
+        { sizes: ["100 ml", "180 ml", "200 ml", "300 ml", "400 ml", "Mix rozmiarów"], finishes: ["W całości biały", "W całości kraft", "Kraft + biały (kombi)"], showLining: true },
+        { sizes: ["100 ml", "180 ml", "200 ml", "300 ml", "400 ml", "Mix rozmiarów"], finishes: ["Biały", "Kraft (brązowy)", "Wzór pastelowy", "Wzór ziarna kawy", "Letnie flamingi", "Zimowe choinki"], showLining: true },
+        { sizes: ["300 ml", "400 ml", "500 ml", "Mix rozmiarów"], finishes: [], showLining: false },
+        { sizes: ["130 ml", "245 ml", "360 ml", "Mix rozmiarów"], finishes: ["Biały", "Kraft", "Wzór pastelowy", "Indywidualny druk full-wrap"], showLining: true },
+        { sizes: [], finishes: ["Biały", "Czarny", "Zielony", "Czerwony", "Pomarańczowy", "Złoty", "Srebrny", "Inny"], showLining: false },
+        { sizes: [], finishes: ["Czarny (z magazynu)", "Inny kolor (na zamówienie)"], showLining: false },
+        { sizes: [], finishes: [], showLining: false },
+        { sizes: [], finishes: [], showLining: false },
+      ],
     },
     productCatalog: [
       {

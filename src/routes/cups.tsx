@@ -815,8 +815,24 @@ function CupsPage() {
       <section id="quote" className="bg-card/40 border-y border-border">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-24 overflow-hidden">
           <div className="text-center">
+            <div className="flex justify-center mb-4">
+              <span className="inline-flex items-center gap-2 rounded-full border border-[color:var(--brand-cyan)]/40 bg-[color:var(--brand-cyan)]/10 px-4 py-1.5 text-xs font-extrabold uppercase tracking-[0.18em] text-[color:var(--brand-cyan)]">
+                <span className="relative flex h-2 w-2">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[color:var(--brand-cyan)] opacity-75" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-[color:var(--brand-cyan)]" />
+                </span>
+                {locale === "pl" ? "Interaktywny formularz" : locale === "is" ? "Gagnvirkt eyðublað" : "Interactive form"}
+              </span>
+            </div>
             <h2 className="text-4xl font-extrabold">{cp.quote.heading1} <span style={{ color: "var(--brand-cyan)" }}>{cp.quote.heading2}</span></h2>
             <p className="mt-3 text-muted-foreground">{cp.quote.sub}</p>
+            <p className="mt-2 text-sm font-semibold text-[color:var(--brand-cyan)]">
+              {locale === "pl"
+                ? "↓ Wypełnij krótki kreator i otrzymaj wycenę w 24h"
+                : locale === "is"
+                ? "↓ Kláraðu stutta leiðsögn og fáðu tilboð innan 24 klst."
+                : "↓ Complete the quick wizard and get your quote in 24h"}
+            </p>
           </div>
           <CupsQuoteForm />
         </div>

@@ -923,10 +923,13 @@ function CupsQuoteForm() {
     setStep(3);
   };
   const addAddonItem = (a: Addon) => {
-    setDraft({ ...emptyDraft, productIdx: a.productIdx, product: productOptions[a.productIdx] });
-    setEditingIdx(null);
-    setSubStep(0);
-    setStep(2);
+    // One-click add to list — no extra config screen.
+    // Sales rep advises on size/qty, user can edit afterwards if they want.
+    setItems((arr) => [
+      ...arr,
+      { ...emptyDraft, productIdx: a.productIdx, product: productOptions[a.productIdx] },
+    ]);
+    setDismissedAddons((d) => [...d, a.key]);
   };
 
   const totalSteps = 4;

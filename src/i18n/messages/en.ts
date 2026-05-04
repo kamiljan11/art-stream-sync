@@ -437,6 +437,8 @@ const en = {
         pantoneTitle: "Pantone match (exact brand colour)",
         pantoneHint: "Tick if a brand colour must be exact. Paid extra (approx. 10,000 ISK setup per Pantone colour). Leave unchecked for standard CMYK print.",
         pantonePlaceholder: "Pantone codes, e.g. PMS 286 C, PMS 200 C",
+        certsTitle: "Send certificates with the order (free)",
+        certsHint: "Food-contact safety, compostability (EN 13432 for BIO), recycled content (rPET) and origin documents — included with every delivery on request.",
       },
       addonLabels: {
         lids: "Matching lids",

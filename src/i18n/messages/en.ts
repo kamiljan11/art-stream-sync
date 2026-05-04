@@ -438,8 +438,6 @@ const en = {
         pantoneTitle: "I have specific Pantone colours",
         pantoneHint: "Tick if you'd like us to print with Pantone colours and share the codes — we'll include the matching in your quote.",
         pantonePlaceholder: "Pantone codes, e.g. PMS 286 C, PMS 200 C",
-        certsTitle: "Send certificates with the order (free)",
-        certsHint: "Food-contact safety, compostability (EN 13432 for BIO), recycled content (rPET) and origin documents — included with every delivery on request.",
       },
       addonLabels: {
         lids: "Matching lids",

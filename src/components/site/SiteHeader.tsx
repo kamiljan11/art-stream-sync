@@ -172,11 +172,14 @@ export function SiteHeader() {
             {/* Desktop floating pill nav (center) */}
             <nav
               ref={navWrapRef}
-              className={`min-w-0 items-center justify-center px-1 ${navFits ? "hidden md:flex" : "hidden"}`}
+              aria-hidden={!navFits}
+              className={`hidden md:flex min-w-0 items-center justify-center px-1 ${
+                navFits ? "" : "invisible pointer-events-none"
+              }`}
             >
               <div
                 ref={navInnerRef}
-                className="flex max-w-full items-center gap-1 rounded-full border border-white/10 bg-black/40 px-2 py-1.5 text-xs xl:text-sm font-medium whitespace-nowrap"
+                className="flex items-center gap-1 rounded-full border border-white/10 bg-black/40 px-2 py-1.5 text-xs xl:text-sm font-medium whitespace-nowrap"
               >
               {navKeys.map((n) => {
                 const isActive = activeId === n.id;
@@ -211,8 +214,6 @@ export function SiteHeader() {
               ) : null}
               </div>
             </nav>
-            {/* When nav doesn't fit, collapse the center column to keep grid balanced */}
-            {!navFits && <div aria-hidden />}
 
             <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
               <LanguageSwitcher />

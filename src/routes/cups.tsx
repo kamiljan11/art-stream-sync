@@ -1029,7 +1029,7 @@ function CupsQuoteForm() {
                 step >= idx ? "bg-[#00AEEF] text-white" : "bg-[#eee] text-[#999]"
               }`}
             >
-              {step > idx ? <Check size={14} /> : idx}
+              {step > idx ? <Check size={14} /> : idx + 1}
             </div>
             <div className={`text-xs font-semibold uppercase tracking-wider truncate ${step >= idx ? "text-[#333]" : "text-[#aaa]"}`}>
               {stepLabel(idx)}

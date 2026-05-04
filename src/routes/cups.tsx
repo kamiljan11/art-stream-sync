@@ -1566,6 +1566,22 @@ function CupsQuoteForm() {
             )}
           </div>
 
+          {/* Certificates — included free with every order */}
+          <div className="sm:col-span-2 rounded-lg border-2 border-[#eee] bg-[#f9f9f9] p-4">
+            <label className="flex items-start gap-2 cursor-pointer text-sm text-[#333]">
+              <input
+                type="checkbox"
+                checked={needsCertificates}
+                onChange={(e) => setNeedsCertificates(e.target.checked)}
+                className="mt-0.5 h-4 w-4 accent-[#00AEEF]"
+              />
+              <span>
+                <span className="font-semibold">{wz.certsTitle}</span>
+                <span className="block text-xs text-[#777] mt-0.5">{wz.certsHint}</span>
+              </span>
+            </label>
+          </div>
+
           <label className="sm:col-span-2 flex flex-col gap-1.5">
             <span className="text-xs font-bold uppercase tracking-wider text-[#555]">{t("cupsPage.quote.notes")}</span>
             <textarea

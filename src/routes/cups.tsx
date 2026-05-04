@@ -1043,74 +1043,90 @@ function CupsQuoteForm() {
         </div>
       )}
 
-      {/* STEP 2: configure */}
-      {step === 2 && (
-        <div>
-          <h3 className="text-xl font-bold text-[#222]">{wz.configure}</h3>
-          <p className="text-sm text-[#777] mt-1">{draft.product}</p>
-          <div className="mt-5 grid gap-4 sm:grid-cols-2">
-            <SelectField
-              label={t("cupsPage.quote.quantity")}
-              options={tArray("cupsPage.quote.quantities")}
-              placeholder={t("cupsPage.quote.selectPlaceholder")}
-              value={draft.quantity}
-              onChange={(e) => setDraft((d) => ({ ...d, quantity: e.target.value }))}
-            />
-            <SelectField
-              label={t("cupsPage.quote.timing")}
-              options={tArray("cupsPage.quote.timings")}
-              placeholder={t("cupsPage.quote.selectPlaceholder")}
-              value={draft.timing}
-              onChange={(e) => setDraft((d) => ({ ...d, timing: e.target.value }))}
-            />
-            {sizeOptions.length > 0 && (
-              <SelectField
-                label={t("cupsPage.quote.size")}
-                options={sizeOptions}
-                placeholder={t("cupsPage.quote.selectPlaceholder")}
-                value={draft.size}
-                onChange={(e) => setDraft((d) => ({ ...d, size: e.target.value }))}
-              />
-            )}
-            {finishOptions.length > 0 && (
-              <SelectField
-                label={t("cupsPage.quote.finish")}
-                options={finishOptions}
-                placeholder={t("cupsPage.quote.selectPlaceholder")}
-                value={draft.finish}
-                onChange={(e) => setDraft((d) => ({ ...d, finish: e.target.value }))}
-              />
-            )}
-            {showLining && (
-              <SelectField
-                label={t("cupsPage.quote.lining")}
-                options={tArray("cupsPage.quote.linings")}
-                placeholder={t("cupsPage.quote.selectPlaceholder")}
-                value={draft.lining}
-                onChange={(e) => setDraft((d) => ({ ...d, lining: e.target.value }))}
-              />
-            )}
+      {/* STEP 2: configure (one question per screen) */}
+      {step === 2 && (() => {
+        type Q = { key: keyof Item; label: string; options: string[] };
+        const queue: Q[] = [];
+        if (sizeOptions.length > 0) queue.push({ key: "size", label: t("cupsPage.quote.size"), options: sizeOptions });
+        if (finishOptions.length > 0) queue.push({ key: "finish", label: t("cupsPage.quote.finish"), options: finishOptions });
+        if (showLining) queue.push({ key: "lining", label: t("cupsPage.quote.lining"), options: tArray("cupsPage.quote.linings") });
+        queue.push({ key: "quantity", label: t("cupsPage.quote.quantity"), options: tArray("cupsPage.quote.quantities") });
+        queue.push({ key: "timing", label: t("cupsPage.quote.timing"), options: tArray("cupsPage.quote.timings") });
+
+        const safeIdx = Math.min(subStep, queue.length - 1);
+        const q = queue[safeIdx];
+        const value = (draft[q.key] as string) || "";
+        const required = q.key !== "timing"; // timing optional
+        const isLast = safeIdx === queue.length - 1;
+        const goPrev = () => {
+          if (safeIdx === 0) {
+            setSubStep(0);
+            setStep(1);
+          } else {
+            setSubStep(safeIdx - 1);
+          }
+        };
+        const goNext = () => {
+          if (isLast) {
+            commitDraft();
+            setSubStep(0);
+          } else {
+            setSubStep(safeIdx + 1);
+          }
+        };
+        return (
+          <div>
+            <div className="text-xs uppercase tracking-wider text-[#999] font-semibold">{draft.product}</div>
+            <h3 className="mt-1 text-2xl font-bold text-[#222]">{q.label}</h3>
+            <div className="mt-1 text-xs text-[#aaa]">{safeIdx + 1} / {queue.length}</div>
+
+            <div className="mt-5 grid gap-2 sm:grid-cols-2">
+              {q.options.map((opt) => (
+                <button
+                  key={opt}
+                  type="button"
+                  onClick={() => {
+                    setDraft((d) => ({ ...d, [q.key]: opt }));
+                    if (isLast) {
+                      // commit on last selection
+                      setTimeout(() => { commitDraft(); setSubStep(0); }, 120);
+                    } else {
+                      setTimeout(() => setSubStep(safeIdx + 1), 120);
+                    }
+                  }}
+                  className={`text-left rounded-lg border-2 px-4 py-3 text-sm transition-colors ${
+                    value === opt
+                      ? "border-[#00AEEF] bg-[#00AEEF]/5 text-[#222] font-semibold"
+                      : "border-[#eee] bg-[#f9f9f9] hover:border-[#bbb]"
+                  }`}
+                >
+                  {opt}
+                </button>
+              ))}
+            </div>
+
+            <div className="mt-6 flex items-center justify-between gap-3">
+              <button
+                type="button"
+                onClick={goPrev}
+                className="inline-flex items-center gap-2 rounded-md px-4 py-2.5 text-sm font-semibold text-[#555] border-2 border-[#eee] hover:border-[#bbb]"
+              >
+                <ArrowLeft size={16} /> {wz.back}
+              </button>
+              <button
+                type="button"
+                disabled={required && !value}
+                onClick={goNext}
+                className="inline-flex items-center gap-2 rounded-md px-5 py-2.5 text-sm font-semibold text-white disabled:opacity-40"
+                style={{ background: "var(--gradient-cyan)" }}
+              >
+                {isLast ? (editingIdx !== null ? wz.updateItem : wz.addToList) : wz.next}
+                {isLast ? <Check size={16} /> : <ArrowRight size={16} />}
+              </button>
+            </div>
           </div>
-          <div className="mt-6 flex items-center justify-between gap-3">
-            <button
-              type="button"
-              onClick={() => setStep(1)}
-              className="inline-flex items-center gap-2 rounded-md px-4 py-2.5 text-sm font-semibold text-[#555] border-2 border-[#eee] hover:border-[#bbb]"
-            >
-              <ArrowLeft size={16} /> {wz.back}
-            </button>
-            <button
-              type="button"
-              disabled={!canNextFromSpecs}
-              onClick={commitDraft}
-              className="inline-flex items-center gap-2 rounded-md px-5 py-2.5 text-sm font-semibold text-white disabled:opacity-40"
-              style={{ background: "var(--gradient-cyan)" }}
-            >
-              {editingIdx !== null ? wz.updateItem : wz.addToList} <Check size={16} />
-            </button>
-          </div>
-        </div>
-      )}
+        );
+      })()}
 
       {/* STEP 3: list + addons */}
       {step === 3 && (

@@ -217,6 +217,7 @@ const pl = {
       heading1: "Nasz",
       heading2: "katalog.",
       sub: "Trzy opcje bariery: standardowa Green PE, kompostowalna BIO (powłoka wodno-dyspersyjna, bez plastiku) lub rPET dla przezroczystych kubków na zimne napoje.",
+      allRecyclable: "Wszystkie produkty z naszego katalogu nadają się w 100% do recyklingu.",
       minOrderLabel: "Minimalne zamówienie",
       askPrice: "Zapytaj o cenę",
       dontSee: "Nie widzisz tego, czego szukasz?",

@@ -1352,20 +1352,22 @@ function CupsQuoteForm() {
         >
           <h3 className="sm:col-span-2 text-xl font-bold text-[#222]">{wz.contactStep}</h3>
 
-          {/* Items summary */}
-          <div className="sm:col-span-2 rounded-lg border-2 border-[#eee] bg-[#f9f9f9] p-3">
-            <div className="text-xs font-bold uppercase tracking-wider text-[#555] mb-2">{wz.itemsSummary}</div>
-            <ul className="space-y-1 text-xs text-[#444]">
-              {items.map((it, i) => (
-                <li key={i}>
-                  <span className="font-semibold">{i + 1}.</span> {it.product}
-                  {it.quantity && ` — ${it.quantity}`}
-                  {it.size && `, ${it.size}`}
-                  {it.finish && `, ${it.finish}`}
-                </li>
-              ))}
-            </ul>
-          </div>
+          {/* Items summary — only for configure path */}
+          {path === "configure" && items.length > 0 && (
+            <div className="sm:col-span-2 rounded-lg border-2 border-[#eee] bg-[#f9f9f9] p-3">
+              <div className="text-xs font-bold uppercase tracking-wider text-[#555] mb-2">{wz.itemsSummary}</div>
+              <ul className="space-y-1 text-xs text-[#444]">
+                {items.map((it, i) => (
+                  <li key={i}>
+                    <span className="font-semibold">{i + 1}.</span> {it.product}
+                    {it.quantity && ` — ${it.quantity}`}
+                    {it.size && `, ${it.size}`}
+                    {it.finish && `, ${it.finish}`}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
 
           <Field label={t("cupsPage.quote.name")} required value={contact.name} onChange={updateContact("name")} />
           <Field label={t("cupsPage.quote.email")} type="email" required value={contact.email} onChange={updateContact("email")} />
@@ -1416,7 +1418,7 @@ function CupsQuoteForm() {
           <div className="sm:col-span-2 flex items-center justify-between gap-3 mt-2">
             <button
               type="button"
-              onClick={() => setStep(3)}
+              onClick={() => setStep(path === "configure" ? 3 : 1)}
               className="inline-flex items-center gap-2 rounded-md px-4 py-2.5 text-sm font-semibold text-[#555] border-2 border-[#eee] hover:border-[#bbb]"
             >
               <ArrowLeft size={16} /> {wz.back}

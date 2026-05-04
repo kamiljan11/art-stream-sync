@@ -1347,7 +1347,14 @@ function CupsQuoteForm() {
             </div>
           </div>
 
-          <div className="mt-6 flex justify-end">
+          <div className="mt-6 flex items-center justify-between gap-3">
+            <button
+              type="button"
+              onClick={() => { setPath(""); setStep(0); setDraft(emptyDraft); }}
+              className="inline-flex items-center gap-2 rounded-md px-4 py-2.5 text-sm font-semibold text-[#555] border-2 border-[#eee] hover:border-[#bbb]"
+            >
+              <ArrowLeft size={16} /> {wz.back}
+            </button>
             <button
               type="button"
               disabled={draft.productIdx < 0}

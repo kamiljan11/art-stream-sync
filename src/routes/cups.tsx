@@ -280,7 +280,7 @@ const cupsFaqs = [
   },
   {
     q: "Can I see samples first?",
-    a: "Yes. Sending samples by post is logistically tricky, so instead we set up a short meeting with our sales rep who'll bring the cups, show you the paper, lining and print quality in person, and walk you through the options.",
+    a: "Yes — we prefer to do it in person. Our sales rep will bring the cups to you, show the paper, lining and print quality live, and walk you through the options. It's faster than mailing samples and you get to feel the product in hand.",
   },
   {
     q: "Will every batch look identical?",

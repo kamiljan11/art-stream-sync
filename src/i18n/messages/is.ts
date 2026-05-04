@@ -323,7 +323,7 @@ const is = {
       heading1: "Hvernig á að",
       heading2: "panta.",
       steps: [
-        { n: "1", t: "Sendu lýsingu", d: "Stærð, magn, húðun (PE eða BIO), lógó eða heildarhönnun." },
+        { n: "1", t: "Notaðu gagnvirkt eyðublað", d: "Veldu vöru og svaraðu nokkrum stuttum spurningum — tekur um 60 sekúndur. Eða sendu lýsingu / biddu um sýnishorn." },
         { n: "2", t: "Fáðu fast tilboð", d: "Í ISK innan 24 vinnustunda. Allt-innifalið verð, VSK, tollar og afhending heim að dyrum innifalið." },
         { n: "3", t: "Ókeypis aðlögun á hönnun", d: "Við aðlögum lógóið þitt eða grafíkina að bollasniðmátinu, alveg ókeypis með hverri pöntun. Stafræn prufa áður en prentun hefst." },
         { n: "4", t: "Pakki heim að dyrum", d: "Við fylgjumst með framleiðslu og flutningi. Þú hættir að elta." },

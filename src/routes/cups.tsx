@@ -874,7 +874,12 @@ function CupsQuoteForm() {
   const draftMeta = draft.productIdx >= 0 ? byProduct[draft.productIdx] : undefined;
   const sizeOptions = draftMeta?.sizes ?? [];
   const finishOptions = draftMeta?.finishes ?? [];
-  const liningOptions = draftMeta?.linings ?? [];
+  // Bowl 130 ml is PE-only (no BIO lining available at that size)
+  const liningOptionsRaw = draftMeta?.linings ?? [];
+  const liningOptions =
+    draft.productIdx === 5 && draft.size.startsWith("130")
+      ? liningOptionsRaw.filter((l) => !/bio/i.test(l))
+      : liningOptionsRaw;
 
   // Addon suggestions based on items already in list
   type Addon = { key: string; label: string; productIdx: number; presetLining?: string };

@@ -216,7 +216,7 @@ const pl = {
     catalogue: {
       heading1: "Nasz",
       heading2: "katalog.",
-      sub: "Każda linia papierowa dostępna ze standardową barierą Green PE, kompostowalną BIO lub powłoką wodno-dyspersyjną.",
+      sub: "Trzy opcje bariery: standardowa Green PE, kompostowalna BIO (powłoka wodno-dyspersyjna, bez plastiku) lub rPET dla przezroczystych kubków na zimne napoje.",
       minOrderLabel: "Minimalne zamówienie",
       askPrice: "Zapytaj o cenę",
       dontSee: "Nie widzisz tego, czego szukasz?",
@@ -336,7 +336,7 @@ const pl = {
         { q: "Ile trwa dostawa do Islandii?", a: "Papierowe kubki z nadrukiem: 4–6 tygodni. Termiczne i transparentne plastikowe: 5–6 tygodni. Pozycje magazynowe (czyste kubki, wieczka, słomki, mieszadełka): 2–3 tygodnie. Express skraca o około tydzień zamówienia z nadrukiem. Dokładna data jest zablokowana w wycenie, my obsługujemy islandzką odprawę celną." },
         { q: "Czy cło, VAT i dostawa są wliczone?", a: "Tak. Każda wycena to all-in ISK, dostarczone pod drzwi. VAT, cło i transport krajowy z portu w Reykjavíku, wszystko wliczone. Bez niespodzianek, gdy paleta dotrze." },
         { q: "Ile kolorów mogę wydrukować?", a: "Kubki papierowe: nieograniczony druk pełnokolorowy bez dopłaty, fotografie full-bleed mile widziane. Plastik transparentny: max 4 kolory pantonowe, tylko jednolite plamy (bez gradientów). Kody QR i oznaczenia pojemności obsługiwane na obu." },
-        { q: "Czy mogę zamówić kubki eco / biodegradowalne?", a: "Tak, każdą linię papierową można zamówić z barierą BIO (kompostowalna PLA) zamiast standardowej Green PE. Ten sam dotyk, ta sama odporność na ciepło, bez mikroplastiku, EN 13432 kompostowalne. Wystarczy zaznaczyć w formularzu wyceny." },
+        { q: "Czy mogę zamówić kubki eco / biodegradowalne?", a: "Tak. Oferujemy trzy bariery: standardową Green PE (w pełni do recyklingu, strumień mieszany), kompostowalną BIO z powłoką wodno-dyspersyjną (bez plastiku, kompostowalna w warunkach domowych, EN 13432, dopłata ok. 20%) oraz rPET (recyklowany plastik) dla przezroczystych kubków na zimne napoje. Wystarczy zaznaczyć w formularzu wyceny." },
         { q: "Czy mogę najpierw zobaczyć próbki?", a: "Tak. Wysyłka próbek pocztą jest logistycznie utrudniona, dlatego umawiamy krótkie spotkanie z naszym handlowcem, który przywiezie kubki, pokaże papier, powłokę i jakość druku na żywo oraz przeprowadzi Cię przez dostępne opcje." },
         { q: "Czy każda partia będzie wyglądać identycznie?", a: "Gramatura papieru, dopasowanie wieczka i wymiary są zablokowane w specyfikacji, każda partia jest taka sama. Kolor: standardowa branżowa wariancja ±15% odcienia między produkcjami (czerwony zostaje czerwony, dokładny ton może się nieco różnić). Potrzebujesz dokładnego koloru marki za każdym razem? Wyślij kod Pantone, zrobimy dopasowanie Pantone (mała dopłata)." },
         { q: "Czy dostarczacie poza obszar stołeczny?", a: "Tak. Mieścimy się w Njarðvíku i wysyłamy w dowolne miejsce na Islandii: Reykjavík, Akureyri, Vestfirðir, Egilsstaðir, Wyspy Westmańskie. Transport krajowy jest w wycenie." },
@@ -389,7 +389,7 @@ const pl = {
       ],
       quantities: ["1 000 – 5 000", "5 000 – 20 000", "20 000 – 50 000", "50 000+"],
       timings: ["Standard (najlepsza cena)", "Express (szybciej, jeśli możliwe)", "Elastyczny"],
-      linings: ["Nie wiem jeszcze, doradźcie", "Standard (Green PE)", "BIO (kompostowalna PLA)", "Dyspersja wodna (bez plastiku, recykling)"],
+      linings: ["Nie wiem jeszcze, doradźcie", "Standard (Green PE)", "Kompostowalna BIO (dyspersja wodna, bez plastiku)", "rPET (recyklowany plastik, na zimne napoje)"],
     },
     productCatalog: [
       {

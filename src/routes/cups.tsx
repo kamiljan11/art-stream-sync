@@ -1374,7 +1374,7 @@ function CupsQuoteForm() {
           <Field label={t("cupsPage.quote.phone")} type="tel" required className="sm:col-span-2" value={contact.phone} onChange={updateContact("phone")} />
 
           {/* Design assistance + file upload */}
-          <div className="sm:col-span-2 grid gap-4 sm:grid-cols-2 rounded-lg border-2 border-[#eee] bg-[#f9f9f9] p-4">
+          <div className="sm:col-span-2 flex flex-col gap-4 rounded-lg border-2 border-[#eee] bg-[#f9f9f9] p-4">
             <fieldset className="flex flex-col gap-2">
               <legend className="text-xs font-bold uppercase tracking-wider text-[#555] mb-1">
                 {t("cupsPage.quote.designQuestion")}
@@ -1388,18 +1388,20 @@ function CupsQuoteForm() {
                 {t("cupsPage.quote.designNo")}
               </label>
             </fieldset>
-            <div className="flex flex-col gap-2 min-w-0">
-              <span className="text-xs font-bold uppercase tracking-wider text-[#555]">
-                {t("cupsPage.quote.uploadArtwork")}
-              </span>
-              <label className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-lg border-2 border-dashed border-[#ddd] bg-white px-3 py-2.5 text-sm font-medium text-[#333] hover:border-[#bbb] transition-colors">
-                <input type="file" className="hidden" accept=".pdf,.ai,.eps,.psd,.png,.jpg,.jpeg,.svg,.tif,.tiff" onChange={(e) => setFileName(e.target.files?.[0]?.name ?? "")} />
-                {fileName ? t("cupsPage.quote.changeFile") : t("cupsPage.quote.chooseFile")}
-              </label>
-              <span className="text-xs text-[#777] break-words">
-                {fileName || t("cupsPage.quote.uploadPlaceholder")}
-              </span>
-            </div>
+            {needsDesign === "no" && (
+              <div className="flex flex-col gap-2 min-w-0 border-t-2 border-[#eee] pt-4">
+                <span className="text-xs font-bold uppercase tracking-wider text-[#555]">
+                  {t("cupsPage.quote.uploadArtwork")}
+                </span>
+                <label className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-lg border-2 border-dashed border-[#ddd] bg-white px-3 py-2.5 text-sm font-medium text-[#333] hover:border-[#bbb] transition-colors">
+                  <input type="file" className="hidden" accept=".pdf,.ai,.eps,.psd,.png,.jpg,.jpeg,.svg,.tif,.tiff" onChange={(e) => setFileName(e.target.files?.[0]?.name ?? "")} />
+                  {fileName ? t("cupsPage.quote.changeFile") : t("cupsPage.quote.chooseFile")}
+                </label>
+                <span className="text-xs text-[#777] break-words">
+                  {fileName || t("cupsPage.quote.uploadPlaceholder")}
+                </span>
+              </div>
+            )}
           </div>
 
           <label className="sm:col-span-2 flex flex-col gap-1.5">

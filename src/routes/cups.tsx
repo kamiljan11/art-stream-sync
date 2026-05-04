@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Check, Leaf } from "lucide-react";
+import { ArrowRight, ArrowLeft, Check, Leaf, Plus, Pencil, Trash2 } from "lucide-react";
 import { useState } from "react";
 import { useNavigate } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/site/SiteHeader";
@@ -836,31 +836,98 @@ function CupsQuoteForm() {
   const dict = locale === "is" ? isMessages : locale === "pl" ? plMessages : enMessages;
   const byProduct = dict.cupsPage.quote.byProduct;
   const productOptions = dict.cupsPage.quote.products;
+  const wz = dict.cupsPage.quote.wizard;
+  const addonLabels = dict.cupsPage.quote.addonLabels;
   const navigate = useNavigate();
   const [submitted, setSubmitted] = useState(false);
   const [needsDesign, setNeedsDesign] = useState<"yes" | "no" | "">("");
   const [fileName, setFileName] = useState<string>("");
   const [submitting, setSubmitting] = useState(false);
   const [errorMsg, setErrorMsg] = useState<string>("");
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    product: "",
-    quantity: "",
-    timing: "",
-    lining: "",
-    size: "",
-    finish: "",
-    notes: "",
-  });
-  const update = (k: keyof typeof form) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) =>
-    setForm((f) => ({ ...f, [k]: e.target.value }));
-  const productIdx = productOptions.indexOf(form.product);
-  const productMeta = productIdx >= 0 ? byProduct[productIdx] : undefined;
-  const sizeOptions = productMeta?.sizes ?? [];
-  const finishOptions = productMeta?.finishes ?? [];
-  const showLining = productMeta?.showLining ?? false;
+
+  type Item = {
+    productIdx: number;
+    product: string;
+    quantity: string;
+    timing: string;
+    size: string;
+    finish: string;
+    lining: string;
+  };
+  const emptyDraft: Item = { productIdx: -1, product: "", quantity: "", timing: "", size: "", finish: "", lining: "" };
+
+  const [step, setStep] = useState(1); // 1 product, 2 specs, 3 list, 4 contact
+  const [items, setItems] = useState<Item[]>([]);
+  const [draft, setDraft] = useState<Item>(emptyDraft);
+  const [editingIdx, setEditingIdx] = useState<number | null>(null);
+  const [dismissedAddons, setDismissedAddons] = useState<string[]>([]);
+
+  const [contact, setContact] = useState({ name: "", email: "", phone: "", notes: "" });
+  const updateContact = (k: keyof typeof contact) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
+    setContact((c) => ({ ...c, [k]: e.target.value }));
+
+  const draftMeta = draft.productIdx >= 0 ? byProduct[draft.productIdx] : undefined;
+  const sizeOptions = draftMeta?.sizes ?? [];
+  const finishOptions = draftMeta?.finishes ?? [];
+  const showLining = draftMeta?.showLining ?? false;
+
+  // Addon suggestions based on items already in list
+  type Addon = { key: string; label: string; productIdx: number; presetLining?: string };
+  const computeAddons = (): Addon[] => {
+    const haveIdx = new Set(items.map((i) => i.productIdx));
+    const out: Addon[] = [];
+    const cupIdxs = [1, 2, 3, 4]; // any cup
+    const hasAnyCup = items.some((i) => cupIdxs.includes(i.productIdx));
+    const hasBowl = items.some((i) => i.productIdx === 5);
+    // Lids for cups
+    if (hasAnyCup && !haveIdx.has(6)) {
+      out.push({ key: "lids", label: addonLabels.lids, productIdx: 6 });
+    }
+    // Straws when rPET cold cup
+    if (items.some((i) => i.productIdx === 4) && !haveIdx.has(7)) {
+      out.push({ key: "straws", label: addonLabels.straws, productIdx: 7 });
+    }
+    // Stirrers for hot cups or bowls
+    if ((items.some((i) => i.productIdx === 1 || i.productIdx === 2) || hasBowl) && !haveIdx.has(8)) {
+      out.push({ key: "stirrers", label: addonLabels.stirrers, productIdx: 8 });
+    }
+    return out.filter((a) => !dismissedAddons.includes(a.key));
+  };
+  const addons = computeAddons();
+
+  const startAddItem = () => {
+    setDraft(emptyDraft);
+    setEditingIdx(null);
+    setStep(1);
+  };
+  const startEdit = (idx: number) => {
+    setDraft(items[idx]);
+    setEditingIdx(idx);
+    setStep(2);
+  };
+  const removeItem = (idx: number) => {
+    setItems((arr) => arr.filter((_, i) => i !== idx));
+  };
+  const commitDraft = () => {
+    if (draft.productIdx < 0) return;
+    if (editingIdx !== null) {
+      setItems((arr) => arr.map((it, i) => (i === editingIdx ? draft : it)));
+    } else {
+      setItems((arr) => [...arr, draft]);
+    }
+    setDraft(emptyDraft);
+    setEditingIdx(null);
+    setStep(3);
+  };
+  const addAddonItem = (a: Addon) => {
+    setDraft({ ...emptyDraft, productIdx: a.productIdx, product: productOptions[a.productIdx] });
+    setEditingIdx(null);
+    setStep(2);
+  };
+
+  const totalSteps = 4;
+  const stepLabel = (n: number) => [wz.s1, wz.s2, wz.s3, wz.s4][n - 1];
+
   if (submitted) {
     return (
       <div className="mt-10 text-center rounded-xl border border-border bg-card p-12">
@@ -869,155 +936,355 @@ function CupsQuoteForm() {
       </div>
     );
   }
+
+  const submit = async () => {
+    if (submitting) return;
+    setErrorMsg("");
+    setSubmitting(true);
+    try {
+      const itemsBlock = items.map((it, i) => {
+        const lines = [
+          `#${i + 1} ${it.product}`,
+          it.quantity && `  Qty: ${it.quantity}`,
+          it.size && `  Size: ${it.size}`,
+          it.finish && `  Colour/finish: ${it.finish}`,
+          it.lining && `  Lining: ${it.lining}`,
+          it.timing && `  Timing: ${it.timing}`,
+        ].filter(Boolean);
+        return lines.join("\n");
+      }).join("\n\n");
+      const projectDetails = [
+        itemsBlock,
+        fileName && `Artwork file: ${fileName}`,
+        contact.notes && `Notes: ${contact.notes}`,
+      ].filter(Boolean).join("\n\n");
+      const res = await fetch("/api/public/quote", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          type: "new",
+          name: contact.name,
+          email: contact.email,
+          phone: contact.phone,
+          productType: items.map((i) => i.product).join(" + "),
+          quantity: items.map((i) => i.quantity).filter(Boolean).join(" / "),
+          projectDetails,
+          needsDesigner: needsDesign === "yes",
+        }),
+      });
+      if (!res.ok) throw new Error("Submit failed");
+      setSubmitted(true);
+      navigate({ to: "/thank-you" });
+    } catch {
+      setErrorMsg("Something went wrong. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  const canNextFromSpecs = draft.productIdx >= 0 && draft.quantity !== "" &&
+    (sizeOptions.length === 0 || draft.size !== "") &&
+    (finishOptions.length === 0 || draft.finish !== "");
+
   return (
-    <form
-      onSubmit={async (e) => {
-        e.preventDefault();
-        if (submitting) return;
-        setErrorMsg("");
-        setSubmitting(true);
-        try {
-          const projectDetails = [
-            form.size && `Size: ${form.size}`,
-            form.finish && `Colour / finish: ${form.finish}`,
-            form.timing && `Timing: ${form.timing}`,
-            form.lining && `Lining: ${form.lining}`,
-            fileName && `Artwork file: ${fileName}`,
-            form.notes && `Notes: ${form.notes}`,
-          ]
-            .filter(Boolean)
-            .join("\n");
-          const res = await fetch("/api/public/quote", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              type: "new",
-              name: form.name,
-              email: form.email,
-              phone: form.phone,
-              productType: form.product,
-              quantity: form.quantity,
-              projectDetails,
-              needsDesigner: needsDesign === "yes",
-            }),
-          });
-          if (!res.ok) throw new Error("Submit failed");
-          setSubmitted(true);
-          navigate({ to: "/thank-you" });
-        } catch (err) {
-          setErrorMsg("Something went wrong. Please try again.");
-        } finally {
-          setSubmitting(false);
-        }
-      }}
-      className="mt-10 grid gap-4 sm:grid-cols-2 rounded-2xl bg-white p-5 sm:p-8 shadow-[0_20px_50px_rgba(0,0,0,0.5)] text-[#333] [&>*]:min-w-0"
-    >
-      <Field label={t("cupsPage.quote.name")} required value={form.name} onChange={update("name")} />
-      <Field label={t("cupsPage.quote.email")} type="email" required value={form.email} onChange={update("email")} />
-      <Field label={t("cupsPage.quote.phone")} type="tel" required className="sm:col-span-2" value={form.phone} onChange={update("phone")} />
-      <SelectField
-        label={t("cupsPage.quote.product")}
-        options={tArray("cupsPage.quote.products")}
-        placeholder={t("cupsPage.quote.selectPlaceholder")}
-        value={form.product}
-        onChange={(e) => {
-          setForm((f) => ({ ...f, product: e.target.value, size: "", finish: "", lining: "" }));
-        }}
-      />
-      <SelectField
-        label={t("cupsPage.quote.quantity")}
-        options={tArray("cupsPage.quote.quantities")}
-        placeholder={t("cupsPage.quote.selectPlaceholder")}
-        value={form.quantity}
-        onChange={update("quantity")}
-      />
-      {sizeOptions.length > 0 && (
-        <SelectField label={t("cupsPage.quote.size")} options={sizeOptions} placeholder={t("cupsPage.quote.selectPlaceholder")} value={form.size} onChange={update("size")} />
-      )}
-      {finishOptions.length > 0 && (
-        <SelectField label={t("cupsPage.quote.finish")} options={finishOptions} placeholder={t("cupsPage.quote.selectPlaceholder")} value={form.finish} onChange={update("finish")} />
-      )}
-      <SelectField label={t("cupsPage.quote.timing")} options={tArray("cupsPage.quote.timings")} placeholder={t("cupsPage.quote.selectPlaceholder")} value={form.timing} onChange={update("timing")} />
-      {showLining && (
-        <SelectField label={t("cupsPage.quote.lining")} options={tArray("cupsPage.quote.linings")} placeholder={t("cupsPage.quote.selectPlaceholder")} value={form.lining} onChange={update("lining")} />
-      )}
-      {/* Design assistance + file upload, two-column block */}
-      <div className="sm:col-span-2 grid gap-4 sm:grid-cols-2 rounded-lg border-2 border-[#eee] bg-[#f9f9f9] p-4">
-        <fieldset className="flex flex-col gap-2">
-          <legend className="text-xs font-bold uppercase tracking-wider text-[#555] mb-1">
-            {t("cupsPage.quote.designQuestion")}
-          </legend>
-          <label className="flex items-center gap-2 cursor-pointer text-sm text-[#333]">
-            <input
-              type="radio"
-              name="needsDesign"
-              value="yes"
-              checked={needsDesign === "yes"}
-              onChange={() => setNeedsDesign("yes")}
-              className="h-4 w-4 accent-[#00AEEF]"
-            />
-            {t("cupsPage.quote.designYes")}
-          </label>
-          <label className="flex items-center gap-2 cursor-pointer text-sm text-[#333]">
-            <input
-              type="radio"
-              name="needsDesign"
-              value="no"
-              checked={needsDesign === "no"}
-              onChange={() => setNeedsDesign("no")}
-              className="h-4 w-4 accent-[#00AEEF]"
-            />
-            {t("cupsPage.quote.designNo")}
-          </label>
-        </fieldset>
-        <div className="flex flex-col gap-2 min-w-0">
-          <span className="text-xs font-bold uppercase tracking-wider text-[#555]">
-            {t("cupsPage.quote.uploadArtwork")}{" "}
-            <span
-              className="ml-1 inline-flex h-4 w-4 items-center justify-center rounded-full bg-[#00AEEF]/20 text-[#00AEEF] text-[10px]"
-              title={t("cupsPage.quote.uploadHint")}
+    <div className="mt-10 rounded-2xl bg-white p-5 sm:p-8 shadow-[0_20px_50px_rgba(0,0,0,0.5)] text-[#333]">
+      {/* Stepper */}
+      <div className="flex items-center justify-between gap-2 mb-6">
+        {[1, 2, 3, 4].map((n) => (
+          <div key={n} className="flex-1 flex items-center gap-2">
+            <div
+              className={`h-8 w-8 shrink-0 rounded-full flex items-center justify-center text-xs font-bold ${
+                step >= n ? "bg-[#00AEEF] text-white" : "bg-[#eee] text-[#999]"
+              }`}
             >
-              i
-            </span>
-          </span>
-          <label className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-lg border-2 border-dashed border-[#ddd] bg-white px-3 py-2.5 text-sm font-medium text-[#333] hover:border-[#bbb] transition-colors">
-            <input
-              type="file"
-              className="hidden"
-              accept=".pdf,.ai,.eps,.psd,.png,.jpg,.jpeg,.svg,.tif,.tiff"
-              onChange={(e) => setFileName(e.target.files?.[0]?.name ?? "")}
-            />
-            {fileName ? t("cupsPage.quote.changeFile") : t("cupsPage.quote.chooseFile")}
-          </label>
-          <span className="text-xs text-[#777] break-words">
-            {fileName || t("cupsPage.quote.uploadPlaceholder")}
-          </span>
-        </div>
+              {step > n ? <Check size={14} /> : n}
+            </div>
+            <div className={`text-xs font-semibold uppercase tracking-wider truncate ${step >= n ? "text-[#333]" : "text-[#aaa]"}`}>
+              {stepLabel(n)}
+            </div>
+            {n < 4 && <div className={`hidden sm:block flex-1 h-0.5 ${step > n ? "bg-[#00AEEF]" : "bg-[#eee]"}`} />}
+          </div>
+        ))}
       </div>
-      <label className="sm:col-span-2 flex flex-col gap-1.5">
-        <span className="text-xs font-bold uppercase tracking-wider text-[#555]">
-          {t("cupsPage.quote.notes")}
-        </span>
-        <textarea
-          rows={4}
-          placeholder={t("cupsPage.quote.notesPlaceholder")}
-          value={form.notes}
-          onChange={update("notes")}
-          className="rounded-lg border-2 border-[#eee] bg-[#f9f9f9] text-[#333] placeholder:text-[#999] px-4 py-[14px] text-sm outline-none focus:border-[#333] focus:bg-white transition-colors min-h-[100px] resize-y"
-        />
-      </label>
-      {errorMsg && (
-        <div className="sm:col-span-2 text-sm text-destructive">{errorMsg}</div>
+      <div className="text-xs text-[#888] mb-4">{wz.step} {step} {wz.of} {totalSteps}</div>
+
+      {/* STEP 1: pick product */}
+      {step === 1 && (
+        <div>
+          <h3 className="text-xl font-bold text-[#222]">{wz.pickProduct}</h3>
+          <p className="text-sm text-[#777] mt-1">{wz.pickProductHint}</p>
+          <div className="mt-5 grid gap-2 sm:grid-cols-2">
+            {productOptions.map((p, i) => (
+              <button
+                key={p}
+                type="button"
+                onClick={() => setDraft({ ...emptyDraft, productIdx: i, product: p })}
+                className={`text-left rounded-lg border-2 px-4 py-3 text-sm transition-colors ${
+                  draft.productIdx === i
+                    ? "border-[#00AEEF] bg-[#00AEEF]/5 text-[#222] font-semibold"
+                    : "border-[#eee] bg-[#f9f9f9] hover:border-[#bbb]"
+                }`}
+              >
+                {p}
+              </button>
+            ))}
+          </div>
+          <div className="mt-6 flex justify-end">
+            <button
+              type="button"
+              disabled={draft.productIdx < 0}
+              onClick={() => setStep(2)}
+              className="inline-flex items-center gap-2 rounded-md px-5 py-2.5 text-sm font-semibold text-white disabled:opacity-40"
+              style={{ background: "var(--gradient-cyan)" }}
+            >
+              {wz.next} <ArrowRight size={16} />
+            </button>
+          </div>
+        </div>
       )}
-      <button
-        type="submit"
-        disabled={submitting}
-        className="sm:col-span-2 mt-2 inline-flex items-center justify-center gap-2 rounded-md py-3 font-semibold text-white"
-        style={{ background: "var(--gradient-cyan)", boxShadow: "var(--shadow-glow)" }}
-      >
-        {submitting ? "..." : t("cupsPage.quote.send")} <ArrowRight size={18} />
-      </button>
-    </form>
+
+      {/* STEP 2: configure */}
+      {step === 2 && (
+        <div>
+          <h3 className="text-xl font-bold text-[#222]">{wz.configure}</h3>
+          <p className="text-sm text-[#777] mt-1">{draft.product}</p>
+          <div className="mt-5 grid gap-4 sm:grid-cols-2">
+            <SelectField
+              label={t("cupsPage.quote.quantity")}
+              options={tArray("cupsPage.quote.quantities")}
+              placeholder={t("cupsPage.quote.selectPlaceholder")}
+              value={draft.quantity}
+              onChange={(e) => setDraft((d) => ({ ...d, quantity: e.target.value }))}
+            />
+            <SelectField
+              label={t("cupsPage.quote.timing")}
+              options={tArray("cupsPage.quote.timings")}
+              placeholder={t("cupsPage.quote.selectPlaceholder")}
+              value={draft.timing}
+              onChange={(e) => setDraft((d) => ({ ...d, timing: e.target.value }))}
+            />
+            {sizeOptions.length > 0 && (
+              <SelectField
+                label={t("cupsPage.quote.size")}
+                options={sizeOptions}
+                placeholder={t("cupsPage.quote.selectPlaceholder")}
+                value={draft.size}
+                onChange={(e) => setDraft((d) => ({ ...d, size: e.target.value }))}
+              />
+            )}
+            {finishOptions.length > 0 && (
+              <SelectField
+                label={t("cupsPage.quote.finish")}
+                options={finishOptions}
+                placeholder={t("cupsPage.quote.selectPlaceholder")}
+                value={draft.finish}
+                onChange={(e) => setDraft((d) => ({ ...d, finish: e.target.value }))}
+              />
+            )}
+            {showLining && (
+              <SelectField
+                label={t("cupsPage.quote.lining")}
+                options={tArray("cupsPage.quote.linings")}
+                placeholder={t("cupsPage.quote.selectPlaceholder")}
+                value={draft.lining}
+                onChange={(e) => setDraft((d) => ({ ...d, lining: e.target.value }))}
+              />
+            )}
+          </div>
+          <div className="mt-6 flex items-center justify-between gap-3">
+            <button
+              type="button"
+              onClick={() => setStep(1)}
+              className="inline-flex items-center gap-2 rounded-md px-4 py-2.5 text-sm font-semibold text-[#555] border-2 border-[#eee] hover:border-[#bbb]"
+            >
+              <ArrowLeft size={16} /> {wz.back}
+            </button>
+            <button
+              type="button"
+              disabled={!canNextFromSpecs}
+              onClick={commitDraft}
+              className="inline-flex items-center gap-2 rounded-md px-5 py-2.5 text-sm font-semibold text-white disabled:opacity-40"
+              style={{ background: "var(--gradient-cyan)" }}
+            >
+              {editingIdx !== null ? wz.updateItem : wz.addToList} <Check size={16} />
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* STEP 3: list + addons */}
+      {step === 3 && (
+        <div>
+          <h3 className="text-xl font-bold text-[#222]">{wz.yourList}</h3>
+          {items.length === 0 ? (
+            <p className="text-sm text-[#777] mt-3">{wz.emptyList}</p>
+          ) : (
+            <ul className="mt-4 space-y-2">
+              {items.map((it, i) => (
+                <li key={i} className="rounded-lg border-2 border-[#eee] bg-[#f9f9f9] p-3 flex items-start gap-3">
+                  <div className="flex-1 min-w-0">
+                    <div className="font-semibold text-sm text-[#222]">{it.product}</div>
+                    <div className="text-xs text-[#666] mt-1 flex flex-wrap gap-x-3 gap-y-0.5">
+                      {it.quantity && <span>{wz.qty}: {it.quantity}</span>}
+                      {it.size && <span>{it.size}</span>}
+                      {it.finish && <span>{it.finish}</span>}
+                      {it.lining && <span>{it.lining}</span>}
+                    </div>
+                  </div>
+                  <button type="button" onClick={() => startEdit(i)} className="text-[#00AEEF] hover:opacity-80 p-1" aria-label={wz.edit}>
+                    <Pencil size={16} />
+                  </button>
+                  <button type="button" onClick={() => removeItem(i)} className="text-[#e11d48] hover:opacity-80 p-1" aria-label={wz.remove}>
+                    <Trash2 size={16} />
+                  </button>
+                </li>
+              ))}
+            </ul>
+          )}
+
+          {/* Addon suggestions */}
+          {addons.length > 0 && (
+            <div className="mt-6 rounded-lg border-2 border-dashed border-[#facc15] bg-[#fefce8] p-4">
+              <div className="flex items-center gap-2">
+                <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-[#facc15] text-black text-xs font-bold">★</span>
+                <h4 className="font-bold text-sm text-[#713f12]">{wz.addonsTitle}</h4>
+              </div>
+              <p className="text-xs text-[#854d0e] mt-1">{wz.addonsHint}</p>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {addons.map((a) => (
+                  <div key={a.key} className="inline-flex items-center gap-1 rounded-full bg-white border border-[#facc15] pl-3 pr-1 py-1 text-xs">
+                    <span className="text-[#713f12] font-medium">{a.label}</span>
+                    <button
+                      type="button"
+                      onClick={() => addAddonItem(a)}
+                      className="inline-flex items-center gap-1 rounded-full bg-[#facc15] text-black px-2.5 py-1 font-bold hover:bg-[#eab308] transition-colors"
+                    >
+                      <Plus size={12} /> {wz.addAddon}
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setDismissedAddons((d) => [...d, a.key])}
+                      className="text-[#999] hover:text-[#666] px-1.5"
+                      aria-label={wz.skipAddons}
+                    >
+                      ×
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          <div className="mt-6 flex flex-wrap items-center justify-between gap-3">
+            <button
+              type="button"
+              onClick={startAddItem}
+              className="inline-flex items-center gap-2 rounded-md px-4 py-2.5 text-sm font-semibold text-[#00AEEF] border-2 border-[#00AEEF]/30 hover:bg-[#00AEEF]/5"
+            >
+              <Plus size={16} /> {wz.addAnother}
+            </button>
+            <button
+              type="button"
+              disabled={items.length === 0}
+              onClick={() => setStep(4)}
+              className="inline-flex items-center gap-2 rounded-md px-5 py-2.5 text-sm font-semibold text-white disabled:opacity-40"
+              style={{ background: "var(--gradient-cyan)" }}
+            >
+              {wz.next} <ArrowRight size={16} />
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* STEP 4: contact + design + send */}
+      {step === 4 && (
+        <form
+          onSubmit={(e) => { e.preventDefault(); submit(); }}
+          className="grid gap-4 sm:grid-cols-2 [&>*]:min-w-0"
+        >
+          <h3 className="sm:col-span-2 text-xl font-bold text-[#222]">{wz.contactStep}</h3>
+
+          {/* Items summary */}
+          <div className="sm:col-span-2 rounded-lg border-2 border-[#eee] bg-[#f9f9f9] p-3">
+            <div className="text-xs font-bold uppercase tracking-wider text-[#555] mb-2">{wz.itemsSummary}</div>
+            <ul className="space-y-1 text-xs text-[#444]">
+              {items.map((it, i) => (
+                <li key={i}>
+                  <span className="font-semibold">{i + 1}.</span> {it.product}
+                  {it.quantity && ` — ${it.quantity}`}
+                  {it.size && `, ${it.size}`}
+                  {it.finish && `, ${it.finish}`}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <Field label={t("cupsPage.quote.name")} required value={contact.name} onChange={updateContact("name")} />
+          <Field label={t("cupsPage.quote.email")} type="email" required value={contact.email} onChange={updateContact("email")} />
+          <Field label={t("cupsPage.quote.phone")} type="tel" required className="sm:col-span-2" value={contact.phone} onChange={updateContact("phone")} />
+
+          {/* Design assistance + file upload */}
+          <div className="sm:col-span-2 grid gap-4 sm:grid-cols-2 rounded-lg border-2 border-[#eee] bg-[#f9f9f9] p-4">
+            <fieldset className="flex flex-col gap-2">
+              <legend className="text-xs font-bold uppercase tracking-wider text-[#555] mb-1">
+                {t("cupsPage.quote.designQuestion")}
+              </legend>
+              <label className="flex items-center gap-2 cursor-pointer text-sm text-[#333]">
+                <input type="radio" name="needsDesign" value="yes" checked={needsDesign === "yes"} onChange={() => setNeedsDesign("yes")} className="h-4 w-4 accent-[#00AEEF]" />
+                {t("cupsPage.quote.designYes")}
+              </label>
+              <label className="flex items-center gap-2 cursor-pointer text-sm text-[#333]">
+                <input type="radio" name="needsDesign" value="no" checked={needsDesign === "no"} onChange={() => setNeedsDesign("no")} className="h-4 w-4 accent-[#00AEEF]" />
+                {t("cupsPage.quote.designNo")}
+              </label>
+            </fieldset>
+            <div className="flex flex-col gap-2 min-w-0">
+              <span className="text-xs font-bold uppercase tracking-wider text-[#555]">
+                {t("cupsPage.quote.uploadArtwork")}
+              </span>
+              <label className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-lg border-2 border-dashed border-[#ddd] bg-white px-3 py-2.5 text-sm font-medium text-[#333] hover:border-[#bbb] transition-colors">
+                <input type="file" className="hidden" accept=".pdf,.ai,.eps,.psd,.png,.jpg,.jpeg,.svg,.tif,.tiff" onChange={(e) => setFileName(e.target.files?.[0]?.name ?? "")} />
+                {fileName ? t("cupsPage.quote.changeFile") : t("cupsPage.quote.chooseFile")}
+              </label>
+              <span className="text-xs text-[#777] break-words">
+                {fileName || t("cupsPage.quote.uploadPlaceholder")}
+              </span>
+            </div>
+          </div>
+
+          <label className="sm:col-span-2 flex flex-col gap-1.5">
+            <span className="text-xs font-bold uppercase tracking-wider text-[#555]">{t("cupsPage.quote.notes")}</span>
+            <textarea
+              rows={4}
+              placeholder={t("cupsPage.quote.notesPlaceholder")}
+              value={contact.notes}
+              onChange={updateContact("notes")}
+              className="rounded-lg border-2 border-[#eee] bg-[#f9f9f9] text-[#333] placeholder:text-[#999] px-4 py-[14px] text-sm outline-none focus:border-[#333] focus:bg-white transition-colors min-h-[100px] resize-y"
+            />
+          </label>
+
+          {errorMsg && <div className="sm:col-span-2 text-sm text-destructive">{errorMsg}</div>}
+
+          <div className="sm:col-span-2 flex items-center justify-between gap-3 mt-2">
+            <button
+              type="button"
+              onClick={() => setStep(3)}
+              className="inline-flex items-center gap-2 rounded-md px-4 py-2.5 text-sm font-semibold text-[#555] border-2 border-[#eee] hover:border-[#bbb]"
+            >
+              <ArrowLeft size={16} /> {wz.back}
+            </button>
+            <button
+              type="submit"
+              disabled={submitting}
+              className="inline-flex items-center justify-center gap-2 rounded-md px-6 py-3 text-sm font-semibold text-white"
+              style={{ background: "var(--gradient-cyan)", boxShadow: "var(--shadow-glow)" }}
+            >
+              {submitting ? "..." : t("cupsPage.quote.send")} <ArrowRight size={18} />
+            </button>
+          </div>
+        </form>
+      )}
+    </div>
   );
 }
 

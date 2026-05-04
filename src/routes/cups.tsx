@@ -296,7 +296,7 @@ const cupsFaqs = [
   },
   {
     q: "Can I see samples first?",
-    a: "Yes. Plain stock samples are free. Custom-printed samples carry a small production fee, deducted from your first real order.",
+    a: "Yes. Sending samples by post is logistically tricky, so instead we set up a short meeting with our sales rep who'll bring the cups, show you the paper, lining and print quality in person, and walk you through the options.",
   },
   {
     q: "Will every batch look identical?",
@@ -305,10 +305,6 @@ const cupsFaqs = [
   {
     q: "Do you deliver outside the capital area?",
     a: "Yes. We're based in Njarðvík and ship anywhere in Iceland, Reykjavík, Akureyri, Vestfirðir, Egilsstaðir, Westman Islands. Inland transport is in the quote.",
-  },
-  {
-    q: "Do I need a long-term contract?",
-    a: "No. Every order is independent. Order once or set up a recurring delivery, your call.",
   },
   {
     q: "I don't know how to prepare artwork, can you help?",
@@ -324,7 +320,7 @@ const cupsFaqs = [
   },
   {
     q: "Can I add liquid level markings (0.2 L, 0.3 L)?",
-    a: "Yes, on the outside. Because cup walls taper, order a sample first so we can measure the exact fill heights before locking the artwork.",
+    a: "Yes, on the outside. Because cup walls taper, we measure the exact fill heights on a reference cup before locking the artwork — easiest to sort during a quick meeting with our sales rep.",
   },
   {
     q: "Can the inside of the cup be printed?",

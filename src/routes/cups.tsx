@@ -1373,7 +1373,8 @@ function CupsQuoteForm() {
           <Field label={t("cupsPage.quote.email")} type="email" required value={contact.email} onChange={updateContact("email")} />
           <Field label={t("cupsPage.quote.phone")} type="tel" required className="sm:col-span-2" value={contact.phone} onChange={updateContact("phone")} />
 
-          {/* Design assistance + file upload */}
+          {/* Design assistance + file upload — only relevant when configuring a product order */}
+          {path === "configure" && (
           <div className="sm:col-span-2 flex flex-col gap-4 rounded-lg border-2 border-[#eee] bg-[#f9f9f9] p-4">
             <fieldset className="flex flex-col gap-2">
               <legend className="text-xs font-bold uppercase tracking-wider text-[#555] mb-1">
@@ -1403,6 +1404,7 @@ function CupsQuoteForm() {
               </div>
             )}
           </div>
+          )}
 
           <label className="sm:col-span-2 flex flex-col gap-1.5">
             <span className="text-xs font-bold uppercase tracking-wider text-[#555]">{t("cupsPage.quote.notes")}</span>

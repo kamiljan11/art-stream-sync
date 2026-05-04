@@ -400,7 +400,7 @@ const pl = {
         briefMessage: "Krótki opis zapytania",
         briefMessagePlaceholder: "Co chcesz zamówić, ilości, terminy, kolory, dowolne uwagi...",
         sampleTitle: "Poproś o próbki",
-        sampleHint: "Wysyłka próbek pocztą jest utrudniona, więc zwykle umawiamy 15-min spotkanie z handlowcem, który przywozi kubki na żywo. Daj znać, którymi produktami jesteś zainteresowany.",
+        sampleHint: "Wysyłka próbek pocztą jest utrudniona, więc zwykle umawiamy 15–30 min spotkanie z handlowcem, który przywozi kubki na żywo. Daj znać, którymi produktami jesteś zainteresowany.",
         sampleInterest: "Którymi produktami jesteś zainteresowany?",
         sampleInterestPlaceholder: "Np. kubki termiczne 300 ml z BIO barierą, miski na lody 360 ml...",
         sampleAddress: "Adres / lokalizacja (opcjonalnie)",

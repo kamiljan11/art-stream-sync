@@ -230,6 +230,7 @@ const en = {
       { t: "Free artwork adaptation", d: "Send your logo in any usable format, we adapt it to the cup template at no extra cost with every order." },
       { t: "Your dedicated contact", d: "One person guides you from quote to delivery. Not sure which product fits? Just ask, we'll advise." },
       { t: "Professional QC system", d: "Every batch passes a multi-stage quality check, print accuracy, lining seal, structure and food-safety compliance, before it ships." },
+      { t: "Certificates with every order", d: "Each order ships with product-specific European certificates (food contact, EN 13432 for BIO, etc.) — never generic Chinese paperwork. Ready for tenders and audits." },
     ],
     uspAskButton: "Ask now",
     midCta: {

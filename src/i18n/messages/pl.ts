@@ -436,6 +436,8 @@ const pl = {
         qty: "Ilość",
         pantoneTitle: "Mam konkretne kolory Pantone",
         pantoneHint: "Zaznacz, jeśli chcesz, żebyśmy drukowali w kolorach Pantone i podaj kody — uwzględnimy dopasowanie w wycenie.",
+        startOver: "Zacznij od nowa",
+        resetConfirm: "Usunąć zapisany postęp i zacząć nową wycenę?",
         pantonePlaceholder: "Kody Pantone, np. PMS 286 C, PMS 200 C",
       },
       addonLabels: {

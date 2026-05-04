@@ -437,6 +437,8 @@ const en = {
         qty: "Qty",
         pantoneTitle: "I have specific Pantone colours",
         pantoneHint: "Tick if you'd like us to print with Pantone colours and share the codes — we'll include the matching in your quote.",
+        startOver: "Start over",
+        resetConfirm: "Discard your saved progress and start a new quote?",
         pantonePlaceholder: "Pantone codes, e.g. PMS 286 C, PMS 200 C",
       },
       addonLabels: {

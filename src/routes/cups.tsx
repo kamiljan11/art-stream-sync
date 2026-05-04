@@ -828,10 +828,10 @@ function CupsPage() {
             <p className="mt-3 text-muted-foreground">{cp.quote.sub}</p>
             <p className="mt-2 text-sm font-semibold text-[color:var(--brand-cyan)]">
               {locale === "pl"
-                ? "↓ Wypełnij krótki kreator i otrzymaj wycenę w 24h"
+                ? "↓ Zajmuje 60 sekund. Odpowiadamy w ciągu 24h roboczych."
                 : locale === "is"
-                ? "↓ Kláraðu stutta leiðsögn og fáðu tilboð innan 24 klst."
-                : "↓ Complete the quick wizard and get your quote in 24h"}
+                ? "↓ Tekur 60 sekúndur. Svar innan 24 vinnustunda."
+                : "↓ Takes 60 seconds. Reply within 24 working hours."}
             </p>
           </div>
           <CupsQuoteForm />

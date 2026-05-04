@@ -870,7 +870,7 @@ function CupsQuoteForm() {
   const draftMeta = draft.productIdx >= 0 ? byProduct[draft.productIdx] : undefined;
   const sizeOptions = draftMeta?.sizes ?? [];
   const finishOptions = draftMeta?.finishes ?? [];
-  const showLining = draftMeta?.showLining ?? false;
+  const liningOptions = draftMeta?.linings ?? [];
 
   // Addon suggestions based on items already in list
   type Addon = { key: string; label: string; productIdx: number; presetLining?: string };
@@ -1056,7 +1056,7 @@ function CupsQuoteForm() {
         const queue: Q[] = [];
         if (sizeOptions.length > 0) queue.push({ key: "size", label: t("cupsPage.quote.size"), options: sizeOptions });
         if (finishOptions.length > 0) queue.push({ key: "finish", label: t("cupsPage.quote.finish"), options: finishOptions });
-        if (showLining) queue.push({ key: "lining", label: t("cupsPage.quote.lining"), options: tArray("cupsPage.quote.linings") });
+        if (liningOptions.length > 0) queue.push({ key: "lining", label: t("cupsPage.quote.lining"), options: liningOptions });
         queue.push({ key: "quantity", label: t("cupsPage.quote.quantity"), options: tArray("cupsPage.quote.quantities") });
         queue.push({ key: "timing", label: t("cupsPage.quote.timing"), options: tArray("cupsPage.quote.timings") });
 

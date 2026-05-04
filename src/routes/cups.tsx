@@ -95,7 +95,7 @@ const products: Product[] = [
     img: cupEveryday,
     tag: "Single-wall · printed",
     title: "Single-wall paper cup with your print",
-    sizes: "100 · 180 · 250 · 300 · 400 ml",
+    sizes: "100 · 180 · 200 · 300 · 400 ml",
     desc:
       "The workhorse cup. Light, stackable, full-wrap print with no colour limit. For events, offices, juice bars and water dispensers.",
     bullets: [
@@ -110,7 +110,7 @@ const products: Product[] = [
     img: cupPremium,
     tag: "Double-wall · premium",
     title: "Premium thermal double-wall cup",
-    sizes: "250 · 300 · 400 ml (≈ 8 · 10 · 14 oz)",
+    sizes: "100 · 180 · 200 · 300 · 400 ml",
     desc:
       "Top-of-range double-wall cup. Hot coffee inside, cool hands outside. Our pick for cafés, takeaway and hotel coffee corners.",
     bullets: [
@@ -125,7 +125,7 @@ const products: Product[] = [
     img: cupWater,
     tag: "Stock · no print",
     title: "Plain white paper cup (stock)",
-    sizes: "100 · 180 · 250 · 300 · 400 ml",
+    sizes: "100 · 180 · 200 · 300 · 400 ml",
     desc:
       "No-print, no-fuss cups straight from stock. Ideal for water stations, vending, gyms and offices. Sold by the carton, no print minimum.",
     bullets: [

@@ -218,6 +218,7 @@ const en = {
       heading1: "Our",
       heading2: "catalogue.",
       sub: "Three lining options: standard Green PE, compostable BIO (water-based dispersion, plastic-free), or rPET for transparent cold-drink cups.",
+      allRecyclable: "Every product in our catalogue is fully recyclable.",
       minOrderLabel: "Minimum order",
       askPrice: "Ask for price",
       dontSee: "Don't see what you need?",

@@ -327,6 +327,14 @@ function CupsPage() {
   const productImgs = [cupEveryday, cupPremium, cupWater, cupTransparent, cupIcecream, cupLids, cupStraws, cupStirrers];
   const translatedProducts = cp.productCatalog.map((p, i) => ({ ...p, img: productImgs[i], lead: products[i].lead }));
   const cupsFaqsT = cp.faq.items;
+  const scrollToQuote = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const el = document.getElementById("quote");
+    if (!el) return;
+    const top = el.getBoundingClientRect().top + window.scrollY - 100;
+    window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
+    history.replaceState(null, "", "/cups#quote");
+  };
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SiteHeader />

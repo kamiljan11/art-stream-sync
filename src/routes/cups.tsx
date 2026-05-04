@@ -1197,22 +1197,60 @@ function CupsQuoteForm() {
         <div>
           <h3 className="text-xl font-bold text-[#222]">{wz.pickProduct}</h3>
           <p className="text-sm text-[#777] mt-1">{wz.pickProductHint}</p>
-          <div className="mt-5 grid gap-2 sm:grid-cols-2">
-            {productOptions.map((p, i) => (
-              <button
-                key={p}
-                type="button"
-                onClick={() => setDraft({ ...emptyDraft, productIdx: i, product: p })}
-                className={`text-left rounded-lg border-2 px-4 py-3 text-sm transition-colors ${
-                  draft.productIdx === i
-                    ? "border-[#00AEEF] bg-[#00AEEF]/5 text-[#222] font-semibold"
-                    : "border-[#eee] bg-[#f9f9f9] hover:border-[#bbb]"
-                }`}
-              >
-                {p}
-              </button>
-            ))}
+
+          {/* Group A: concrete products (idx 1–9) */}
+          <div className="mt-5">
+            <div className="text-xs font-bold uppercase tracking-wider text-[#888] mb-2">
+              {wz.groupKnown}
+            </div>
+            <div className="grid gap-2 sm:grid-cols-2">
+              {productOptions.map((p, i) => {
+                if (i === 0 || i === 10) return null;
+                return (
+                  <button
+                    key={p}
+                    type="button"
+                    onClick={() => setDraft({ ...emptyDraft, productIdx: i, product: p })}
+                    className={`text-left rounded-lg border-2 px-4 py-3 text-sm transition-colors ${
+                      draft.productIdx === i
+                        ? "border-[#00AEEF] bg-[#00AEEF]/5 text-[#222] font-semibold"
+                        : "border-[#eee] bg-[#f9f9f9] hover:border-[#bbb]"
+                    }`}
+                  >
+                    {p}
+                  </button>
+                );
+              })}
+            </div>
           </div>
+
+          {/* Group B: advisory options (idx 0 and 10) */}
+          <div className="mt-6 pt-5 border-t-2 border-dashed border-[#eee]">
+            <div className="text-xs font-bold uppercase tracking-wider text-[#888] mb-2">
+              {wz.groupAdvise}
+            </div>
+            <div className="grid gap-2 sm:grid-cols-2">
+              {[0, 10].map((i) => {
+                const p = productOptions[i];
+                if (!p) return null;
+                return (
+                  <button
+                    key={p}
+                    type="button"
+                    onClick={() => setDraft({ ...emptyDraft, productIdx: i, product: p })}
+                    className={`text-left rounded-lg border-2 border-dashed px-4 py-3 text-sm transition-colors ${
+                      draft.productIdx === i
+                        ? "border-[#00AEEF] bg-[#00AEEF]/5 text-[#222] font-semibold"
+                        : "border-[#ccc] bg-white text-[#555] hover:border-[#888]"
+                    }`}
+                  >
+                    <span className="mr-2">💬</span>{p}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
           <div className="mt-6 flex justify-end">
             <button
               type="button"

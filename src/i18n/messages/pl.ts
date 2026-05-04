@@ -419,6 +419,8 @@ const pl = {
         tellUsMorePlaceholder: "Do czego (kawa, sok, lody...), gdzie (kawiarnia, biuro, event), jakiś konkretny look lub ograniczenie. Im więcej wiemy, tym lepiej doradzimy.",
         mixDetails: "Opisz mix rozmiarów (opcjonalnie)",
         mixDetailsPlaceholder: "Np. 50% 200 ml + 50% 300 ml — lub zostaw puste, dopytamy.",
+        groupKnown: "Wiem, co chcę",
+        groupAdvise: "Pomóżcie mi wybrać",
         yourList: "Twoja lista",
         emptyList: "Lista jest pusta — wróć i dodaj produkt.",
         addAnother: "Dodaj kolejny produkt",

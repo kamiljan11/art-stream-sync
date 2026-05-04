@@ -418,6 +418,8 @@ const en = {
         tellUsMorePlaceholder: "What it's for (coffee, juice, ice cream...), where (café, office, event), any specific look or constraint. The more we know, the better we can advise.",
         mixDetails: "Describe your size mix (optional)",
         mixDetailsPlaceholder: "E.g. 50% 200 ml + 50% 300 ml — or leave blank, we'll ask.",
+        groupKnown: "I know what I want",
+        groupAdvise: "Help me decide",
         updateItem: "Update item",
         yourList: "Your list",
         emptyList: "Nothing added yet — go back and add a product.",

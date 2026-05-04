@@ -348,6 +348,7 @@ const is = {
         { q: "Get ég bætt við vökvamerkingum (0,2 L, 0,3 L)?", a: "Já, að utan. Þar sem bollaveggir mjókka mælum við nákvæmlega fyllingarhæðina á viðmiðunarbolla áður en hönnunin er læst — auðveldast að ganga frá því á stuttum fundi með sölufulltrúa okkar." },
         { q: "Er hægt að prenta innan í bollann?", a: "Nei. Lekaþétta, matvælaörugga innri húðin blokkerar einnig blek, prentun er aðeins að utan." },
         { q: "Hvaða skráarsnið takið þið við og hvaða sniðmát ætti ég að nota?", a: "Við þurfum opna, breytanlega skrá í CMYK litarými: breytanlegt .pdf, .ai (Illustrator) eða .cdr (CorelDraw). Hver bollastærð hefur sitt eigið boga-laga sniðmát — segðu okkur stærð og húðun og við sendum það rétta til baka með tölvupósti." },
+        { q: "Fylgja vottorð með pöntuninni?", a: "Já — ókeypis með hverri sendingu. Vottorð um snertingu við matvæli, niðurbrjótanleika (EN 13432 fyrir BIO), endurunnið efni (rPET) og uppruna fylgja sjálfkrafa, þú þarft ekki að biðja um þau." },
       ],
     },
     quote: {

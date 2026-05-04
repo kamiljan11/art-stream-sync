@@ -434,6 +434,9 @@ const en = {
         reviewSend: "Review & send",
         itemsSummary: "Items in your request",
         qty: "Qty",
+        pantoneTitle: "Pantone match (exact brand colour)",
+        pantoneHint: "Tick if a brand colour must be exact. Paid extra (approx. 10,000 ISK setup per Pantone colour). Leave unchecked for standard CMYK print.",
+        pantonePlaceholder: "Pantone codes, e.g. PMS 286 C, PMS 200 C",
       },
       addonLabels: {
         lids: "Matching lids",

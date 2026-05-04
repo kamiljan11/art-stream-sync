@@ -844,7 +844,6 @@ function CupsQuoteForm() {
   const [fileName, setFileName] = useState<string>("");
   const [pantoneMatch, setPantoneMatch] = useState(false);
   const [pantoneCodes, setPantoneCodes] = useState("");
-  const [needsCertificates, setNeedsCertificates] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [errorMsg, setErrorMsg] = useState<string>("");
 
@@ -1023,7 +1022,6 @@ function CupsQuoteForm() {
         path === "sample" && sampleAddress && `Address: ${sampleAddress}`,
         fileName && `Attached file: ${fileName}`,
         pantoneMatch && `Pantone match requested${pantoneCodes ? `: ${pantoneCodes}` : " (codes to be confirmed)"}`,
-        needsCertificates && `Certificates requested with delivery (food-contact / compostability / origin docs)`,
         contact.notes && `Notes: ${contact.notes}`,
       ].filter(Boolean).join("\n\n");
       const res = await fetch("/api/public/quote", {
@@ -1564,22 +1562,6 @@ function CupsQuoteForm() {
                 className="mt-3 w-full rounded-lg border-2 border-[#eee] bg-white text-[#333] placeholder:text-[#999] px-4 py-[10px] text-sm outline-none focus:border-[#333] transition-colors"
               />
             )}
-          </div>
-
-          {/* Certificates — included free with every order */}
-          <div className="sm:col-span-2 rounded-lg border-2 border-[#eee] bg-[#f9f9f9] p-4">
-            <label className="flex items-start gap-2 cursor-pointer text-sm text-[#333]">
-              <input
-                type="checkbox"
-                checked={needsCertificates}
-                onChange={(e) => setNeedsCertificates(e.target.checked)}
-                className="mt-0.5 h-4 w-4 accent-[#00AEEF]"
-              />
-              <span>
-                <span className="font-semibold">{wz.certsTitle}</span>
-                <span className="block text-xs text-[#777] mt-0.5">{wz.certsHint}</span>
-              </span>
-            </label>
           </div>
 
           <label className="sm:col-span-2 flex flex-col gap-1.5">

@@ -181,7 +181,9 @@ function CalculatorPage() {
       for (const r of rates) { if (boxes <= r.m) { rate = r.p; break; } }
       basePLN = rate * boxes; weight = PLASTIC[plSize].w * boxes; numBoxes = boxes;
     }
-    weight = weight / 1000; // g → kg
+    // NOTE: PP/PLASTIC `w` is grams per cup; paper qty is in thousands → weight already in kg.
+    // For plastic, w (g per carton-cup) × cartons gives g, but original calculator treats it as kg
+    // to match shipping table. Keep parity with the original HTML.
 
     const commPLN = salesmanOn ? basePLN * (comm / 100) : 0;
     const productsPLN = basePLN + commPLN;

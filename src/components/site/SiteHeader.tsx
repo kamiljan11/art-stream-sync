@@ -145,7 +145,7 @@ export function SiteHeader() {
             </Link>
 
             {/* Desktop floating pill nav (center) */}
-            <nav className="hidden lg:flex min-w-0 items-center justify-center px-1">
+            <nav className="hidden md:flex min-w-0 items-center justify-center px-1">
               <div className="flex max-w-full items-center gap-1 overflow-x-auto rounded-full border border-white/10 bg-black/40 px-2 py-1.5 text-xs xl:text-sm font-medium [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
               {navKeys.map((n) => {
                 const isActive = activeId === n.id;
@@ -192,7 +192,7 @@ export function SiteHeader() {
                 {t("nav.getQuote")}
               </a>
               <button
-                className="lg:hidden p-2 -mr-1 text-foreground shrink-0"
+                className="md:hidden p-2 -mr-1 text-foreground shrink-0"
                 onClick={() => setOpen(!open)}
                 aria-label={t("nav.toggleMenu")}
               >
@@ -203,7 +203,7 @@ export function SiteHeader() {
 
           {/* Mobile dropdown */}
           {open && (
-            <div className="lg:hidden mt-2 rounded-2xl border border-white/10 bg-background/95 backdrop-blur-xl shadow-2xl">
+            <div className="md:hidden mt-2 rounded-2xl border border-white/10 bg-background/95 backdrop-blur-xl shadow-2xl">
               <div className="px-4 py-4 flex flex-col gap-3">
                 {navKeys.map((n) => {
                   const isActive = activeId === n.id;

@@ -881,22 +881,23 @@ function CupsQuoteForm() {
   const computeAddons = (): Addon[] => {
     const haveIdx = new Set(items.map((i) => i.productIdx));
     const out: Addon[] = [];
-    // Product indices (0-based): 0 single-wall, 1 double-wall, 2 plain stock,
-    // 3 rPET transparent, 4 bowl, 5 lids, 6 straws, 7 stirrers
-    const cupIdxs = [0, 1, 2, 3]; // any cup (paper or rPET)
+    // productIdx maps to i18n productOptions:
+    // 0 Not sure, 1 single-wall, 2 double-wall, 3 plain stock, 4 rPET,
+    // 5 bowl, 6 lids, 7 straws, 8 stirrers, 9 something else
+    const cupIdxs = [1, 2, 3, 4]; // any cup (paper or rPET)
     const hasAnyCup = items.some((i) => cupIdxs.includes(i.productIdx));
-    const hasBowl = items.some((i) => i.productIdx === 4);
+    const hasBowl = items.some((i) => i.productIdx === 5);
     // Lids for cups
-    if (hasAnyCup && !haveIdx.has(5)) {
-      out.push({ key: "lids", label: addonLabels.lids, productIdx: 5 });
+    if (hasAnyCup && !haveIdx.has(6)) {
+      out.push({ key: "lids", label: addonLabels.lids, productIdx: 6 });
     }
-    // Straws when rPET cold cup or bowl (smoothies / desserts)
-    if (items.some((i) => i.productIdx === 3 || i.productIdx === 4) && !haveIdx.has(6)) {
-      out.push({ key: "straws", label: addonLabels.straws, productIdx: 6 });
+    // Straws for rPET cold cup or bowl (smoothies / desserts)
+    if (items.some((i) => i.productIdx === 4 || i.productIdx === 5) && !haveIdx.has(7)) {
+      out.push({ key: "straws", label: addonLabels.straws, productIdx: 7 });
     }
     // Stirrers for any hot paper cup (single-wall, double-wall, stock plain) or ice-cream sticks for bowls
-    if ((items.some((i) => i.productIdx === 0 || i.productIdx === 1 || i.productIdx === 2) || hasBowl) && !haveIdx.has(7)) {
-      out.push({ key: "stirrers", label: addonLabels.stirrers, productIdx: 7 });
+    if ((items.some((i) => i.productIdx === 1 || i.productIdx === 2 || i.productIdx === 3) || hasBowl) && !haveIdx.has(8)) {
+      out.push({ key: "stirrers", label: addonLabels.stirrers, productIdx: 8 });
     }
     return out.filter((a) => !dismissedAddons.includes(a.key));
   };

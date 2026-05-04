@@ -253,10 +253,9 @@ const pl = {
       rows: [
         { ml: "100 ml", oz: "≈ 3 oz", use: "Espresso, degustacje, gabinety dentystyczne" },
         { ml: "180 ml", oz: "≈ 6 oz", use: "Dystrybutory wody, automaty" },
-        { ml: "250 ml", oz: "≈ 8 oz", use: "Standardowa kawa, zimne napoje" },
-        { ml: "300 ml", oz: "≈ 10 oz", use: "Latte, sok, lemoniada" },
-        { ml: "400 ml", oz: "≈ 14 oz", use: "Duża kawa, shake'i, piwo" },
-        { ml: "500 ml", oz: "≈ 17 oz", use: "Tylko kubki plastikowe, duże zimne napoje, piwo" },
+        { ml: "200–250 ml", oz: "≈ 8 oz", use: "Standardowa kawa, zimne napoje" },
+        { ml: "300–350 ml", oz: "≈ 12 oz", use: "Latte, sok, lemoniada" },
+        { ml: "400–430 ml", oz: "≈ 14 oz", use: "Duża kawa, shake'i, zimne napoje" },
       ],
     },
     portfolio: {

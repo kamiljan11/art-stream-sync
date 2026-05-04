@@ -419,6 +419,8 @@ const is = {
         tellUsMorePlaceholder: "Til hvers (kaffi, safi, ís...), hvar (kaffihús, skrifstofa, viðburður), sérstakt útlit eða takmörkun. Því meira sem við vitum, því betur ráðleggjum við.",
         mixDetails: "Lýstu blöndu af stærðum (valfrjálst)",
         mixDetailsPlaceholder: "T.d. 50% 200 ml + 50% 300 ml — eða skildu eftir autt, við spyrjum.",
+        groupKnown: "Ég veit hvað ég vil",
+        groupAdvise: "Hjálpið mér að velja",
         yourList: "Listinn þinn",
         emptyList: "Listinn er tómur — farðu til baka og bættu við vöru.",
         addAnother: "Bæta við annarri vöru",

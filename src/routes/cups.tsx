@@ -1100,23 +1100,40 @@ function CupsQuoteForm() {
         <div>
           <h3 className="text-xl font-bold text-[#222]">{wz.briefTitle}</h3>
           <p className="text-sm text-[#777] mt-1">{wz.briefHint}</p>
+
+          {/* Primary: brief file upload (big dropzone) */}
+          <div className="mt-5">
+            <span className="text-xs font-bold uppercase tracking-wider text-[#555]">
+              {wz.briefFileLabel}
+            </span>
+            <label className="mt-2 flex w-full cursor-pointer flex-col items-center justify-center gap-2 rounded-xl border-2 border-dashed border-[#bbb] bg-[#f9f9f9] px-4 py-8 text-center text-sm font-medium text-[#333] hover:border-[#00AEEF] hover:bg-[#00AEEF]/5 transition-colors">
+              <input
+                type="file"
+                className="hidden"
+                accept=".pdf,.doc,.docx,.ppt,.pptx,.ai,.eps,.psd,.png,.jpg,.jpeg,.svg,.zip"
+                onChange={(e) => setFileName(e.target.files?.[0]?.name ?? "")}
+              />
+              <div className="text-3xl leading-none">📎</div>
+              <div className="font-semibold text-[#222]">
+                {fileName || wz.briefFileCta}
+              </div>
+              <div className="text-xs text-[#777]">{wz.briefFileHint}</div>
+            </label>
+          </div>
+
+          {/* Secondary: optional note */}
           <label className="mt-5 flex flex-col gap-1.5">
-            <span className="text-xs font-bold uppercase tracking-wider text-[#555]">{wz.briefMessage}</span>
+            <span className="text-xs font-bold uppercase tracking-wider text-[#555]">
+              {wz.briefMessage} <span className="text-[#999] normal-case font-normal">({wz.optional})</span>
+            </span>
             <textarea
-              rows={6}
+              rows={4}
               value={briefMessage}
               onChange={(e) => setBriefMessage(e.target.value)}
               placeholder={wz.briefMessagePlaceholder}
-              className="rounded-lg border-2 border-[#eee] bg-[#f9f9f9] text-[#333] placeholder:text-[#999] px-4 py-[14px] text-sm outline-none focus:border-[#333] focus:bg-white transition-colors min-h-[140px] resize-y"
+              className="rounded-lg border-2 border-[#eee] bg-[#f9f9f9] text-[#333] placeholder:text-[#999] px-4 py-[14px] text-sm outline-none focus:border-[#333] focus:bg-white transition-colors min-h-[100px] resize-y"
             />
           </label>
-          <div className="mt-4">
-            <span className="text-xs font-bold uppercase tracking-wider text-[#555]">{t("cupsPage.quote.uploadArtwork")}</span>
-            <label className="mt-2 inline-flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg border-2 border-dashed border-[#ddd] bg-white px-3 py-3 text-sm font-medium text-[#333] hover:border-[#bbb] transition-colors">
-              <input type="file" className="hidden" onChange={(e) => setFileName(e.target.files?.[0]?.name ?? "")} />
-              {fileName || t("cupsPage.quote.chooseFile")}
-            </label>
-          </div>
           <div className="mt-6 flex items-center justify-between gap-3">
             <button type="button" onClick={() => { setStep(0); }}
               className="inline-flex items-center gap-2 rounded-md px-4 py-2.5 text-sm font-semibold text-[#555] border-2 border-[#eee] hover:border-[#bbb]">

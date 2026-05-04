@@ -939,10 +939,23 @@ function CupsQuoteForm() {
   const addAddonItem = (a: Addon) => {
     // One-click add to list — no extra config screen.
     // Sales rep advises on size/qty, user can edit afterwards if they want.
-    setItems((arr) => [
-      ...arr,
-      { ...emptyDraft, productIdx: a.productIdx, product: productOptions[a.productIdx] },
-    ]);
+    if (a.productIdx < 0) {
+      // Modifier-style addon (e.g. BIO lining upgrade): apply to existing eligible items
+      if (a.key === "bioLining") {
+        setItems((arr) =>
+          arr.map((it) =>
+            [1, 2, 3, 5].includes(it.productIdx) && it.lining && !/bio/i.test(it.lining)
+              ? { ...it, lining: liningOptions.find((l) => /bio/i.test(l)) || it.lining }
+              : it
+          )
+        );
+      }
+    } else {
+      setItems((arr) => [
+        ...arr,
+        { ...emptyDraft, productIdx: a.productIdx, product: productOptions[a.productIdx] },
+      ]);
+    }
     setDismissedAddons((d) => [...d, a.key]);
   };
 

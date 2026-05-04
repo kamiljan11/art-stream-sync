@@ -1175,7 +1175,9 @@ function CupsQuoteForm() {
       {step === 0 && (
         <div>
           <h3 className="text-xl font-bold text-[#222]">{wz.pickPath}</h3>
-          <p className="text-sm text-[#777] mt-1">{wz.pickPathHint}</p>
+          <p className="mt-2 inline-flex items-center gap-2 rounded-lg bg-[#00AEEF]/10 border border-[#00AEEF]/30 px-3 py-1.5 text-sm font-semibold text-[#00AEEF]">
+            <span aria-hidden>👇</span>{wz.pickPathHint}
+          </p>
           <div className="mt-5 grid gap-3 sm:grid-cols-3">
             {([
               { key: "configure", title: wz.pathConfigureTitle, desc: wz.pathConfigureDesc, icon: "⚙️" },

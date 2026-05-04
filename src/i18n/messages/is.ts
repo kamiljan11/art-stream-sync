@@ -218,6 +218,7 @@ const is = {
       heading1: "Vörulisti",
       heading2: "okkar.",
       sub: "Þrír valkostir á húðun: hefðbundin Green PE, niðurbrjótanleg BIO (vatnsdreifing, plastlaust) eða rPET fyrir glæra bolla undir kalda drykki.",
+      allRecyclable: "Allar vörur í vörulistanum okkar eru að fullu endurvinnanlegar.",
       minOrderLabel: "Lágmarkspöntun",
       askPrice: "Spyrðu um verð",
       dontSee: "Sérðu ekki það sem þú þarft?",

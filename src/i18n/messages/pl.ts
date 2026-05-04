@@ -434,6 +434,9 @@ const pl = {
         reviewSend: "Sprawdź i wyślij",
         itemsSummary: "Pozycje w zapytaniu",
         qty: "Ilość",
+        pantoneTitle: "Dopasowanie Pantone (dokładny kolor marki)",
+        pantoneHint: "Zaznacz, jeśli kolor marki musi być dokładny. Płatny dodatek (ok. 10 000 ISK uruchomienia za kolor Pantone). Pozostaw odznaczone dla standardowego druku CMYK.",
+        pantonePlaceholder: "Kody Pantone, np. PMS 286 C, PMS 200 C",
       },
       addonLabels: {
         lids: "Pasujące wieczka",

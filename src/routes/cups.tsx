@@ -842,6 +842,8 @@ function CupsQuoteForm() {
   const [submitted, setSubmitted] = useState(false);
   const [needsDesign, setNeedsDesign] = useState<"yes" | "no" | "">("");
   const [fileName, setFileName] = useState<string>("");
+  const [pantoneMatch, setPantoneMatch] = useState(false);
+  const [pantoneCodes, setPantoneCodes] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [errorMsg, setErrorMsg] = useState<string>("");
 
@@ -1019,6 +1021,7 @@ function CupsQuoteForm() {
         path === "sample" && sampleInterest && `Interested in: ${sampleInterest}`,
         path === "sample" && sampleAddress && `Address: ${sampleAddress}`,
         fileName && `Attached file: ${fileName}`,
+        pantoneMatch && `Pantone match requested${pantoneCodes ? `: ${pantoneCodes}` : " (codes to be confirmed)"}`,
         contact.notes && `Notes: ${contact.notes}`,
       ].filter(Boolean).join("\n\n");
       const res = await fetch("/api/public/quote", {

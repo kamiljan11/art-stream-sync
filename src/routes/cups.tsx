@@ -888,8 +888,8 @@ function CupsQuoteForm() {
     if (items.some((i) => i.productIdx === 4) && !haveIdx.has(7)) {
       out.push({ key: "straws", label: addonLabels.straws, productIdx: 7 });
     }
-    // Stirrers for hot cups or bowls
-    if ((items.some((i) => i.productIdx === 1 || i.productIdx === 2) || hasBowl) && !haveIdx.has(8)) {
+    // Stirrers for any hot paper cup (printed single-wall, double-wall, stock plain) or ice-cream sticks for bowls
+    if ((items.some((i) => i.productIdx === 1 || i.productIdx === 2 || i.productIdx === 3) || hasBowl) && !haveIdx.has(8)) {
       out.push({ key: "stirrers", label: addonLabels.stirrers, productIdx: 8 });
     }
     return out.filter((a) => !dismissedAddons.includes(a.key));

@@ -888,7 +888,7 @@ function CupsQuoteForm() {
     const out: Addon[] = [];
     // productIdx maps to i18n productOptions:
     // 0 Not sure, 1 single-wall, 2 double-wall, 3 plain stock, 4 rPET,
-    // 5 bowl, 6 lids, 7 straws, 8 stirrers, 9 something else
+    // 5 bowl, 6 lids, 7 straws, 8 wooden stirrers, 9 ice-cream sticks, 10 something else
     const cupOrBowlIdxs = [1, 2, 3, 4, 5]; // any cup (paper / rPET) or bowl
     const hasAnyCupOrBowl = items.some((i) => cupOrBowlIdxs.includes(i.productIdx));
     const hasBowl = items.some((i) => i.productIdx === 5);
@@ -900,9 +900,13 @@ function CupsQuoteForm() {
     if (items.some((i) => i.productIdx === 4 || i.productIdx === 5) && !haveIdx.has(7)) {
       out.push({ key: "straws", label: addonLabels.straws, productIdx: 7 });
     }
-    // Stirrers for any hot paper cup (single-wall, double-wall, stock plain) or ice-cream sticks for bowls
-    if ((items.some((i) => i.productIdx === 1 || i.productIdx === 2 || i.productIdx === 3) || hasBowl) && !haveIdx.has(8)) {
+    // Wooden stirrers for any hot paper cup (single-wall, double-wall, stock plain)
+    if (items.some((i) => i.productIdx === 1 || i.productIdx === 2 || i.productIdx === 3) && !haveIdx.has(8)) {
       out.push({ key: "stirrers", label: addonLabels.stirrers, productIdx: 8 });
+    }
+    // Ice-cream sticks for bowls
+    if (hasBowl && !haveIdx.has(9)) {
+      out.push({ key: "iceCreamSticks", label: addonLabels.iceCreamSticks, productIdx: 9 });
     }
     // BIO lining upsell: any paper cup / bowl already in list whose lining isn't BIO
     const hasNonBioPaperItem = items.some(

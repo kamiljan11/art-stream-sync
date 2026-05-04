@@ -450,10 +450,10 @@ const en = {
       },
       {
         tag: "Wood · biodegradable",
-        title: "Wooden coffee stirrers",
+        title: "Wooden stirrers & ice-cream sticks",
         sizes: "1,000 pcs / pack",
-        desc: "Smooth natural wooden stirrers (also available as ice-cream sticks). No splinters, no dyes, no plastic. Food-safe and fully biodegradable.",
-        bullets: ["Untreated natural light wood", "Food-contact certified", "100% biodegradable"],
+        desc: "Smooth natural wooden stirrers — also available as ice-cream sticks. No splinters, no dyes, no plastic. Food-safe and fully biodegradable.",
+        bullets: ["Untreated natural light wood", "Coffee/tea stirrers & ice-cream sticks", "Food-contact certified", "100% biodegradable"],
         moq: "1,000 pcs (1 pack)",
       },
     ],

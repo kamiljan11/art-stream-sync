@@ -1157,9 +1157,9 @@ function CupsQuoteForm() {
           <button
             type="button"
             onClick={resetWizard}
-            className="text-xs font-semibold uppercase tracking-wider text-[#888] hover:text-[#00AEEF] underline underline-offset-2"
+            className="inline-flex items-center gap-1.5 rounded-md border-2 border-[#eee] px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-[#555] hover:border-[#00AEEF] hover:text-[#00AEEF]"
           >
-            {wz.startOver}
+            ↺ {wz.startOver}
           </button>
         )}
       </div>
@@ -1347,7 +1347,14 @@ function CupsQuoteForm() {
             </div>
           </div>
 
-          <div className="mt-6 flex justify-end">
+          <div className="mt-6 flex items-center justify-between gap-3">
+            <button
+              type="button"
+              onClick={() => { setPath(""); setStep(0); setDraft(emptyDraft); }}
+              className="inline-flex items-center gap-2 rounded-md px-4 py-2.5 text-sm font-semibold text-[#555] border-2 border-[#eee] hover:border-[#bbb]"
+            >
+              <ArrowLeft size={16} /> {wz.back}
+            </button>
             <button
               type="button"
               disabled={draft.productIdx < 0}

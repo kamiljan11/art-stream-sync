@@ -844,6 +844,7 @@ function CupsQuoteForm() {
   const [fileName, setFileName] = useState<string>("");
   const [pantoneMatch, setPantoneMatch] = useState(false);
   const [pantoneCodes, setPantoneCodes] = useState("");
+  const [needsCertificates, setNeedsCertificates] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [errorMsg, setErrorMsg] = useState<string>("");
 
@@ -1022,6 +1023,7 @@ function CupsQuoteForm() {
         path === "sample" && sampleAddress && `Address: ${sampleAddress}`,
         fileName && `Attached file: ${fileName}`,
         pantoneMatch && `Pantone match requested${pantoneCodes ? `: ${pantoneCodes}` : " (codes to be confirmed)"}`,
+        needsCertificates && `Certificates requested with delivery (food-contact / compostability / origin docs)`,
         contact.notes && `Notes: ${contact.notes}`,
       ].filter(Boolean).join("\n\n");
       const res = await fetch("/api/public/quote", {

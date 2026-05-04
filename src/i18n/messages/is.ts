@@ -285,7 +285,7 @@ const is = {
       p3b: "vatnsbasaða dispersion-húðun",
       p3c: ": algjörlega plastlaus, heimamoltanleg, vottað skv. EN 13432. Sama tilfinning, sami hitaþol, sama bragð, en",
       p3d: "núll örplast",
-      p3e: ". Við veljum réttu tæknina fyrir hverja vöru, niðurbrjótanlegt, endurvinnanlegt eða hvort tveggja, því umhverfisvernd er hluti af því hvernig við vinnum, ekki viðbót. Virkar fyrir heitt kaffi, kalda drykki og ís.",
+      p3e: ". Við veljum réttu tæknina fyrir hverja vöru, því umhverfisvernd er hluti af því hvernig við vinnum, ekki viðbót. Virkar fyrir heitt kaffi, kalda drykki og ís.",
       stat1: "FSC pappír",
       stat2: "Plastlaus",
       stat3: "Vottað",

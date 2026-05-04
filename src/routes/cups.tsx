@@ -899,11 +899,13 @@ function CupsQuoteForm() {
   const startAddItem = () => {
     setDraft(emptyDraft);
     setEditingIdx(null);
+    setSubStep(0);
     setStep(1);
   };
   const startEdit = (idx: number) => {
     setDraft(items[idx]);
     setEditingIdx(idx);
+    setSubStep(0);
     setStep(2);
   };
   const removeItem = (idx: number) => {
@@ -923,6 +925,7 @@ function CupsQuoteForm() {
   const addAddonItem = (a: Addon) => {
     setDraft({ ...emptyDraft, productIdx: a.productIdx, product: productOptions[a.productIdx] });
     setEditingIdx(null);
+    setSubStep(0);
     setStep(2);
   };
 

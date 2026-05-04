@@ -1140,8 +1140,8 @@ function CupsQuoteForm() {
         </div>
       )}
 
-      {/* STEP 1: pick product */}
-      {step === 1 && (
+      {/* CONFIGURE STEP 1: pick product */}
+      {path === "configure" && step === 1 && (
         <div>
           <h3 className="text-xl font-bold text-[#222]">{wz.pickProduct}</h3>
           <p className="text-sm text-[#777] mt-1">{wz.pickProductHint}</p>
@@ -1175,8 +1175,8 @@ function CupsQuoteForm() {
         </div>
       )}
 
-      {/* STEP 2: configure (one question per screen) */}
-      {step === 2 && (() => {
+      {/* CONFIGURE STEP 2: configure (one question per screen) */}
+      {path === "configure" && step === 2 && (() => {
         type Q = { key: keyof Item; label: string; options: string[] };
         const queue: Q[] = [];
         if (sizeOptions.length > 0) queue.push({ key: "size", label: t("cupsPage.quote.size"), options: sizeOptions });
@@ -1260,8 +1260,8 @@ function CupsQuoteForm() {
         );
       })()}
 
-      {/* STEP 3: list + addons */}
-      {step === 3 && (
+      {/* CONFIGURE STEP 3: list + addons */}
+      {path === "configure" && step === 3 && (
         <div>
           <h3 className="text-xl font-bold text-[#222]">{wz.yourList}</h3>
           {items.length === 0 ? (
@@ -1344,8 +1344,8 @@ function CupsQuoteForm() {
         </div>
       )}
 
-      {/* STEP 4: contact + design + send */}
-      {step === 4 && (
+      {/* CONTACT STEP — last for every path */}
+      {((path === "configure" && step === 4) || ((path === "brief" || path === "sample") && step === 2)) && (
         <form
           onSubmit={(e) => { e.preventDefault(); submit(); }}
           className="grid gap-4 sm:grid-cols-2 [&>*]:min-w-0"

@@ -344,7 +344,7 @@ const is = {
         { q: "Ég kann ekki að undirbúa hönnun, getið þið hjálpað?", a: "Já. Sendu okkur lógóið, litina og hvar það á að sitja á bollanum. Einföld verkefni undirbúum við ókeypis; flóknari hönnun fær lítið uppsetningargjald, gefið upp fyrirfram." },
         { q: "Get ég sett QR kóða á bollana mína?", a: "Já, algengt fyrir matseðla, hollustu og Instagram. Sendu sem vektor eða skarpa 300 dpi mynd. Við prufum 1:1 prentun á prufunni áður en heildarframleiðsla hefst." },
         { q: "Mun liturinn á skjánum mínum passa við fullbúna bolla?", a: "Nálægt, en ekki 100%. Skjáir nota ljós, bollar nota blek, auk venjulegs ±15% breytileika milli framleiðslulota. Ef vörumerkislitur þarf að vera nákvæmur, sendu Pantone kóða og við prentum Pantone samsvörun (lítill aukakostnaður)." },
-        { q: "Get ég bætt við vökvamerkingum (0,2 L, 0,3 L)?", a: "Já, að utan. Þar sem bollaveggir mjókka, pantaðu fyrst sýni svo við getum mælt nákvæmlega fyllingarhæðina áður en hönnunin er læst." },
+        { q: "Get ég bætt við vökvamerkingum (0,2 L, 0,3 L)?", a: "Já, að utan. Þar sem bollaveggir mjókka mælum við nákvæmlega fyllingarhæðina á viðmiðunarbolla áður en hönnunin er læst — auðveldast að ganga frá því á stuttum fundi með sölufulltrúa okkar." },
         { q: "Er hægt að prenta innan í bollann?", a: "Nei. Lekaþétta, matvælaörugga innri húðin blokkerar einnig blek, prentun er aðeins að utan." },
         { q: "Hvaða skráarsnið takið þið við og hvaða sniðmát ætti ég að nota?", a: "Vektorskrár sem hægt er að breyta: .ai (Illustrator), .cdr (CorelDraw) eða breytanlegt .pdf. Hver bollastærð hefur sitt eigið boga-laga sniðmát, segðu okkur stærð og húðun og við sendum það rétta til baka með tölvupósti." },
       ],

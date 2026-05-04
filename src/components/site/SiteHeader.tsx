@@ -31,7 +31,10 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const [activeId, setActiveId] = useState<string>("");
   const [scrolled, setScrolled] = useState(false);
+  const [navFits, setNavFits] = useState(true);
   const headerRef = useRef<HTMLElement | null>(null);
+  const navWrapRef = useRef<HTMLDivElement | null>(null);
+  const navInnerRef = useRef<HTMLDivElement | null>(null);
   const t = useT();
   const location = useLocation();
   const navigate = useNavigate();
@@ -123,6 +126,28 @@ export function SiteHeader() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Detect whether the inline nav actually fits — collapse to hamburger if not.
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const measure = () => {
+      const wrap = navWrapRef.current;
+      const inner = navInnerRef.current;
+      if (!wrap || !inner) return;
+      // Temporarily allow measurement at intrinsic width
+      const fits = inner.scrollWidth <= wrap.clientWidth + 1;
+      setNavFits(fits);
+    };
+    measure();
+    const ro = new ResizeObserver(measure);
+    if (navWrapRef.current) ro.observe(navWrapRef.current);
+    if (navInnerRef.current) ro.observe(navInnerRef.current);
+    window.addEventListener("resize", measure);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener("resize", measure);
+    };
+  }, [navKeys, isCups]);
+
   return (
     <>
       {/* Floating top bar — logo + actions, no edge-to-edge background */}
@@ -145,8 +170,17 @@ export function SiteHeader() {
             </Link>
 
             {/* Desktop floating pill nav (center) */}
-            <nav className="hidden md:flex min-w-0 items-center justify-center px-1">
-              <div className="flex max-w-full items-center gap-1 overflow-x-auto rounded-full border border-white/10 bg-black/40 px-2 py-1.5 text-xs xl:text-sm font-medium [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            <nav
+              ref={navWrapRef}
+              aria-hidden={!navFits}
+              className={`hidden md:flex min-w-0 items-center justify-center px-1 ${
+                navFits ? "" : "invisible pointer-events-none"
+              }`}
+            >
+              <div
+                ref={navInnerRef}
+                className="flex items-center gap-1 rounded-full border border-white/10 bg-black/40 px-2 py-1.5 text-xs xl:text-sm font-medium whitespace-nowrap"
+              >
               {navKeys.map((n) => {
                 const isActive = activeId === n.id;
                 return (
@@ -192,7 +226,7 @@ export function SiteHeader() {
                 {t("nav.getQuote")}
               </a>
               <button
-                className="md:hidden p-2 -mr-1 text-foreground shrink-0"
+                className={`p-2 -mr-1 text-foreground shrink-0 ${navFits ? "md:hidden" : ""}`}
                 onClick={() => setOpen(!open)}
                 aria-label={t("nav.toggleMenu")}
               >
@@ -203,7 +237,7 @@ export function SiteHeader() {
 
           {/* Mobile dropdown */}
           {open && (
-            <div className="md:hidden mt-2 rounded-2xl border border-white/10 bg-background/95 backdrop-blur-xl shadow-2xl">
+            <div className={`mt-2 rounded-2xl border border-white/10 bg-background/95 backdrop-blur-xl shadow-2xl ${navFits ? "md:hidden" : ""}`}>
               <div className="px-4 py-4 flex flex-col gap-3">
                 {navKeys.map((n) => {
                   const isActive = activeId === n.id;

@@ -390,7 +390,7 @@ const en = {
       ],
       quantities: ["1,000 – 5,000", "5,000 – 20,000", "20,000 – 50,000", "50,000+"],
       timings: ["Standard (best price)", "Express (faster if possible)", "Flexible"],
-      linings: ["Not sure yet, advise me", "Standard (Green PE)", "BIO (compostable PLA)", "Water-based dispersion (plastic-free, recyclable)"],
+      linings: ["Not sure yet, advise me", "Standard (Green PE)", "Compostable BIO (water-based dispersion, plastic-free)", "rPET (recycled plastic, for cold drinks)"],
     },
     productCatalog: [
       {

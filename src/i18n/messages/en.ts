@@ -254,10 +254,9 @@ const en = {
       rows: [
         { ml: "100 ml", oz: "≈ 3 oz", use: "Espresso, tasting shots, dental practices" },
         { ml: "180 ml", oz: "≈ 6 oz", use: "Water dispensers, vending machines" },
-        { ml: "250 ml", oz: "≈ 8 oz", use: "Standard coffee, cold drinks" },
-        { ml: "300 ml", oz: "≈ 10 oz", use: "Latte, juice, lemonade" },
-        { ml: "400 ml", oz: "≈ 14 oz", use: "Big coffee, shakes, beer" },
-        { ml: "500 ml", oz: "≈ 17 oz", use: "Plastic cups only, large cold drinks, beer" },
+        { ml: "200–250 ml", oz: "≈ 8 oz", use: "Standard coffee, cold drinks" },
+        { ml: "300–350 ml", oz: "≈ 12 oz", use: "Latte, juice, lemonade" },
+        { ml: "400–430 ml", oz: "≈ 14 oz", use: "Big coffee, shakes, cold drinks" },
       ],
     },
     portfolio: {

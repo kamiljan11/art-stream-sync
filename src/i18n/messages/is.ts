@@ -254,10 +254,9 @@ const is = {
       rows: [
         { ml: "100 ml", oz: "≈ 3 oz", use: "Espressó, smakk, tannlæknastofur" },
         { ml: "180 ml", oz: "≈ 6 oz", use: "Vatnsvélar, sjálfsalar" },
-        { ml: "250 ml", oz: "≈ 8 oz", use: "Hefðbundið kaffi, kaldir drykkir" },
-        { ml: "300 ml", oz: "≈ 10 oz", use: "Latte, safi, límónaði" },
-        { ml: "400 ml", oz: "≈ 14 oz", use: "Stórt kaffi, hristingar, bjór" },
-        { ml: "500 ml", oz: "≈ 17 oz", use: "Aðeins plastbollar, stórir kaldir drykkir, bjór" },
+        { ml: "200–250 ml", oz: "≈ 8 oz", use: "Hefðbundið kaffi, kaldir drykkir" },
+        { ml: "300–350 ml", oz: "≈ 12 oz", use: "Latte, safi, límónaði" },
+        { ml: "400–430 ml", oz: "≈ 14 oz", use: "Stórt kaffi, hristingar, kaldir drykkir" },
       ],
     },
     portfolio: {

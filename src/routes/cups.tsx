@@ -853,8 +853,9 @@ function CupsQuoteForm() {
     size: string;
     finish: string;
     lining: string;
+    note: string;
   };
-  const emptyDraft: Item = { productIdx: -1, product: "", quantity: "", timing: "", size: "", finish: "", lining: "" };
+  const emptyDraft: Item = { productIdx: -1, product: "", quantity: "", timing: "", size: "", finish: "", lining: "", note: "" };
 
   const [step, setStep] = useState(0); // 0 path picker; configure: 1 product, 2 specs, 3 list, 4 contact; brief/sample: 1 form, 2 contact
   const [path, setPath] = useState<"" | "configure" | "brief" | "sample">("");

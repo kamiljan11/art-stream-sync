@@ -942,10 +942,11 @@ function CupsQuoteForm() {
     if (a.productIdx < 0) {
       // Modifier-style addon (e.g. BIO lining upgrade): apply to existing eligible items
       if (a.key === "bioLining") {
+        const bioLabel = dict.cupsPage.quote.linings.find((l) => /bio/i.test(l)) || "";
         setItems((arr) =>
           arr.map((it) =>
             [1, 2, 3, 5].includes(it.productIdx) && it.lining && !/bio/i.test(it.lining)
-              ? { ...it, lining: liningOptions.find((l) => /bio/i.test(l)) || it.lining }
+              ? { ...it, lining: bioLabel || it.lining }
               : it
           )
         );

@@ -378,7 +378,6 @@ const is = {
         "Veit ekki enn, ráðleggðu",
         "Einveggja pappírsbolli (prentaður)",
         "Premium hita tvíveggja bolli",
-        "Hulstur tvíveggja bolli (ódýr)",
         "Sléttur hvítur pappírsbolli (lager, óprentaður)",
         "Glær plastbolli (kaldir drykkir)",
         "Eco / BIO lína (niðurbrjótanleg húðun)",
@@ -407,14 +406,6 @@ const is = {
         sizes: "250 · 300 · 400 ml",
         desc: "Premium tvíveggja bolli. Heldur drykknum heitum en er þægilegur að halda á. Mælt með fyrir kaffihús, take-away og kaffihorn hótela.",
         bullets: ["Þægilegur að halda á jafnvel með heitum drykkjum", "Premium tilfinning, mött eða gljáandi áferð", "Endurvinnanleg eða niðurbrjótanleg innri húðun"],
-        moq: "1.000 stk",
-      },
-      {
-        tag: "Hulstur · tvíveggja",
-        title: "Hulstur tvíveggja bolli (ódýr)",
-        sizes: "100 · 250 · 300 ml",
-        desc: "Ódýrari tvíveggja bolli. Þykkari en einveggja og ódýrari en premium. Hentar fyrir heitt kaffi, te og glögg.",
-        bullets: ["Auka einangrun á móti einveggja", "Lægri kostnaður en premium hita", "Aðeins lógó eða full-vafðs litaprentun"],
         moq: "1.000 stk",
       },
       {

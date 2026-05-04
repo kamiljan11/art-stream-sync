@@ -378,7 +378,6 @@ const en = {
         "Not sure yet, advise me",
         "Single-wall paper cup (printed)",
         "Premium thermal double-wall cup",
-        "Sleeve double-wall cup (budget)",
         "Plain white paper cup (stock, no print)",
         "Transparent plastic cup (cold drinks)",
         "Eco / BIO line (compostable lining)",
@@ -407,14 +406,6 @@ const en = {
         sizes: "250 · 300 · 400 ml",
         desc: "Premium double-wall cup. Keeps drinks hot inside while staying comfortable to hold. Recommended for cafés, takeaway and hotel coffee corners.",
         bullets: ["Comfortable to hold even with hot drinks", "Premium feel, matte or gloss finish", "Recyclable or compostable inner lining"],
-        moq: "1,000 pcs",
-      },
-      {
-        tag: "Sleeve · double-wall",
-        title: "Sleeve double-wall cup (budget)",
-        sizes: "100 · 250 · 300 ml",
-        desc: "Budget double-wall cup. Thicker than single-wall and cheaper than premium. Suitable for hot coffee, tea and mulled wine.",
-        bullets: ["Extra insulation vs. single-wall", "Lower cost than premium thermal", "Logo-only or full-wrap colour print"],
         moq: "1,000 pcs",
       },
       {

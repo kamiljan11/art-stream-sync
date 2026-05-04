@@ -123,21 +123,6 @@ const products: Product[] = [
     lead: "5–6 weeks standard · 3–4 weeks express",
   },
   {
-    img: cupLogo,
-    tag: "Sleeve · double-wall",
-    title: "Sleeve double-wall cup (budget)",
-    sizes: "100 · 250 · 300 ml",
-    desc:
-      "Budget double-wall, thicker than single-wall, cheaper than premium. A solid middle ground for hot coffee, tea and mulled wine.",
-    bullets: [
-      "Extra insulation vs. single-wall",
-      "Lower cost than premium thermal",
-      "Logo-only or full-wrap colour print",
-    ],
-    moq: "1,000 pcs",
-    lead: "4–5 weeks standard · 3 weeks express",
-  },
-  {
     img: cupWater,
     tag: "Stock · no print",
     title: "Plain white paper cup (stock)",

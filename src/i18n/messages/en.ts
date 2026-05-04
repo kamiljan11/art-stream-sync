@@ -348,7 +348,7 @@ const en = {
         { q: "Can I add liquid level markings (0.2 L, 0.3 L)?", a: "Yes, on the outside. Because cup walls taper, we measure the exact fill heights on a reference cup before locking the artwork — easiest to sort during a quick meeting with our sales rep." },
         { q: "Can the inside of the cup be printed?", a: "No. The leak-proof, food-safe inner coating also blocks ink, printing is exterior-only." },
         { q: "What file formats do you accept and which template should I use?", a: "We need an open, editable file in CMYK colour mode: editable .pdf, .ai (Illustrator) or .cdr (CorelDraw). Every cup size has its own arc-shaped template — tell us the size and lining and we'll email the right one back." },
-        { q: "Do you provide certificates with the order?", a: "Yes — included free with every delivery. Food-contact safety, compostability (EN 13432 for BIO), recycled content (rPET) and origin documents come standard, no need to ask." },
+        { q: "Do you provide certificates with the order?", a: "Yes — all relevant certificates are included free with every delivery, no need to ask." },
       ],
     },
     quote: {

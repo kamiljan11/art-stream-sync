@@ -1366,6 +1366,9 @@ function CupsQuoteForm() {
                       {it.finish && <span>{it.finish}</span>}
                       {it.lining && <span>{it.lining}</span>}
                     </div>
+                    {it.note && (
+                      <div className="text-xs text-[#555] mt-1 italic break-words">"{it.note}"</div>
+                    )}
                   </div>
                   <button type="button" onClick={() => startEdit(i)} className="text-[#00AEEF] hover:opacity-80 p-1" aria-label={wz.edit}>
                     <Pencil size={16} />

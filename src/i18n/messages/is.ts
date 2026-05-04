@@ -437,6 +437,8 @@ const is = {
         qty: "Magn",
         pantoneTitle: "Ég er með ákveðna Pantone liti",
         pantoneHint: "Hakaðu við ef þú vilt að við prentum með Pantone litum og deildu kóðunum — við tökum samsvörunina með í tilboðinu.",
+        startOver: "Byrja upp á nýtt",
+        resetConfirm: "Henda vistuðum gögnum og byrja nýtt tilboð?",
         pantonePlaceholder: "Pantone kóðar, t.d. PMS 286 C, PMS 200 C",
       },
       addonLabels: {

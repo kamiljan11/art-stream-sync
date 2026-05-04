@@ -1101,6 +1101,27 @@ function CupsQuoteForm() {
     (sizeOptions.length === 0 || draft.size !== "") &&
     (finishOptions.length === 0 || draft.finish !== "");
 
+  const resetWizard = () => {
+    if (typeof window !== "undefined" && !window.confirm(wz.resetConfirm)) return;
+    setStep(0);
+    setPath("");
+    setSubStep(0);
+    setItems([]);
+    setDraft(emptyDraft);
+    setEditingIdx(null);
+    setDismissedAddons([]);
+    setBriefMessage("");
+    setSampleInterest("");
+    setSampleAddress("");
+    setContact({ name: "", email: "", phone: "", notes: "" });
+    setNeedsDesign("");
+    setFileName("");
+    setPantoneMatch(false);
+    setPantoneCodes("");
+    setErrorMsg("");
+    try { window.localStorage.removeItem(STORAGE_KEY); } catch { /* ignore */ }
+  };
+
   return (
     <div className="mt-10 rounded-2xl bg-white p-4 sm:p-8 shadow-[0_20px_50px_rgba(0,0,0,0.5)] text-[#333] max-w-full overflow-hidden">
       {/* Stepper */}
@@ -1121,7 +1142,18 @@ function CupsQuoteForm() {
           </div>
         ))}
       </div>
-      <div className="text-xs text-[#888] mb-4">{wz.step} {step + 1} {wz.of} {totalSteps}</div>
+      <div className="flex items-center justify-between gap-3 mb-4">
+        <div className="text-xs text-[#888]">{wz.step} {step + 1} {wz.of} {totalSteps}</div>
+        {(step > 0 || path !== "") && (
+          <button
+            type="button"
+            onClick={resetWizard}
+            className="text-xs font-semibold uppercase tracking-wider text-[#888] hover:text-[#00AEEF] underline underline-offset-2"
+          >
+            {wz.startOver}
+          </button>
+        )}
+      </div>
 
       {/* STEP 0: pick path */}
       {step === 0 && (

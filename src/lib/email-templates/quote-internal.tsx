@@ -16,6 +16,7 @@ interface Props {
   needsDesigner?: boolean
   currentCost?: string
   submissionId?: string
+  calculator?: any
 }
 
 const QuoteInternalEmail = (p: Props) => (
@@ -43,6 +44,39 @@ const QuoteInternalEmail = (p: Props) => (
             <Heading style={h2}>Project details</Heading>
             <Section style={messageBox}>
               <Text style={messageText}>{p.projectDetails}</Text>
+            </Section>
+          </>
+        ) : null}
+        {p.calculator?.result ? (
+          <>
+            <Heading style={h2}>🧮 AI Calculator estimate</Heading>
+            <Section style={estimateBox}>
+              <Text style={estimateBig}>
+                {Number(p.calculator.result.totalISK || 0).toLocaleString()} ISK
+              </Text>
+              <Text style={estimateSub}>
+                ≈ {Number(p.calculator.result.totalPLN || 0).toLocaleString()} PLN ·{' '}
+                {Number(p.calculator.result.totalEUR || 0).toFixed(2)} EUR
+              </Text>
+              <Text style={rowText}>
+                <span style={rowLabel}>Products: </span>
+                {Number(p.calculator.result.productsPLN || 0).toLocaleString()} PLN
+                {p.calculator.result.commissionPLN ? ` (incl. commission ${Number(p.calculator.result.commissionPLN).toLocaleString()} PLN)` : ''}
+              </Text>
+              <Text style={rowText}>
+                <span style={rowLabel}>Shipping ({String(p.calculator.shipping || '').toUpperCase()}): </span>
+                {Number(p.calculator.result.shippingPLN || 0).toLocaleString()} PLN
+                {p.calculator.result.dhlOversizeFeePLN ? ` (+ ${Number(p.calculator.result.dhlOversizeFeePLN).toLocaleString()} PLN oversize)` : ''}
+              </Text>
+              <Text style={rowText}>
+                <span style={rowLabel}>Weight: </span>{p.calculator.result.weightKg} kg
+              </Text>
+              {p.calculator.notes?.dhlFuelSurcharge ? (
+                <Text style={noteText}>{p.calculator.notes.dhlFuelSurcharge}</Text>
+              ) : null}
+              <Text style={noteText}>
+                Auto-generated from public calculator. Verify before sending the final ISK quote.
+              </Text>
             </Section>
           </>
         ) : null}

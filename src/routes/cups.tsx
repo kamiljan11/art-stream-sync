@@ -292,7 +292,7 @@ const cupsFaqs = [
   },
   {
     q: "Can I order eco / biodegradable cups?",
-    a: "Yes, every paper line can be ordered with a BIO (compostable PLA) lining instead of standard Green PE. Same feel, same heat resistance, no microplastics, EN 13432 compostable. Just tick it in the quote form.",
+    a: "Yes. We offer three linings: standard Green PE (fully recyclable, mixed-stream), compostable BIO with water-based dispersion coating (plastic-free, home-compostable, EN 13432, ~20% surcharge), and rPET (recycled plastic) for transparent cold-drink cups. Just tick the option in the quote form.",
   },
   {
     q: "Can I see samples first?",

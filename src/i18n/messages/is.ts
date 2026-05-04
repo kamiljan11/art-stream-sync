@@ -217,7 +217,7 @@ const is = {
     catalogue: {
       heading1: "Vörulisti",
       heading2: "okkar.",
-      sub: "Allar pappírslínur eru fáanlegar með venjulegri Green PE eða niðurbrjótanlegri BIO húðun, segðu bara orðið.",
+      sub: "Þrír valkostir á húðun: hefðbundin Green PE, niðurbrjótanleg BIO (vatnsdreifing, plastlaust) eða rPET fyrir glæra bolla undir kalda drykki.",
       minOrderLabel: "Lágmarkspöntun",
       askPrice: "Spyrðu um verð",
       dontSee: "Sérðu ekki það sem þú þarft?",
@@ -337,7 +337,7 @@ const is = {
         { q: "Hve lengi tekur afhending til Íslands?", a: "Prentaðir pappírsbollar: 4–6 vikur. Hitabollar og glært plast: 5–6 vikur. Lagervörur (sléttir bollar, lok, sogrör, hrærur): 2–3 vikur. Hraðsending styttir prentpantanir um viku. Nákvæm dagsetning er læst í tilboði þínu, við sjáum um íslenska tollafgreiðslu." },
         { q: "Eru tollar, VSK og afhending innifalin?", a: "Já. Hvert tilboð er allt-innifalið ISK, afhent heim að dyrum. VSK, tollar og innanlandsflutningur frá Reykjavíkurhöfn, allt innifalið. Engin óvænt gjöld þegar vörubrettið kemur." },
         { q: "Hve marga liti get ég prentað?", a: "Pappírsbollar: ótakmörkuð fjöllita prentun án aukakostnaðar, ljósmyndir með fullum blæðingum velkomnar. Glært plast: hámark 4 staðlitir, aðeins heilir blettir (engar litabreytingar). QR kóðar og rúmtaksmerkingar studdar á báðum." },
-        { q: "Get ég pantað eco / niðurbrjótanlega bolla?", a: "Já, hægt er að panta hverja pappírslínu með BIO (niðurbrjótanlegri PLA) húðun í stað hefðbundinnar Green PE. Sama tilfinning, sami hitaþol, ekkert örplast, EN 13432 niðurbrjótanlegt. Bara hakaðu við í tilboðsforminu." },
+        { q: "Get ég pantað eco / niðurbrjótanlega bolla?", a: "Já. Við bjóðum þrjár húðanir: hefðbundna Green PE (að fullu endurvinnanleg, blandaður straumur), niðurbrjótanlega BIO með vatnsdreifingarhúðun (plastlaust, heimajarðgerðarhæft, EN 13432, ~20% álag) og rPET (endurunnið plast) fyrir glæra bolla undir kalda drykki. Hakaðu bara við í tilboðsforminu." },
         { q: "Get ég séð sýnishorn fyrst?", a: "Já. Það er flókið að senda sýnishorn í pósti, svo í staðinn bókum við stuttan fund með sölufulltrúa okkar sem kemur með bollana, sýnir þér pappírinn, húðunina og prentgæðin í eigin persónu og fer yfir valkostina með þér." },
         { q: "Verður hver lota eins?", a: "Pappírsþyngd, lokafesting og mál eru læst í forskrift, hver lota passar. Litur: iðnaðarstaðlað ±15% blæbrigðisbreytileiki milli framleiðslulota (rauður helst rauður, nákvæm tónn getur breyst lítillega). Þarftu nákvæman vörumerkislit í hvert sinn? Sendu Pantone kóða, við pörum Pantone (lítill aukakostnaður)." },
         { q: "Afhendið þið utan höfuðborgarsvæðisins?", a: "Já. Við erum í Njarðvík og sendum hvert sem er á Íslandi, Reykjavík, Akureyri, Vestfirðir, Egilsstaðir, Vestmannaeyjar. Innanlandsflutningur er í tilboðinu." },
@@ -390,7 +390,7 @@ const is = {
       ],
       quantities: ["1.000 – 5.000", "5.000 – 20.000", "20.000 – 50.000", "50.000+"],
       timings: ["Hefðbundið (besta verð)", "Hraðsending (hraðar ef hægt er)", "Sveigjanlegt"],
-      linings: ["Veit ekki enn, ráðleggðu", "Hefðbundið (Green PE)", "BIO (niðurbrjótanlegt PLA)", "Vatnsdreifing (plastlaust, endurvinnanlegt)"],
+      linings: ["Veit ekki enn, ráðleggðu", "Hefðbundið (Green PE)", "Niðurbrjótanlegt BIO (vatnsdreifing, plastlaust)", "rPET (endurunnið plast, fyrir kalda drykki)"],
     },
     productCatalog: [
       {

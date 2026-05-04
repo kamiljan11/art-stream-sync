@@ -377,7 +377,6 @@ const pl = {
         "Nie wiem jeszcze, doradźcie",
         "Kubek papierowy jednowarstwowy (z nadrukiem)",
         "Premium termiczny dwuwarstwowy",
-        "Kubek dwuwarstwowy z rękawem (budżetowy)",
         "Czysty biały kubek papierowy (z magazynu, bez nadruku)",
         "Transparentny kubek plastikowy (zimne napoje)",
         "Linia Eco / BIO (bariera kompostowalna)",
@@ -406,14 +405,6 @@ const pl = {
         sizes: "250 · 300 · 400 ml",
         desc: "Premium kubek dwuwarstwowy. Utrzymuje gorący napój w środku, a jednocześnie pozostaje wygodny w trzymaniu. Polecany dla kawiarni, na wynos i do hotelowych kącików kawowych.",
         bullets: ["Wygodny w trzymaniu nawet z gorącym napojem", "Wykończenie premium, matowe lub błyszczące", "Bariera wewnętrzna do recyklingu lub kompostowalna"],
-        moq: "1 000 szt.",
-      },
-      {
-        tag: "Rękaw · dwuwarstwowy",
-        title: "Kubek dwuwarstwowy z rękawem (budżetowy)",
-        sizes: "100 · 250 · 300 ml",
-        desc: "Budżetowy kubek dwuwarstwowy. Grubszy niż jednowarstwowy i tańszy niż premium. Sprawdzi się do gorącej kawy, herbaty i grzańca.",
-        bullets: ["Dodatkowa izolacja vs. jednowarstwowy", "Niższy koszt niż premium termiczny", "Sam logotyp lub kolorowy druk full-wrap"],
         moq: "1 000 szt.",
       },
       {

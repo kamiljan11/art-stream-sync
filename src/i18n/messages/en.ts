@@ -354,7 +354,7 @@ const en = {
     quote: {
       heading1: "Get a",
       heading2: "quote.",
-      sub: "Takes 60 seconds. Reply within 24 working hours.",
+      sub: "Use the interactive form below. Takes 60s. We reply within 24h ↓",
       sentTitle: "Message Sent!",
       sentSub: "We'll reply within 24 working hours.",
       name: "Name",

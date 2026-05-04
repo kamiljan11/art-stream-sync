@@ -353,7 +353,7 @@ const pl = {
     quote: {
       heading1: "Otrzymaj",
       heading2: "wycenę.",
-      sub: "Zajmuje 60 sekund. Odpowiedź w 24 godziny robocze.",
+      sub: "Użyj interaktywnego formularza poniżej. Zajmuje 60 s. Odpowiadamy w 24h ↓",
       sentTitle: "Wiadomość wysłana!",
       sentSub: "Odpowiemy w ciągu 24 godzin roboczych.",
       name: "Imię",

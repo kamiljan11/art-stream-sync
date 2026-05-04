@@ -436,9 +436,9 @@ const is = {
       {
         tag: "Lok · pappír og plast",
         title: "Lok fyrir alla bolla sem við seljum",
-        sizes: "fyrir 100 · 180 · 250 · 300 · 400 ml + plastbolla",
-        desc: "Slétt og hvelfd lok í hvítu eða svörtu, samsvörð við hvern bolla sem við sendum. 250 ml línan kemur einnig í grænu, rauðu, appelsínugulu, gullnu og silfri.",
-        bullets: ["Tryggð passar á alla bolla sem við sendum", "Hvelfd lok fyrir kalda drykki og smoothies", "7 lita valmöguleiki fyrir 250 ml línuna"],
+        sizes: "fyrir 100 · 180 · 200 · 300 · 400 ml + plastbolla",
+        desc: "Tveir valkostir: PE plast og BIO pappír. Slétt og hvelfd, samsvörð við hvern bolla sem við sendum. Fáanleg í fjölbreyttu litaúrvali — hvítt, svart, grænt, rautt, appelsínugult, gull, silfur og fleira.",
+        bullets: ["Tryggð passar á alla bolla sem við sendum", "Hvelfd lok fyrir kalda drykki og smoothies", "Fjölbreytt litaúrval"],
         moq: "1 kassi (1.000 stk)",
       },
       {

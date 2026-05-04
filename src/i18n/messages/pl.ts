@@ -435,9 +435,9 @@ const pl = {
       {
         tag: "Wieczka · papier i plastik",
         title: "Wieczka do każdego kubka, który sprzedajemy",
-        sizes: "do 100 · 180 · 250 · 300 · 400 ml + kubki plastikowe",
-        desc: "Płaskie i kopułowe wieczka w bieli lub czerni, dopasowane do każdego kubka, który wysyłamy. Linia 250 ml dostępna też w zielonym, czerwonym, pomarańczowym, złotym i srebrnym.",
-        bullets: ["Gwarantowane dopasowanie do każdego kubka, który wysyłamy", "Wieczka kopułowe do zimnych napojów i smoothie", "7 kolorów dla linii 250 ml"],
+        sizes: "do 100 · 180 · 200 · 300 · 400 ml + kubki plastikowe",
+        desc: "Dwie opcje: plastik PE i papier BIO. Płaskie i kopułowe, dopasowane do każdego kubka, który wysyłamy. Dostępne w szerokiej gamie kolorów — biały, czarny, zielony, czerwony, pomarańczowy, złoty, srebrny i inne.",
+        bullets: ["Gwarantowane dopasowanie do każdego kubka, który wysyłamy", "Wieczka kopułowe do zimnych napojów i smoothie", "Szeroka gama kolorów"],
         moq: "1 karton (1 000 szt.)",
       },
       {

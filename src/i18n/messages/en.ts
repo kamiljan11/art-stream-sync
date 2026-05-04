@@ -436,9 +436,9 @@ const en = {
       {
         tag: "Lids · paper & plastic",
         title: "Lids for every cup we sell",
-        sizes: "for 100 · 180 · 250 · 300 · 400 ml + plastic cups",
-        desc: "Flat and dome lids in white or black, matched to every cup we ship. The 250 ml line also comes in green, red, orange, gold and silver.",
-        bullets: ["Guaranteed fit on every cup we ship", "Dome lids for cold drinks & smoothies", "7-colour option for the 250 ml line"],
+        sizes: "for 100 · 180 · 200 · 300 · 400 ml + plastic cups",
+        desc: "Two options: PE plastic and BIO paper. Flat and dome shapes, matched to every cup we ship. Available in a wide range of colours — white, black, green, red, orange, gold, silver and more.",
+        bullets: ["Guaranteed fit on every cup we ship", "Dome lids for cold drinks & smoothies", "Wide colour range available"],
         moq: "1 carton (1,000 pcs)",
       },
       {

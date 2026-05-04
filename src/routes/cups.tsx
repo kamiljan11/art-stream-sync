@@ -853,8 +853,9 @@ function CupsQuoteForm() {
     size: string;
     finish: string;
     lining: string;
+    note: string;
   };
-  const emptyDraft: Item = { productIdx: -1, product: "", quantity: "", timing: "", size: "", finish: "", lining: "" };
+  const emptyDraft: Item = { productIdx: -1, product: "", quantity: "", timing: "", size: "", finish: "", lining: "", note: "" };
 
   const [step, setStep] = useState(0); // 0 path picker; configure: 1 product, 2 specs, 3 list, 4 contact; brief/sample: 1 form, 2 contact
   const [path, setPath] = useState<"" | "configure" | "brief" | "sample">("");
@@ -1003,6 +1004,7 @@ function CupsQuoteForm() {
           it.finish && `  Colour/finish: ${it.finish}`,
           it.lining && `  Lining: ${it.lining}`,
           it.timing && `  Timing: ${it.timing}`,
+          it.note && `  Note: ${it.note}`,
         ].filter(Boolean);
         return lines.join("\n");
       }).join("\n\n");
@@ -1227,18 +1229,43 @@ function CupsQuoteForm() {
 
       {/* CONFIGURE STEP 2: configure (one question per screen) */}
       {path === "configure" && step === 2 && (() => {
-        type Q = { key: keyof Item; label: string; options: string[] };
+        type Q = { key: keyof Item; label: string; options: string[]; kind?: "choice" | "text"; placeholder?: string; required?: boolean };
         const queue: Q[] = [];
+        // Special path: "Not sure / advise me" (idx 0) or "Something else / mix" (idx 10)
+        // Skip size/finish/lining — ask for a free-text description instead
+        const isOpenEnded = draft.productIdx === 0 || draft.productIdx === 10;
+        if (isOpenEnded) {
+          queue.push({
+            key: "note",
+            label: t("cupsPage.quote.wizard.tellUsMore"),
+            options: [],
+            kind: "text",
+            placeholder: t("cupsPage.quote.wizard.tellUsMorePlaceholder"),
+            required: true,
+          });
+        } else {
         if (sizeOptions.length > 0) queue.push({ key: "size", label: t("cupsPage.quote.size"), options: sizeOptions });
         if (finishOptions.length > 0) queue.push({ key: "finish", label: t("cupsPage.quote.finish"), options: finishOptions });
         if (liningOptions.length > 0) queue.push({ key: "lining", label: t("cupsPage.quote.lining"), options: liningOptions });
+          // If user picked "Mix of sizes", ask for the mix breakdown (optional)
+          if (/mix/i.test(draft.size)) {
+            queue.push({
+              key: "note",
+              label: t("cupsPage.quote.wizard.mixDetails"),
+              options: [],
+              kind: "text",
+              placeholder: t("cupsPage.quote.wizard.mixDetailsPlaceholder"),
+              required: false,
+            });
+          }
+        }
         queue.push({ key: "quantity", label: t("cupsPage.quote.quantity"), options: tArray("cupsPage.quote.quantities") });
         queue.push({ key: "timing", label: t("cupsPage.quote.timing"), options: tArray("cupsPage.quote.timings") });
 
         const safeIdx = Math.min(subStep, queue.length - 1);
         const q = queue[safeIdx];
         const value = (draft[q.key] as string) || "";
-        const required = q.key !== "timing"; // timing optional
+        const required = q.required !== undefined ? q.required : q.key !== "timing"; // timing optional
         const isLast = safeIdx === queue.length - 1;
         const goPrev = () => {
           if (safeIdx === 0) {
@@ -1262,6 +1289,17 @@ function CupsQuoteForm() {
             <h3 className="mt-1 text-2xl font-bold text-[#222]">{q.label}</h3>
             <div className="mt-1 text-xs text-[#aaa]">{safeIdx + 1} / {queue.length}</div>
 
+            {q.kind === "text" ? (
+              <div className="mt-5">
+                <textarea
+                  rows={5}
+                  value={value}
+                  onChange={(e) => setDraft((d) => ({ ...d, [q.key]: e.target.value }))}
+                  placeholder={q.placeholder}
+                  className="w-full rounded-lg border-2 border-[#eee] bg-[#f9f9f9] text-[#333] placeholder:text-[#999] px-4 py-[14px] text-sm outline-none focus:border-[#333] focus:bg-white transition-colors min-h-[120px] resize-y"
+                />
+              </div>
+            ) : (
             <div className="mt-5 grid gap-2 sm:grid-cols-2">
               {q.options.map((opt) => (
                 <button
@@ -1286,6 +1324,7 @@ function CupsQuoteForm() {
                 </button>
               ))}
             </div>
+            )}
 
             <div className="mt-6 flex items-center justify-between gap-3">
               <button
@@ -1328,6 +1367,9 @@ function CupsQuoteForm() {
                       {it.finish && <span>{it.finish}</span>}
                       {it.lining && <span>{it.lining}</span>}
                     </div>
+                    {it.note && (
+                      <div className="text-xs text-[#555] mt-1 italic break-words">"{it.note}"</div>
+                    )}
                   </div>
                   <button type="button" onClick={() => startEdit(i)} className="text-[#00AEEF] hover:opacity-80 p-1" aria-label={wz.edit}>
                     <Pencil size={16} />

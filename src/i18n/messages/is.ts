@@ -437,6 +437,8 @@ const is = {
         pantoneTitle: "Pantone samsvörun (nákvæmur vörumerkislitur)",
         pantoneHint: "Hakaðu við ef vörumerkislitur þarf að vera nákvæmur. Greitt aukaatriði (u.þ.b. 10.000 ISK uppsetningargjald á hvern Pantone-lit). Skildu eftir auðan reit fyrir staðlað CMYK prentun.",
         pantonePlaceholder: "Pantone kóðar, t.d. PMS 286 C, PMS 200 C",
+        certsTitle: "Senda vottorð með pöntuninni (ókeypis)",
+        certsHint: "Vottorð um snertingu við matvæli, niðurbrjótanleika (EN 13432 fyrir BIO), endurunnið efni (rPET) og uppruna — fylgir með hverri sendingu sé þess óskað.",
       },
       addonLabels: {
         lids: "Lok sem passa",

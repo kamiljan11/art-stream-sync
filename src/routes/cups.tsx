@@ -856,7 +856,11 @@ function CupsQuoteForm() {
   };
   const emptyDraft: Item = { productIdx: -1, product: "", quantity: "", timing: "", size: "", finish: "", lining: "" };
 
-  const [step, setStep] = useState(1); // 1 product, 2 specs, 3 list, 4 contact
+  const [step, setStep] = useState(0); // 0 path picker; configure: 1 product, 2 specs, 3 list, 4 contact; brief/sample: 1 form, 2 contact
+  const [path, setPath] = useState<"" | "configure" | "brief" | "sample">("");
+  const [briefMessage, setBriefMessage] = useState("");
+  const [sampleInterest, setSampleInterest] = useState("");
+  const [sampleAddress, setSampleAddress] = useState("");
   const [subStep, setSubStep] = useState(0);
   const [items, setItems] = useState<Item[]>([]);
   const [draft, setDraft] = useState<Item>(emptyDraft);
@@ -932,8 +936,17 @@ function CupsQuoteForm() {
     setDismissedAddons((d) => [...d, a.key]);
   };
 
-  const totalSteps = 4;
-  const stepLabel = (n: number) => [wz.s1, wz.s2, wz.s3, wz.s4][n - 1];
+  // Steps depend on chosen path. Step 0 = path picker.
+  const stepLabels: string[] =
+    path === "configure"
+      ? [wz.s0, wz.s1, wz.s2, wz.s3, wz.s4]
+      : path === "brief"
+      ? [wz.s0, wz.briefTitle, wz.s4]
+      : path === "sample"
+      ? [wz.s0, wz.sampleTitle, wz.s4]
+      : [wz.s0];
+  const totalSteps = stepLabels.length;
+  const stepLabel = (n: number) => stepLabels[n] ?? "";
 
   if (submitted) {
     return (
@@ -960,21 +973,33 @@ function CupsQuoteForm() {
         ].filter(Boolean);
         return lines.join("\n");
       }).join("\n\n");
+      const pathLabel =
+        path === "brief" ? "[BRIEF UPLOAD]" :
+        path === "sample" ? "[SAMPLE REQUEST]" :
+        "[CONFIGURATOR]";
       const projectDetails = [
-        itemsBlock,
-        fileName && `Artwork file: ${fileName}`,
+        pathLabel,
+        path === "configure" && itemsBlock,
+        path === "brief" && briefMessage && `Brief: ${briefMessage}`,
+        path === "sample" && sampleInterest && `Interested in: ${sampleInterest}`,
+        path === "sample" && sampleAddress && `Address: ${sampleAddress}`,
+        fileName && `Attached file: ${fileName}`,
         contact.notes && `Notes: ${contact.notes}`,
       ].filter(Boolean).join("\n\n");
       const res = await fetch("/api/public/quote", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          type: "new",
+          type: path === "brief" ? "brief" : path === "sample" ? "sample" : "new",
           name: contact.name,
           email: contact.email,
           phone: contact.phone,
-          productType: items.map((i) => i.product).join(" + "),
-          quantity: items.map((i) => i.quantity).filter(Boolean).join(" / "),
+          productType: path === "configure"
+            ? items.map((i) => i.product).join(" + ")
+            : path === "sample" ? "Sample request" : "Brief upload",
+          quantity: path === "configure"
+            ? items.map((i) => i.quantity).filter(Boolean).join(" / ")
+            : "",
           projectDetails,
           needsDesigner: needsDesign === "yes",
         }),
@@ -997,26 +1022,126 @@ function CupsQuoteForm() {
     <div className="mt-10 rounded-2xl bg-white p-5 sm:p-8 shadow-[0_20px_50px_rgba(0,0,0,0.5)] text-[#333]">
       {/* Stepper */}
       <div className="flex items-center justify-between gap-2 mb-6">
-        {[1, 2, 3, 4].map((n) => (
-          <div key={n} className="flex-1 flex items-center gap-2">
+        {stepLabels.map((_, idx) => (
+          <div key={idx} className="flex-1 flex items-center gap-2">
             <div
               className={`h-8 w-8 shrink-0 rounded-full flex items-center justify-center text-xs font-bold ${
-                step >= n ? "bg-[#00AEEF] text-white" : "bg-[#eee] text-[#999]"
+                step >= idx ? "bg-[#00AEEF] text-white" : "bg-[#eee] text-[#999]"
               }`}
             >
-              {step > n ? <Check size={14} /> : n}
+              {step > idx ? <Check size={14} /> : idx + 1}
             </div>
-            <div className={`text-xs font-semibold uppercase tracking-wider truncate ${step >= n ? "text-[#333]" : "text-[#aaa]"}`}>
-              {stepLabel(n)}
+            <div className={`text-xs font-semibold uppercase tracking-wider truncate ${step >= idx ? "text-[#333]" : "text-[#aaa]"}`}>
+              {stepLabel(idx)}
             </div>
-            {n < 4 && <div className={`hidden sm:block flex-1 h-0.5 ${step > n ? "bg-[#00AEEF]" : "bg-[#eee]"}`} />}
+            {idx < stepLabels.length - 1 && <div className={`hidden sm:block flex-1 h-0.5 ${step > idx ? "bg-[#00AEEF]" : "bg-[#eee]"}`} />}
           </div>
         ))}
       </div>
-      <div className="text-xs text-[#888] mb-4">{wz.step} {step} {wz.of} {totalSteps}</div>
+      <div className="text-xs text-[#888] mb-4">{wz.step} {step + 1} {wz.of} {totalSteps}</div>
 
-      {/* STEP 1: pick product */}
-      {step === 1 && (
+      {/* STEP 0: pick path */}
+      {step === 0 && (
+        <div>
+          <h3 className="text-xl font-bold text-[#222]">{wz.pickPath}</h3>
+          <p className="text-sm text-[#777] mt-1">{wz.pickPathHint}</p>
+          <div className="mt-5 grid gap-3 sm:grid-cols-3">
+            {([
+              { key: "configure", title: wz.pathConfigureTitle, desc: wz.pathConfigureDesc, icon: "⚙️" },
+              { key: "brief", title: wz.pathBriefTitle, desc: wz.pathBriefDesc, icon: "📄" },
+              { key: "sample", title: wz.pathSampleTitle, desc: wz.pathSampleDesc, icon: "🧪" },
+            ] as const).map((opt) => (
+              <button
+                key={opt.key}
+                type="button"
+                onClick={() => { setPath(opt.key); setStep(1); }}
+                className="text-left rounded-xl border-2 border-[#eee] bg-[#f9f9f9] hover:border-[#00AEEF] hover:bg-[#00AEEF]/5 p-5 transition-colors"
+              >
+                <div className="text-3xl">{opt.icon}</div>
+                <div className="mt-2 font-bold text-[#222]">{opt.title}</div>
+                <div className="text-xs text-[#666] mt-1 leading-relaxed">{opt.desc}</div>
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* BRIEF PATH — Step 1: brief form */}
+      {path === "brief" && step === 1 && (
+        <div>
+          <h3 className="text-xl font-bold text-[#222]">{wz.briefTitle}</h3>
+          <p className="text-sm text-[#777] mt-1">{wz.briefHint}</p>
+          <label className="mt-5 flex flex-col gap-1.5">
+            <span className="text-xs font-bold uppercase tracking-wider text-[#555]">{wz.briefMessage}</span>
+            <textarea
+              rows={6}
+              value={briefMessage}
+              onChange={(e) => setBriefMessage(e.target.value)}
+              placeholder={wz.briefMessagePlaceholder}
+              className="rounded-lg border-2 border-[#eee] bg-[#f9f9f9] text-[#333] placeholder:text-[#999] px-4 py-[14px] text-sm outline-none focus:border-[#333] focus:bg-white transition-colors min-h-[140px] resize-y"
+            />
+          </label>
+          <div className="mt-4">
+            <span className="text-xs font-bold uppercase tracking-wider text-[#555]">{t("cupsPage.quote.uploadArtwork")}</span>
+            <label className="mt-2 inline-flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg border-2 border-dashed border-[#ddd] bg-white px-3 py-3 text-sm font-medium text-[#333] hover:border-[#bbb] transition-colors">
+              <input type="file" className="hidden" onChange={(e) => setFileName(e.target.files?.[0]?.name ?? "")} />
+              {fileName || t("cupsPage.quote.chooseFile")}
+            </label>
+          </div>
+          <div className="mt-6 flex items-center justify-between gap-3">
+            <button type="button" onClick={() => { setStep(0); }}
+              className="inline-flex items-center gap-2 rounded-md px-4 py-2.5 text-sm font-semibold text-[#555] border-2 border-[#eee] hover:border-[#bbb]">
+              <ArrowLeft size={16} /> {wz.back}
+            </button>
+            <button type="button" disabled={!briefMessage && !fileName} onClick={() => setStep(2)}
+              className="inline-flex items-center gap-2 rounded-md px-5 py-2.5 text-sm font-semibold text-white disabled:opacity-40"
+              style={{ background: "var(--gradient-cyan)" }}>
+              {wz.next} <ArrowRight size={16} />
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* SAMPLE PATH — Step 1: sample form */}
+      {path === "sample" && step === 1 && (
+        <div>
+          <h3 className="text-xl font-bold text-[#222]">{wz.sampleTitle}</h3>
+          <p className="text-sm text-[#777] mt-1">{wz.sampleHint}</p>
+          <label className="mt-5 flex flex-col gap-1.5">
+            <span className="text-xs font-bold uppercase tracking-wider text-[#555]">{wz.sampleInterest}</span>
+            <textarea
+              rows={4}
+              value={sampleInterest}
+              onChange={(e) => setSampleInterest(e.target.value)}
+              placeholder={wz.sampleInterestPlaceholder}
+              className="rounded-lg border-2 border-[#eee] bg-[#f9f9f9] text-[#333] placeholder:text-[#999] px-4 py-[14px] text-sm outline-none focus:border-[#333] focus:bg-white transition-colors min-h-[100px] resize-y"
+            />
+          </label>
+          <label className="mt-4 flex flex-col gap-1.5">
+            <span className="text-xs font-bold uppercase tracking-wider text-[#555]">{wz.sampleAddress}</span>
+            <input
+              value={sampleAddress}
+              onChange={(e) => setSampleAddress(e.target.value)}
+              placeholder={wz.sampleAddressPlaceholder}
+              className="rounded-lg border-2 border-[#eee] bg-[#f9f9f9] text-[#333] placeholder:text-[#999] px-4 py-[14px] text-sm outline-none focus:border-[#333] focus:bg-white transition-colors"
+            />
+          </label>
+          <div className="mt-6 flex items-center justify-between gap-3">
+            <button type="button" onClick={() => setStep(0)}
+              className="inline-flex items-center gap-2 rounded-md px-4 py-2.5 text-sm font-semibold text-[#555] border-2 border-[#eee] hover:border-[#bbb]">
+              <ArrowLeft size={16} /> {wz.back}
+            </button>
+            <button type="button" disabled={!sampleInterest} onClick={() => setStep(2)}
+              className="inline-flex items-center gap-2 rounded-md px-5 py-2.5 text-sm font-semibold text-white disabled:opacity-40"
+              style={{ background: "var(--gradient-cyan)" }}>
+              {wz.next} <ArrowRight size={16} />
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* CONFIGURE STEP 1: pick product */}
+      {path === "configure" && step === 1 && (
         <div>
           <h3 className="text-xl font-bold text-[#222]">{wz.pickProduct}</h3>
           <p className="text-sm text-[#777] mt-1">{wz.pickProductHint}</p>
@@ -1050,8 +1175,8 @@ function CupsQuoteForm() {
         </div>
       )}
 
-      {/* STEP 2: configure (one question per screen) */}
-      {step === 2 && (() => {
+      {/* CONFIGURE STEP 2: configure (one question per screen) */}
+      {path === "configure" && step === 2 && (() => {
         type Q = { key: keyof Item; label: string; options: string[] };
         const queue: Q[] = [];
         if (sizeOptions.length > 0) queue.push({ key: "size", label: t("cupsPage.quote.size"), options: sizeOptions });
@@ -1135,8 +1260,8 @@ function CupsQuoteForm() {
         );
       })()}
 
-      {/* STEP 3: list + addons */}
-      {step === 3 && (
+      {/* CONFIGURE STEP 3: list + addons */}
+      {path === "configure" && step === 3 && (
         <div>
           <h3 className="text-xl font-bold text-[#222]">{wz.yourList}</h3>
           {items.length === 0 ? (
@@ -1219,28 +1344,30 @@ function CupsQuoteForm() {
         </div>
       )}
 
-      {/* STEP 4: contact + design + send */}
-      {step === 4 && (
+      {/* CONTACT STEP — last for every path */}
+      {((path === "configure" && step === 4) || ((path === "brief" || path === "sample") && step === 2)) && (
         <form
           onSubmit={(e) => { e.preventDefault(); submit(); }}
           className="grid gap-4 sm:grid-cols-2 [&>*]:min-w-0"
         >
           <h3 className="sm:col-span-2 text-xl font-bold text-[#222]">{wz.contactStep}</h3>
 
-          {/* Items summary */}
-          <div className="sm:col-span-2 rounded-lg border-2 border-[#eee] bg-[#f9f9f9] p-3">
-            <div className="text-xs font-bold uppercase tracking-wider text-[#555] mb-2">{wz.itemsSummary}</div>
-            <ul className="space-y-1 text-xs text-[#444]">
-              {items.map((it, i) => (
-                <li key={i}>
-                  <span className="font-semibold">{i + 1}.</span> {it.product}
-                  {it.quantity && ` — ${it.quantity}`}
-                  {it.size && `, ${it.size}`}
-                  {it.finish && `, ${it.finish}`}
-                </li>
-              ))}
-            </ul>
-          </div>
+          {/* Items summary — only for configure path */}
+          {path === "configure" && items.length > 0 && (
+            <div className="sm:col-span-2 rounded-lg border-2 border-[#eee] bg-[#f9f9f9] p-3">
+              <div className="text-xs font-bold uppercase tracking-wider text-[#555] mb-2">{wz.itemsSummary}</div>
+              <ul className="space-y-1 text-xs text-[#444]">
+                {items.map((it, i) => (
+                  <li key={i}>
+                    <span className="font-semibold">{i + 1}.</span> {it.product}
+                    {it.quantity && ` — ${it.quantity}`}
+                    {it.size && `, ${it.size}`}
+                    {it.finish && `, ${it.finish}`}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
 
           <Field label={t("cupsPage.quote.name")} required value={contact.name} onChange={updateContact("name")} />
           <Field label={t("cupsPage.quote.email")} type="email" required value={contact.email} onChange={updateContact("email")} />
@@ -1291,7 +1418,7 @@ function CupsQuoteForm() {
           <div className="sm:col-span-2 flex items-center justify-between gap-3 mt-2">
             <button
               type="button"
-              onClick={() => setStep(3)}
+              onClick={() => setStep(path === "configure" ? 3 : 1)}
               className="inline-flex items-center gap-2 rounded-md px-4 py-2.5 text-sm font-semibold text-[#555] border-2 border-[#eee] hover:border-[#bbb]"
             >
               <ArrowLeft size={16} /> {wz.back}

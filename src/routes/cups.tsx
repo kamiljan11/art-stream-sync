@@ -1539,6 +1539,31 @@ function CupsQuoteForm() {
           </div>
           )}
 
+          {/* Pantone match — exact brand colour matching (paid extra) */}
+          <div className="sm:col-span-2 rounded-lg border-2 border-[#eee] bg-[#f9f9f9] p-4">
+            <label className="flex items-start gap-2 cursor-pointer text-sm text-[#333]">
+              <input
+                type="checkbox"
+                checked={pantoneMatch}
+                onChange={(e) => setPantoneMatch(e.target.checked)}
+                className="mt-0.5 h-4 w-4 accent-[#00AEEF]"
+              />
+              <span>
+                <span className="font-semibold">{wz.pantoneTitle}</span>
+                <span className="block text-xs text-[#777] mt-0.5">{wz.pantoneHint}</span>
+              </span>
+            </label>
+            {pantoneMatch && (
+              <input
+                type="text"
+                value={pantoneCodes}
+                onChange={(e) => setPantoneCodes(e.target.value)}
+                placeholder={wz.pantonePlaceholder}
+                className="mt-3 w-full rounded-lg border-2 border-[#eee] bg-white text-[#333] placeholder:text-[#999] px-4 py-[10px] text-sm outline-none focus:border-[#333] transition-colors"
+              />
+            )}
+          </div>
+
           <label className="sm:col-span-2 flex flex-col gap-1.5">
             <span className="text-xs font-bold uppercase tracking-wider text-[#555]">{t("cupsPage.quote.notes")}</span>
             <textarea

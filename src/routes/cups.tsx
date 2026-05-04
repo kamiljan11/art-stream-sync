@@ -857,6 +857,10 @@ function CupsQuoteForm() {
   const emptyDraft: Item = { productIdx: -1, product: "", quantity: "", timing: "", size: "", finish: "", lining: "" };
 
   const [step, setStep] = useState(1); // 1 product, 2 specs, 3 list, 4 contact
+  const [path, setPath] = useState<"" | "configure" | "brief" | "sample">("");
+  const [briefMessage, setBriefMessage] = useState("");
+  const [sampleInterest, setSampleInterest] = useState("");
+  const [sampleAddress, setSampleAddress] = useState("");
   const [subStep, setSubStep] = useState(0);
   const [items, setItems] = useState<Item[]>([]);
   const [draft, setDraft] = useState<Item>(emptyDraft);
@@ -960,21 +964,33 @@ function CupsQuoteForm() {
         ].filter(Boolean);
         return lines.join("\n");
       }).join("\n\n");
+      const pathLabel =
+        path === "brief" ? "[BRIEF UPLOAD]" :
+        path === "sample" ? "[SAMPLE REQUEST]" :
+        "[CONFIGURATOR]";
       const projectDetails = [
-        itemsBlock,
-        fileName && `Artwork file: ${fileName}`,
+        pathLabel,
+        path === "configure" && itemsBlock,
+        path === "brief" && briefMessage && `Brief: ${briefMessage}`,
+        path === "sample" && sampleInterest && `Interested in: ${sampleInterest}`,
+        path === "sample" && sampleAddress && `Address: ${sampleAddress}`,
+        fileName && `Attached file: ${fileName}`,
         contact.notes && `Notes: ${contact.notes}`,
       ].filter(Boolean).join("\n\n");
       const res = await fetch("/api/public/quote", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          type: "new",
+          type: path === "brief" ? "brief" : path === "sample" ? "sample" : "new",
           name: contact.name,
           email: contact.email,
           phone: contact.phone,
-          productType: items.map((i) => i.product).join(" + "),
-          quantity: items.map((i) => i.quantity).filter(Boolean).join(" / "),
+          productType: path === "configure"
+            ? items.map((i) => i.product).join(" + ")
+            : path === "sample" ? "Sample request" : "Brief upload",
+          quantity: path === "configure"
+            ? items.map((i) => i.quantity).filter(Boolean).join(" / ")
+            : "",
           projectDetails,
           needsDesigner: needsDesign === "yes",
         }),

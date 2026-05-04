@@ -157,7 +157,7 @@ const products: Product[] = [
     title: "Ice cream & dessert bowl",
     sizes: "130 · 245 · 360 ml",
     desc:
-      "Wide-mouth bowl for ice cream, yoghurt, soup and snacks. Always BIO-coated. Custom-printed or plain.",
+      "Wide-mouth bowl for ice cream, yoghurt and snacks. Cold use only — not for hot soup. Custom-printed or plain.",
     bullets: [
       "100% biodegradable BIO lining",
       "Custom full-wrap print available",

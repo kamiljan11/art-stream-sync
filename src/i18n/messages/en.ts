@@ -285,7 +285,7 @@ const en = {
       p3b: "water-based dispersion coating",
       p3c: ": fully plastic-free, home-compostable, certified to EN 13432. Same feel, same heat resistance, same taste, but",
       p3d: "zero microplastics",
-      p3e: ". We pick the right technology for your product, because protecting the environment is part of how we work, not an add-on. Works for hot coffee, cold drinks and ice cream.",
+      p3e: ". Works for hot coffee, cold drinks and ice cream.",
       stat1: "FSC paper",
       stat2: "Plastic-free",
       stat3: "Certified",

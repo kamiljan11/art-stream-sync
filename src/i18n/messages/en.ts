@@ -404,7 +404,7 @@ const en = {
       {
         tag: "Double-wall · premium",
         title: "Premium thermal double-wall cup",
-        sizes: "200 · 300 · 400 ml",
+        sizes: "100 · 180 · 200 · 300 · 400 ml",
         desc: "Premium double-wall cup. Keeps drinks hot inside while staying comfortable to hold. Available all-white, all-kraft, or with one kraft wall and one white wall. Recommended for cafés, takeaway and hotel coffee corners.",
         bullets: ["Comfortable to hold even with hot drinks", "White, kraft, or kraft + white combo", "Recyclable or compostable inner lining"],
         moq: "1,000 pcs",

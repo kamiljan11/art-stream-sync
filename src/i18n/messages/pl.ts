@@ -403,7 +403,7 @@ const pl = {
       {
         tag: "Dwuwarstwowy · premium",
         title: "Premium termiczny kubek dwuwarstwowy",
-        sizes: "200 · 300 · 400 ml",
+        sizes: "100 · 180 · 200 · 300 · 400 ml",
         desc: "Premium kubek dwuwarstwowy. Utrzymuje gorący napój w środku, a jednocześnie pozostaje wygodny w trzymaniu. Dostępny w całości biały, w całości kraft, lub w wersji łączonej (jedna ścianka kraft, druga biała). Polecany dla kawiarni, na wynos i do hotelowych kącików kawowych.",
         bullets: ["Wygodny w trzymaniu nawet z gorącym napojem", "Biały, kraft lub kombinacja kraft + biały", "Bariera wewnętrzna do recyklingu lub kompostowalna"],
         moq: "1 000 szt.",

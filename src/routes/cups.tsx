@@ -12,7 +12,6 @@ import plMessages from "@/i18n/messages/pl";
 
 import cupEveryday from "@/assets/site/cup-everyday.jpg";
 import cupPremium from "@/assets/site/cup-premium.jpg";
-import cupLogo from "@/assets/site/cup-logo.jpg";
 import cupWater from "@/assets/site/cup-water.jpg";
 import cupTransparent from "@/assets/site/cup-transparent.webp";
 import cupIcecream from "@/assets/site/cup-icecream.jpg";
@@ -324,7 +323,7 @@ function CupsPage() {
   const dict = locale === "is" ? isMessages : locale === "pl" ? plMessages : enMessages;
   const cp = dict.cupsPage;
   // Merge product images with translated catalog
-  const productImgs = [cupEveryday, cupPremium, cupLogo, cupWater, cupTransparent, cupIcecream, cupLids, cupStraws, cupStirrers];
+  const productImgs = [cupEveryday, cupPremium, cupWater, cupTransparent, cupIcecream, cupLids, cupStraws, cupStirrers];
   const translatedProducts = cp.productCatalog.map((p, i) => ({ ...p, img: productImgs[i], lead: products[i].lead }));
   const sizeRows = cp.sizeGuide.rows;
   const cupsFaqsT = cp.faq.items;

@@ -400,7 +400,7 @@ const is = {
         briefMessage: "Stutt verkefnislýsing",
         briefMessagePlaceholder: "Hvað þú vilt panta, magn, tímamörk, litir, allt annað...",
         sampleTitle: "Biðja um sýnishorn",
-        sampleHint: "Að senda sýnishorn í pósti er flókið, svo við bókum yfirleitt 15 mín heimsókn frá sölumanni með bolla í hönd. Segðu okkur hvaða vörur vekja áhuga þinn.",
+        sampleHint: "Að senda sýnishorn í pósti er flókið, svo við bókum yfirleitt 15–30 mín heimsókn frá sölumanni með bolla í hönd. Segðu okkur hvaða vörur vekja áhuga þinn.",
         sampleInterest: "Hvaða vörum hefur þú áhuga á?",
         sampleInterestPlaceholder: "T.d. 300 ml tvíveggja bollar með BIO fóðri, 360 ml ísskálar...",
         sampleAddress: "Heimilisfang / staðsetning (valfrjálst)",

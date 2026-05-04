@@ -331,9 +331,22 @@ function CupsPage() {
     e.preventDefault();
     const el = document.getElementById("quote");
     if (!el) return;
-    const top = el.getBoundingClientRect().top + window.scrollY - 100;
-    window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
-    history.replaceState(null, "", "/cups#quote");
+    const targetY = Math.max(0, el.getBoundingClientRect().top + window.scrollY - 100);
+    const startY = window.scrollY;
+    const distance = targetY - startY;
+    if (Math.abs(distance) < 4) return;
+    const duration = Math.min(1400, 600 + Math.abs(distance) * 0.4);
+    const startTime = performance.now();
+    const easeInOutCubic = (t: number) =>
+      t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    const step = (now: number) => {
+      const elapsed = now - startTime;
+      const progress = Math.min(1, elapsed / duration);
+      window.scrollTo(0, startY + distance * easeInOutCubic(progress));
+      if (progress < 1) requestAnimationFrame(step);
+      else history.replaceState(null, "", "/cups#quote");
+    };
+    requestAnimationFrame(step);
   };
   return (
     <div className="min-h-screen bg-background text-foreground">

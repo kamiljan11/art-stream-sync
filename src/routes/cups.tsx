@@ -857,6 +857,7 @@ function CupsQuoteForm() {
   const emptyDraft: Item = { productIdx: -1, product: "", quantity: "", timing: "", size: "", finish: "", lining: "" };
 
   const [step, setStep] = useState(1); // 1 product, 2 specs, 3 list, 4 contact
+  const [subStep, setSubStep] = useState(0);
   const [items, setItems] = useState<Item[]>([]);
   const [draft, setDraft] = useState<Item>(emptyDraft);
   const [editingIdx, setEditingIdx] = useState<number | null>(null);

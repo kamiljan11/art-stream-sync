@@ -1048,19 +1048,19 @@ function CupsQuoteForm() {
     (finishOptions.length === 0 || draft.finish !== "");
 
   return (
-    <div className="mt-10 rounded-2xl bg-white p-5 sm:p-8 shadow-[0_20px_50px_rgba(0,0,0,0.5)] text-[#333]">
+    <div className="mt-10 rounded-2xl bg-white p-4 sm:p-8 shadow-[0_20px_50px_rgba(0,0,0,0.5)] text-[#333] max-w-full overflow-hidden">
       {/* Stepper */}
-      <div className="flex items-center justify-between gap-2 mb-6">
+      <div className="flex items-center justify-between gap-1 sm:gap-2 mb-6">
         {stepLabels.map((_, idx) => (
-          <div key={idx} className="flex-1 flex items-center gap-2">
+          <div key={idx} className="flex-1 min-w-0 flex items-center gap-2">
             <div
-              className={`h-8 w-8 shrink-0 rounded-full flex items-center justify-center text-xs font-bold ${
+              className={`h-7 w-7 sm:h-8 sm:w-8 shrink-0 rounded-full flex items-center justify-center text-xs font-bold ${
                 step >= idx ? "bg-[#00AEEF] text-white" : "bg-[#eee] text-[#999]"
               }`}
             >
               {step > idx ? <Check size={14} /> : idx + 1}
             </div>
-            <div className={`text-xs font-semibold uppercase tracking-wider truncate ${step >= idx ? "text-[#333]" : "text-[#aaa]"}`}>
+            <div className={`hidden sm:block text-xs font-semibold uppercase tracking-wider truncate ${step >= idx ? "text-[#333]" : "text-[#aaa]"}`}>
               {stepLabel(idx)}
             </div>
             {idx < stepLabels.length - 1 && <div className={`hidden sm:block flex-1 h-0.5 ${step > idx ? "bg-[#00AEEF]" : "bg-[#eee]"}`} />}

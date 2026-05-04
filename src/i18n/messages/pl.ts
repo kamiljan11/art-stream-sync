@@ -449,10 +449,10 @@ const pl = {
       },
       {
         tag: "Drewno · biodegradowalne",
-        title: "Drewniane mieszadełka do kawy",
+        title: "Drewniane mieszadełka i patyczki do lodów",
         sizes: "1 000 szt. / opak.",
-        desc: "Gładkie drewniane mieszadełka (dostępne też jako patyczki do lodów). Bez drzazg, bez barwników, bez plastiku. Bezpieczne dla żywności i w pełni biodegradowalne.",
-        bullets: ["Nieobrobione naturalne jasne drewno", "Certyfikat kontaktu z żywnością", "100% biodegradowalne"],
+        desc: "Gładkie drewniane mieszadełka — dostępne również jako patyczki do lodów. Bez drzazg, bez barwników, bez plastiku. Bezpieczne dla żywności i w pełni biodegradowalne.",
+        bullets: ["Nieobrobione naturalne jasne drewno", "Mieszadełka do kawy/herbaty i patyczki do lodów", "Certyfikat kontaktu z żywnością", "100% biodegradowalne"],
         moq: "1 000 szt. (1 opak.)",
       },
     ],

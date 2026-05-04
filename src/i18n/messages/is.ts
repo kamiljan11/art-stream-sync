@@ -450,10 +450,10 @@ const is = {
       },
       {
         tag: "Tré · niðurbrjótanlegt",
-        title: "Tré kaffihrærur",
+        title: "Tréhrærur og íspinnar",
         sizes: "1.000 stk / pakki",
-        desc: "Sléttar náttúrulegar tréhrærur (einnig fáanlegar sem íspinnar). Engin spóla, engin litarefni, ekkert plast. Matvælaöruggt og fullkomlega niðurbrjótanlegt.",
-        bullets: ["Ómeðhöndlað náttúrulegt ljóst tré", "Matvælasnertu vottað", "100% niðurbrjótanlegt"],
+        desc: "Sléttar náttúrulegar tréhrærur — einnig fáanlegar sem íspinnar. Engin spóla, engin litarefni, ekkert plast. Matvælaöruggt og fullkomlega niðurbrjótanlegt.",
+        bullets: ["Ómeðhöndlað náttúrulegt ljóst tré", "Hrærur fyrir kaffi/te og íspinnar", "Matvælasnertu vottað", "100% niðurbrjótanlegt"],
         moq: "1.000 stk (1 pakki)",
       },
     ],

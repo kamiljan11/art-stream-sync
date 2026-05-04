@@ -368,6 +368,11 @@ function CupsPage() {
           <p className="mt-3 text-muted-foreground">
             {cp.catalogue.sub}
           </p>
+          <div className="mt-5 inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-bold uppercase tracking-wider border-2"
+            style={{ borderColor: "#84cc16", color: "#65a30d", background: "rgba(132,204,22,0.08)" }}>
+            <Leaf size={14} strokeWidth={2.5} />
+            {cp.catalogue.allRecyclable}
+          </div>
         </Reveal>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">

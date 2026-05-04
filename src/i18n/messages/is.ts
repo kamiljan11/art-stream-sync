@@ -434,6 +434,9 @@ const is = {
         reviewSend: "Yfirfara og senda",
         itemsSummary: "Atriði í fyrirspurn",
         qty: "Magn",
+        pantoneTitle: "Pantone samsvörun (nákvæmur vörumerkislitur)",
+        pantoneHint: "Hakaðu við ef vörumerkislitur þarf að vera nákvæmur. Greitt aukaatriði (u.þ.b. 10.000 ISK uppsetningargjald á hvern Pantone-lit). Skildu eftir auðan reit fyrir staðlað CMYK prentun.",
+        pantonePlaceholder: "Pantone kóðar, t.d. PMS 286 C, PMS 200 C",
       },
       addonLabels: {
         lids: "Lok sem passa",

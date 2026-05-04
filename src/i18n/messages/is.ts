@@ -404,7 +404,7 @@ const is = {
       {
         tag: "Tvíveggja · premium",
         title: "Premium hita tvíveggja bolli",
-        sizes: "200 · 300 · 400 ml",
+        sizes: "100 · 180 · 200 · 300 · 400 ml",
         desc: "Premium tvíveggja bolli. Heldur drykknum heitum en er þægilegur að halda á. Fáanlegur alhvítur, allur úr kraft, eða með annan vegg úr kraft og hinn hvítan. Mælt með fyrir kaffihús, take-away og kaffihorn hótela.",
         bullets: ["Þægilegur að halda á jafnvel með heitum drykkjum", "Hvítur, kraft eða kraft + hvít blanda", "Endurvinnanleg eða niðurbrjótanleg innri húðun"],
         moq: "1.000 stk",

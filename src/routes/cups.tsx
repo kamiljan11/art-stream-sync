@@ -874,6 +874,50 @@ function CupsQuoteForm() {
   const updateContact = (k: keyof typeof contact) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
     setContact((c) => ({ ...c, [k]: e.target.value }));
 
+  // Auto-save wizard progress to localStorage so users don't lose their work on refresh/reset.
+  const STORAGE_KEY = "cups_wizard_progress_v1";
+  const [hydrated, setHydrated] = useState(false);
+  useEffect(() => {
+    try {
+      const raw = typeof window !== "undefined" ? window.localStorage.getItem(STORAGE_KEY) : null;
+      if (raw) {
+        const s = JSON.parse(raw);
+        if (s.step !== undefined) setStep(s.step);
+        if (s.path !== undefined) setPath(s.path);
+        if (s.subStep !== undefined) setSubStep(s.subStep);
+        if (s.items) setItems(s.items);
+        if (s.draft) setDraft(s.draft);
+        if (s.editingIdx !== undefined) setEditingIdx(s.editingIdx);
+        if (s.dismissedAddons) setDismissedAddons(s.dismissedAddons);
+        if (s.briefMessage) setBriefMessage(s.briefMessage);
+        if (s.sampleInterest) setSampleInterest(s.sampleInterest);
+        if (s.sampleAddress) setSampleAddress(s.sampleAddress);
+        if (s.contact) setContact(s.contact);
+        if (s.needsDesign) setNeedsDesign(s.needsDesign);
+        if (s.pantoneMatch) setPantoneMatch(s.pantoneMatch);
+        if (s.pantoneCodes) setPantoneCodes(s.pantoneCodes);
+      }
+    } catch {
+      /* ignore corrupted storage */
+    }
+    setHydrated(true);
+  }, []);
+  useEffect(() => {
+    if (!hydrated || submitted) return;
+    try {
+      window.localStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify({
+          step, path, subStep, items, draft, editingIdx, dismissedAddons,
+          briefMessage, sampleInterest, sampleAddress, contact,
+          needsDesign, pantoneMatch, pantoneCodes,
+        }),
+      );
+    } catch {
+      /* ignore quota errors */
+    }
+  }, [hydrated, submitted, step, path, subStep, items, draft, editingIdx, dismissedAddons, briefMessage, sampleInterest, sampleAddress, contact, needsDesign, pantoneMatch, pantoneCodes]);
+
   const draftMeta = draft.productIdx >= 0 ? byProduct[draft.productIdx] : undefined;
   const sizeOptionsRaw = draftMeta?.sizes ?? [];
   const finishOptions = draftMeta?.finishes ?? [];

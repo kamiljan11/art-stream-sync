@@ -114,3 +114,7 @@ const rowLabel = { color: '#666', fontWeight: 700 as const }
 const messageBox = { backgroundColor: '#fafafa', border: '1px solid #eee', borderRadius: '10px', padding: '16px 20px' }
 const messageText = { fontSize: '14px', color: '#222', lineHeight: 1.6, margin: 0, whiteSpace: 'pre-wrap' as const }
 const btn = { backgroundColor: '#000', color: '#fff', padding: '12px 22px', borderRadius: '8px', fontWeight: 800 as const, fontSize: '14px', textDecoration: 'none', display: 'inline-block', textTransform: 'uppercase' as const, letterSpacing: '0.05em' }
+const estimateBox = { backgroundColor: '#fff8e1', border: '2px solid #ffab00', borderRadius: '10px', padding: '16px 20px' }
+const estimateBig = { fontSize: '28px', fontWeight: 800 as const, color: '#7a5000', margin: '0 0 4px' }
+const estimateSub = { fontSize: '13px', color: '#7a5000', margin: '0 0 12px' }
+const noteText = { fontSize: '12px', color: '#7a5000', fontStyle: 'italic' as const, margin: '8px 0 0' }

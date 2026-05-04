@@ -217,7 +217,7 @@ const en = {
     catalogue: {
       heading1: "Our",
       heading2: "catalogue.",
-      sub: "Every paper line is available with standard Green PE, compostable BIO lining, or water-based dispersion coating.",
+      sub: "Three lining options: standard Green PE, compostable BIO (water-based dispersion, plastic-free), or rPET for transparent cold-drink cups.",
       minOrderLabel: "Minimum order",
       askPrice: "Ask for price",
       dontSee: "Don't see what you need?",

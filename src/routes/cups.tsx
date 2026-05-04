@@ -350,7 +350,7 @@ function CupsPage() {
           </p>
           <div className="mt-10 flex flex-col items-center gap-3">
             <a
-              href="/#quote"
+              href="#quote"
               className="inline-flex items-center gap-2 rounded-md px-8 py-4 text-base font-semibold text-primary-foreground hover-glow"
               style={{ background: "var(--gradient-cyan)", boxShadow: "var(--shadow-glow)" }}
             >
@@ -417,7 +417,7 @@ function CupsPage() {
                 </div>
 
                 <a
-                  href="/#quote"
+                  href="#quote"
                   className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-sky-600 hover:gap-2 transition-all"
                 >
                   {cp.catalogue.askPrice} <ArrowRight size={14} />
@@ -429,7 +429,7 @@ function CupsPage() {
         </div>
 
         <p className="mt-10 text-center text-sm text-muted-foreground max-w-2xl mx-auto">
-          {cp.catalogue.dontSee} <a href="/#quote" className="text-primary font-semibold underline underline-offset-4 hover:opacity-80">{cp.catalogue.sendRequest}</a>{cp.catalogue.sourceAnything}
+          {cp.catalogue.dontSee} <a href="#quote" className="text-primary font-semibold underline underline-offset-4 hover:opacity-80">{cp.catalogue.sendRequest}</a>{cp.catalogue.sourceAnything}
         </p>
 
         {/* USP strip, why people order with us */}
@@ -508,7 +508,7 @@ function CupsPage() {
             <p className="mt-2 text-foreground/80">{cp.midCta.a.sub}</p>
           </div>
           <a
-            href="/#quote"
+            href="#quote"
             className="shrink-0 inline-flex items-center justify-center gap-2 rounded-md px-7 py-3.5 text-sm font-semibold text-primary-foreground hover-glow"
             style={{ background: "var(--gradient-cyan)", boxShadow: "var(--shadow-glow)" }}
           >
@@ -630,7 +630,7 @@ function CupsPage() {
 
               {/* CTA */}
               <a
-                href="/#quote"
+                href="#quote"
                 className="mt-8 inline-flex items-center gap-2 rounded-full px-7 py-3 text-sm font-bold uppercase tracking-wider border-2 transition hover:bg-[#84cc16] hover:text-black"
                 style={{ borderColor: "#84cc16", color: "#84cc16" }}
               >

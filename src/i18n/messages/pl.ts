@@ -323,7 +323,7 @@ const pl = {
       heading1: "Jak",
       heading2: "zamówić.",
       steps: [
-        { n: "1", t: "Wyślij brief", d: "Rozmiar, ilość, bariera (PE lub BIO), logo lub pełna grafika." },
+        { n: "1", t: "Wypełnij interaktywny formularz", d: "Wybierz produkt i odpowiedz na kilka szybkich pytań — zajmuje ok. 60 sekund. Możesz też wgrać brief lub poprosić o próbki." },
         { n: "2", t: "Otrzymaj stałą wycenę", d: "W ISK w ciągu 24 godzin roboczych. Cena all-in, VAT, cło i dostawa pod drzwi wliczone." },
         { n: "3", t: "Darmowa adaptacja grafiki", d: "Dostosujemy twoje logo lub grafikę do szablonu kubka, całkowicie za darmo z każdym zamówieniem. Cyfrowa próbka przed startem maszyny." },
         { n: "4", t: "Paczka pod drzwi", d: "Śledzimy produkcję i transport. Ty przestajesz gonić." },

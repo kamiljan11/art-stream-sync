@@ -323,7 +323,7 @@ const en = {
       heading1: "How to",
       heading2: "order.",
       steps: [
-        { n: "1", t: "Send the brief", d: "Size, quantity, lining (PE or BIO), logo or full artwork." },
+        { n: "1", t: "Use the interactive form", d: "Pick your product and answer a few quick questions — takes about 60 seconds. Or upload a brief / request samples instead." },
         { n: "2", t: "Get a fixed quote", d: "In ISK within 24 working hours. All-in price, VAT, customs and delivery to your door included." },
         { n: "3", t: "Free artwork adaptation", d: "We adapt your logo or graphics to the cup template, completely free with every order. Digital proof before any press starts." },
         { n: "4", t: "Package at your door", d: "We track production and freight and keep you updated." },

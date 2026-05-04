@@ -826,13 +826,6 @@ function CupsPage() {
             </div>
             <h2 className="text-4xl font-extrabold">{cp.quote.heading1} <span style={{ color: "var(--brand-cyan)" }}>{cp.quote.heading2}</span></h2>
             <p className="mt-3 text-muted-foreground">{cp.quote.sub}</p>
-            <p className="mt-2 text-sm font-semibold text-[color:var(--brand-cyan)]">
-              {locale === "pl"
-                ? "↓ Zajmuje 60 sekund. Odpowiadamy w ciągu 24h roboczych."
-                : locale === "is"
-                ? "↓ Tekur 60 sekúndur. Svar innan 24 vinnustunda."
-                : "↓ Takes 60 seconds. Reply within 24 working hours."}
-            </p>
           </div>
           <CupsQuoteForm />
         </div>

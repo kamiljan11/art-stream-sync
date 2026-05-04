@@ -3,6 +3,7 @@ const pl = {
     secret: "Sekret",
     logic: "Logika",
     savings: "Oszczędności",
+    compare: "Porównanie",
     process: "Proces",
     products: "Produkty",
     pricing: "Cennik",

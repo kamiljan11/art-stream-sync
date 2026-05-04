@@ -1004,6 +1004,7 @@ function CupsQuoteForm() {
           it.finish && `  Colour/finish: ${it.finish}`,
           it.lining && `  Lining: ${it.lining}`,
           it.timing && `  Timing: ${it.timing}`,
+          it.note && `  Note: ${it.note}`,
         ].filter(Boolean);
         return lines.join("\n");
       }).join("\n\n");

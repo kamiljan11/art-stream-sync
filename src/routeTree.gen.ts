@@ -15,6 +15,7 @@ import { Route as CupsRouteImport } from './routes/cups'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AdminIndexRouteImport } from './routes/admin/index'
 import { Route as EmailUnsubscribeRouteImport } from './routes/email/unsubscribe'
+import { Route as CupsCalculatorRouteImport } from './routes/cups.calculator'
 import { Route as AdminLoginRouteImport } from './routes/admin/login'
 import { Route as LovableEmailSuppressionRouteImport } from './routes/lovable/email/suppression'
 import { Route as ApiPublicQuoteRouteImport } from './routes/api/public/quote'
@@ -52,6 +53,11 @@ const EmailUnsubscribeRoute = EmailUnsubscribeRouteImport.update({
   id: '/email/unsubscribe',
   path: '/email/unsubscribe',
   getParentRoute: () => rootRouteImport,
+} as any)
+const CupsCalculatorRoute = CupsCalculatorRouteImport.update({
+  id: '/calculator',
+  path: '/calculator',
+  getParentRoute: () => CupsRoute,
 } as any)
 const AdminLoginRoute = AdminLoginRouteImport.update({
   id: '/admin/login',
@@ -94,10 +100,11 @@ const LovableEmailQueueProcessRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/cups': typeof CupsRoute
+  '/cups': typeof CupsRouteWithChildren
   '/thank-you': typeof ThankYouRoute
   '/unsubscribe': typeof UnsubscribeRoute
   '/admin/login': typeof AdminLoginRoute
+  '/cups/calculator': typeof CupsCalculatorRoute
   '/email/unsubscribe': typeof EmailUnsubscribeRoute
   '/admin/': typeof AdminIndexRoute
   '/api/public/contact': typeof ApiPublicContactRoute
@@ -109,10 +116,11 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/cups': typeof CupsRoute
+  '/cups': typeof CupsRouteWithChildren
   '/thank-you': typeof ThankYouRoute
   '/unsubscribe': typeof UnsubscribeRoute
   '/admin/login': typeof AdminLoginRoute
+  '/cups/calculator': typeof CupsCalculatorRoute
   '/email/unsubscribe': typeof EmailUnsubscribeRoute
   '/admin': typeof AdminIndexRoute
   '/api/public/contact': typeof ApiPublicContactRoute
@@ -125,10 +133,11 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/cups': typeof CupsRoute
+  '/cups': typeof CupsRouteWithChildren
   '/thank-you': typeof ThankYouRoute
   '/unsubscribe': typeof UnsubscribeRoute
   '/admin/login': typeof AdminLoginRoute
+  '/cups/calculator': typeof CupsCalculatorRoute
   '/email/unsubscribe': typeof EmailUnsubscribeRoute
   '/admin/': typeof AdminIndexRoute
   '/api/public/contact': typeof ApiPublicContactRoute
@@ -146,6 +155,7 @@ export interface FileRouteTypes {
     | '/thank-you'
     | '/unsubscribe'
     | '/admin/login'
+    | '/cups/calculator'
     | '/email/unsubscribe'
     | '/admin/'
     | '/api/public/contact'
@@ -161,6 +171,7 @@ export interface FileRouteTypes {
     | '/thank-you'
     | '/unsubscribe'
     | '/admin/login'
+    | '/cups/calculator'
     | '/email/unsubscribe'
     | '/admin'
     | '/api/public/contact'
@@ -176,6 +187,7 @@ export interface FileRouteTypes {
     | '/thank-you'
     | '/unsubscribe'
     | '/admin/login'
+    | '/cups/calculator'
     | '/email/unsubscribe'
     | '/admin/'
     | '/api/public/contact'
@@ -188,7 +200,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  CupsRoute: typeof CupsRoute
+  CupsRoute: typeof CupsRouteWithChildren
   ThankYouRoute: typeof ThankYouRoute
   UnsubscribeRoute: typeof UnsubscribeRoute
   AdminLoginRoute: typeof AdminLoginRoute
@@ -246,6 +258,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EmailUnsubscribeRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/cups/calculator': {
+      id: '/cups/calculator'
+      path: '/calculator'
+      fullPath: '/cups/calculator'
+      preLoaderRoute: typeof CupsCalculatorRouteImport
+      parentRoute: typeof CupsRoute
+    }
     '/admin/login': {
       id: '/admin/login'
       path: '/admin/login'
@@ -298,9 +317,19 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface CupsRouteChildren {
+  CupsCalculatorRoute: typeof CupsCalculatorRoute
+}
+
+const CupsRouteChildren: CupsRouteChildren = {
+  CupsCalculatorRoute: CupsCalculatorRoute,
+}
+
+const CupsRouteWithChildren = CupsRoute._addFileChildren(CupsRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  CupsRoute: CupsRoute,
+  CupsRoute: CupsRouteWithChildren,
   ThankYouRoute: ThankYouRoute,
   UnsubscribeRoute: UnsubscribeRoute,
   AdminLoginRoute: AdminLoginRoute,

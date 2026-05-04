@@ -16,6 +16,7 @@ interface Props {
   needsDesigner?: boolean
   currentCost?: string
   submissionId?: string
+  calculator?: any
 }
 
 const QuoteInternalEmail = (p: Props) => (
@@ -43,6 +44,39 @@ const QuoteInternalEmail = (p: Props) => (
             <Heading style={h2}>Project details</Heading>
             <Section style={messageBox}>
               <Text style={messageText}>{p.projectDetails}</Text>
+            </Section>
+          </>
+        ) : null}
+        {p.calculator?.result ? (
+          <>
+            <Heading style={h2}>🧮 AI Calculator estimate</Heading>
+            <Section style={estimateBox}>
+              <Text style={estimateBig}>
+                {Number(p.calculator.result.totalISK || 0).toLocaleString()} ISK
+              </Text>
+              <Text style={estimateSub}>
+                ≈ {Number(p.calculator.result.totalPLN || 0).toLocaleString()} PLN ·{' '}
+                {Number(p.calculator.result.totalEUR || 0).toFixed(2)} EUR
+              </Text>
+              <Text style={rowText}>
+                <span style={rowLabel}>Products: </span>
+                {Number(p.calculator.result.productsPLN || 0).toLocaleString()} PLN
+                {p.calculator.result.commissionPLN ? ` (incl. commission ${Number(p.calculator.result.commissionPLN).toLocaleString()} PLN)` : ''}
+              </Text>
+              <Text style={rowText}>
+                <span style={rowLabel}>Shipping ({String(p.calculator.shipping || '').toUpperCase()}): </span>
+                {Number(p.calculator.result.shippingPLN || 0).toLocaleString()} PLN
+                {p.calculator.result.dhlOversizeFeePLN ? ` (+ ${Number(p.calculator.result.dhlOversizeFeePLN).toLocaleString()} PLN oversize)` : ''}
+              </Text>
+              <Text style={rowText}>
+                <span style={rowLabel}>Weight: </span>{p.calculator.result.weightKg} kg
+              </Text>
+              {p.calculator.notes?.dhlFuelSurcharge ? (
+                <Text style={noteText}>{p.calculator.notes.dhlFuelSurcharge}</Text>
+              ) : null}
+              <Text style={noteText}>
+                Auto-generated from public calculator. Verify before sending the final ISK quote.
+              </Text>
             </Section>
           </>
         ) : null}
@@ -80,3 +114,7 @@ const rowLabel = { color: '#666', fontWeight: 700 as const }
 const messageBox = { backgroundColor: '#fafafa', border: '1px solid #eee', borderRadius: '10px', padding: '16px 20px' }
 const messageText = { fontSize: '14px', color: '#222', lineHeight: 1.6, margin: 0, whiteSpace: 'pre-wrap' as const }
 const btn = { backgroundColor: '#000', color: '#fff', padding: '12px 22px', borderRadius: '8px', fontWeight: 800 as const, fontSize: '14px', textDecoration: 'none', display: 'inline-block', textTransform: 'uppercase' as const, letterSpacing: '0.05em' }
+const estimateBox = { backgroundColor: '#fff8e1', border: '2px solid #ffab00', borderRadius: '10px', padding: '16px 20px' }
+const estimateBig = { fontSize: '28px', fontWeight: 800 as const, color: '#7a5000', margin: '0 0 4px' }
+const estimateSub = { fontSize: '13px', color: '#7a5000', margin: '0 0 12px' }
+const noteText = { fontSize: '12px', color: '#7a5000', fontStyle: 'italic' as const, margin: '8px 0 0' }

@@ -400,7 +400,7 @@ const en = {
         briefMessage: "Short project description",
         briefMessagePlaceholder: "What you want to order, quantities, deadlines, colours, anything else...",
         sampleTitle: "Request samples",
-        sampleHint: "Mailing samples is tricky, so we usually book a 15-min visit from our sales rep with cups in hand. Tell us which products you're interested in.",
+        sampleHint: "Mailing samples is tricky, so we usually book a 15–30 min visit from our sales rep with cups in hand. Tell us which products you're interested in.",
         sampleInterest: "Which products are you interested in?",
         sampleInterestPlaceholder: "E.g. 300 ml double-wall cups with BIO lining, 360 ml ice-cream bowls...",
         sampleAddress: "Address / location (optional)",

@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
 
 const quoteSchema = z.object({
-  type: z.enum(["new", "audit"]),
+  type: z.enum(["new", "audit", "brief", "sample"]),
   name: z.string().trim().min(1).max(200),
   email: z.string().trim().email().max(255),
   phone: z.string().trim().max(40).optional().default(""),

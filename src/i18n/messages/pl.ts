@@ -229,7 +229,7 @@ const pl = {
       { t: "Już od 1 000 szt.", d: "Niski próg minimalnego zamówienia, idealny dla małych kawiarni, eventów i pilotaży. Skalujesz, gdy będziesz gotowy." },
       { t: "Darmowa adaptacja grafiki", d: "Wyślij logo w dowolnym używalnym formacie, dostosujemy je do szablonu kubka bez dodatkowej opłaty z każdym zamówieniem." },
       { t: "Twój dedykowany kontakt", d: "Jedna osoba prowadzi cię od wyceny do dostawy. Nie wiesz, co wybrać? Pytaj, doradzimy." },
-      { t: "Profesjonalna kontrola jakości", d: "Każda partia przechodzi wielostopniową kontrolę jakości, dokładność druku, szczelność bariery, struktura i zgodność z normami spożywczymi, zanim trafi do wysyłki." },
+      { t: "Profesjonalna kontrola jakości", d: "Każda partia przechodzi wielostopniową kontrolę jakości — dokładność druku, szczelność bariery, struktura i zgodność z normami spożywczymi — zanim trafi do wysyłki. Zgodnie z rygorystycznymi normami europejskimi." },
       { t: "Certyfikaty do każdego zamówienia", d: "Do każdego zamówienia dołączamy europejskie certyfikaty pod konkretny produkt (kontakt z żywnością, EN 13432 dla BIO itd.) — nie ogólne papiery z Chin. Gotowe do przetargów i audytów." },
     ],
     uspAskButton: "Zapytaj teraz",

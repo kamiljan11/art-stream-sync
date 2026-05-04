@@ -437,6 +437,8 @@ const pl = {
         pantoneTitle: "Dopasowanie Pantone (dokładny kolor marki)",
         pantoneHint: "Zaznacz, jeśli kolor marki musi być dokładny. Płatny dodatek (ok. 10 000 ISK uruchomienia za kolor Pantone). Pozostaw odznaczone dla standardowego druku CMYK.",
         pantonePlaceholder: "Kody Pantone, np. PMS 286 C, PMS 200 C",
+        certsTitle: "Dołącz certyfikaty do zamówienia (gratis)",
+        certsHint: "Atesty kontaktu z żywnością, kompostowalność (EN 13432 dla BIO), zawartość recyklatu (rPET) i dokumenty pochodzenia — dołączamy do każdej dostawy na życzenie.",
       },
       addonLabels: {
         lids: "Pasujące wieczka",

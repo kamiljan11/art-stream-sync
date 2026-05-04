@@ -875,14 +875,14 @@ function CupsQuoteForm() {
     setContact((c) => ({ ...c, [k]: e.target.value }));
 
   const draftMeta = draft.productIdx >= 0 ? byProduct[draft.productIdx] : undefined;
-  const sizeOptions = draftMeta?.sizes ?? [];
+  const sizeOptionsRaw = draftMeta?.sizes ?? [];
   const finishOptions = draftMeta?.finishes ?? [];
-  // Bowl 130 ml is PE-only (no BIO lining available at that size)
-  const liningOptionsRaw = draftMeta?.linings ?? [];
-  const liningOptions =
-    draft.productIdx === 5 && draft.size.startsWith("130")
-      ? liningOptionsRaw.filter((l) => !/bio/i.test(l))
-      : liningOptionsRaw;
+  const liningOptions = draftMeta?.linings ?? [];
+  // Bowl (idx 5): 130 ml size is PE-only — if user picked BIO lining, hide 130 ml from sizes.
+  const sizeOptions =
+    draft.productIdx === 5 && /bio/i.test(draft.lining)
+      ? sizeOptionsRaw.filter((s) => !s.startsWith("130"))
+      : sizeOptionsRaw;
 
   // Addon suggestions based on items already in list
   type Addon = { key: string; label: string; productIdx: number; presetLining?: string };
@@ -1285,9 +1285,12 @@ function CupsQuoteForm() {
             required: true,
           });
         } else {
+        // For bowls (idx 5), ask lining FIRST so we can hide sizes that aren't available for BIO.
+        const liningFirst = draft.productIdx === 5;
+        if (liningFirst && liningOptions.length > 0) queue.push({ key: "lining", label: t("cupsPage.quote.lining"), options: liningOptions });
         if (sizeOptions.length > 0) queue.push({ key: "size", label: t("cupsPage.quote.size"), options: sizeOptions });
         if (finishOptions.length > 0) queue.push({ key: "finish", label: t("cupsPage.quote.finish"), options: finishOptions });
-        if (liningOptions.length > 0) queue.push({ key: "lining", label: t("cupsPage.quote.lining"), options: liningOptions });
+        if (!liningFirst && liningOptions.length > 0) queue.push({ key: "lining", label: t("cupsPage.quote.lining"), options: liningOptions });
           // If user picked "Mix of sizes", ask for the mix breakdown (optional)
           if (/mix/i.test(draft.size)) {
             queue.push({

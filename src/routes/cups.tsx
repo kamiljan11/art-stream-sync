@@ -616,7 +616,7 @@ function CupsPage() {
               <div className="mt-8 grid grid-cols-3 gap-6">
                 {[
                   { v: "100%", l: cp.eco.stat1 },
-                  { v: "PLA", l: cp.eco.stat2 },
+                  { v: "BIO", l: cp.eco.stat2 },
                   { v: "EN 13432", l: cp.eco.stat3 },
                 ].map((b) => (
                   <div key={b.l}>

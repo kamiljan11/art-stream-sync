@@ -832,6 +832,10 @@ function CupsPage() {
 function CupsQuoteForm() {
   const t = useT();
   const tArray = useTArray();
+  const { locale } = useI18n();
+  const dict = locale === "is" ? isMessages : locale === "pl" ? plMessages : enMessages;
+  const byProduct = dict.cupsPage.quote.byProduct;
+  const productOptions = dict.cupsPage.quote.products;
   const navigate = useNavigate();
   const [submitted, setSubmitted] = useState(false);
   const [needsDesign, setNeedsDesign] = useState<"yes" | "no" | "">("");
@@ -846,10 +850,17 @@ function CupsQuoteForm() {
     quantity: "",
     timing: "",
     lining: "",
+    size: "",
+    finish: "",
     notes: "",
   });
   const update = (k: keyof typeof form) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) =>
     setForm((f) => ({ ...f, [k]: e.target.value }));
+  const productIdx = productOptions.indexOf(form.product);
+  const productMeta = productIdx >= 0 ? byProduct[productIdx] : undefined;
+  const sizeOptions = productMeta?.sizes ?? [];
+  const finishOptions = productMeta?.finishes ?? [];
+  const showLining = productMeta?.showLining ?? false;
   if (submitted) {
     return (
       <div className="mt-10 text-center rounded-xl border border-border bg-card p-12">
@@ -867,6 +878,8 @@ function CupsQuoteForm() {
         setSubmitting(true);
         try {
           const projectDetails = [
+            form.size && `Size: ${form.size}`,
+            form.finish && `Colour / finish: ${form.finish}`,
             form.timing && `Timing: ${form.timing}`,
             form.lining && `Lining: ${form.lining}`,
             fileName && `Artwork file: ${fileName}`,
@@ -907,7 +920,9 @@ function CupsQuoteForm() {
         options={tArray("cupsPage.quote.products")}
         placeholder={t("cupsPage.quote.selectPlaceholder")}
         value={form.product}
-        onChange={update("product")}
+        onChange={(e) => {
+          setForm((f) => ({ ...f, product: e.target.value, size: "", finish: "", lining: "" }));
+        }}
       />
       <SelectField
         label={t("cupsPage.quote.quantity")}
@@ -916,8 +931,16 @@ function CupsQuoteForm() {
         value={form.quantity}
         onChange={update("quantity")}
       />
+      {sizeOptions.length > 0 && (
+        <SelectField label={t("cupsPage.quote.size")} options={sizeOptions} placeholder={t("cupsPage.quote.selectPlaceholder")} value={form.size} onChange={update("size")} />
+      )}
+      {finishOptions.length > 0 && (
+        <SelectField label={t("cupsPage.quote.finish")} options={finishOptions} placeholder={t("cupsPage.quote.selectPlaceholder")} value={form.finish} onChange={update("finish")} />
+      )}
       <SelectField label={t("cupsPage.quote.timing")} options={tArray("cupsPage.quote.timings")} placeholder={t("cupsPage.quote.selectPlaceholder")} value={form.timing} onChange={update("timing")} />
-      <SelectField label={t("cupsPage.quote.lining")} options={tArray("cupsPage.quote.linings")} placeholder={t("cupsPage.quote.selectPlaceholder")} value={form.lining} onChange={update("lining")} />
+      {showLining && (
+        <SelectField label={t("cupsPage.quote.lining")} options={tArray("cupsPage.quote.linings")} placeholder={t("cupsPage.quote.selectPlaceholder")} value={form.lining} onChange={update("lining")} />
+      )}
       {/* Design assistance + file upload, two-column block */}
       <div className="sm:col-span-2 grid gap-4 sm:grid-cols-2 rounded-lg border-2 border-[#eee] bg-[#f9f9f9] p-4">
         <fieldset className="flex flex-col gap-2">

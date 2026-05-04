@@ -363,6 +363,8 @@ const is = {
       quantity: "Magn",
       timing: "Tímasetning",
       lining: "Húðun",
+      size: "Stærð (ml)",
+      finish: "Litur / áferð",
       designQuestion: "Eigum við að undirbúa hönnunina fyrir þig?",
       designYes: "Já takk, hannaðu fyrir mig",
       designNo: "Nei, ég er með mína eigin hönnun",
@@ -390,6 +392,18 @@ const is = {
       quantities: ["1.000 – 5.000", "5.000 – 20.000", "20.000 – 50.000", "50.000+"],
       timings: ["Hefðbundið (besta verð)", "Hraðsending (hraðar ef hægt er)", "Sveigjanlegt"],
       linings: ["Veit ekki enn, ráðleggðu", "Hefðbundið (Green PE)", "Niðurbrjótanlegt BIO (vatnsdreifing, plastlaust)", "rPET (endurunnið plast, fyrir kalda drykki)"],
+      byProduct: [
+        { sizes: [], finishes: [], showLining: false },
+        { sizes: ["100 ml", "180 ml", "200 ml", "300 ml", "400 ml", "Blanda af stærðum"], finishes: ["Hvítur pappír", "Kraft (brúnn) pappír"], showLining: true },
+        { sizes: ["100 ml", "180 ml", "200 ml", "300 ml", "400 ml", "Blanda af stærðum"], finishes: ["Allur hvítur", "Allur kraft", "Kraft + hvítur (combo)"], showLining: true },
+        { sizes: ["100 ml", "180 ml", "200 ml", "300 ml", "400 ml", "Blanda af stærðum"], finishes: ["Hvítur", "Kraft (brúnn)", "Pastel mynstur", "Kaffibauna mynstur", "Sumar flamingó", "Vetrar jól"], showLining: true },
+        { sizes: ["300 ml", "400 ml", "500 ml", "Blanda af stærðum"], finishes: [], showLining: false },
+        { sizes: ["130 ml", "245 ml", "360 ml", "Blanda af stærðum"], finishes: ["Hvítur", "Kraft", "Pastel mynstur", "Sérprentun full-wrap"], showLining: true },
+        { sizes: [], finishes: ["Hvítur", "Svartur", "Grænn", "Rauður", "Appelsínugulur", "Gull", "Silfur", "Annað"], showLining: false },
+        { sizes: [], finishes: ["Svartur (lager)", "Annar litur (eftir pöntun)"], showLining: false },
+        { sizes: [], finishes: [], showLining: false },
+        { sizes: [], finishes: [], showLining: false },
+      ],
     },
     productCatalog: [
       {

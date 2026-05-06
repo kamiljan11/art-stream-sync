@@ -7,26 +7,26 @@ interface Props {
   type?: 'new' | 'audit' | 'brief' | 'sample'
 }
 
-const COPY: Record<string, { preview: string; intro: string; next: string }> = {
+const COPY: Record<string, { preview: string; intro: string; next: string[] }> = {
   new: {
     preview: 'We got your quote request — ISK quote within 24 hours',
     intro: "We've received your project request. Our Icelandic brokerage team is reviewing it now.",
-    next: '✓ ISK quote within 24 hours<br />✓ We handle production, customs &amp; delivery',
+    next: ['✓ ISK quote within 24 hours', '✓ We handle production, customs & delivery'],
   },
   audit: {
     preview: 'We got your price match audit — reply within 24 hours',
     intro: "We've received your price match audit request. We'll review your current pricing and get back to you.",
-    next: '✓ Audit reply within 24 hours<br />✓ Transparent ISK breakdown',
+    next: ['✓ Audit reply within 24 hours', '✓ Transparent ISK breakdown'],
   },
   brief: {
     preview: 'We got your brief — reply within 24 hours',
     intro: "We've received your brief and attachments. Our team is reviewing the details now.",
-    next: '✓ ISK quote based on your brief within 24 hours<br />✓ We handle production, customs &amp; delivery',
+    next: ['✓ ISK quote based on your brief within 24 hours', '✓ We handle production, customs & delivery'],
   },
   sample: {
     preview: 'We got your sample request — confirmation within 24 hours',
     intro: "We've received your sample request. We'll confirm shipping details and timing shortly.",
-    next: '✓ Confirmation within 24 hours<br />✓ Sample shipped to the address you provided',
+    next: ['✓ Confirmation within 24 hours', '✓ Sample shipped to the address you provided'],
   },
 }
 
@@ -44,7 +44,9 @@ const QuoteConfirmationEmail = ({ name, type }: Props) => {
         <Text style={text}>{c.intro}</Text>
         <Section style={card}>
           <Text style={cardTitle}>What happens next</Text>
-          <Text style={cardText} dangerouslySetInnerHTML={{ __html: c.next }} />
+          {c.next.map((line, i) => (
+            <Text key={i} style={cardText}>{line}</Text>
+          ))}
         </Section>
         <Text style={footer}>
           Mountain All Service ehf. · Kennitala 690725-0450<br />

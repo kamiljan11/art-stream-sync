@@ -132,3 +132,5 @@ const estimateBox = { backgroundColor: '#fff8e1', border: '2px solid #ffab00', b
 const estimateBig = { fontSize: '28px', fontWeight: 800 as const, color: '#7a5000', margin: '0 0 4px' }
 const estimateSub = { fontSize: '13px', color: '#7a5000', margin: '0 0 12px' }
 const noteText = { fontSize: '12px', color: '#7a5000', fontStyle: 'italic' as const, margin: '8px 0 0' }
+const fileLink = { color: '#00AEEF', fontWeight: 700 as const, textDecoration: 'underline' }
+const fileMeta = { color: '#888', fontSize: '12px' }

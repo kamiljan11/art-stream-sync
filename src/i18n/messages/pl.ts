@@ -568,6 +568,7 @@ const pl = {
     quantity: "Ilość",
     quantityHint: "Sztuki — minimum 1 000.",
     quantityPlaceholder: "np. 5000",
+    quantityMinError: "Minimalne zamówienie to 1 000 sztuk.",
     projectDetails: "Szczegóły projektu",
     designLink: "Link do plików projektu (opcjonalnie)",
     designLinkHint: "Wymagane dla plików większych niż 25MB.",

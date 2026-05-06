@@ -41,11 +41,6 @@ function ThankYouPage() {
           </ul>
         </div>
 
-        <p className="text-sm text-muted-foreground mb-6">
-          Need to reach us sooner? Call <a href="tel:+3547790000" className="font-bold text-foreground hover:underline">+354 779 0000</a>
-          {" "}or email <a href="mailto:prints@masgroup.is" className="font-bold text-foreground hover:underline">prints@masgroup.is</a>
-        </p>
-
         <Link
           to="/"
           className="inline-flex items-center justify-center rounded-lg px-6 py-3 text-sm font-extrabold uppercase tracking-[0.5px] text-white transition-transform hover:-translate-y-0.5"

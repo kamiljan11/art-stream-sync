@@ -27,9 +27,6 @@ const QuoteConfirmationEmail = ({ name, type }: Props) => (
             ✓ We handle production, customs &amp; delivery
           </Text>
         </Section>
-        <Text style={text}>
-          If anything's urgent, reply to this email or call <strong>+354 779 0000</strong>.
-        </Text>
         <Text style={footer}>
           Mountain All Service ehf. · Kennitala 690725-0450<br />
           Njarðarbraut 3i, 260 Njarðvík, Ísland

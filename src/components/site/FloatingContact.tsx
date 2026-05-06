@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "@tanstack/react-router";
-import { MessageCircle, X, Phone, Mail, Send, CheckCircle2 } from "lucide-react";
+import { MessageCircle, X, Send, CheckCircle2 } from "lucide-react";
 import { z } from "zod";
 import { useT } from "@/i18n/I18nProvider";
 
@@ -8,10 +8,6 @@ const cyan = "#00AEEF";
 const magenta = "#EC008C";
 
 type FormState = { name: string; email: string; phone: string; message: string; needsDesigner: boolean };
-
-const PHONE = "+354 779 0000";
-const PHONE_HREF = "tel:+3547790000";
-const EMAIL = "prints@masgroup.is";
 
 export function FloatingContact() {
   const t = useT();

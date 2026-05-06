@@ -457,13 +457,23 @@ function DetailDrawer({ source, id, onClose, onSaved }: { source: Source; id: st
               {/* Status (always editable) */}
               <div>
                 <label className="block text-xs font-bold uppercase tracking-wider text-muted-foreground mb-1">Status</label>
-                <input
-                  value={row?.status ?? "new"}
-                  onChange={(e) => update("status", e.target.value)}
-                  placeholder="new / in_progress / waiting / done / lost ..."
-                  className="w-full rounded-lg border border-input bg-background px-3 py-2 text-sm"
-                />
-                <p className="text-[11px] text-muted-foreground mt-1">Free text. Type whatever status you want.</p>
+                <div className="flex flex-wrap gap-1.5">
+                  {STATUS_OPTIONS.map((s) => {
+                    const active = (row?.status ?? "new") === s.value;
+                    return (
+                      <button
+                        key={s.value}
+                        type="button"
+                        onClick={() => update("status", s.value)}
+                        className={`text-xs font-bold px-3 py-2 rounded-full border transition ${
+                          active ? `${s.color} border-transparent` : "bg-background text-muted-foreground border-border hover:text-foreground"
+                        }`}
+                      >
+                        {s.label}
+                      </button>
+                    );
+                  })}
+                </div>
               </div>
 
               {fields.map((f) => (

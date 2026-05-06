@@ -10,7 +10,7 @@ interface Props {
 const QuoteConfirmationEmail = ({ name, type }: Props) => (
   <Html lang="en" dir="ltr">
     <Head />
-    <Preview>We got your quote request — fixed ISK quote within 24 hours</Preview>
+    <Preview>We got your quote request — ISK quote within 24 hours</Preview>
     <Body style={main}>
       <Container style={container}>
         <Heading style={brand}>MAS PRINTS</Heading>
@@ -23,7 +23,7 @@ const QuoteConfirmationEmail = ({ name, type }: Props) => (
         <Section style={card}>
           <Text style={cardTitle}>What happens next</Text>
           <Text style={cardText}>
-            ✓ Fixed ISK quote within 24 hours<br />
+            ✓ ISK quote within 24 hours<br />
             ✓ We handle production, customs &amp; delivery
           </Text>
         </Section>

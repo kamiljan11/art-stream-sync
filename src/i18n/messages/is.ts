@@ -47,7 +47,7 @@ const is = {
     line3: "Afhent á Íslandi.",
     sub: "Sérprentun frá 1.000 stykkjum. Eitt verð, ein áætlun, einn tengiliður.",
     cta: "Fá tilboð",
-    badge: "Fast tilboð í ISK innan 24 klst. Enginn samningur.",
+    badge: "Tilboð í ISK innan 24 klst. Enginn samningur.",
   },
   footer: {
     brand: "er vörumerki frá Mountain All Service ehf.",
@@ -237,7 +237,7 @@ const is = {
     midCta: {
       a: {
         title: "Líst þér vel á?",
-        sub: "Segðu okkur hvað þig vantar, fáðu fast tilboð í ISK innan 24 klst.",
+        sub: "Segðu okkur hvað þig vantar, fáðu tilboð í ISK innan 24 klst.",
         button: "Fá tilboð",
       },
       b: {

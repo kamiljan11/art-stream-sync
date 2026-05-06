@@ -1119,9 +1119,7 @@ function CupsQuoteForm() {
         path === "brief" && briefMessage && `Brief: ${briefMessage}`,
         path === "sample" && sampleInterest && `Interested in: ${sampleInterest}`,
         path === "sample" && sampleAddress && `Address: ${sampleAddress}`,
-        attachments.length > 0
-          ? `Attached file: ${attachments[0].name}\n${attachments[0].url}`
-          : (fileName && `Attached file: ${fileName}`),
+        // Attachments are shown separately in the email/admin — don't duplicate here
         pantoneMatch && `Pantone match requested${pantoneCodes ? `: ${pantoneCodes}` : " (codes to be confirmed)"}`,
         contact.notes && `Notes: ${contact.notes}`,
       ].filter(Boolean).join("\n\n");

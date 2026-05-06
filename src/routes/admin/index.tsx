@@ -342,7 +342,10 @@ function DetailDrawer({ source, id, onClose, onSaved }: { source: Source; id: st
         setError(error.message);
       } else {
         setRow(data as any);
-        setExtraJson(JSON.stringify((data as any)?.extra ?? {}, null, 2));
+        // Hide fields that are already rendered in dedicated sections (attachments)
+        const ex = { ...((data as any)?.extra ?? {}) };
+        delete ex.attachments;
+        setExtraJson(JSON.stringify(ex, null, 2));
       }
       setLoading(false);
     })();
@@ -359,6 +362,9 @@ function DetailDrawer({ source, id, onClose, onSaved }: { source: Source; id: st
     try {
       let extra: any = {};
       try { extra = JSON.parse(extraJson || "{}"); } catch { throw new Error("Extra fields are not valid JSON."); }
+      // Preserve attachments that we hid from the editor
+      const existingAttachments = (row as any)?.extra?.attachments;
+      if (existingAttachments && !extra.attachments) extra.attachments = existingAttachments;
       const payload: any = { ...row, extra };
       delete payload.id; delete payload.created_at; delete payload.updated_at;
       if (isNew) {

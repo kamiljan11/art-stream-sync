@@ -87,6 +87,13 @@ export function QuoteForm() {
                     setFormError(parsed.error.issues[0]?.message ?? t("homeQuote.errGeneric"));
                     return;
                   }
+                  if (tab === "new" && payload.quantity) {
+                    const qNum = Number(payload.quantity);
+                    if (Number.isFinite(qNum) && qNum > 0 && qNum < 1000) {
+                      setFormError(t("homeQuote.quantityMinError"));
+                      return;
+                    }
+                  }
                   setSubmitting(true);
                   try {
                     const res = await fetch("/api/public/quote", {
@@ -204,7 +211,16 @@ function NewProjectFields() {
       <Input name="phone" label={t("homeQuote.phoneNumber")} type="tel" required />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4">
         <Select name="productType" label={t("homeQuote.productType")} options={productTypes} />
-        <Input name="quantity" label={t("homeQuote.quantity")} />
+        <Input
+          name="quantity"
+          type="number"
+          min={1000}
+          step={100}
+          inputMode="numeric"
+          placeholder={t("homeQuote.quantityPlaceholder")}
+          label={t("homeQuote.quantity")}
+          hint={t("homeQuote.quantityHint")}
+        />
       </div>
       <Textarea name="projectDetails" label={t("homeQuote.projectDetails")} />
       <Input name="designLink" label={t("homeQuote.designLink")} hint={t("homeQuote.designLinkHint")} />

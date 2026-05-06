@@ -1465,6 +1465,7 @@ function CupsQuoteForm() {
                 />
               </div>
             ) : (
+            <>
             <div className="mt-5 grid gap-2 sm:grid-cols-2">
               {q.options.map((opt) => (
                 <button
@@ -1489,6 +1490,35 @@ function CupsQuoteForm() {
                 </button>
               ))}
             </div>
+            {q.key === "quantity" && (
+              <div className="mt-4">
+                <label className="block text-xs font-bold uppercase tracking-wider text-[#666] mb-2">
+                  {t("cupsPage.quote.wizard.customQuantityLabel")}
+                </label>
+                <input
+                  type="number"
+                  min={1000}
+                  step={100}
+                  inputMode="numeric"
+                  placeholder={t("cupsPage.quote.wizard.customQuantityPlaceholder")}
+                  value={q.options.includes(value) ? "" : value}
+                  onChange={(e) => {
+                    const raw = e.target.value;
+                    setDraft((d) => ({ ...d, quantity: raw }));
+                  }}
+                  className="w-full rounded-lg border-2 border-[#eee] bg-[#f9f9f9] text-[#333] placeholder:text-[#999] px-4 py-[12px] text-sm outline-none focus:border-[#333] focus:bg-white transition-colors"
+                />
+                <p className="mt-1.5 text-xs text-[#888]">
+                  {t("cupsPage.quote.wizard.customQuantityHint")}
+                </p>
+                {value && !q.options.includes(value) && Number(value) > 0 && Number(value) < 1000 && (
+                  <p className="mt-1.5 text-xs font-semibold text-red-600">
+                    {t("cupsPage.quote.wizard.quantityMinError")}
+                  </p>
+                )}
+              </div>
+            )}
+            </>
             )}
 
             <div className="mt-6 flex items-center justify-between gap-3">
@@ -1501,7 +1531,10 @@ function CupsQuoteForm() {
               </button>
               <button
                 type="button"
-                disabled={required && !value}
+                disabled={
+                  (required && !value) ||
+                  (q.key === "quantity" && !!value && !q.options.includes(value) && Number(value) < 1000)
+                }
                 onClick={goNext}
                 className="inline-flex items-center gap-2 rounded-md px-5 py-2.5 text-sm font-semibold text-white disabled:opacity-40"
                 style={{ background: "var(--gradient-cyan)" }}

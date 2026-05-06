@@ -5,7 +5,7 @@ import type { TemplateEntry } from './registry'
 const ADMIN_URL = 'https://art-stream-sync.lovable.app/admin'
 
 interface Props {
-  type?: string
+  type?: 'new' | 'audit' | 'brief' | 'sample' | string
   name?: string
   email?: string
   phone?: string
@@ -20,25 +20,39 @@ interface Props {
   attachments?: Array<{ name: string; url: string; size?: number; type?: string }>
 }
 
-const QuoteInternalEmail = (p: Props) => (
+const TYPE_META: Record<string, { label: string; emoji: string }> = {
+  new: { label: 'quote', emoji: '🎯' },
+  audit: { label: 'price match audit', emoji: '🔍' },
+  brief: { label: 'brief upload', emoji: '📄' },
+  sample: { label: 'sample request', emoji: '📦' },
+}
+
+const QuoteInternalEmail = (p: Props) => {
+  const meta = TYPE_META[p.type || 'new'] || TYPE_META.new
+  const rows: Array<[string, string | undefined]> = [
+    ['Name / Company', p.name],
+    ['Email', p.email],
+    ['Phone', p.phone],
+    ['Product type', p.productType],
+    ['Quantity', p.quantity],
+    ['Current cost', p.currentCost],
+    ['Design link', p.designLink],
+    ['Needs designer', p.needsDesigner ? 'Yes' : undefined],
+    ['Submission ID', p.submissionId],
+  ].filter(([, v]) => v && String(v).trim().length > 0) as Array<[string, string]>
+  return (
   <Html lang="en" dir="ltr">
     <Head />
-    <Preview>New {p.type === 'audit' ? 'audit' : 'quote'} request from {p.name || 'website'}</Preview>
+    <Preview>New {meta.label} from {p.name || 'website'}</Preview>
     <Body style={main}>
       <Container style={container}>
         <Heading style={h1}>
-          🎯 New {p.type === 'audit' ? 'price match audit' : 'quote'} request
+          {meta.emoji} New {meta.label}
         </Heading>
         <Section style={card}>
-          <Row label="Name / Company" value={p.name} />
-          <Row label="Email" value={p.email} />
-          <Row label="Phone" value={p.phone} />
-          <Row label="Product type" value={p.productType} />
-          <Row label="Quantity" value={p.quantity} />
-          <Row label="Current cost" value={p.currentCost} />
-          <Row label="Design link" value={p.designLink} />
-          <Row label="Needs designer" value={p.needsDesigner ? 'Yes' : 'No'} />
-          {p.submissionId ? <Row label="Submission ID" value={p.submissionId} /> : null}
+          {rows.map(([label, value]) => (
+            <Row key={label} label={label} value={value} />
+          ))}
         </Section>
         {p.projectDetails ? (
           <>
@@ -100,7 +114,8 @@ const QuoteInternalEmail = (p: Props) => (
       </Container>
     </Body>
   </Html>
-)
+  )
+}
 
 function Row({ label, value }: { label: string; value?: string }) {
   return (
@@ -113,7 +128,10 @@ function Row({ label, value }: { label: string; value?: string }) {
 
 export const template = {
   component: QuoteInternalEmail,
-  subject: (data: Record<string, any>) => `New ${data?.type === 'audit' ? 'audit' : 'quote'} request from ${data?.name || 'website'}`,
+  subject: (data: Record<string, any>) => {
+    const m = TYPE_META[data?.type || 'new'] || TYPE_META.new
+    return `New ${m.label} from ${data?.name || 'website'}`
+  },
   displayName: 'Quote request — internal notification',
   previewData: { type: 'new', name: 'Acme ehf.', email: 'jane@acme.is', phone: '+354 555 1212', productType: 'Hoodies', quantity: '200', projectDetails: 'Logo on chest, full back print', needsDesigner: false },
 } satisfies TemplateEntry

@@ -13,7 +13,6 @@ import plMessages from "@/i18n/messages/pl";
 import cupEveryday from "@/assets/site/cup-everyday.jpg";
 import cupPremium from "@/assets/site/cup-premium.jpg";
 import cupWater from "@/assets/site/cup-water.jpg";
-import cupTransparent from "@/assets/site/cup-transparent.webp";
 import cupIcecream from "@/assets/site/cup-icecream.jpg";
 import cupLids from "@/assets/site/cup-lids.webp";
 import cupStraws from "@/assets/site/cup-straws.jpg";
@@ -110,7 +109,7 @@ const products: Product[] = [
     img: cupPremium,
     tag: "Double-wall · premium",
     title: "Premium thermal double-wall cup",
-    sizes: "100 · 180 · 200 · 300 · 400 ml",
+    sizes: "200 ml (8 oz) · 300 ml (12 oz) · 400 ml (16 oz)",
     desc:
       "Top-of-range double-wall cup. Hot coffee inside, cool hands outside. Our pick for cafés, takeaway and hotel coffee corners.",
     bullets: [
@@ -137,7 +136,7 @@ const products: Product[] = [
     lead: "2–3 weeks to your door in Iceland",
   },
   {
-    img: cupTransparent,
+    img: cupIcecream,
     tag: "Recycled plastic · transparent",
     title: "Transparent recycled-plastic cup",
     sizes: "300 · 400 · 500 ml",
@@ -172,11 +171,11 @@ const products: Product[] = [
     title: "Lids for every cup we sell",
     sizes: "for 100 · 180 · 200 · 300 · 400 ml + plastic cups",
     desc:
-      "Two options: PE plastic and BIO paper. Flat and dome shapes, matched to every cup we ship. Available in a wide range of colours — white, black, green, red, orange, gold, silver and more.",
+      "Two options: PE plastic and BIO paper. Flat and dome shapes, matched to every cup we ship. Available in white and black only.",
     bullets: [
       "Guaranteed fit on every cup we ship",
       "Dome lids for cold drinks & smoothies",
-      "Wide colour range available",
+      "White and black only",
     ],
     moq: "1 carton (1,000 pcs)",
     lead: "2–3 weeks to Iceland",
@@ -187,10 +186,10 @@ const products: Product[] = [
     title: "Paper drinking straws",
     sizes: "150 pcs / pack",
     desc:
-      "Plastic-free paper straws, straight or bendy. Black in stock; other colours by order. Bundle with cups for synced delivery.",
+      "Plastic-free paper straws, straight or bendy. White and black in stock. Bundle with cups for synced delivery.",
     bullets: [
       "EU single-use plastics compliant",
-      "Black in stock, colours by order",
+      "White and black in stock",
       "Bulk-packed for cafés and restaurants",
     ],
     moq: "From 1 pack",
@@ -324,7 +323,7 @@ function CupsPage() {
   const dict = locale === "is" ? isMessages : locale === "pl" ? plMessages : enMessages;
   const cp = dict.cupsPage;
   // Merge product images with translated catalog
-  const productImgs = [cupEveryday, cupPremium, cupWater, cupTransparent, cupIcecream, cupLids, cupStraws, cupStirrers];
+  const productImgs = [cupEveryday, cupPremium, cupWater, cupIcecream, cupIcecream, cupLids, cupStraws, cupStirrers];
   const translatedProducts = cp.productCatalog.map((p, i) => ({ ...p, img: productImgs[i], lead: products[i].lead }));
   const cupsFaqsT = cp.faq.items;
   const scrollToQuote = (e: React.MouseEvent) => {

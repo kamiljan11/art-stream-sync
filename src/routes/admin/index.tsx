@@ -8,6 +8,21 @@ export const Route = createFileRoute("/admin/")({
   component: AdminPage,
 });
 
+/* ----- Order/request statuses (internal tracking) ----- */
+const STATUS_OPTIONS: { value: string; label: string; color: string }[] = [
+  { value: "new",          label: "Nowe zamówienie",  color: "bg-blue-500/15 text-blue-700" },
+  { value: "quote_sent",   label: "Wycena wysłana",   color: "bg-amber-500/15 text-amber-700" },
+  { value: "paid",         label: "Opłacone",         color: "bg-emerald-500/15 text-emerald-700" },
+  { value: "shipped_pl",   label: "Wysyłka z Polski", color: "bg-purple-500/15 text-purple-700" },
+];
+const STATUS_MAP: Record<string, { label: string; color: string }> = Object.fromEntries(
+  STATUS_OPTIONS.map((s) => [s.value, { label: s.label, color: s.color }]),
+);
+function statusMeta(s: string | null | undefined) {
+  const key = s || "new";
+  return STATUS_MAP[key] || { label: key, color: "bg-muted text-muted-foreground" };
+}
+
 type Source = "quote" | "contact";
 
 type Item = {
@@ -147,9 +162,22 @@ function AdminPage() {
   }, [items, query, statusFilter, sourceFilter, dateFrom, dateTo]);
 
   const statuses = useMemo(() => {
-    const s = new Set(items.map((i) => i.status));
-    return ["all", ...Array.from(s)];
+    const seen = new Set(items.map((i) => i.status));
+    const ordered = STATUS_OPTIONS.map((s) => s.value).filter((v) => seen.has(v));
+    const extras = Array.from(seen).filter((s) => !STATUS_MAP[s]);
+    return ["all", ...ordered, ...extras];
   }, [items]);
+
+  async function quickSetStatus(it: Item, status: string) {
+    // Optimistic update
+    setItems((prev) => prev.map((p) => (p.id === it.id && p.source === it.source ? { ...p, status } : p)));
+    const table = it.source === "quote" ? "quote_submissions" : "contact_submissions";
+    const { error } = await supabase.from(table).update({ status }).eq("id", it.id);
+    if (error) {
+      console.error("[admin] status update failed", error);
+      loadAll();
+    }
+  }
 
   async function signOut() {
     await supabase.auth.signOut();
@@ -211,7 +239,7 @@ function AdminPage() {
             <SmallSelect label="Type" value={sourceFilter} onChange={(v) => setSourceFilter(v as any)}
               options={[{ value: "all", label: "All types" }, { value: "quote", label: "Quotes" }, { value: "contact", label: "Contact" }]}/>
             <SmallSelect label="Status" value={statusFilter} onChange={setStatusFilter}
-              options={statuses.map((s) => ({ value: s, label: s === "all" ? "All statuses" : s }))}/>
+              options={statuses.map((s) => ({ value: s, label: s === "all" ? "All statuses" : statusMeta(s).label }))}/>
             <input type="date" value={dateFrom} onChange={(e) => setDateFrom(e.target.value)}
               className="rounded-md border border-input bg-background px-2 py-1.5 text-xs"/>
             <input type="date" value={dateTo} onChange={(e) => setDateTo(e.target.value)}
@@ -249,6 +277,28 @@ function AdminPage() {
                     <span className="text-[11px] text-muted-foreground whitespace-nowrap">{formatDate(it.created_at)}</span>
                   </div>
                 </button>
+                {/* Quick status switcher — works great on mobile */}
+                <div
+                  className="mt-1.5 flex gap-1.5 overflow-x-auto px-1 pb-1 -mx-1"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  {STATUS_OPTIONS.map((s) => {
+                    const active = it.status === s.value;
+                    return (
+                      <button
+                        key={s.value}
+                        onClick={() => quickSetStatus(it, s.value)}
+                        className={`shrink-0 text-[11px] font-bold px-2.5 py-1.5 rounded-full border transition ${
+                          active
+                            ? `${s.color} border-transparent`
+                            : "bg-background text-muted-foreground border-border hover:text-foreground"
+                        }`}
+                      >
+                        {s.label}
+                      </button>
+                    );
+                  })}
+                </div>
               </li>
             ))}
           </ul>
@@ -285,12 +335,8 @@ function SmallSelect({ value, onChange, options }: { label: string; value: strin
 }
 
 function StatusBadge({ status }: { status: string }) {
-  const color =
-    status === "new" ? "bg-blue-500/15 text-blue-600" :
-    status === "done" ? "bg-green-500/15 text-green-700" :
-    status === "in_progress" ? "bg-amber-500/15 text-amber-700" :
-    "bg-muted text-muted-foreground";
-  return <span className={`text-[10px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded ${color}`}>{status}</span>;
+  const m = statusMeta(status);
+  return <span className={`text-[10px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded ${m.color}`}>{m.label}</span>;
 }
 
 function formatDate(s: string) {
@@ -411,13 +457,23 @@ function DetailDrawer({ source, id, onClose, onSaved }: { source: Source; id: st
               {/* Status (always editable) */}
               <div>
                 <label className="block text-xs font-bold uppercase tracking-wider text-muted-foreground mb-1">Status</label>
-                <input
-                  value={row?.status ?? "new"}
-                  onChange={(e) => update("status", e.target.value)}
-                  placeholder="new / in_progress / waiting / done / lost ..."
-                  className="w-full rounded-lg border border-input bg-background px-3 py-2 text-sm"
-                />
-                <p className="text-[11px] text-muted-foreground mt-1">Free text. Type whatever status you want.</p>
+                <div className="flex flex-wrap gap-1.5">
+                  {STATUS_OPTIONS.map((s) => {
+                    const active = (row?.status ?? "new") === s.value;
+                    return (
+                      <button
+                        key={s.value}
+                        type="button"
+                        onClick={() => update("status", s.value)}
+                        className={`text-xs font-bold px-3 py-2 rounded-full border transition ${
+                          active ? `${s.color} border-transparent` : "bg-background text-muted-foreground border-border hover:text-foreground"
+                        }`}
+                      >
+                        {s.label}
+                      </button>
+                    );
+                  })}
+                </div>
               </div>
 
               {fields.map((f) => (

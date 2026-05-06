@@ -418,6 +418,41 @@ function DetailDrawer({ source, id, onClose, onSaved }: { source: Source; id: st
                 <FieldRow key={f.key} field={f} value={row?.[f.key]} onChange={(v) => update(f.key, v)} />
               ))}
 
+              {(() => {
+                let attachments: any[] = [];
+                try {
+                  const e = JSON.parse(extraJson || "{}");
+                  if (Array.isArray(e?.attachments)) attachments = e.attachments;
+                } catch { /* ignore */ }
+                if (attachments.length === 0) return null;
+                return (
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-muted-foreground mb-2">
+                      📎 Attached files
+                    </label>
+                    <ul className="space-y-1.5">
+                      {attachments.map((a, i) => (
+                        <li key={i} className="text-sm">
+                          <a
+                            href={a.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-cyan-600 font-semibold underline break-all"
+                          >
+                            {a.name || a.url}
+                          </a>
+                          {a.size ? (
+                            <span className="text-xs text-muted-foreground ml-2">
+                              ({Math.round(Number(a.size) / 1024)} KB)
+                            </span>
+                          ) : null}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                );
+              })()}
+
               <div>
                 <label className="block text-xs font-bold uppercase tracking-wider text-muted-foreground mb-1">Internal notes</label>
                 <textarea

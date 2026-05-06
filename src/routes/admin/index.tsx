@@ -8,6 +8,21 @@ export const Route = createFileRoute("/admin/")({
   component: AdminPage,
 });
 
+/* ----- Order/request statuses (internal tracking) ----- */
+const STATUS_OPTIONS: { value: string; label: string; color: string }[] = [
+  { value: "new",          label: "Nowe zamówienie",  color: "bg-blue-500/15 text-blue-700" },
+  { value: "quote_sent",   label: "Wycena wysłana",   color: "bg-amber-500/15 text-amber-700" },
+  { value: "paid",         label: "Opłacone",         color: "bg-emerald-500/15 text-emerald-700" },
+  { value: "shipped_pl",   label: "Wysyłka z Polski", color: "bg-purple-500/15 text-purple-700" },
+];
+const STATUS_MAP: Record<string, { label: string; color: string }> = Object.fromEntries(
+  STATUS_OPTIONS.map((s) => [s.value, { label: s.label, color: s.color }]),
+);
+function statusMeta(s: string | null | undefined) {
+  const key = s || "new";
+  return STATUS_MAP[key] || { label: key, color: "bg-muted text-muted-foreground" };
+}
+
 type Source = "quote" | "contact";
 
 type Item = {

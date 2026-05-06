@@ -569,6 +569,7 @@ const en = {
     quantity: "Quantity",
     quantityHint: "Pieces — minimum 1,000.",
     quantityPlaceholder: "e.g. 5000",
+    quantityMinError: "Minimum order is 1,000 pieces.",
     projectDetails: "Project Details",
     designLink: "Design Files Link (Optional)",
     designLinkHint: "Required for files larger than 25MB.",

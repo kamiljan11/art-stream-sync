@@ -14,6 +14,7 @@ import cupEveryday from "@/assets/site/cup-everyday.jpg";
 import cupPremium from "@/assets/site/cup-premium.jpg";
 import cupWater from "@/assets/site/cup-water.jpg";
 import cupIcecream from "@/assets/site/cup-icecream.jpg";
+import cupRpet from "@/assets/site/cup-rpet.jpg";
 import cupLids from "@/assets/site/cup-lids.webp";
 import cupStraws from "@/assets/site/cup-straws.jpg";
 import cupStirrers from "@/assets/site/cup-stirrers.webp";
@@ -136,7 +137,7 @@ const products: Product[] = [
     lead: "2–3 weeks to your door in Iceland",
   },
   {
-    img: cupIcecream,
+    img: cupRpet,
     tag: "Recycled plastic · transparent",
     title: "Transparent recycled-plastic cup",
     sizes: "300 · 400 · 500 ml",

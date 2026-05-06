@@ -5,7 +5,7 @@ export const Route = createFileRoute("/thank-you")({
   head: () => ({
     meta: [
       { title: "Thank you — MAS Prints" },
-      { name: "description", content: "We received your request and will get back to you within 24 hours with a fixed ISK quote." },
+      { name: "description", content: "We received your request and will get back to you within 24 hours with an ISK quote." },
       { name: "robots", content: "noindex" },
     ],
   }),
@@ -27,7 +27,7 @@ function ThankYouPage() {
         </h1>
         <p className="text-lg text-muted-foreground mb-8">
           We've received your request. Our Icelandic brokerage team will get
-          back to you within <strong>24 hours</strong> with a fixed ISK quote.
+          back to you within <strong>24 hours</strong> with an ISK quote.
         </p>
 
         <div className="bg-card border border-border rounded-2xl p-6 md:p-7 text-left mb-8">
@@ -36,8 +36,7 @@ function ThankYouPage() {
           </h2>
           <ul className="space-y-3 text-sm md:text-base text-foreground">
             <li className="flex gap-3"><span style={{ color: "#EC008C" }}>✓</span> A confirmation email is on its way to your inbox</li>
-            <li className="flex gap-3"><span style={{ color: "#EC008C" }}>✓</span> We review your request and prepare a fixed ISK quote</li>
-            <li className="flex gap-3"><span style={{ color: "#EC008C" }}>✓</span> No contract, no commitment — just a clear price</li>
+            <li className="flex gap-3"><span style={{ color: "#EC008C" }}>✓</span> We review your request and prepare an ISK quote</li>
           </ul>
         </div>
 

@@ -567,6 +567,8 @@ const is = {
     phoneNumber: "Símanúmer",
     productType: "Vörutegund",
     quantity: "Magn",
+    quantityHint: "Stykki — lágmark 1.000.",
+    quantityPlaceholder: "t.d. 5000",
     projectDetails: "Lýsing verkefnis",
     designLink: "Hlekkur á hönnunarskrár (valfrjálst)",
     designLinkHint: "Krafist fyrir skrár stærri en 25MB.",

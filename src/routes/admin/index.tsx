@@ -335,12 +335,8 @@ function SmallSelect({ value, onChange, options }: { label: string; value: strin
 }
 
 function StatusBadge({ status }: { status: string }) {
-  const color =
-    status === "new" ? "bg-blue-500/15 text-blue-600" :
-    status === "done" ? "bg-green-500/15 text-green-700" :
-    status === "in_progress" ? "bg-amber-500/15 text-amber-700" :
-    "bg-muted text-muted-foreground";
-  return <span className={`text-[10px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded ${color}`}>{status}</span>;
+  const m = statusMeta(status);
+  return <span className={`text-[10px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded ${m.color}`}>{m.label}</span>;
 }
 
 function formatDate(s: string) {

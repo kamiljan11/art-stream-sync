@@ -137,7 +137,7 @@ const products: Product[] = [
     lead: "2–3 weeks to your door in Iceland",
   },
   {
-    img: cupTransparent,
+    img: cupIcecream,
     tag: "Recycled plastic · transparent",
     title: "Transparent recycled-plastic cup",
     sizes: "300 · 400 · 500 ml",

@@ -567,6 +567,8 @@ const en = {
     phoneNumber: "Phone Number",
     productType: "Product Type",
     quantity: "Quantity",
+    quantityHint: "Pieces — minimum 1,000.",
+    quantityPlaceholder: "e.g. 5000",
     projectDetails: "Project Details",
     designLink: "Design Files Link (Optional)",
     designLinkHint: "Required for files larger than 25MB.",

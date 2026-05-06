@@ -13,7 +13,6 @@ import plMessages from "@/i18n/messages/pl";
 import cupEveryday from "@/assets/site/cup-everyday.jpg";
 import cupPremium from "@/assets/site/cup-premium.jpg";
 import cupWater from "@/assets/site/cup-water.jpg";
-import cupTransparent from "@/assets/site/cup-transparent.webp";
 import cupIcecream from "@/assets/site/cup-icecream.jpg";
 import cupLids from "@/assets/site/cup-lids.webp";
 import cupStraws from "@/assets/site/cup-straws.jpg";

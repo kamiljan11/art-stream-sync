@@ -162,9 +162,22 @@ function AdminPage() {
   }, [items, query, statusFilter, sourceFilter, dateFrom, dateTo]);
 
   const statuses = useMemo(() => {
-    const s = new Set(items.map((i) => i.status));
-    return ["all", ...Array.from(s)];
+    const seen = new Set(items.map((i) => i.status));
+    const ordered = STATUS_OPTIONS.map((s) => s.value).filter((v) => seen.has(v));
+    const extras = Array.from(seen).filter((s) => !STATUS_MAP[s]);
+    return ["all", ...ordered, ...extras];
   }, [items]);
+
+  async function quickSetStatus(it: Item, status: string) {
+    // Optimistic update
+    setItems((prev) => prev.map((p) => (p.id === it.id && p.source === it.source ? { ...p, status } : p)));
+    const table = it.source === "quote" ? "quote_submissions" : "contact_submissions";
+    const { error } = await supabase.from(table).update({ status }).eq("id", it.id);
+    if (error) {
+      console.error("[admin] status update failed", error);
+      loadAll();
+    }
+  }
 
   async function signOut() {
     await supabase.auth.signOut();

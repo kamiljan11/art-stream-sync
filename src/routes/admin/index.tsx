@@ -239,7 +239,7 @@ function AdminPage() {
             <SmallSelect label="Type" value={sourceFilter} onChange={(v) => setSourceFilter(v as any)}
               options={[{ value: "all", label: "All types" }, { value: "quote", label: "Quotes" }, { value: "contact", label: "Contact" }]}/>
             <SmallSelect label="Status" value={statusFilter} onChange={setStatusFilter}
-              options={statuses.map((s) => ({ value: s, label: s === "all" ? "All statuses" : s }))}/>
+              options={statuses.map((s) => ({ value: s, label: s === "all" ? "All statuses" : statusMeta(s).label }))}/>
             <input type="date" value={dateFrom} onChange={(e) => setDateFrom(e.target.value)}
               className="rounded-md border border-input bg-background px-2 py-1.5 text-xs"/>
             <input type="date" value={dateTo} onChange={(e) => setDateTo(e.target.value)}
@@ -277,6 +277,28 @@ function AdminPage() {
                     <span className="text-[11px] text-muted-foreground whitespace-nowrap">{formatDate(it.created_at)}</span>
                   </div>
                 </button>
+                {/* Quick status switcher — works great on mobile */}
+                <div
+                  className="mt-1.5 flex gap-1.5 overflow-x-auto px-1 pb-1 -mx-1"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  {STATUS_OPTIONS.map((s) => {
+                    const active = it.status === s.value;
+                    return (
+                      <button
+                        key={s.value}
+                        onClick={() => quickSetStatus(it, s.value)}
+                        className={`shrink-0 text-[11px] font-bold px-2.5 py-1.5 rounded-full border transition ${
+                          active
+                            ? `${s.color} border-transparent`
+                            : "bg-background text-muted-foreground border-border hover:text-foreground"
+                        }`}
+                      >
+                        {s.label}
+                      </button>
+                    );
+                  })}
+                </div>
               </li>
             ))}
           </ul>

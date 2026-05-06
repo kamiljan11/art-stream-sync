@@ -872,6 +872,7 @@ function CupsQuoteForm() {
   const [submitted, setSubmitted] = useState(false);
   const [needsDesign, setNeedsDesign] = useState<"yes" | "no" | "">("");
   const [fileName, setFileName] = useState<string>("");
+  const [pendingFile, setPendingFile] = useState<File | null>(null);
   const [pantoneMatch, setPantoneMatch] = useState(false);
   const [pantoneCodes, setPantoneCodes] = useState("");
   const [submitting, setSubmitting] = useState(false);
@@ -1072,6 +1073,30 @@ function CupsQuoteForm() {
     setErrorMsg("");
     setSubmitting(true);
     try {
+      // Upload attached file (if any) to storage first
+      const attachments: Array<{ name: string; url: string; size: number; type: string }> = [];
+      if (pendingFile) {
+        const safeName = pendingFile.name.replace(/[^\w.\-]+/g, "_");
+        const path = `quote-attachments/${crypto.randomUUID()}/${safeName}`;
+        const { supabase } = await import("@/integrations/supabase/client");
+        const { error: upErr } = await supabase.storage
+          .from("public-assets")
+          .upload(path, pendingFile, {
+            contentType: pendingFile.type || "application/octet-stream",
+            upsert: false,
+          });
+        if (upErr) {
+          console.error("[upload] failed", upErr);
+          throw new Error("File upload failed");
+        }
+        const { data: pub } = supabase.storage.from("public-assets").getPublicUrl(path);
+        attachments.push({
+          name: pendingFile.name,
+          url: pub.publicUrl,
+          size: pendingFile.size,
+          type: pendingFile.type || "application/octet-stream",
+        });
+      }
       const itemsBlock = items.map((it, i) => {
         const lines = [
           `#${i + 1} ${it.product}`,
@@ -1094,7 +1119,9 @@ function CupsQuoteForm() {
         path === "brief" && briefMessage && `Brief: ${briefMessage}`,
         path === "sample" && sampleInterest && `Interested in: ${sampleInterest}`,
         path === "sample" && sampleAddress && `Address: ${sampleAddress}`,
-        fileName && `Attached file: ${fileName}`,
+        attachments.length > 0
+          ? `Attached file: ${attachments[0].name}\n${attachments[0].url}`
+          : (fileName && `Attached file: ${fileName}`),
         pantoneMatch && `Pantone match requested${pantoneCodes ? `: ${pantoneCodes}` : " (codes to be confirmed)"}`,
         contact.notes && `Notes: ${contact.notes}`,
       ].filter(Boolean).join("\n\n");
@@ -1114,6 +1141,7 @@ function CupsQuoteForm() {
             : "",
           projectDetails,
           needsDesigner: needsDesign === "yes",
+          attachments,
         }),
       });
       if (!res.ok) throw new Error("Submit failed");
@@ -1228,7 +1256,11 @@ function CupsQuoteForm() {
                 type="file"
                 className="hidden"
                 accept=".pdf,.doc,.docx,.ppt,.pptx,.ai,.eps,.psd,.png,.jpg,.jpeg,.svg,.zip"
-                onChange={(e) => setFileName(e.target.files?.[0]?.name ?? "")}
+                onChange={(e) => {
+                  const f = e.target.files?.[0] ?? null;
+                  setPendingFile(f);
+                  setFileName(f?.name ?? "");
+                }}
               />
               <div className="text-3xl leading-none">📎</div>
               <div className="font-semibold text-[#222]">
@@ -1685,7 +1717,16 @@ function CupsQuoteForm() {
                   {t("cupsPage.quote.uploadArtwork")}
                 </span>
                 <label className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-lg border-2 border-dashed border-[#ddd] bg-white px-3 py-2.5 text-sm font-medium text-[#333] hover:border-[#bbb] transition-colors">
-                  <input type="file" className="hidden" accept=".pdf,.ai,.eps,.psd,.png,.jpg,.jpeg,.svg,.tif,.tiff" onChange={(e) => setFileName(e.target.files?.[0]?.name ?? "")} />
+                  <input
+                    type="file"
+                    className="hidden"
+                    accept=".pdf,.ai,.eps,.psd,.png,.jpg,.jpeg,.svg,.tif,.tiff"
+                    onChange={(e) => {
+                      const f = e.target.files?.[0] ?? null;
+                      setPendingFile(f);
+                      setFileName(f?.name ?? "");
+                    }}
+                  />
                   {fileName ? t("cupsPage.quote.changeFile") : t("cupsPage.quote.chooseFile")}
                 </label>
                 <span className="text-xs text-[#777] break-words">

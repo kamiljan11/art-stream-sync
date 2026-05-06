@@ -13,6 +13,17 @@ const quoteSchema = z.object({
   needsDesigner: z.boolean().optional().default(false),
   currentCost: z.string().trim().max(100).optional().default(""),
   calculator: z.any().optional(),
+  attachments: z
+    .array(
+      z.object({
+        name: z.string().max(300),
+        url: z.string().url().max(2000),
+        size: z.number().int().nonnegative().optional(),
+        type: z.string().max(200).optional(),
+      }),
+    )
+    .max(10)
+    .optional(),
 });
 
 export const Route = createFileRoute("/api/public/quote")({
@@ -40,6 +51,7 @@ export const Route = createFileRoute("/api/public/quote")({
         const d = parsed.data;
         const extra: Record<string, unknown> = {};
         if (d.calculator) extra.calculator = d.calculator;
+        if (d.attachments && d.attachments.length > 0) extra.attachments = d.attachments;
         const { data: row, error } = await supabaseAdmin
           .from("quote_submissions")
           .insert({
@@ -86,6 +98,7 @@ export const Route = createFileRoute("/api/public/quote")({
               currentCost: d.currentCost,
               submissionId: row.id,
               calculator: d.calculator ?? null,
+              attachments: d.attachments ?? [],
             },
             idempotencyKey: `quote-internal-${row.id}`,
           });

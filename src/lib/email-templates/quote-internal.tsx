@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Body, Button, Container, Head, Heading, Html, Preview, Section, Text } from '@react-email/components'
+import { Body, Button, Container, Head, Heading, Html, Link, Preview, Section, Text } from '@react-email/components'
 import type { TemplateEntry } from './registry'
 
 const ADMIN_URL = 'https://art-stream-sync.lovable.app/admin'
@@ -17,6 +17,7 @@ interface Props {
   currentCost?: string
   submissionId?: string
   calculator?: any
+  attachments?: Array<{ name: string; url: string; size?: number; type?: string }>
 }
 
 const QuoteInternalEmail = (p: Props) => (
@@ -44,6 +45,19 @@ const QuoteInternalEmail = (p: Props) => (
             <Heading style={h2}>Project details</Heading>
             <Section style={messageBox}>
               <Text style={messageText}>{p.projectDetails}</Text>
+            </Section>
+          </>
+        ) : null}
+        {p.attachments && p.attachments.length > 0 ? (
+          <>
+            <Heading style={h2}>📎 Attached files</Heading>
+            <Section style={messageBox}>
+              {p.attachments.map((a, i) => (
+                <Text key={i} style={rowText}>
+                  <Link href={a.url} style={fileLink}>{a.name}</Link>
+                  {a.size ? <span style={fileMeta}> ({Math.round(a.size / 1024)} KB)</span> : null}
+                </Text>
+              ))}
             </Section>
           </>
         ) : null}
@@ -118,3 +132,5 @@ const estimateBox = { backgroundColor: '#fff8e1', border: '2px solid #ffab00', b
 const estimateBig = { fontSize: '28px', fontWeight: 800 as const, color: '#7a5000', margin: '0 0 4px' }
 const estimateSub = { fontSize: '13px', color: '#7a5000', margin: '0 0 12px' }
 const noteText = { fontSize: '12px', color: '#7a5000', fontStyle: 'italic' as const, margin: '8px 0 0' }
+const fileLink = { color: '#00AEEF', fontWeight: 700 as const, textDecoration: 'underline' }
+const fileMeta = { color: '#888', fontSize: '12px' }

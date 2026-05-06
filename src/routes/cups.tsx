@@ -324,7 +324,7 @@ function CupsPage() {
   const dict = locale === "is" ? isMessages : locale === "pl" ? plMessages : enMessages;
   const cp = dict.cupsPage;
   // Merge product images with translated catalog
-  const productImgs = [cupEveryday, cupPremium, cupWater, cupIcecream, cupIcecream, cupLids, cupStraws, cupStirrers];
+  const productImgs = [cupEveryday, cupPremium, cupWater, cupRpet, cupIcecream, cupLids, cupStraws, cupStirrers];
   const translatedProducts = cp.productCatalog.map((p, i) => ({ ...p, img: productImgs[i], lead: products[i].lead }));
   const cupsFaqsT = cp.faq.items;
   const scrollToQuote = (e: React.MouseEvent) => {

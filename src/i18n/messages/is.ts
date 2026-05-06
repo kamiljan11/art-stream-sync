@@ -569,6 +569,7 @@ const is = {
     quantity: "Magn",
     quantityHint: "Stykki — lágmark 1.000.",
     quantityPlaceholder: "t.d. 5000",
+    quantityMinError: "Lágmarkspöntun er 1.000 stykki.",
     projectDetails: "Lýsing verkefnis",
     designLink: "Hlekkur á hönnunarskrár (valfrjálst)",
     designLinkHint: "Krafist fyrir skrár stærri en 25MB.",

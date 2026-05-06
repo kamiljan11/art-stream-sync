@@ -872,6 +872,7 @@ function CupsQuoteForm() {
   const [submitted, setSubmitted] = useState(false);
   const [needsDesign, setNeedsDesign] = useState<"yes" | "no" | "">("");
   const [fileName, setFileName] = useState<string>("");
+  const [pendingFile, setPendingFile] = useState<File | null>(null);
   const [pantoneMatch, setPantoneMatch] = useState(false);
   const [pantoneCodes, setPantoneCodes] = useState("");
   const [submitting, setSubmitting] = useState(false);

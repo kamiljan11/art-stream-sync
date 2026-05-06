@@ -4,28 +4,49 @@ import type { TemplateEntry } from './registry'
 
 interface Props {
   name?: string
-  type?: 'new' | 'audit'
+  type?: 'new' | 'audit' | 'brief' | 'sample'
 }
 
-const QuoteConfirmationEmail = ({ name, type }: Props) => (
+const COPY: Record<string, { preview: string; intro: string; next: string[] }> = {
+  new: {
+    preview: 'We got your quote request — ISK quote within 24 hours',
+    intro: "We've received your project request. Our Icelandic brokerage team is reviewing it now.",
+    next: ['✓ ISK quote within 24 hours', '✓ We handle production, customs & delivery'],
+  },
+  audit: {
+    preview: 'We got your price match audit — reply within 24 hours',
+    intro: "We've received your price match audit request. We'll review your current pricing and get back to you.",
+    next: ['✓ Audit reply within 24 hours', '✓ Transparent ISK breakdown'],
+  },
+  brief: {
+    preview: 'We got your brief — reply within 24 hours',
+    intro: "We've received your brief and attachments. Our team is reviewing the details now.",
+    next: ['✓ ISK quote based on your brief within 24 hours', '✓ We handle production, customs & delivery'],
+  },
+  sample: {
+    preview: 'We got your sample request — confirmation within 24 hours',
+    intro: "We've received your sample request. We'll confirm shipping details and timing shortly.",
+    next: ['✓ Confirmation within 24 hours', '✓ Sample shipped to the address you provided'],
+  },
+}
+
+const QuoteConfirmationEmail = ({ name, type }: Props) => {
+  const c = COPY[type || 'new'] || COPY.new
+  return (
   <Html lang="en" dir="ltr">
     <Head />
-    <Preview>We got your quote request — ISK quote within 24 hours</Preview>
+    <Preview>{c.preview}</Preview>
     <Body style={main}>
       <Container style={container}>
         <Heading style={brand}>MAS PRINTS</Heading>
         <Hr style={accent} />
         <Heading style={h1}>{name ? `Takk, ${name}!` : 'Takk for your request!'}</Heading>
-        <Text style={text}>
-          We've received your {type === 'audit' ? 'price match audit' : 'project'} request.
-          Our Icelandic brokerage team is reviewing it now.
-        </Text>
+        <Text style={text}>{c.intro}</Text>
         <Section style={card}>
           <Text style={cardTitle}>What happens next</Text>
-          <Text style={cardText}>
-            ✓ ISK quote within 24 hours<br />
-            ✓ We handle production, customs &amp; delivery
-          </Text>
+          {c.next.map((line, i) => (
+            <Text key={i} style={cardText}>{line}</Text>
+          ))}
         </Section>
         <Text style={footer}>
           Mountain All Service ehf. · Kennitala 690725-0450<br />
@@ -34,11 +55,18 @@ const QuoteConfirmationEmail = ({ name, type }: Props) => (
       </Container>
     </Body>
   </Html>
-)
+  )
+}
 
 export const template = {
   component: QuoteConfirmationEmail,
-  subject: 'We got your quote request — MAS Prints',
+  subject: (data: Record<string, any>) => {
+    const t = data?.type || 'new'
+    if (t === 'sample') return 'We got your sample request — MAS Prints'
+    if (t === 'brief') return 'We got your brief — MAS Prints'
+    if (t === 'audit') return 'We got your price match audit — MAS Prints'
+    return 'We got your quote request — MAS Prints'
+  },
   displayName: 'Quote request confirmation',
   previewData: { name: 'Jane', type: 'new' },
 } satisfies TemplateEntry

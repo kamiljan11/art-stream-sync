@@ -1073,6 +1073,30 @@ function CupsQuoteForm() {
     setErrorMsg("");
     setSubmitting(true);
     try {
+      // Upload attached file (if any) to storage first
+      const attachments: Array<{ name: string; url: string; size: number; type: string }> = [];
+      if (pendingFile) {
+        const safeName = pendingFile.name.replace(/[^\w.\-]+/g, "_");
+        const path = `quote-attachments/${crypto.randomUUID()}/${safeName}`;
+        const { supabase } = await import("@/integrations/supabase/client");
+        const { error: upErr } = await supabase.storage
+          .from("public-assets")
+          .upload(path, pendingFile, {
+            contentType: pendingFile.type || "application/octet-stream",
+            upsert: false,
+          });
+        if (upErr) {
+          console.error("[upload] failed", upErr);
+          throw new Error("File upload failed");
+        }
+        const { data: pub } = supabase.storage.from("public-assets").getPublicUrl(path);
+        attachments.push({
+          name: pendingFile.name,
+          url: pub.publicUrl,
+          size: pendingFile.size,
+          type: pendingFile.type || "application/octet-stream",
+        });
+      }
       const itemsBlock = items.map((it, i) => {
         const lines = [
           `#${i + 1} ${it.product}`,
@@ -1095,7 +1119,9 @@ function CupsQuoteForm() {
         path === "brief" && briefMessage && `Brief: ${briefMessage}`,
         path === "sample" && sampleInterest && `Interested in: ${sampleInterest}`,
         path === "sample" && sampleAddress && `Address: ${sampleAddress}`,
-        fileName && `Attached file: ${fileName}`,
+        attachments.length > 0
+          ? `Attached file: ${attachments[0].name}\n${attachments[0].url}`
+          : (fileName && `Attached file: ${fileName}`),
         pantoneMatch && `Pantone match requested${pantoneCodes ? `: ${pantoneCodes}` : " (codes to be confirmed)"}`,
         contact.notes && `Notes: ${contact.notes}`,
       ].filter(Boolean).join("\n\n");
@@ -1115,6 +1141,7 @@ function CupsQuoteForm() {
             : "",
           projectDetails,
           needsDesigner: needsDesign === "yes",
+          attachments,
         }),
       });
       if (!res.ok) throw new Error("Submit failed");

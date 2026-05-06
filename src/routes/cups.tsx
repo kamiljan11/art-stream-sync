@@ -1229,7 +1229,11 @@ function CupsQuoteForm() {
                 type="file"
                 className="hidden"
                 accept=".pdf,.doc,.docx,.ppt,.pptx,.ai,.eps,.psd,.png,.jpg,.jpeg,.svg,.zip"
-                onChange={(e) => setFileName(e.target.files?.[0]?.name ?? "")}
+                onChange={(e) => {
+                  const f = e.target.files?.[0] ?? null;
+                  setPendingFile(f);
+                  setFileName(f?.name ?? "");
+                }}
               />
               <div className="text-3xl leading-none">📎</div>
               <div className="font-semibold text-[#222]">
@@ -1686,7 +1690,16 @@ function CupsQuoteForm() {
                   {t("cupsPage.quote.uploadArtwork")}
                 </span>
                 <label className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-lg border-2 border-dashed border-[#ddd] bg-white px-3 py-2.5 text-sm font-medium text-[#333] hover:border-[#bbb] transition-colors">
-                  <input type="file" className="hidden" accept=".pdf,.ai,.eps,.psd,.png,.jpg,.jpeg,.svg,.tif,.tiff" onChange={(e) => setFileName(e.target.files?.[0]?.name ?? "")} />
+                  <input
+                    type="file"
+                    className="hidden"
+                    accept=".pdf,.ai,.eps,.psd,.png,.jpg,.jpeg,.svg,.tif,.tiff"
+                    onChange={(e) => {
+                      const f = e.target.files?.[0] ?? null;
+                      setPendingFile(f);
+                      setFileName(f?.name ?? "");
+                    }}
+                  />
                   {fileName ? t("cupsPage.quote.changeFile") : t("cupsPage.quote.chooseFile")}
                 </label>
                 <span className="text-xs text-[#777] break-words">

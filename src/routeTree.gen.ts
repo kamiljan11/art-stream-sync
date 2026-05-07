@@ -19,6 +19,7 @@ import { Route as CupsCalculatorRouteImport } from './routes/cups.calculator'
 import { Route as AdminLoginRouteImport } from './routes/admin/login'
 import { Route as LovableEmailSuppressionRouteImport } from './routes/lovable/email/suppression'
 import { Route as ApiPublicQuoteRouteImport } from './routes/api/public/quote'
+import { Route as ApiPublicMetaCapiRouteImport } from './routes/api/public/meta-capi'
 import { Route as ApiPublicContactRouteImport } from './routes/api/public/contact'
 import { Route as LovableEmailTransactionalSendRouteImport } from './routes/lovable/email/transactional/send'
 import { Route as LovableEmailTransactionalPreviewRouteImport } from './routes/lovable/email/transactional/preview'
@@ -74,6 +75,11 @@ const ApiPublicQuoteRoute = ApiPublicQuoteRouteImport.update({
   path: '/api/public/quote',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicMetaCapiRoute = ApiPublicMetaCapiRouteImport.update({
+  id: '/api/public/meta-capi',
+  path: '/api/public/meta-capi',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiPublicContactRoute = ApiPublicContactRouteImport.update({
   id: '/api/public/contact',
   path: '/api/public/contact',
@@ -108,6 +114,7 @@ export interface FileRoutesByFullPath {
   '/email/unsubscribe': typeof EmailUnsubscribeRoute
   '/admin/': typeof AdminIndexRoute
   '/api/public/contact': typeof ApiPublicContactRoute
+  '/api/public/meta-capi': typeof ApiPublicMetaCapiRoute
   '/api/public/quote': typeof ApiPublicQuoteRoute
   '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
   '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
@@ -124,6 +131,7 @@ export interface FileRoutesByTo {
   '/email/unsubscribe': typeof EmailUnsubscribeRoute
   '/admin': typeof AdminIndexRoute
   '/api/public/contact': typeof ApiPublicContactRoute
+  '/api/public/meta-capi': typeof ApiPublicMetaCapiRoute
   '/api/public/quote': typeof ApiPublicQuoteRoute
   '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
   '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
@@ -141,6 +149,7 @@ export interface FileRoutesById {
   '/email/unsubscribe': typeof EmailUnsubscribeRoute
   '/admin/': typeof AdminIndexRoute
   '/api/public/contact': typeof ApiPublicContactRoute
+  '/api/public/meta-capi': typeof ApiPublicMetaCapiRoute
   '/api/public/quote': typeof ApiPublicQuoteRoute
   '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
   '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
@@ -159,6 +168,7 @@ export interface FileRouteTypes {
     | '/email/unsubscribe'
     | '/admin/'
     | '/api/public/contact'
+    | '/api/public/meta-capi'
     | '/api/public/quote'
     | '/lovable/email/suppression'
     | '/lovable/email/queue/process'
@@ -175,6 +185,7 @@ export interface FileRouteTypes {
     | '/email/unsubscribe'
     | '/admin'
     | '/api/public/contact'
+    | '/api/public/meta-capi'
     | '/api/public/quote'
     | '/lovable/email/suppression'
     | '/lovable/email/queue/process'
@@ -191,6 +202,7 @@ export interface FileRouteTypes {
     | '/email/unsubscribe'
     | '/admin/'
     | '/api/public/contact'
+    | '/api/public/meta-capi'
     | '/api/public/quote'
     | '/lovable/email/suppression'
     | '/lovable/email/queue/process'
@@ -207,6 +219,7 @@ export interface RootRouteChildren {
   EmailUnsubscribeRoute: typeof EmailUnsubscribeRoute
   AdminIndexRoute: typeof AdminIndexRoute
   ApiPublicContactRoute: typeof ApiPublicContactRoute
+  ApiPublicMetaCapiRoute: typeof ApiPublicMetaCapiRoute
   ApiPublicQuoteRoute: typeof ApiPublicQuoteRoute
   LovableEmailSuppressionRoute: typeof LovableEmailSuppressionRoute
   LovableEmailQueueProcessRoute: typeof LovableEmailQueueProcessRoute
@@ -286,6 +299,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiPublicQuoteRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/meta-capi': {
+      id: '/api/public/meta-capi'
+      path: '/api/public/meta-capi'
+      fullPath: '/api/public/meta-capi'
+      preLoaderRoute: typeof ApiPublicMetaCapiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/public/contact': {
       id: '/api/public/contact'
       path: '/api/public/contact'
@@ -336,6 +356,7 @@ const rootRouteChildren: RootRouteChildren = {
   EmailUnsubscribeRoute: EmailUnsubscribeRoute,
   AdminIndexRoute: AdminIndexRoute,
   ApiPublicContactRoute: ApiPublicContactRoute,
+  ApiPublicMetaCapiRoute: ApiPublicMetaCapiRoute,
   ApiPublicQuoteRoute: ApiPublicQuoteRoute,
   LovableEmailSuppressionRoute: LovableEmailSuppressionRoute,
   LovableEmailQueueProcessRoute: LovableEmailQueueProcessRoute,
@@ -345,3 +366,12 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { createStart } from '@tanstack/react-start'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+  }
+}

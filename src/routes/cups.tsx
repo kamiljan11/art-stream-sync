@@ -1227,7 +1227,7 @@ function CupsQuoteForm() {
               <button
                 key={opt.key}
                 type="button"
-                onClick={() => { setPath(opt.key); setStep(1); }}
+                onClick={() => { setPath(opt.key); setStep(1); trackFunnelStart(opt.key); }}
                 className="text-left rounded-xl border-2 border-[#eee] bg-[#f9f9f9] hover:border-[#00AEEF] hover:bg-[#00AEEF]/5 p-5 transition-colors"
               >
                 <div className="text-3xl">{opt.icon}</div>

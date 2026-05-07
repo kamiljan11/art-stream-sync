@@ -372,7 +372,7 @@ function CupsPage() {
           </p>
           <div className="mt-10 flex flex-col items-center gap-3">
             <a
-              href="#quote" onClick={scrollToQuote}
+              href="#quote" onClick={(e) => { trackFunnelStart("cups-hero-cta"); scrollToQuote(e); }}
               className="inline-flex items-center gap-2 rounded-md px-8 py-4 text-base font-semibold text-primary-foreground hover-glow"
               style={{ background: "var(--gradient-cyan)", boxShadow: "var(--shadow-glow)" }}
             >

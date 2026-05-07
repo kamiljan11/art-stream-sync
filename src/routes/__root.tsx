@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import appCss from "../styles.css?url";
 import { FloatingContact } from "@/components/site/FloatingContact";
 import { I18nProvider } from "@/i18n/I18nProvider";
+import { META_PIXEL_ID } from "@/lib/tracking/meta-pixel";
 
 function NotFoundComponent() {
   return (
@@ -74,6 +75,9 @@ export const Route = createRootRoute({
           priceRange: "$$",
         }),
       },
+      {
+        children: `!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','${META_PIXEL_ID}');fbq('track','PageView');`,
+      },
     ],
   }),
   shellComponent: RootShell,
@@ -110,6 +114,8 @@ function AnimatedOutlet() {
   useEffect(() => {
     if (typeof window === "undefined") return;
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+    // SPA PageView on route change
+    if (window.fbq) window.fbq("track", "PageView");
   }, [pathname]);
 
   return (

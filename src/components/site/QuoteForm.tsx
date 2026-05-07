@@ -3,6 +3,7 @@ import { useNavigate } from "@tanstack/react-router";
 import { ShieldCheck } from "lucide-react";
 import { z } from "zod";
 import { useT, useTArray } from "@/i18n/I18nProvider";
+import { trackFunnelStart, trackLead } from "@/lib/tracking/meta-pixel";
 
 export function QuoteForm() {
   const t = useT();
@@ -102,6 +103,16 @@ export function QuoteForm() {
                       body: JSON.stringify(payload),
                     });
                     if (!res.ok) throw new Error("Request failed");
+                    let submissionId: string | undefined;
+                    try { submissionId = (await res.clone().json())?.id; } catch { /* ignore */ }
+                    trackLead({
+                      path: tab === "audit" ? "audit" : "quote-form",
+                      email: payload.email,
+                      phone: payload.phone,
+                      productType: payload.productType,
+                      quantity: payload.quantity,
+                      submissionId,
+                    });
                     setSubmitted(true);
                     navigate({ to: "/thank-you" });
                   } catch (err) {
@@ -111,6 +122,7 @@ export function QuoteForm() {
                     setSubmitting(false);
                   }
                 }}
+                onFocusCapture={() => trackFunnelStart("quote-form")}
               >
                 {tab === "new" ? <NewProjectFields /> : <AuditFields />}
 

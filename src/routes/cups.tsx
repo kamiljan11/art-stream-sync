@@ -6,6 +6,7 @@ import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { Reveal } from "@/components/site/Reveal";
 import { useT, useTArray, useI18n } from "@/i18n/I18nProvider";
+import { trackFunnelStart, trackLead } from "@/lib/tracking/meta-pixel";
 import enMessages from "@/i18n/messages/en";
 import isMessages from "@/i18n/messages/is";
 import plMessages from "@/i18n/messages/pl";
@@ -1143,6 +1144,16 @@ function CupsQuoteForm() {
         }),
       });
       if (!res.ok) throw new Error("Submit failed");
+      let submissionId: string | undefined;
+      try { submissionId = (await res.clone().json())?.id; } catch { /* ignore */ }
+      trackLead({
+        path,
+        email: contact.email,
+        phone: contact.phone,
+        productType: path === "configure" ? items.map((i) => i.product).join(" + ") : (path === "sample" ? "Sample request" : "Brief upload"),
+        quantity: path === "configure" ? items.map((i) => i.quantity).filter(Boolean).join(" / ") : undefined,
+        submissionId,
+      });
       setSubmitted(true);
       try { window.localStorage.removeItem(STORAGE_KEY); } catch { /* ignore */ }
       navigate({ to: "/thank-you" });
@@ -1226,7 +1237,7 @@ function CupsQuoteForm() {
               <button
                 key={opt.key}
                 type="button"
-                onClick={() => { setPath(opt.key); setStep(1); }}
+                onClick={() => { setPath(opt.key); setStep(1); trackFunnelStart(opt.key); }}
                 className="text-left rounded-xl border-2 border-[#eee] bg-[#f9f9f9] hover:border-[#00AEEF] hover:bg-[#00AEEF]/5 p-5 transition-colors"
               >
                 <div className="text-3xl">{opt.icon}</div>

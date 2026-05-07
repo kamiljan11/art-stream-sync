@@ -1144,6 +1144,16 @@ function CupsQuoteForm() {
         }),
       });
       if (!res.ok) throw new Error("Submit failed");
+      let submissionId: string | undefined;
+      try { submissionId = (await res.clone().json())?.id; } catch { /* ignore */ }
+      trackLead({
+        path,
+        email: contact.email,
+        phone: contact.phone,
+        productType: path === "configure" ? items.map((i) => i.product).join(" + ") : (path === "sample" ? "Sample request" : "Brief upload"),
+        quantity: path === "configure" ? items.map((i) => i.quantity).filter(Boolean).join(" / ") : undefined,
+        submissionId,
+      });
       setSubmitted(true);
       try { window.localStorage.removeItem(STORAGE_KEY); } catch { /* ignore */ }
       navigate({ to: "/thank-you" });

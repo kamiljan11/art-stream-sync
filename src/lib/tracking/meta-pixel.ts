@@ -77,7 +77,7 @@ async function sendCapi(payload: {
   }
 }
 
-export function trackFunnelStart(path: "configure" | "brief" | "sample" | "quote-form") {
+export function trackFunnelStart(path: string) {
   if (typeof window === "undefined") return;
   // Dedupe per session per path
   const key = `fnstart:${path}`;

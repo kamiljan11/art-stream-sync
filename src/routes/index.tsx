@@ -7,6 +7,7 @@ import { PartnersMarquee } from "@/components/site/Marquee";
 import { QuoteForm } from "@/components/site/QuoteForm";
 import { Reveal } from "@/components/site/Reveal";
 import { useT, useTArray } from "@/i18n/I18nProvider";
+import { trackFunnelStart } from "@/lib/tracking/meta-pixel";
 import capMarketing from "@/assets/site/cap-marketing.jpg";
 import capPublishing from "@/assets/site/cap-publishing.png";
 import capPackaging from "@/assets/site/cap-packaging.jpg";
@@ -104,6 +105,7 @@ function Index() {
           <div className="mt-10 flex flex-col items-center gap-4">
             <a
               href="#quote"
+              onClick={() => trackFunnelStart("home-hero-cta")}
               className="inline-flex items-center gap-2 rounded-md px-8 py-4 text-base font-semibold text-primary-foreground hover-glow"
               style={{ background: "var(--gradient-cyan)", boxShadow: "var(--shadow-glow)" }}
             >
@@ -213,6 +215,7 @@ function Index() {
             <div className="mt-10 text-center">
               <a
                 href="#quote"
+                onClick={() => trackFunnelStart("home-winning-quote-cta")}
                 className="inline-flex items-center gap-2 rounded-md px-6 py-3 text-base font-semibold text-primary-foreground hover-glow"
                 style={{ background: "var(--gradient-cyan)" }}
               >
@@ -321,6 +324,7 @@ function Index() {
         <div className="mt-12 text-center">
           <a
             href="#quote"
+            onClick={() => trackFunnelStart("home-quote-now-cta")}
             className="inline-flex items-center gap-2 rounded-md px-6 py-3 text-base font-semibold text-primary-foreground hover-glow"
             style={{ background: "var(--gradient-cyan)" }}
           >

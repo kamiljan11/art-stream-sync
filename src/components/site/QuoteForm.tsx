@@ -88,13 +88,7 @@ export function QuoteForm() {
                     setFormError(parsed.error.issues[0]?.message ?? t("homeQuote.errGeneric"));
                     return;
                   }
-                  if (tab === "new" && payload.quantity) {
-                    const qNum = Number(payload.quantity);
-                    if (Number.isFinite(qNum) && qNum > 0 && qNum < 1000) {
-                      setFormError(t("homeQuote.quantityMinError"));
-                      return;
-                    }
-                  }
+                  // no minimum quantity restriction
                   setSubmitting(true);
                   try {
                     const res = await fetch("/api/public/quote", {
@@ -226,8 +220,8 @@ function NewProjectFields() {
         <Input
           name="quantity"
           type="number"
-          min={1000}
-          step={100}
+          min={1}
+          step={1}
           inputMode="numeric"
           placeholder={t("homeQuote.quantityPlaceholder")}
           label={t("homeQuote.quantity")}

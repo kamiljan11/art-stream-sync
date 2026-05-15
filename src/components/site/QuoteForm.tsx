@@ -231,7 +231,6 @@ function NewProjectFields() {
           inputMode="numeric"
           placeholder={t("homeQuote.quantityPlaceholder")}
           label={t("homeQuote.quantity")}
-          hint={t("homeQuote.quantityHint")}
         />
       </div>
       <Textarea name="projectDetails" label={t("homeQuote.projectDetails")} />

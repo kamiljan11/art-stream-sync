@@ -11,10 +11,6 @@ const en = {
     faq: "FAQ",
     cups: "Cups & Lids",
     getQuote: "Get Quote",
-  },
-  jumpArrow: {
-    quote: "Jump to quote",
-    wizard: "Open calculator",
     why: "Why",
     how: "How",
     overview: "Overview",
@@ -24,6 +20,10 @@ const en = {
     eco: "Eco",
     replyPromise: "Quote in 24h on workdays",
     toggleMenu: "Toggle menu",
+  },
+  jumpArrow: {
+    quote: "Jump to quote",
+    wizard: "Open calculator",
   },
   language: {
     label: "Language",

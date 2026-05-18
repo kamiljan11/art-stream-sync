@@ -21,6 +21,10 @@ const is = {
     replyPromise: "Tilboð innan 24 klst á virkum dögum",
     toggleMenu: "Opna valmynd",
   },
+  jumpArrow: {
+    quote: "Fara í tilboð",
+    wizard: "Opna reiknivél",
+  },
   language: {
     label: "Tungumál",
     english: "Enska",

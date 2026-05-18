@@ -2,11 +2,7 @@ import { useEffect, useState } from "react";
 import { ArrowDown } from "lucide-react";
 import { useT } from "@/i18n/I18nProvider";
 
-/**
- * Fixed left-side floating arrow on the index page.
- * Smooth-scrolls to the quote form (#quote) and hides itself
- * when the form is already in view.
- */
+/** Small bottom-left arrow that scrolls to the quote form on the index page. */
 export function JumpToQuote() {
   const t = useT();
   const [hidden, setHidden] = useState(false);
@@ -22,30 +18,16 @@ export function JumpToQuote() {
     return () => io.disconnect();
   }, []);
 
-  const onClick = () => {
-    document.getElementById("quote")?.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
-
   return (
     <button
       type="button"
-      onClick={onClick}
+      onClick={() => document.getElementById("quote")?.scrollIntoView({ behavior: "smooth", block: "start" })}
       aria-label={t("jumpArrow.quote")}
-      className={`fixed left-3 md:left-5 top-1/2 -translate-y-1/2 z-40 group transition-all duration-300 ${
-        hidden ? "opacity-0 pointer-events-none -translate-x-4" : "opacity-100"
+      className={`fixed left-4 bottom-4 z-40 flex h-9 w-9 items-center justify-center rounded-full bg-black/60 border border-white/15 text-white hover:bg-black/80 transition-opacity ${
+        hidden ? "opacity-0 pointer-events-none" : "opacity-100"
       }`}
     >
-      <div className="flex flex-col items-center gap-3 rounded-full px-2 py-4 bg-black/70 backdrop-blur border border-white/10 shadow-[0_10px_30px_rgba(0,174,239,0.25)] hover:bg-black/80 hover:border-[#00AEEF]/60 transition-colors">
-        <span
-          className="text-[0.7rem] font-extrabold uppercase tracking-[2px] text-white whitespace-nowrap"
-          style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
-        >
-          {t("jumpArrow.quote")}
-        </span>
-        <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#00AEEF] text-white animate-bounce group-hover:animate-none">
-          <ArrowDown size={16} strokeWidth={3} />
-        </span>
-      </div>
+      <ArrowDown size={16} strokeWidth={2.5} />
     </button>
   );
 }

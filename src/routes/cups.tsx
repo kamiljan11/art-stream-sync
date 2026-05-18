@@ -5,6 +5,7 @@ import { useNavigate } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { Reveal } from "@/components/site/Reveal";
+import { JumpToWizard } from "@/components/site/JumpToWizard";
 import { useT, useTArray, useI18n } from "@/i18n/I18nProvider";
 import { trackFunnelStart, trackLead } from "@/lib/tracking/meta-pixel";
 import enMessages from "@/i18n/messages/en";
@@ -853,6 +854,7 @@ function CupsPage() {
         </div>
       </section>
 
+      <JumpToWizard />
       <SiteFooter />
     </div>
   );

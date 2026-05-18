@@ -21,6 +21,10 @@ const en = {
     replyPromise: "Quote in 24h on workdays",
     toggleMenu: "Toggle menu",
   },
+  jumpArrow: {
+    quote: "Jump to quote",
+    wizard: "Open calculator",
+  },
   language: {
     label: "Language",
     english: "English",

@@ -11,6 +11,10 @@ const en = {
     faq: "FAQ",
     cups: "Cups & Lids",
     getQuote: "Get Quote",
+  },
+  jumpArrow: {
+    quote: "Jump to quote",
+    wizard: "Open calculator",
     why: "Why",
     how: "How",
     overview: "Overview",

@@ -6,6 +6,7 @@ import { SiteFooter } from "@/components/site/SiteFooter";
 import { PartnersMarquee } from "@/components/site/Marquee";
 import { QuoteForm } from "@/components/site/QuoteForm";
 import { Reveal } from "@/components/site/Reveal";
+import { JumpToQuote } from "@/components/site/JumpToQuote";
 import { useT, useTArray } from "@/i18n/I18nProvider";
 import { trackFunnelStart } from "@/lib/tracking/meta-pixel";
 import capMarketing from "@/assets/site/cap-marketing.jpg";
@@ -363,6 +364,7 @@ function Index() {
         <QuoteForm />
       </section>
 
+      <JumpToQuote />
       <SiteFooter />
     </div>
   );

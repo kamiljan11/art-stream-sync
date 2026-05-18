@@ -21,6 +21,10 @@ const pl = {
     replyPromise: "Wycena w 24h w dni robocze",
     toggleMenu: "Otwórz menu",
   },
+  jumpArrow: {
+    quote: "Przejdź do wyceny",
+    wizard: "Otwórz kalkulator",
+  },
   language: {
     label: "Język",
     english: "Angielski",

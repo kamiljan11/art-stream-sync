@@ -854,6 +854,7 @@ function CupsPage() {
         </div>
       </section>
 
+      <JumpToWizard />
       <SiteFooter />
     </div>
   );

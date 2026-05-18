@@ -466,7 +466,7 @@ const is = {
         "Eitthvað annað / blanda",
       ],
       quantities: ["1.000 – 5.000", "5.000 – 20.000", "20.000 – 50.000", "50.000+"],
-      timings: ["Hefðbundið (besta verð)", "Hraðsending (hraðar ef hægt er)", "Sveigjanlegt"],
+      timings: ["Hefðbundið (besta verð) — u.þ.b. 6 vikur", "Hraðsending (hraðar ef hægt er) — u.þ.b. 2–3 vikur", "Sveigjanlegt"],
       linings: ["Veit ekki enn, ráðleggðu", "Hefðbundið (Green PE)", "Niðurbrjótanlegt BIO (vatnsdreifing, plastlaust)"],
       byProduct: [
         { sizes: [], finishes: [], linings: [] },

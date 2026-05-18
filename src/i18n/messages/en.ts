@@ -466,7 +466,7 @@ const en = {
         "Something else / mix",
       ],
       quantities: ["1,000 – 5,000", "5,000 – 20,000", "20,000 – 50,000", "50,000+"],
-      timings: ["Standard (best price)", "Express (faster if possible)", "Flexible"],
+      timings: ["Standard (best price) — approx. 6 weeks", "Express (faster if possible) — approx. 2–3 weeks", "Flexible"],
       linings: ["Not sure yet, advise me", "Standard (Green PE)", "Compostable BIO (water-based dispersion, plastic-free)"],
       byProduct: [
         { sizes: [], finishes: [], linings: [] },

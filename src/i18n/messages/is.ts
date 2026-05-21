@@ -181,6 +181,11 @@ const is = {
       items: ["Einveggja pappamál", "Tvíveggja hitaeinangruð mál", "Vistvæn BIO mál", "Pappírs- og plastlok", "Tréhrærarar"],
       cta: "Skoða úrval mála",
     },
+    ecocups: {
+      title: "VISTVÆN MÁL",
+      items: ["BIO lífgrðanleg pappamál", "rPET endurvinnslugler mál", "PLA plöntutengd mál", "Pappírsstrár (ESB-samræmd)", "Lífbrotnar dessertskálar"],
+      cta: "Skoða vistvæn mál",
+    },
   },
   process: {
     heading1: "3 SKREF AÐ",

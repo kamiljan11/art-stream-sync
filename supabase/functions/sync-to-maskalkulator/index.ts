@@ -1,16 +1,14 @@
 // Edge Function: sync-to-maskalkulator
-// Fires on new quote_submission INSERT (via Supabase database webhook).
-// Pushes the submission as a new order (source_app="MAS Prints", user_id=null)
-// into the maskalkulator Supabase project — one-way only, no callback.
+// Fires on new quote_submission INSERT (via Supabase database webhook or pg_net trigger).
+// Calls the maskalkulator receive-print-order webhook — no service role key needed.
 //
 // Required secrets in THIS project (art-stream-sync):
-//   MASKALKULATOR_SERVICE_ROLE_KEY — service role key of the maskalkulator project
+//   PRINT_SYNC_SECRET — shared secret, must match maskalkulator's PRINT_SYNC_SECRET
 //
 // Optional:
-//   SYNC_WEBHOOK_SECRET — if set, Authorization header must match "Bearer <secret>"
-import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+//   SYNC_WEBHOOK_SECRET — if set, Authorization header on inbound requests must match
 
-const MASKALKULATOR_URL = "https://ethawlnfuclklkkhydhd.supabase.co";
+const MASKALKULATOR_WEBHOOK = "https://ethawlnfuclklkkhydhd.supabase.co/functions/v1/receive-print-order";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -21,7 +19,7 @@ Deno.serve(async (req) => {
   if (req.method === "OPTIONS") return new Response(null, { headers: corsHeaders });
 
   try {
-    // Optional webhook secret validation
+    // Optional inbound webhook secret validation
     const webhookSecret = Deno.env.get("SYNC_WEBHOOK_SECRET");
     if (webhookSecret) {
       const authHeader = req.headers.get("Authorization") ?? "";
@@ -36,7 +34,7 @@ Deno.serve(async (req) => {
     const payload = await req.json();
 
     // Supabase DB webhook format: { type, table, schema, record, old_record }
-    // Also support direct POST with the record fields at root level.
+    // Also support direct POST with record fields at root level.
     const record = payload?.record ?? payload;
 
     if (!record?.id) {
@@ -45,33 +43,18 @@ Deno.serve(async (req) => {
       });
     }
 
-    // Only process quote_submissions (not contact_submissions if this fn is reused)
+    // Only process quote_submissions
     if (payload?.table && payload.table !== "quote_submissions") {
       return new Response(JSON.stringify({ skipped: true, reason: `table=${payload.table}` }), {
         headers: { ...corsHeaders, "Content-Type": "application/json" },
       });
     }
 
-    const serviceRoleKey = Deno.env.get("MASKALKULATOR_SERVICE_ROLE_KEY");
-    if (!serviceRoleKey) {
-      console.error("MASKALKULATOR_SERVICE_ROLE_KEY not configured");
-      return new Response(JSON.stringify({ error: "Missing MASKALKULATOR_SERVICE_ROLE_KEY" }), {
+    const syncSecret = Deno.env.get("PRINT_SYNC_SECRET");
+    if (!syncSecret) {
+      console.error("PRINT_SYNC_SECRET not configured");
+      return new Response(JSON.stringify({ error: "Missing PRINT_SYNC_SECRET" }), {
         status: 500,
-        headers: { ...corsHeaders, "Content-Type": "application/json" },
-      });
-    }
-
-    const maskalkulator = createClient(MASKALKULATOR_URL, serviceRoleKey);
-
-    // Idempotency: skip if already synced (check by print_ref tag in notes)
-    const { data: existing } = await maskalkulator
-      .from("orders")
-      .select("id")
-      .like("notes", `%[print_ref:${record.id}]%`)
-      .limit(1);
-
-    if (existing && existing.length > 0) {
-      return new Response(JSON.stringify({ skipped: true, reason: "Already synced" }), {
         headers: { ...corsHeaders, "Content-Type": "application/json" },
       });
     }
@@ -91,35 +74,38 @@ Deno.serve(async (req) => {
 
     const notes = parts.join(" | ");
 
-    const { error } = await maskalkulator.from("orders").insert({
-      source_app: "MAS Prints",
-      status: "nowe",
-      user_id: null,
-      client_company: record.name || "(bez nazwy)",
-      client_contact_person: record.name || null,
-      client_phone: record.phone || null,
-      client_nip: null,
-      total_pln: 0,
-      total_eur: 0,
-      total_usd: 0,
-      total_isk: 0,
-      notes,
+    // Call maskalkulator webhook
+    const res = await fetch(MASKALKULATOR_WEBHOOK, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "x-sync-secret": syncSecret,
+      },
+      body: JSON.stringify({
+        client_company: record.name || "(bez nazwy)",
+        client_contact_person: record.name || null,
+        client_phone: record.phone || null,
+        notes,
+      }),
     });
 
-    if (error) {
-      console.error("maskalkulator insert error:", error);
-      return new Response(JSON.stringify({ error: error.message }), {
-        status: 500,
+    if (!res.ok) {
+      const errText = await res.text();
+      console.error(`maskalkulator webhook error ${res.status}:`, errText);
+      return new Response(JSON.stringify({ error: `webhook ${res.status}`, detail: errText }), {
+        status: 502,
         headers: { ...corsHeaders, "Content-Type": "application/json" },
       });
     }
 
-    console.log(`Synced print quote "${record.name}" (${record.id}) to maskalkulator`);
+    const result = await res.json();
+    console.log(`Synced print quote "${record.name}" (${record.id}) → maskalkulator order ${result.order_id}`);
 
     return new Response(
-      JSON.stringify({ synced: true, name: record.name, print_ref: record.id }),
+      JSON.stringify({ synced: true, name: record.name, print_ref: record.id, order_id: result.order_id }),
       { headers: { ...corsHeaders, "Content-Type": "application/json" } }
     );
+
   } catch (err: any) {
     console.error("Unexpected error:", err);
     return new Response(JSON.stringify({ error: err.message }), {

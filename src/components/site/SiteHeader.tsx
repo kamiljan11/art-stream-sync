@@ -26,6 +26,14 @@ const cupsNav = [
   { key: "nav.faq", id: "faq" },
 ];
 
+// Eco cups page sections (must match section IDs in src/routes/ecocups.tsx)
+const ecocupsNav = [
+  { key: "nav.overview", id: "ecocups" },
+  { key: "nav.products", id: "products" },
+  { key: "nav.eco", id: "faq" },
+  { key: "nav.faq", id: "faq" },
+];
+
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const [activeId, setActiveId] = useState<string>("");
@@ -38,8 +46,9 @@ export function SiteHeader() {
   const location = useLocation();
   const navigate = useNavigate();
   const isCups = location.pathname.startsWith("/cups");
-  const navKeys = isCups ? cupsNav : homeNav;
-  const basePath = isCups ? "/cups" : "/";
+  const isEcoCups = location.pathname.startsWith("/ecocups");
+  const navKeys = isEcoCups ? ecocupsNav : isCups ? cupsNav : homeNav;
+  const basePath = isEcoCups ? "/ecocups" : isCups ? "/cups" : "/";
 
   const getScrollOffset = () => {
     const headerHeight = headerRef.current?.offsetHeight ?? 88;
@@ -203,7 +212,7 @@ export function SiteHeader() {
                   </a>
                 );
               })}
-              {isCups ? (
+              {(isCups || isEcoCups) ? (
                 <Link
                   to="/"
                   className="relative shrink-0 whitespace-nowrap px-2.5 xl:px-3 py-1.5 rounded-full text-muted-foreground hover:text-foreground transition-colors"
@@ -253,7 +262,7 @@ export function SiteHeader() {
                     </a>
                   );
                 })}
-                {isCups ? (
+                {(isCups || isEcoCups) ? (
                   <Link
                     to="/"
                     className="text-sm text-muted-foreground hover:text-foreground"

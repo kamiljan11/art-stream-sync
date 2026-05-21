@@ -365,6 +365,7 @@ function Index() {
       </section>
 
       <SiteFooter />
+      <JumpToQuote />
     </div>
   );
 }

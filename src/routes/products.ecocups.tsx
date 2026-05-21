@@ -1,12 +1,12 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, ArrowLeft, Check, Leaf } from "lucide-react";
+import { ArrowRight, ArrowLeft, Leaf } from "lucide-react";
 import { useState } from "react";
 import { useNavigate } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { Reveal } from "@/components/site/Reveal";
 import { JumpToWizard } from "@/components/site/JumpToWizard";
-import { useT, useI18n } from "@/i18n/I18nProvider";
+import { useT } from "@/i18n/I18nProvider";
 import { trackFunnelStart, trackLead } from "@/lib/tracking/meta-pixel";
 
 import capCups from "@/assets/site/cap-cups.png";
@@ -107,7 +107,6 @@ const ecoFaqs = [
 
 function EcoCupsPage() {
   const t = useT();
-  const { locale } = useI18n();
   const navigate = useNavigate();
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);

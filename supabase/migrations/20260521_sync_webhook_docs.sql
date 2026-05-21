@@ -1,0 +1,36 @@
+-- ============================================================
+-- MAS Prints → MaskAlkulator one-way sync
+-- ============================================================
+-- Edge Function: supabase/functions/sync-to-maskalkulator/index.ts
+-- is already committed and will be deployed on next Publish.
+--
+-- MANUAL SETUP REQUIRED (Supabase Dashboard, this project):
+--
+-- 1. Edge Functions → Secrets → Add:
+--      Name:  MASKALKULATOR_SERVICE_ROLE_KEY
+--      Value: <service role key from maskalkulator Supabase project>
+--             (maskalkulator Supabase Dashboard → Settings → API → service_role)
+--
+-- 2. Database → Webhooks → Create new:
+--      Name:    sync-quote-to-maskalkulator
+--      Table:   public.quote_submissions
+--      Events:  INSERT
+--      Type:    HTTP Request
+--      Method:  POST
+--      URL:     https://<THIS_PROJECT_REF>.supabase.co/functions/v1/sync-to-maskalkulator
+--      Headers: (none required)
+--
+-- How it works:
+--   Every new quote_submission INSERT triggers the Edge Function.
+--   The function inserts a new order into maskalkulator with:
+--     source_app = "MAS Prints"
+--     status     = "nowe"
+--     user_id    = null  (admin must assign a handlowiec)
+--     notes      = all quote details + idempotency tag [print_ref:{id}]
+--
+--   Idempotency: if the same quote_submission.id already has a matching
+--   order in maskalkulator (notes contains [print_ref:{id}]), the function
+--   skips the insert silently.
+-- ============================================================
+
+SELECT 1; -- no-op, documentation only

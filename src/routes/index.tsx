@@ -291,6 +291,14 @@ function Index() {
               accent={accentFor(6)}
               cta={{ label: t("capabilities.cups.cta"), to: "/cups" }}
             />
+            <ProductCard
+              n="08"
+              title={t("capabilities.ecocups.title")}
+              img={capCups}
+              items={tArray("capabilities.ecocups.items")}
+              accent="#84cc16"
+              cta={{ label: t("capabilities.ecocups.cta"), to: "/ecocups" }}
+            />
           </div>
         </div>
       </section>

@@ -10,6 +10,7 @@ const is = {
     legal: "Lagalegt",
     faq: "Algengar spurningar",
     cups: "Bollar og lok",
+    ecocups: "Vistvæn mál",
     getQuote: "Fá tilboð",
     why: "Af hverju",
     how: "Hvernig",

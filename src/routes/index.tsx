@@ -6,6 +6,7 @@ import { SiteFooter } from "@/components/site/SiteFooter";
 import { PartnersMarquee } from "@/components/site/Marquee";
 import { QuoteForm } from "@/components/site/QuoteForm";
 import { Reveal } from "@/components/site/Reveal";
+import { JumpToQuote } from "@/components/site/JumpToQuote";
 import { useT, useTArray } from "@/i18n/I18nProvider";
 import { trackFunnelStart } from "@/lib/tracking/meta-pixel";
 import capMarketing from "@/assets/site/cap-marketing.jpg";
@@ -290,14 +291,6 @@ function Index() {
               accent={accentFor(6)}
               cta={{ label: t("capabilities.cups.cta"), to: "/cups" }}
             />
-            <ProductCard
-              n="08"
-              title={t("capabilities.ecocups.title")}
-              img={capCups}
-              items={tArray("capabilities.ecocups.items")}
-              accent={accentFor(7)}
-              cta={{ label: t("capabilities.ecocups.cta"), to: "/products/ecocups" }}
-            />
           </div>
         </div>
       </section>
@@ -372,6 +365,7 @@ function Index() {
       </section>
 
       <SiteFooter />
+      <JumpToQuote />
     </div>
   );
 }

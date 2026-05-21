@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as UnsubscribeRouteImport } from './routes/unsubscribe'
 import { Route as ThankYouRouteImport } from './routes/thank-you'
 import { Route as CupsRouteImport } from './routes/cups'
+import { Route as EcoCupsRouteImport } from './routes/ecocups'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AdminIndexRouteImport } from './routes/admin/index'
 import { Route as EmailUnsubscribeRouteImport } from './routes/email/unsubscribe'
@@ -38,6 +39,11 @@ const ThankYouRoute = ThankYouRouteImport.update({
 const CupsRoute = CupsRouteImport.update({
   id: '/cups',
   path: '/cups',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EcoCupsRoute = EcoCupsRouteImport.update({
+  id: '/ecocups',
+  path: '/ecocups',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -107,6 +113,7 @@ const LovableEmailQueueProcessRoute =
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/cups': typeof CupsRouteWithChildren
+  '/ecocups': typeof EcoCupsRoute
   '/thank-you': typeof ThankYouRoute
   '/unsubscribe': typeof UnsubscribeRoute
   '/admin/login': typeof AdminLoginRoute
@@ -124,6 +131,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/cups': typeof CupsRouteWithChildren
+  '/ecocups': typeof EcoCupsRoute
   '/thank-you': typeof ThankYouRoute
   '/unsubscribe': typeof UnsubscribeRoute
   '/admin/login': typeof AdminLoginRoute
@@ -142,6 +150,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/cups': typeof CupsRouteWithChildren
+  '/ecocups': typeof EcoCupsRoute
   '/thank-you': typeof ThankYouRoute
   '/unsubscribe': typeof UnsubscribeRoute
   '/admin/login': typeof AdminLoginRoute
@@ -161,6 +170,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/cups'
+    | '/ecocups'
     | '/thank-you'
     | '/unsubscribe'
     | '/admin/login'
@@ -178,6 +188,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/cups'
+    | '/ecocups'
     | '/thank-you'
     | '/unsubscribe'
     | '/admin/login'
@@ -195,6 +206,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/cups'
+    | '/ecocups'
     | '/thank-you'
     | '/unsubscribe'
     | '/admin/login'
@@ -213,6 +225,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CupsRoute: typeof CupsRouteWithChildren
+  EcoCupsRoute: typeof EcoCupsRoute
   ThankYouRoute: typeof ThankYouRoute
   UnsubscribeRoute: typeof UnsubscribeRoute
   AdminLoginRoute: typeof AdminLoginRoute
@@ -248,6 +261,13 @@ declare module '@tanstack/react-router' {
       path: '/cups'
       fullPath: '/cups'
       preLoaderRoute: typeof CupsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ecocups': {
+      id: '/ecocups'
+      path: '/ecocups'
+      fullPath: '/ecocups'
+      preLoaderRoute: typeof EcoCupsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -350,6 +370,7 @@ const CupsRouteWithChildren = CupsRoute._addFileChildren(CupsRouteChildren)
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CupsRoute: CupsRouteWithChildren,
+  EcoCupsRoute: EcoCupsRoute,
   ThankYouRoute: ThankYouRoute,
   UnsubscribeRoute: UnsubscribeRoute,
   AdminLoginRoute: AdminLoginRoute,

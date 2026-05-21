@@ -10,6 +10,7 @@ const en = {
     legal: "Legal",
     faq: "FAQ",
     cups: "Cups & Lids",
+    ecocups: "Eco Cups",
     getQuote: "Get Quote",
     why: "Why",
     how: "How",

@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Check, X, ArrowRight, Factory, ShieldCheck, Palette, Leaf, ChevronDown } from "lucide-react";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
@@ -291,14 +291,7 @@ function Index() {
               accent={accentFor(6)}
               cta={{ label: t("capabilities.cups.cta"), to: "/cups" }}
             />
-            <ProductCard
-              n="08"
-              title={t("capabilities.ecocups.title")}
-              img={capCups}
-              items={tArray("capabilities.ecocups.items")}
-              accent="#84cc16"
-              cta={{ label: t("capabilities.ecocups.cta"), to: "/ecocups" }}
-            />
+            <EcoCupsCard />
           </div>
         </div>
       </section>
@@ -700,6 +693,218 @@ function FlowBox({ label, sub, muted, highlight }: { label: string; sub?: string
       </div>
       {sub && <div className="mt-1 text-[10px] tracking-widest text-muted-foreground/80">{sub}</div>}
     </div>
+  );
+}
+
+
+function EcoCupsCard() {
+  const t = useT();
+  const tArray = useTArray();
+  const [open, setOpen] = useState(false);
+
+  // Sync with hash: /#products/ecocups opens the panel
+  useEffect(() => {
+    const sync = () => {
+      const hash = window.location.hash;
+      if (hash === "#products/ecocups") setOpen(true);
+      else if (open) setOpen(false);
+    };
+    sync();
+    window.addEventListener("hashchange", sync);
+    return () => window.removeEventListener("hashchange", sync);
+  }, []);
+
+  const toggle = () => {
+    const next = !open;
+    setOpen(next);
+    if (next) {
+      history.replaceState(null, "", "/#products/ecocups");
+    } else {
+      history.replaceState(null, "", "/#products");
+    }
+  };
+
+  const accent = {
+    color: "#84cc16",
+    bg: "linear-gradient(145deg, #f0fdf4 0%, #ffffff 100%)",
+    borderIdle: "rgba(132, 204, 22, 0.2)",
+    borderHover: "#84cc16",
+    shadowHover: "0 15px 40px rgba(132, 204, 22, 0.25)",
+  };
+
+  const ecoProducts = [
+    {
+      tag: "BIO lining · home-compostable",
+      title: "BIO Single-Wall Paper Cup",
+      sizes: "100 · 180 · 200 · 300 · 400 ml",
+      bullets: ["Water-based BIO inner coating — no PE plastic", "Home-compostable, EN 13432 certified", "Unlimited full-colour print, no upcharge"],
+      moq: "1,000 pcs", lead: "4–5 wks · 3 wks express", cert: "EN 13432", certColor: "#84cc16",
+    },
+    {
+      tag: "BIO lining · premium thermal",
+      title: "BIO Double-Wall Thermal Cup",
+      sizes: "200 · 300 · 400 ml",
+      bullets: ["Double-wall insulation for hot drinks", "BIO-certified plastic-free lining", "Matte or gloss print finish"],
+      moq: "1,000 pcs", lead: "5–6 wks · 3–4 wks express", cert: "EN 13432", certColor: "#84cc16",
+    },
+    {
+      tag: "Recycled plastic · transparent",
+      title: "rPET Recycled-Plastic Cup",
+      sizes: "300 · 400 · 500 ml",
+      bullets: ["100% recycled PET — not virgin plastic", "EU single-use plastics compliant", "Up to 4 spot colours"],
+      moq: "1,000 pcs", lead: "5–6 wks · 3–4 wks express", cert: "rPET", certColor: "#0ea5e9",
+    },
+    {
+      tag: "PLA · plant-based",
+      title: "PLA Plant-Based Cold Cup",
+      sizes: "300 · 400 · 500 ml",
+      bullets: ["Made from renewable corn-starch PLA", "Industrially compostable, EN 13432", "Clear or frosted finish"],
+      moq: "1,000 pcs", lead: "5–6 wks · 3–4 wks express", cert: "PLA", certColor: "#a78bfa",
+    },
+    {
+      tag: "BIO lining · bowl",
+      title: "Compostable Dessert Bowl",
+      sizes: "130 · 245 · 360 ml",
+      bullets: ["100% biodegradable BIO inner lining", "Custom full-wrap print available", "Plain stock pattern also available"],
+      moq: "1,000 pcs", lead: "3–5 wks printed · 2–3 wks plain", cert: "EN 13432", certColor: "#84cc16",
+    },
+    {
+      tag: "Paper · EU-compliant",
+      title: "Paper Drinking Straws",
+      sizes: "150 pcs / pack",
+      bullets: ["EU Single-Use Plastics Directive compliant", "White and black in stock", "Bundle with cups for synced delivery"],
+      moq: "From 1 pack", lead: "2–3 wks stock · 4–5 wks custom", cert: "EU SPD", certColor: "#f59e0b",
+    },
+  ];
+
+  return (
+    <>
+      {/* The card itself — full grid column */}
+      <div
+        id="products/ecocups"
+        className="cap-card group rounded-xl overflow-hidden flex flex-col h-full transition-all duration-300 hover:-translate-y-[5px] cursor-pointer"
+        style={{
+          background: accent.bg,
+          border: `1px solid ${open ? accent.borderHover : accent.borderIdle}`,
+          boxShadow: open ? accent.shadowHover : "0 10px 30px rgba(0,0,0,0.2)",
+        }}
+        onClick={toggle}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.borderColor = accent.borderHover;
+          e.currentTarget.style.boxShadow = accent.shadowHover;
+        }}
+        onMouseLeave={(e) => {
+          if (!open) {
+            e.currentTarget.style.borderColor = accent.borderIdle;
+            e.currentTarget.style.boxShadow = "0 10px 30px rgba(0,0,0,0.2)";
+          }
+        }}
+      >
+        <div className="h-[220px] w-full overflow-hidden bg-[#f0fdf4] border-b border-black/5 relative">
+          <img src={capCups} alt="Eco Cups" className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" />
+          <div className="absolute top-3 left-3 inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white" style={{ background: "#84cc16" }}>
+            <Leaf size={11} /> EN 13432
+          </div>
+        </div>
+        <div className="p-[30px] flex-grow flex flex-col">
+          <h3 className="text-[#111] text-[1.2rem] font-extrabold uppercase tracking-wide mb-[15px] flex items-center gap-2">
+            <span style={{ color: "#84cc16" }}>08</span>
+            <span>{t("capabilities.ecocups.title")}</span>
+          </h3>
+          <ul className="m-0 p-0 list-none mb-auto">
+            {tArray("capabilities.ecocups.items").map((item: string) => (
+              <li key={item} className="text-[#555] mb-2 pl-[15px] relative text-[0.95rem] leading-relaxed">
+                <span className="absolute left-0 font-bold" style={{ color: "#84cc16" }}>•</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+          <button
+            type="button"
+            onClick={(e) => { e.stopPropagation(); toggle(); }}
+            className="self-start w-full md:w-auto mt-[25px] inline-flex items-center justify-center gap-2 px-6 py-3 text-white font-bold text-[0.9rem] uppercase tracking-[1px] rounded-lg transition-all duration-300 hover:-translate-y-[2px]"
+            style={{ backgroundColor: "#84cc16", boxShadow: "0 4px 10px rgba(132,204,22,0.3)" }}
+            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#65a30d")}
+            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#84cc16")}
+          >
+            {t("capabilities.ecocups.cta")}
+            <span className="transition-transform duration-200" style={{ transform: open ? "rotate(180deg)" : "rotate(0deg)" }}>▾</span>
+          </button>
+        </div>
+      </div>
+
+      {/* Inline expanded panel — spans full grid width when open */}
+      {open && (
+        <div className="col-span-full rounded-2xl border-2 overflow-hidden animate-fade-in" style={{ borderColor: "#84cc16", background: "linear-gradient(to bottom, #f0fdf4, #ffffff)" }}>
+          {/* Header */}
+          <div className="flex items-center justify-between px-6 sm:px-10 py-6 border-b" style={{ borderColor: "rgba(132,204,22,0.2)" }}>
+            <div>
+              <div className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white mb-2" style={{ background: "#84cc16" }}>
+                <Leaf size={11} /> Certified Compostable &amp; Recycled
+              </div>
+              <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Eco Cups — Wholesale Prices. Iceland.</h3>
+              <p className="mt-1 text-sm text-slate-600 max-w-2xl">BIO paper cups, rPET recycled-plastic and PLA plant-based cups. EN 13432 certified. All-in ISK quote — customs, VAT &amp; delivery included.</p>
+            </div>
+            <button type="button" onClick={toggle} className="ml-4 shrink-0 rounded-full p-2 hover:bg-black/5 transition-colors" aria-label="Close">
+              <X size={20} className="text-slate-500" />
+            </button>
+          </div>
+
+          {/* Cert strip */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 px-6 sm:px-10 py-5 border-b" style={{ borderColor: "rgba(132,204,22,0.2)" }}>
+            {[
+              { v: "EN 13432", l: "Compostability standard", c: "#84cc16" },
+              { v: "100% BIO", l: "Water-based inner lining", c: "#16a34a" },
+              { v: "rPET", l: "Recycled plastic", c: "#0ea5e9" },
+              { v: "EU SPD", l: "Single-use plastics compliant", c: "#f59e0b" },
+            ].map((b) => (
+              <div key={b.l} className="text-center">
+                <div className="text-xl font-extrabold" style={{ color: b.c }}>{b.v}</div>
+                <div className="text-[10px] uppercase tracking-wider text-slate-500 mt-0.5">{b.l}</div>
+              </div>
+            ))}
+          </div>
+
+          {/* Products grid */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 px-6 sm:px-10 py-8">
+            {ecoProducts.map((p) => (
+              <div key={p.title} className="rounded-xl border bg-white p-5 flex flex-col" style={{ borderColor: "rgba(132,204,22,0.2)" }}>
+                <span className="inline-block rounded-full px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white mb-3" style={{ background: p.certColor }}>{p.cert}</span>
+                <span className="text-[10px] font-semibold uppercase tracking-[0.12em] text-slate-400">{p.tag}</span>
+                <h4 className="mt-1 font-bold text-base text-slate-900 leading-snug">{p.title}</h4>
+                <p className="text-[11px] text-slate-400 mt-0.5 tracking-wider">{p.sizes}</p>
+                <ul className="mt-3 space-y-1.5 mb-4">
+                  {p.bullets.map((b) => (
+                    <li key={b} className="flex items-start gap-2 text-sm text-slate-700">
+                      <Leaf size={12} className="mt-0.5 shrink-0" style={{ color: "#84cc16" }} />
+                      {b}
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-auto pt-3 border-t text-xs" style={{ borderColor: "rgba(132,204,22,0.15)" }}>
+                  <span className="text-slate-400 uppercase tracking-wider">Min. order</span>
+                  <span className="ml-2 font-semibold text-slate-800">{p.moq}</span>
+                  <div className="text-slate-400 mt-0.5">{p.lead}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* CTA */}
+          <div className="px-6 sm:px-10 pb-8 text-center">
+            <a
+              href="#quote"
+              onClick={(e) => { e.preventDefault(); const el = document.getElementById("quote"); if (el) el.scrollIntoView({ behavior: "smooth" }); }}
+              className="inline-flex items-center gap-2 rounded-md px-8 py-4 text-base font-semibold text-white hover:-translate-y-0.5 transition-transform"
+              style={{ background: "linear-gradient(135deg,#84cc16,#16a34a)", boxShadow: "0 0 30px rgba(132,204,22,0.35)" }}
+            >
+              Get a Quote <ArrowRight size={18} />
+            </a>
+            <p className="mt-2 text-xs text-slate-500">All-in ISK price · customs &amp; VAT included · quote in 24h</p>
+          </div>
+        </div>
+      )}
+    </>
   );
 }
 

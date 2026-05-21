@@ -1,7 +1,7 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
-import { Search, LogOut, Mail, FileText, RefreshCw, Plus } from "lucide-react";
+import { Search, LogOut, Mail, FileText, RefreshCw, Plus, ArrowRightLeft } from "lucide-react";
 
 export const Route = createFileRoute("/admin/")({
   head: () => ({ meta: [{ title: "Admin · MAS Prints" }, { name: "robots", content: "noindex, nofollow" }] }),
@@ -247,6 +247,18 @@ function AdminPage() {
           </div>
         </div>
       </header>
+
+      {/* Sync status banner */}
+      <div className="max-w-5xl mx-auto px-4 pt-4">
+        <div className="flex items-center gap-2.5 rounded-lg border border-amber-500/30 bg-amber-500/8 px-4 py-2.5 text-sm">
+          <ArrowRightLeft className="h-4 w-4 shrink-0 text-amber-400" />
+          <span className="font-semibold text-amber-300">MAS Prints → MaskAlkulator sync: AKTYWNY</span>
+          <span className="text-amber-400/70 hidden sm:inline">·</span>
+          <span className="text-xs text-amber-400/70 hidden sm:inline">
+            Nowe wyceny są automatycznie przekazywane do MaskAlkulator jako zamówienia do przypisania.
+          </span>
+        </div>
+      </div>
 
       {/* List */}
       <main className="max-w-5xl mx-auto px-4 py-4">

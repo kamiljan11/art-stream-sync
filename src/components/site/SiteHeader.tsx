@@ -30,7 +30,7 @@ const cupsNav = [
 const ecocupsNav = [
   { key: "nav.overview", id: "ecocups" },
   { key: "nav.products", id: "products" },
-  { key: "nav.eco", id: "faq" },
+  { key: "nav.why", id: "faq" },
   { key: "nav.faq", id: "faq" },
 ];
 

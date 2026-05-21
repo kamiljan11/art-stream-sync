@@ -10,6 +10,7 @@ const pl = {
     legal: "Legalność",
     faq: "FAQ",
     cups: "Kubki i wieczka",
+    ecocups: "Eko kubki",
     getQuote: "Wyceń",
     why: "Dlaczego",
     how: "Jak",

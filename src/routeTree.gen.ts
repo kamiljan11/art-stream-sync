@@ -12,6 +12,8 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as UnsubscribeRouteImport } from './routes/unsubscribe'
 import { Route as ThankYouRouteImport } from './routes/thank-you'
 import { Route as CupsRouteImport } from './routes/cups'
+import { Route as ProductsRouteImport } from './routes/products'
+import { Route as ProductsEcoCupsRouteImport } from './routes/products.ecocups'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AdminIndexRouteImport } from './routes/admin/index'
 import { Route as EmailUnsubscribeRouteImport } from './routes/email/unsubscribe'
@@ -34,6 +36,16 @@ const ThankYouRoute = ThankYouRouteImport.update({
   id: '/thank-you',
   path: '/thank-you',
   getParentRoute: () => rootRouteImport,
+} as any)
+const ProductsRoute = ProductsRouteImport.update({
+  id: '/products',
+  path: '/products',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductsEcoCupsRoute = ProductsEcoCupsRouteImport.update({
+  id: '/ecocups',
+  path: '/ecocups',
+  getParentRoute: () => ProductsRoute,
 } as any)
 const CupsRoute = CupsRouteImport.update({
   id: '/cups',
@@ -107,6 +119,8 @@ const LovableEmailQueueProcessRoute =
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/cups': typeof CupsRouteWithChildren
+  '/products': typeof ProductsRouteWithChildren
+  '/products/ecocups': typeof ProductsEcoCupsRoute
   '/thank-you': typeof ThankYouRoute
   '/unsubscribe': typeof UnsubscribeRoute
   '/admin/login': typeof AdminLoginRoute
@@ -124,6 +138,8 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/cups': typeof CupsRouteWithChildren
+  '/products': typeof ProductsRouteWithChildren
+  '/products/ecocups': typeof ProductsEcoCupsRoute
   '/thank-you': typeof ThankYouRoute
   '/unsubscribe': typeof UnsubscribeRoute
   '/admin/login': typeof AdminLoginRoute
@@ -142,6 +158,8 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/cups': typeof CupsRouteWithChildren
+  '/products': typeof ProductsRouteWithChildren
+  '/products/ecocups': typeof ProductsEcoCupsRoute
   '/thank-you': typeof ThankYouRoute
   '/unsubscribe': typeof UnsubscribeRoute
   '/admin/login': typeof AdminLoginRoute
@@ -161,6 +179,8 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/cups'
+    | '/products'
+    | '/products/ecocups'
     | '/thank-you'
     | '/unsubscribe'
     | '/admin/login'
@@ -178,6 +198,8 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/cups'
+    | '/products'
+    | '/products/ecocups'
     | '/thank-you'
     | '/unsubscribe'
     | '/admin/login'
@@ -195,6 +217,8 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/cups'
+    | '/products'
+    | '/products/ecocups'
     | '/thank-you'
     | '/unsubscribe'
     | '/admin/login'
@@ -213,6 +237,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CupsRoute: typeof CupsRouteWithChildren
+  ProductsRoute: typeof ProductsRouteWithChildren
   ThankYouRoute: typeof ThankYouRoute
   UnsubscribeRoute: typeof UnsubscribeRoute
   AdminLoginRoute: typeof AdminLoginRoute
@@ -249,6 +274,20 @@ declare module '@tanstack/react-router' {
       fullPath: '/cups'
       preLoaderRoute: typeof CupsRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/products': {
+      id: '/products'
+      path: '/products'
+      fullPath: '/products'
+      preLoaderRoute: typeof ProductsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products/ecocups': {
+      id: '/ecocups'
+      path: '/ecocups'
+      fullPath: '/products/ecocups'
+      preLoaderRoute: typeof ProductsEcoCupsRouteImport
+      parentRoute: typeof ProductsRoute
     }
     '/': {
       id: '/'
@@ -337,6 +376,16 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface ProductsRouteChildren {
+  ProductsEcoCupsRoute: typeof ProductsEcoCupsRoute
+}
+
+const ProductsRouteChildren: ProductsRouteChildren = {
+  ProductsEcoCupsRoute: ProductsEcoCupsRoute,
+}
+
+const ProductsRouteWithChildren = ProductsRoute._addFileChildren(ProductsRouteChildren)
+
 interface CupsRouteChildren {
   CupsCalculatorRoute: typeof CupsCalculatorRoute
 }
@@ -350,6 +399,7 @@ const CupsRouteWithChildren = CupsRoute._addFileChildren(CupsRouteChildren)
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CupsRoute: CupsRouteWithChildren,
+  ProductsRoute: ProductsRouteWithChildren,
   ThankYouRoute: ThankYouRoute,
   UnsubscribeRoute: UnsubscribeRoute,
   AdminLoginRoute: AdminLoginRoute,

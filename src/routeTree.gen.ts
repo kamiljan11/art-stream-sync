@@ -12,9 +12,9 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as UnsubscribeRouteImport } from './routes/unsubscribe'
 import { Route as ThankYouRouteImport } from './routes/thank-you'
 import { Route as CupsRouteImport } from './routes/cups'
-import { Route as ProductsEcoCupsRouteImport } from './routes/products/ecocups'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AdminIndexRouteImport } from './routes/admin/index'
+import { Route as ProductsEcocupsRouteImport } from './routes/products/ecocups'
 import { Route as EmailUnsubscribeRouteImport } from './routes/email/unsubscribe'
 import { Route as CupsCalculatorRouteImport } from './routes/cups.calculator'
 import { Route as AdminLoginRouteImport } from './routes/admin/login'
@@ -36,11 +36,6 @@ const ThankYouRoute = ThankYouRouteImport.update({
   path: '/thank-you',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ProductsEcoCupsRoute = ProductsEcoCupsRouteImport.update({
-  id: '/products/ecocups',
-  path: '/products/ecocups',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const CupsRoute = CupsRouteImport.update({
   id: '/cups',
   path: '/cups',
@@ -54,6 +49,11 @@ const IndexRoute = IndexRouteImport.update({
 const AdminIndexRoute = AdminIndexRouteImport.update({
   id: '/admin/',
   path: '/admin/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductsEcocupsRoute = ProductsEcocupsRouteImport.update({
+  id: '/products/ecocups',
+  path: '/products/ecocups',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EmailUnsubscribeRoute = EmailUnsubscribeRouteImport.update({
@@ -113,12 +113,12 @@ const LovableEmailQueueProcessRoute =
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/cups': typeof CupsRouteWithChildren
-  '/products/ecocups': typeof ProductsEcoCupsRoute
   '/thank-you': typeof ThankYouRoute
   '/unsubscribe': typeof UnsubscribeRoute
   '/admin/login': typeof AdminLoginRoute
   '/cups/calculator': typeof CupsCalculatorRoute
   '/email/unsubscribe': typeof EmailUnsubscribeRoute
+  '/products/ecocups': typeof ProductsEcocupsRoute
   '/admin/': typeof AdminIndexRoute
   '/api/public/contact': typeof ApiPublicContactRoute
   '/api/public/meta-capi': typeof ApiPublicMetaCapiRoute
@@ -131,12 +131,12 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/cups': typeof CupsRouteWithChildren
-  '/products/ecocups': typeof ProductsEcoCupsRoute
   '/thank-you': typeof ThankYouRoute
   '/unsubscribe': typeof UnsubscribeRoute
   '/admin/login': typeof AdminLoginRoute
   '/cups/calculator': typeof CupsCalculatorRoute
   '/email/unsubscribe': typeof EmailUnsubscribeRoute
+  '/products/ecocups': typeof ProductsEcocupsRoute
   '/admin': typeof AdminIndexRoute
   '/api/public/contact': typeof ApiPublicContactRoute
   '/api/public/meta-capi': typeof ApiPublicMetaCapiRoute
@@ -150,12 +150,12 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/cups': typeof CupsRouteWithChildren
-  '/products/ecocups': typeof ProductsEcoCupsRoute
   '/thank-you': typeof ThankYouRoute
   '/unsubscribe': typeof UnsubscribeRoute
   '/admin/login': typeof AdminLoginRoute
   '/cups/calculator': typeof CupsCalculatorRoute
   '/email/unsubscribe': typeof EmailUnsubscribeRoute
+  '/products/ecocups': typeof ProductsEcocupsRoute
   '/admin/': typeof AdminIndexRoute
   '/api/public/contact': typeof ApiPublicContactRoute
   '/api/public/meta-capi': typeof ApiPublicMetaCapiRoute
@@ -170,12 +170,12 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/cups'
-    | '/products/ecocups'
     | '/thank-you'
     | '/unsubscribe'
     | '/admin/login'
     | '/cups/calculator'
     | '/email/unsubscribe'
+    | '/products/ecocups'
     | '/admin/'
     | '/api/public/contact'
     | '/api/public/meta-capi'
@@ -188,12 +188,12 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/cups'
-    | '/products/ecocups'
     | '/thank-you'
     | '/unsubscribe'
     | '/admin/login'
     | '/cups/calculator'
     | '/email/unsubscribe'
+    | '/products/ecocups'
     | '/admin'
     | '/api/public/contact'
     | '/api/public/meta-capi'
@@ -206,12 +206,12 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/cups'
-    | '/products/ecocups'
     | '/thank-you'
     | '/unsubscribe'
     | '/admin/login'
     | '/cups/calculator'
     | '/email/unsubscribe'
+    | '/products/ecocups'
     | '/admin/'
     | '/api/public/contact'
     | '/api/public/meta-capi'
@@ -225,11 +225,11 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CupsRoute: typeof CupsRouteWithChildren
-  ProductsEcoCupsRoute: typeof ProductsEcoCupsRoute
   ThankYouRoute: typeof ThankYouRoute
   UnsubscribeRoute: typeof UnsubscribeRoute
   AdminLoginRoute: typeof AdminLoginRoute
   EmailUnsubscribeRoute: typeof EmailUnsubscribeRoute
+  ProductsEcocupsRoute: typeof ProductsEcocupsRoute
   AdminIndexRoute: typeof AdminIndexRoute
   ApiPublicContactRoute: typeof ApiPublicContactRoute
   ApiPublicMetaCapiRoute: typeof ApiPublicMetaCapiRoute
@@ -263,13 +263,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CupsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/products/ecocups': {
-      id: '/products/ecocups'
-      path: '/products/ecocups'
-      fullPath: '/products/ecocups'
-      preLoaderRoute: typeof ProductsEcoCupsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/': {
       id: '/'
       path: '/'
@@ -282,6 +275,13 @@ declare module '@tanstack/react-router' {
       path: '/admin'
       fullPath: '/admin/'
       preLoaderRoute: typeof AdminIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products/ecocups': {
+      id: '/products/ecocups'
+      path: '/products/ecocups'
+      fullPath: '/products/ecocups'
+      preLoaderRoute: typeof ProductsEcocupsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/email/unsubscribe': {
@@ -370,11 +370,11 @@ const CupsRouteWithChildren = CupsRoute._addFileChildren(CupsRouteChildren)
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CupsRoute: CupsRouteWithChildren,
-  ProductsEcoCupsRoute: ProductsEcoCupsRoute,
   ThankYouRoute: ThankYouRoute,
   UnsubscribeRoute: UnsubscribeRoute,
   AdminLoginRoute: AdminLoginRoute,
   EmailUnsubscribeRoute: EmailUnsubscribeRoute,
+  ProductsEcocupsRoute: ProductsEcocupsRoute,
   AdminIndexRoute: AdminIndexRoute,
   ApiPublicContactRoute: ApiPublicContactRoute,
   ApiPublicMetaCapiRoute: ApiPublicMetaCapiRoute,

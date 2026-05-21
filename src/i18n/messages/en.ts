@@ -181,6 +181,11 @@ const en = {
       items: ["Single-Wall Paper Cups", "Double-Wall Thermal Cups", "Eco-Friendly BIO Cups", "Paper & Plastic Lids", "Wooden Stirrers"],
       cta: "Explore Cups",
     },
+    ecocups: {
+      title: "ECO CUPS",
+      items: ["BIO Compostable Paper Cups", "rPET Recycled-Plastic Cups", "PLA Plant-Based Cups", "Paper Straws (EU Compliant)", "Compostable Dessert Bowls"],
+      cta: "Explore Eco Cups",
+    },
   },
   process: {
     heading1: "3 STEPS TO",

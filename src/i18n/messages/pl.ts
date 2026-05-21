@@ -181,6 +181,11 @@ const pl = {
       items: ["Jednowarstwowe kubki papierowe", "Dwuwarstwowe kubki termiczne", "Ekologiczne kubki BIO", "Wieczka papierowe i plastikowe", "Drewniane mieszadełka"],
       cta: "Zobacz ofertę kubków",
     },
+    ecocups: {
+      title: "EKO KUBKI",
+      items: ["Kompostowalne kubki BIO", "Kubki z rPET z recyklingu", "Kubki PLA z bioplastiku", "Słomki papierowe (dyrektywa EU)", "Kompostowalne miseczki deserowe"],
+      cta: "Zobacz eko kubki",
+    },
   },
   process: {
     heading1: "3 KROKI DO",

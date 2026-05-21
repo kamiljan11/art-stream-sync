@@ -219,7 +219,23 @@ export function SiteHeader() {
                 >
                   {t("nav.backHome")}
                 </Link>
-              ) : null}
+              ) : (
+                <>
+                  <Link
+                    to="/cups"
+                    className="relative shrink-0 whitespace-nowrap px-2.5 xl:px-3 py-1.5 rounded-full text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    {t("nav.cups")}
+                  </Link>
+                  <Link
+                    to="/ecocups"
+                    className="relative shrink-0 whitespace-nowrap px-2.5 xl:px-3 py-1.5 rounded-full text-muted-foreground hover:text-foreground transition-colors"
+                    style={{ color: "var(--brand-lime, #84cc16)" }}
+                  >
+                    {t("nav.ecocups")}
+                  </Link>
+                </>
+              )}
               </div>
             </nav>
 
@@ -270,7 +286,25 @@ export function SiteHeader() {
                   >
                     {t("nav.backHome")}
                   </Link>
-                ) : null}
+                ) : (
+                  <>
+                    <Link
+                      to="/cups"
+                      className="text-sm text-muted-foreground hover:text-foreground"
+                      onClick={() => setOpen(false)}
+                    >
+                      {t("nav.cups")}
+                    </Link>
+                    <Link
+                      to="/ecocups"
+                      className="text-sm font-medium hover:opacity-80"
+                      style={{ color: "#84cc16" }}
+                      onClick={() => setOpen(false)}
+                    >
+                      {t("nav.ecocups")}
+                    </Link>
+                  </>
+                )}
                 <a
                   href="tel:+3547878617"
                   className="text-sm text-muted-foreground hover:text-foreground inline-flex items-center gap-2"

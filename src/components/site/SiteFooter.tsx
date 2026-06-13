@@ -107,7 +107,8 @@ export function SiteFooter() {
         </div>
 
         <div className="mt-12 text-xs text-muted-foreground/70">
-          {t("footer.copyright")}
+          {t("footer.copyright")}{" · "}built by{" "}
+          <a href="https://kamiljan.com" target="_blank" rel="noopener noreferrer" className="hover:underline">Kamil Jan</a>
         </div>
       </div>
     </footer>

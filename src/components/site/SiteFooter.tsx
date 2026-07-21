@@ -1,5 +1,5 @@
 import teamArek from "@/assets/site/team-arek.png";
-import teamKamil from "@/assets/site/team-kamil.png";
+// [ukryte 2026-07-21] import teamKamil from "@/assets/site/team-kamil.png";
 import { useT } from "@/i18n/I18nProvider";
 
 const C = "#00AEEF";
@@ -103,12 +103,12 @@ export function SiteFooter() {
 
         <div className="mt-10 flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center w-full max-w-[640px]">
           <TeamCard img={teamArek} name="Arek" dept={t("footer.deptPoland")} />
-          <TeamCard img={teamKamil} name="Kamil Jan" dept={t("footer.deptIceland")} />
+          {/* [ukryte 2026-07-21] <TeamCard img={teamKamil} name="Kamil Jan" dept={t("footer.deptIceland")} /> */}
         </div>
 
         <div className="mt-12 text-xs text-muted-foreground/70">
-          {t("footer.copyright")}{" · "}built by{" "}
-          <a href="https://kamiljan.com" target="_blank" rel="noopener noreferrer" className="hover:underline">Kamil Jan</a>
+          {t("footer.copyright")}{/* [ukryte 2026-07-21] {" · "}built by{" "}
+          <a href="https://kamiljan.com" target="_blank" rel="noopener noreferrer" className="hover:underline">Kamil Jan</a> */}
         </div>
       </div>
     </footer>

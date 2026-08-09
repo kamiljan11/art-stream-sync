@@ -26,26 +26,16 @@ export function QuoteForm() {
         <h2 className="text-[2.2rem] md:text-[3rem] leading-none font-black uppercase tracking-tight m-0 mb-[15px] text-foreground">
           {t("homeQuote.heading")}
         </h2>
-        <p className="text-[#888] text-[1.05rem] md:text-[1.1rem] mb-10">
-          {t("homeQuote.sub")}
-        </p>
+        <p className="text-[#888] text-[1.05rem] md:text-[1.1rem] mb-10">{t("homeQuote.sub")}</p>
 
         {/* Form box (white) */}
         <div className="bg-white rounded-2xl overflow-hidden text-left relative shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
           {/* Tabs */}
           <div className="flex bg-[#f0f0f0] p-1 border-b border-[#e0e0e0]">
-            <TabBtn
-              active={tab === "new"}
-              onClick={() => setTab("new")}
-              accent="#00AEEF"
-            >
+            <TabBtn active={tab === "new"} onClick={() => setTab("new")} accent="#00AEEF">
               {t("homeQuote.tabNew")}
             </TabBtn>
-            <TabBtn
-              active={tab === "audit"}
-              onClick={() => setTab("audit")}
-              accent="#EC008C"
-            >
+            <TabBtn active={tab === "audit"} onClick={() => setTab("audit")} accent="#EC008C">
               {t("homeQuote.tabAudit")}
             </TabBtn>
           </div>
@@ -54,12 +44,13 @@ export function QuoteForm() {
           <div className="px-5 py-[25px] md:px-10 md:py-[30px]">
             {submitted ? (
               <div className="text-center py-12">
-                <div className="text-2xl font-bold" style={{ color: tab === "new" ? "#00AEEF" : "#EC008C" }}>
+                <div
+                  className="text-2xl font-bold"
+                  style={{ color: tab === "new" ? "#00AEEF" : "#EC008C" }}
+                >
                   {t("homeQuote.sentTitle")}
                 </div>
-                <p className="mt-2 text-[#555]">
-                  {t("homeQuote.sentSub")}
-                </p>
+                <p className="mt-2 text-[#555]">{t("homeQuote.sentSub")}</p>
               </div>
             ) : (
               <form
@@ -98,7 +89,11 @@ export function QuoteForm() {
                     });
                     if (!res.ok) throw new Error("Request failed");
                     let submissionId: string | undefined;
-                    try { submissionId = (await res.clone().json())?.id; } catch { /* ignore */ }
+                    try {
+                      submissionId = (await res.clone().json())?.id;
+                    } catch {
+                      /* ignore */
+                    }
                     trackLead({
                       path: tab === "audit" ? "audit" : "quote-form",
                       email: payload.email,
@@ -150,7 +145,11 @@ export function QuoteForm() {
                         : "0 4px 12px rgba(236, 0, 140, 0.25)";
                   }}
                 >
-                  {submitting ? "Sending..." : (tab === "new" ? t("homeQuote.submitNew") : t("homeQuote.submitAudit"))}
+                  {submitting
+                    ? "Sending..."
+                    : tab === "new"
+                      ? t("homeQuote.submitNew")
+                      : t("homeQuote.submitAudit")}
                 </button>
 
                 <p className="mt-3 text-[0.75rem] text-[#888] text-center leading-snug px-2">
@@ -159,9 +158,7 @@ export function QuoteForm() {
 
                 <div className="flex items-center justify-center gap-2 mt-5 text-[0.85rem] text-[#888] font-semibold">
                   <ShieldCheck size={16} style={{ color: tab === "new" ? "#00AEEF" : "#EC008C" }} />
-                  {tab === "new"
-                    ? t("homeQuote.guaranteeNew")
-                    : t("homeQuote.guaranteeAudit")}
+                  {tab === "new" ? t("homeQuote.guaranteeNew") : t("homeQuote.guaranteeAudit")}
                 </div>
               </form>
             )}
@@ -213,7 +210,13 @@ function NewProjectFields() {
   return (
     <>
       <Input name="name" label={t("homeQuote.nameCompany")} required />
-      <Input name="email" label={t("homeQuote.emailAddress")} type="email" placeholder={t("homeQuote.emailPlaceholder")} required />
+      <Input
+        name="email"
+        label={t("homeQuote.emailAddress")}
+        type="email"
+        placeholder={t("homeQuote.emailPlaceholder")}
+        required
+      />
       <Input name="phone" label={t("homeQuote.phoneNumber")} type="tel" required />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4">
         <Select name="productType" label={t("homeQuote.productType")} options={productTypes} />
@@ -228,7 +231,11 @@ function NewProjectFields() {
         />
       </div>
       <Textarea name="projectDetails" label={t("homeQuote.projectDetails")} />
-      <Input name="designLink" label={t("homeQuote.designLink")} hint={t("homeQuote.designLinkHint")} />
+      <Input
+        name="designLink"
+        label={t("homeQuote.designLink")}
+        hint={t("homeQuote.designLinkHint")}
+      />
       <Checkbox name="needsDesigner" label={t("homeQuote.needDesigner")} accent="#00AEEF" />
     </>
   );
@@ -239,10 +246,20 @@ function AuditFields() {
   return (
     <>
       <Input name="name" label={t("homeQuote.companyName")} required />
-      <Input name="email" label={t("homeQuote.emailAddress")} type="email" placeholder={t("homeQuote.emailPlaceholder")} required />
+      <Input
+        name="email"
+        label={t("homeQuote.emailAddress")}
+        type="email"
+        placeholder={t("homeQuote.emailPlaceholder")}
+        required
+      />
       <Input name="phone" label={t("homeQuote.phoneNumber")} type="tel" required />
       <FileInput label={t("homeQuote.uploadInvoice")} hint={t("homeQuote.uploadInvoiceHint")} />
-      <Input name="designLink" label={t("homeQuote.designLink")} hint={t("homeQuote.designLinkAuditHint")} />
+      <Input
+        name="designLink"
+        label={t("homeQuote.designLink")}
+        hint={t("homeQuote.designLinkAuditHint")}
+      />
       <Input name="currentCost" label={t("homeQuote.currentCost")} />
       <Checkbox name="needsDesigner" label={t("homeQuote.needDesigner")} accent="#EC008C" />
     </>
@@ -268,7 +285,10 @@ function Input({
   );
 }
 
-function Textarea({ label, ...props }: React.TextareaHTMLAttributes<HTMLTextAreaElement> & { label: string }) {
+function Textarea({
+  label,
+  ...props
+}: React.TextareaHTMLAttributes<HTMLTextAreaElement> & { label: string }) {
   return (
     <div className="mb-5">
       <label className="block text-[0.8rem] font-extrabold text-[#222] mb-2 uppercase tracking-[0.5px]">
@@ -290,7 +310,10 @@ function Select({ label, options, name }: { label: string; options: string[]; na
       <label className="block text-[0.8rem] font-extrabold text-[#222] mb-2 uppercase tracking-[0.5px]">
         {label}
       </label>
-      <select name={name} className="w-full px-4 py-[14px] text-base border-2 border-[#eee] rounded-lg bg-[#f9f9f9] text-[#333] focus:outline-none focus:border-[#333] focus:bg-white transition-colors">
+      <select
+        name={name}
+        className="w-full px-4 py-[14px] text-base border-2 border-[#eee] rounded-lg bg-[#f9f9f9] text-[#333] focus:outline-none focus:border-[#333] focus:bg-white transition-colors"
+      >
         <option value="">{t("homeQuote.selectPlaceholder")}</option>
         {options.map((o) => (
           <option key={o}>{o}</option>

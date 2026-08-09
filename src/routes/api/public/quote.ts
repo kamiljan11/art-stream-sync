@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import type { Json } from "@/integrations/supabase/types";
 import { z } from "zod";
 
 const quoteSchema = z.object({
@@ -49,9 +50,10 @@ export const Route = createFileRoute("/api/public/quote")({
         }
 
         const d = parsed.data;
-        const extra: Record<string, unknown> = {};
-        if (d.calculator) extra.calculator = d.calculator;
-        if (d.attachments && d.attachments.length > 0) extra.attachments = d.attachments;
+        // Insert oczekuje Json — payload przeszedl walidacje zod, wiec jest JSON-serializowalny
+        const extra: Record<string, Json> = {};
+        if (d.calculator) extra.calculator = d.calculator as Json;
+        if (d.attachments && d.attachments.length > 0) extra.attachments = d.attachments as Json;
         const { data: row, error } = await supabaseAdmin
           .from("quote_submissions")
           .insert({
@@ -66,7 +68,7 @@ export const Route = createFileRoute("/api/public/quote")({
             needs_designer: d.needsDesigner,
             current_cost: d.currentCost || null,
             extra,
-          } as any)
+          })
           .select("id")
           .single();
 

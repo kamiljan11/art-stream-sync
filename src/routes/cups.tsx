@@ -98,8 +98,7 @@ const products: Product[] = [
     tag: "Single-wall · printed",
     title: "Single-wall paper cup with your print",
     sizes: "100 · 180 · 200 · 300 · 400 ml",
-    desc:
-      "The workhorse cup. Light, stackable, full-wrap print with no colour limit. For events, offices, juice bars and water dispensers.",
+    desc: "The workhorse cup. Light, stackable, full-wrap print with no colour limit. For events, offices, juice bars and water dispensers.",
     bullets: [
       "Unlimited full-colour printing, no upcharge",
       "Recyclable or compostable inner lining",
@@ -113,8 +112,7 @@ const products: Product[] = [
     tag: "Double-wall · premium",
     title: "Premium thermal double-wall cup",
     sizes: "200 ml (8 oz) · 300 ml (12 oz) · 400 ml (16 oz)",
-    desc:
-      "Top-of-range double-wall cup. Hot coffee inside, cool hands outside. Our pick for cafés, takeaway and hotel coffee corners.",
+    desc: "Top-of-range double-wall cup. Hot coffee inside, cool hands outside. Our pick for cafés, takeaway and hotel coffee corners.",
     bullets: [
       "Best-in-class hand comfort on hot drinks",
       "Premium feel, matte or gloss finish",
@@ -128,8 +126,7 @@ const products: Product[] = [
     tag: "Stock · no print",
     title: "Plain white paper cup (stock)",
     sizes: "100 · 180 · 200 · 300 · 400 ml",
-    desc:
-      "No-print, no-fuss cups straight from stock. Ideal for water stations, vending, gyms and offices. Sold by the carton, no print minimum.",
+    desc: "No-print, no-fuss cups straight from stock. Ideal for water stations, vending, gyms and offices. Sold by the carton, no print minimum.",
     bullets: [
       "From 1,000 pcs per size",
       "Recyclable or compostable inner lining",
@@ -143,8 +140,7 @@ const products: Product[] = [
     tag: "Recycled plastic · transparent",
     title: "Transparent recycled-plastic cup",
     sizes: "300 · 400 · 500 ml",
-    desc:
-      "Crystal-clear cup for cold drinks, smoothies, iced coffee, beer, cocktails. Recycled PET. The legal replacement for old single-use plastic cups.",
+    desc: "Crystal-clear cup for cold drinks, smoothies, iced coffee, beer, cocktails. Recycled PET. The legal replacement for old single-use plastic cups.",
     bullets: [
       "Made from recycled PET plastic",
       "Up to 4 spot colours, solid blocks only (no gradients)",
@@ -158,8 +154,7 @@ const products: Product[] = [
     tag: "Bowl · BIO lining",
     title: "Ice cream & dessert bowl",
     sizes: "130 · 245 · 360 ml",
-    desc:
-      "Wide-mouth bowl for ice cream, yoghurt and snacks. Cold use only — not for hot soup. Custom-printed or plain.",
+    desc: "Wide-mouth bowl for ice cream, yoghurt and snacks. Cold use only — not for hot soup. Custom-printed or plain.",
     bullets: [
       "100% biodegradable BIO lining",
       "Custom full-wrap print available",
@@ -173,8 +168,7 @@ const products: Product[] = [
     tag: "Lids · paper & plastic",
     title: "Lids for every cup we sell",
     sizes: "for 100 · 180 · 200 · 300 · 400 ml + plastic cups",
-    desc:
-      "Two options: PE plastic and BIO paper. Flat and dome shapes, matched to every cup we ship. Available in white and black only.",
+    desc: "Two options: PE plastic and BIO paper. Flat and dome shapes, matched to every cup we ship. Available in white and black only.",
     bullets: [
       "Guaranteed fit on every cup we ship",
       "Dome lids for cold drinks & smoothies",
@@ -188,8 +182,7 @@ const products: Product[] = [
     tag: "Paper · EU-compliant",
     title: "Paper drinking straws",
     sizes: "150 pcs / pack",
-    desc:
-      "Plastic-free paper straws, straight or bendy. White and black in stock. Bundle with cups for synced delivery.",
+    desc: "Plastic-free paper straws, straight or bendy. White and black in stock. Bundle with cups for synced delivery.",
     bullets: [
       "EU single-use plastics compliant",
       "White and black in stock",
@@ -203,8 +196,7 @@ const products: Product[] = [
     tag: "Wood · biodegradable",
     title: "Wooden stirrers & ice-cream sticks",
     sizes: "1,000 pcs / pack",
-    desc:
-      "Smooth natural wooden stirrers — also available as ice-cream sticks. No splinters, no dyes, no plastic. Food-safe and fully biodegradable.",
+    desc: "Smooth natural wooden stirrers — also available as ice-cream sticks. No splinters, no dyes, no plastic. Food-safe and fully biodegradable.",
     bullets: [
       "Untreated natural light wood",
       "Coffee/tea stirrers & ice-cream sticks",
@@ -326,8 +318,21 @@ function CupsPage() {
   const dict = locale === "is" ? isMessages : locale === "pl" ? plMessages : enMessages;
   const cp = dict.cupsPage;
   // Merge product images with translated catalog
-  const productImgs = [cupEveryday, cupPremium, cupWater, cupRpet, cupIcecream, cupLids, cupStraws, cupStirrers];
-  const translatedProducts = cp.productCatalog.map((p, i) => ({ ...p, img: productImgs[i], lead: products[i].lead }));
+  const productImgs = [
+    cupEveryday,
+    cupPremium,
+    cupWater,
+    cupRpet,
+    cupIcecream,
+    cupLids,
+    cupStraws,
+    cupStirrers,
+  ];
+  const translatedProducts = cp.productCatalog.map((p, i) => ({
+    ...p,
+    img: productImgs[i],
+    lead: products[i].lead,
+  }));
   const cupsFaqsT = cp.faq.items;
   const scrollToQuote = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -363,17 +368,22 @@ function CupsPage() {
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-24 sm:py-32 text-center animate-fade-in">
           <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight">
             {t("cupsHero.line1")}{" "}
-            <span className="bg-clip-text text-transparent" style={{ backgroundImage: "var(--gradient-cyan)" }}>
+            <span
+              className="bg-clip-text text-transparent"
+              style={{ backgroundImage: "var(--gradient-cyan)" }}
+            >
               {t("cupsHero.line2")}
             </span>{" "}
             {t("cupsHero.line3")}
           </h1>
-          <p className="mt-6 text-lg text-foreground/80 leading-relaxed">
-            {t("cupsHero.sub")}
-          </p>
+          <p className="mt-6 text-lg text-foreground/80 leading-relaxed">{t("cupsHero.sub")}</p>
           <div className="mt-10 flex flex-col items-center gap-3">
             <a
-              href="#quote" onClick={(e) => { trackFunnelStart("cups-hero-cta"); scrollToQuote(e); }}
+              href="#quote"
+              onClick={(e) => {
+                trackFunnelStart("cups-hero-cta");
+                scrollToQuote(e);
+              }}
               className="inline-flex items-center gap-2 rounded-md px-8 py-4 text-base font-semibold text-primary-foreground hover-glow"
               style={{ background: "var(--gradient-cyan)", boxShadow: "var(--shadow-glow)" }}
             >
@@ -386,13 +396,24 @@ function CupsPage() {
       {/* TRUST STRIP */}
       {/* PRODUCTS GRID */}
       <section id="products" className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-24">
-        <Reveal className="text-center max-w-2xl mx-auto" threshold={0} rootMargin="0px 0px 0px 0px">
-          <h2 className="text-4xl font-extrabold">{cp.catalogue.heading1} <span style={{ color: "var(--brand-cyan)" }}>{cp.catalogue.heading2}</span></h2>
-          <p className="mt-3 text-muted-foreground">
-            {cp.catalogue.sub}
-          </p>
-          <div className="mt-5 inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-bold uppercase tracking-wider border-2"
-            style={{ borderColor: "#84cc16", color: "#65a30d", background: "rgba(132,204,22,0.08)" }}>
+        <Reveal
+          className="text-center max-w-2xl mx-auto"
+          threshold={0}
+          rootMargin="0px 0px 0px 0px"
+        >
+          <h2 className="text-4xl font-extrabold">
+            {cp.catalogue.heading1}{" "}
+            <span style={{ color: "var(--brand-cyan)" }}>{cp.catalogue.heading2}</span>
+          </h2>
+          <p className="mt-3 text-muted-foreground">{cp.catalogue.sub}</p>
+          <div
+            className="mt-5 inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-bold uppercase tracking-wider border-2"
+            style={{
+              borderColor: "#84cc16",
+              color: "#65a30d",
+              background: "rgba(132,204,22,0.08)",
+            }}
+          >
             <Leaf size={14} strokeWidth={2.5} />
             {cp.catalogue.allRecyclable}
           </div>
@@ -400,59 +421,75 @@ function CupsPage() {
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
           {translatedProducts.map((p, idx) => {
-            const tones = ["card-light-cyan", "card-light-pink", "card-light-yellow", "card-light-lime"];
+            const tones = [
+              "card-light-cyan",
+              "card-light-pink",
+              "card-light-yellow",
+              "card-light-lime",
+            ];
             const tone = tones[idx % tones.length];
             return (
-            <article
-              key={p.title}
-              className={`relative overflow-hidden ${tone} flex flex-col group hover-lift-light`}
-            >
-              <div className="aspect-[16/9] sm:aspect-[4/3] overflow-hidden bg-white/60">
-                <img
-                  src={p.img}
-                  alt={p.title}
-                  loading={idx < 3 ? "eager" : "lazy"}
-                  decoding="async"
-                  fetchPriority={idx < 3 ? "high" : "auto"}
-                  className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
-                />
-              </div>
-              <div className="p-6 flex flex-col flex-1">
-                <span className="text-[10px] font-semibold uppercase tracking-[0.15em] text-sky-600">
-                  {p.tag}
-                </span>
-                <h3 className="mt-2 font-bold text-lg leading-snug text-slate-900">{p.title}</h3>
-                <p className="text-xs text-slate-500 mt-1 tracking-wider">{p.sizes}</p>
-                <p className="mt-3 text-sm text-slate-700 leading-relaxed">{p.desc}</p>
-
-                <ul className="mt-4 space-y-1.5">
-                  {p.bullets.map((b) => (
-                    <li key={b} className="flex items-start gap-2 text-sm text-slate-700">
-                      <Check size={14} className="text-sky-600 mt-0.5 flex-shrink-0" />
-                      <span>{b}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <div className="mt-5 pt-4 border-t border-slate-200 text-xs">
-                  <div className="text-slate-500 uppercase tracking-wider">{cp.catalogue.minOrderLabel}</div>
-                  <div className="font-semibold mt-0.5 text-slate-900">{p.moq}</div>
+              <article
+                key={p.title}
+                className={`relative overflow-hidden ${tone} flex flex-col group hover-lift-light`}
+              >
+                <div className="aspect-[16/9] sm:aspect-[4/3] overflow-hidden bg-white/60">
+                  <img
+                    src={p.img}
+                    alt={p.title}
+                    loading={idx < 3 ? "eager" : "lazy"}
+                    decoding="async"
+                    fetchPriority={idx < 3 ? "high" : "auto"}
+                    className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                  />
                 </div>
+                <div className="p-6 flex flex-col flex-1">
+                  <span className="text-[10px] font-semibold uppercase tracking-[0.15em] text-sky-600">
+                    {p.tag}
+                  </span>
+                  <h3 className="mt-2 font-bold text-lg leading-snug text-slate-900">{p.title}</h3>
+                  <p className="text-xs text-slate-500 mt-1 tracking-wider">{p.sizes}</p>
+                  <p className="mt-3 text-sm text-slate-700 leading-relaxed">{p.desc}</p>
 
-                <a
-                  href="#quote" onClick={scrollToQuote}
-                  className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-sky-600 hover:gap-2 transition-all"
-                >
-                  {cp.catalogue.askPrice} <ArrowRight size={14} />
-                </a>
-              </div>
-            </article>
+                  <ul className="mt-4 space-y-1.5">
+                    {p.bullets.map((b) => (
+                      <li key={b} className="flex items-start gap-2 text-sm text-slate-700">
+                        <Check size={14} className="text-sky-600 mt-0.5 flex-shrink-0" />
+                        <span>{b}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <div className="mt-5 pt-4 border-t border-slate-200 text-xs">
+                    <div className="text-slate-500 uppercase tracking-wider">
+                      {cp.catalogue.minOrderLabel}
+                    </div>
+                    <div className="font-semibold mt-0.5 text-slate-900">{p.moq}</div>
+                  </div>
+
+                  <a
+                    href="#quote"
+                    onClick={scrollToQuote}
+                    className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-sky-600 hover:gap-2 transition-all"
+                  >
+                    {cp.catalogue.askPrice} <ArrowRight size={14} />
+                  </a>
+                </div>
+              </article>
             );
           })}
         </div>
 
         <p className="mt-10 text-center text-sm text-muted-foreground max-w-2xl mx-auto">
-          {cp.catalogue.dontSee} <a href="#quote" onClick={scrollToQuote} className="text-primary font-semibold underline underline-offset-4 hover:opacity-80">{cp.catalogue.sendRequest}</a>{cp.catalogue.sourceAnything}
+          {cp.catalogue.dontSee}{" "}
+          <a
+            href="#quote"
+            onClick={scrollToQuote}
+            className="text-primary font-semibold underline underline-offset-4 hover:opacity-80"
+          >
+            {cp.catalogue.sendRequest}
+          </a>
+          {cp.catalogue.sourceAnything}
         </p>
 
         {/* USP strip, why people order with us */}
@@ -494,10 +531,11 @@ function CupsPage() {
           <span className="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-wider rounded-full bg-primary/10 text-primary">
             {cp.portfolio.badge}
           </span>
-          <h2 className="mt-4 text-4xl font-extrabold">{cp.portfolio.heading1} <span style={{ color: "var(--brand-cyan)" }}>{cp.portfolio.heading2}</span></h2>
-          <p className="mt-3 text-muted-foreground">
-            {cp.portfolio.sub}
-          </p>
+          <h2 className="mt-4 text-4xl font-extrabold">
+            {cp.portfolio.heading1}{" "}
+            <span style={{ color: "var(--brand-cyan)" }}>{cp.portfolio.heading2}</span>
+          </h2>
+          <p className="mt-3 text-muted-foreground">{cp.portfolio.sub}</p>
         </div>
         <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-2 mt-12">
           {portfolio.map((p) => (
@@ -531,7 +569,8 @@ function CupsPage() {
             <p className="mt-2 text-foreground/80">{cp.midCta.a.sub}</p>
           </div>
           <a
-            href="#quote" onClick={scrollToQuote}
+            href="#quote"
+            onClick={scrollToQuote}
             className="shrink-0 inline-flex items-center justify-center gap-2 rounded-md px-7 py-3.5 text-sm font-semibold text-primary-foreground hover-glow"
             style={{ background: "var(--gradient-cyan)", boxShadow: "var(--shadow-glow)" }}
           >
@@ -545,7 +584,9 @@ function CupsPage() {
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0"
-          style={{ background: "radial-gradient(ellipse at top, rgba(132,204,22,0.08), transparent 60%)" }}
+          style={{
+            background: "radial-gradient(ellipse at top, rgba(132,204,22,0.08), transparent 60%)",
+          }}
         />
         <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-24">
           {/* Heading */}
@@ -570,8 +611,7 @@ function CupsPage() {
                 aria-hidden
                 className="absolute inset-0 opacity-30"
                 style={{
-                  backgroundImage:
-                    "radial-gradient(circle, rgba(0,0,0,0.18) 1px, transparent 1px)",
+                  backgroundImage: "radial-gradient(circle, rgba(0,0,0,0.18) 1px, transparent 1px)",
                   backgroundSize: "18px 18px",
                 }}
               />
@@ -621,17 +661,16 @@ function CupsPage() {
 
               <div className="mt-6 space-y-5 text-foreground/80 leading-relaxed">
                 <p>
-                  <span className="text-foreground font-semibold">{cp.eco.p1a}</span>{" "}
-                  {cp.eco.p1b}{" "}
+                  <span className="text-foreground font-semibold">{cp.eco.p1a}</span> {cp.eco.p1b}{" "}
                   <span className="text-foreground font-semibold">{cp.eco.p1c}</span>
                 </p>
                 <p>
                   <span className="text-foreground font-semibold">{cp.eco.p2a}</span> {cp.eco.p2b}
                 </p>
                 <p>
-                  {cp.eco.p3a}{" "}
-                  <span className="text-foreground font-semibold">{cp.eco.p3b}</span>{cp.eco.p3c}{" "}
-                  <span className="text-foreground font-semibold">{cp.eco.p3d}</span>{cp.eco.p3e}
+                  {cp.eco.p3a} <span className="text-foreground font-semibold">{cp.eco.p3b}</span>
+                  {cp.eco.p3c} <span className="text-foreground font-semibold">{cp.eco.p3d}</span>
+                  {cp.eco.p3e}
                 </p>
               </div>
 
@@ -643,17 +682,23 @@ function CupsPage() {
                   { v: "EN 13432", l: cp.eco.stat3 },
                 ].map((b) => (
                   <div key={b.l}>
-                    <div className="text-2xl sm:text-3xl font-extrabold" style={{ color: "#84cc16" }}>
+                    <div
+                      className="text-2xl sm:text-3xl font-extrabold"
+                      style={{ color: "#84cc16" }}
+                    >
                       {b.v}
                     </div>
-                    <div className="text-[10px] uppercase tracking-wider text-muted-foreground mt-1">{b.l}</div>
+                    <div className="text-[10px] uppercase tracking-wider text-muted-foreground mt-1">
+                      {b.l}
+                    </div>
                   </div>
                 ))}
               </div>
 
               {/* CTA */}
               <a
-                href="#quote" onClick={scrollToQuote}
+                href="#quote"
+                onClick={scrollToQuote}
                 className="mt-8 inline-flex items-center gap-2 rounded-full px-7 py-3 text-sm font-bold uppercase tracking-wider border-2 transition hover:bg-[#84cc16] hover:text-black"
                 style={{ borderColor: "#84cc16", color: "#84cc16" }}
               >
@@ -723,7 +768,12 @@ function CupsPage() {
                       style={{ color: "#84cc16", background: "rgba(132,204,22,0.12)" }}
                     />
                   ) : (
-                    <Leaf size={16} strokeWidth={2.5} className="sm:size-[22px]" style={{ color: c.accent }} />
+                    <Leaf
+                      size={16}
+                      strokeWidth={2.5}
+                      className="sm:size-[22px]"
+                      style={{ color: c.accent }}
+                    />
                   )}
                   <span
                     className="text-lg sm:text-3xl font-extrabold tracking-tight"
@@ -761,10 +811,7 @@ function CupsPage() {
             { ...cp.why.items[2], c: "#facc15", tone: "card-light-yellow" },
             { ...cp.why.items[3], c: "#84cc16", tone: "card-light-lime" },
           ].map((w) => (
-            <div
-              key={w.t}
-              className={`relative ${w.tone} p-6 pt-7 hover-lift-light`}
-            >
+            <div key={w.t} className={`relative ${w.tone} p-6 pt-7 hover-lift-light`}>
               <div
                 className="absolute top-0 left-6 right-6 h-[3px] rounded-b-full"
                 style={{ backgroundColor: w.c }}
@@ -781,7 +828,10 @@ function CupsPage() {
       <section id="how" className="bg-card/40 border-y border-border">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-24">
           <Reveal>
-            <h2 className="text-4xl font-extrabold text-center">{cp.how.heading1} <span style={{ color: "var(--brand-cyan)" }}>{cp.how.heading2}</span></h2>
+            <h2 className="text-4xl font-extrabold text-center">
+              {cp.how.heading1}{" "}
+              <span style={{ color: "var(--brand-cyan)" }}>{cp.how.heading2}</span>
+            </h2>
           </Reveal>
           <div className="grid md:grid-cols-4 gap-6 mt-12">
             {[
@@ -805,14 +855,19 @@ function CupsPage() {
       {/* FAQ */}
       <section id="faq" className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-24">
         <Reveal>
-          <h2 className="text-4xl font-extrabold text-center">{cp.faq.heading1} <span style={{ color: "var(--brand-cyan)" }}>{cp.faq.heading2}</span></h2>
-          <p className="text-center mt-3 text-foreground/75">
-            {cp.faq.sub}
-          </p>
+          <h2 className="text-4xl font-extrabold text-center">
+            {cp.faq.heading1} <span style={{ color: "var(--brand-cyan)" }}>{cp.faq.heading2}</span>
+          </h2>
+          <p className="text-center mt-3 text-foreground/75">{cp.faq.sub}</p>
         </Reveal>
         <div className="mt-10 grid gap-4 md:grid-cols-2">
           {cupsFaqsT.map((f, idx) => {
-            const tones = ["card-light-cyan", "card-light-pink", "card-light-yellow", "card-light-lime"];
+            const tones = [
+              "card-light-cyan",
+              "card-light-pink",
+              "card-light-yellow",
+              "card-light-lime",
+            ];
             const accents = ["#0ea5e9", "#ec4899", "#eab308", "#84cc16"];
             const tone = tones[idx % tones.length];
             const accent = accents[idx % accents.length];
@@ -844,10 +899,17 @@ function CupsPage() {
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[color:var(--brand-cyan)] opacity-75" />
                   <span className="relative inline-flex h-2 w-2 rounded-full bg-[color:var(--brand-cyan)]" />
                 </span>
-                {locale === "pl" ? "Interaktywny formularz" : locale === "is" ? "Gagnvirkt eyðublað" : "Interactive form"}
+                {locale === "pl"
+                  ? "Interaktywny formularz"
+                  : locale === "is"
+                    ? "Gagnvirkt eyðublað"
+                    : "Interactive form"}
               </span>
             </div>
-            <h2 className="text-4xl font-extrabold">{cp.quote.heading1} <span style={{ color: "var(--brand-cyan)" }}>{cp.quote.heading2}</span></h2>
+            <h2 className="text-4xl font-extrabold">
+              {cp.quote.heading1}{" "}
+              <span style={{ color: "var(--brand-cyan)" }}>{cp.quote.heading2}</span>
+            </h2>
             <p className="mt-3 text-muted-foreground">{cp.quote.sub}</p>
           </div>
           <CupsQuoteForm />
@@ -891,7 +953,16 @@ function CupsQuoteForm() {
     lining: string;
     note: string;
   };
-  const emptyDraft: Item = { productIdx: -1, product: "", quantity: "", timing: "", size: "", finish: "", lining: "", note: "" };
+  const emptyDraft: Item = {
+    productIdx: -1,
+    product: "",
+    quantity: "",
+    timing: "",
+    size: "",
+    finish: "",
+    lining: "",
+    note: "",
+  };
 
   const [step, setStep] = useState(0); // 0 path picker; configure: 1 product, 2 specs, 3 list, 4 contact; brief/sample: 1 form, 2 contact
   const [path, setPath] = useState<"" | "configure" | "brief" | "sample">("");
@@ -905,8 +976,9 @@ function CupsQuoteForm() {
   const [dismissedAddons, setDismissedAddons] = useState<string[]>([]);
 
   const [contact, setContact] = useState({ name: "", email: "", phone: "", notes: "" });
-  const updateContact = (k: keyof typeof contact) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
-    setContact((c) => ({ ...c, [k]: e.target.value }));
+  const updateContact =
+    (k: keyof typeof contact) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
+      setContact((c) => ({ ...c, [k]: e.target.value }));
 
   // Auto-save wizard progress to localStorage so users don't lose their work on refresh/reset.
   const STORAGE_KEY = "cups_wizard_progress_v1";
@@ -942,15 +1014,43 @@ function CupsQuoteForm() {
       window.localStorage.setItem(
         STORAGE_KEY,
         JSON.stringify({
-          step, path, subStep, items, draft, editingIdx, dismissedAddons,
-          briefMessage, sampleInterest, sampleAddress, contact,
-          needsDesign, pantoneMatch, pantoneCodes,
+          step,
+          path,
+          subStep,
+          items,
+          draft,
+          editingIdx,
+          dismissedAddons,
+          briefMessage,
+          sampleInterest,
+          sampleAddress,
+          contact,
+          needsDesign,
+          pantoneMatch,
+          pantoneCodes,
         }),
       );
     } catch {
       /* ignore quota errors */
     }
-  }, [hydrated, submitted, step, path, subStep, items, draft, editingIdx, dismissedAddons, briefMessage, sampleInterest, sampleAddress, contact, needsDesign, pantoneMatch, pantoneCodes]);
+  }, [
+    hydrated,
+    submitted,
+    step,
+    path,
+    subStep,
+    items,
+    draft,
+    editingIdx,
+    dismissedAddons,
+    briefMessage,
+    sampleInterest,
+    sampleAddress,
+    contact,
+    needsDesign,
+    pantoneMatch,
+    pantoneCodes,
+  ]);
 
   const draftMeta = draft.productIdx >= 0 ? byProduct[draft.productIdx] : undefined;
   const sizeOptionsRaw = draftMeta?.sizes ?? [];
@@ -982,7 +1082,10 @@ function CupsQuoteForm() {
       out.push({ key: "straws", label: addonLabels.straws, productIdx: 7 });
     }
     // Wooden stirrers for any hot paper cup (single-wall, double-wall, stock plain)
-    if (items.some((i) => i.productIdx === 1 || i.productIdx === 2 || i.productIdx === 3) && !haveIdx.has(8)) {
+    if (
+      items.some((i) => i.productIdx === 1 || i.productIdx === 2 || i.productIdx === 3) &&
+      !haveIdx.has(8)
+    ) {
       out.push({ key: "stirrers", label: addonLabels.stirrers, productIdx: 8 });
     }
     // Ice-cream sticks for bowls
@@ -991,7 +1094,7 @@ function CupsQuoteForm() {
     }
     // BIO lining upsell: any paper cup / bowl already in list whose lining isn't BIO
     const hasNonBioPaperItem = items.some(
-      (i) => [1, 2, 3, 5].includes(i.productIdx) && i.lining && !/bio/i.test(i.lining)
+      (i) => [1, 2, 3, 5].includes(i.productIdx) && i.lining && !/bio/i.test(i.lining),
     );
     if (hasNonBioPaperItem && !dismissedAddons.includes("bioLining")) {
       out.push({ key: "bioLining", label: addonLabels.bioLining, productIdx: -1 });
@@ -1037,8 +1140,8 @@ function CupsQuoteForm() {
           arr.map((it) =>
             [1, 2, 3, 5].includes(it.productIdx) && it.lining && !/bio/i.test(it.lining)
               ? { ...it, lining: bioLabel || it.lining }
-              : it
-          )
+              : it,
+          ),
         );
       }
     } else {
@@ -1055,10 +1158,10 @@ function CupsQuoteForm() {
     path === "configure"
       ? [wz.s0, wz.s1, wz.s2, wz.s3, wz.s4]
       : path === "brief"
-      ? [wz.s0, wz.briefTitle, wz.s4]
-      : path === "sample"
-      ? [wz.s0, wz.sampleTitle, wz.s4]
-      : [wz.s0];
+        ? [wz.s0, wz.briefTitle, wz.s4]
+        : path === "sample"
+          ? [wz.s0, wz.sampleTitle, wz.s4]
+          : [wz.s0];
   const totalSteps = stepLabels.length;
   const stepLabel = (n: number) => stepLabels[n] ?? "";
 
@@ -1079,7 +1182,7 @@ function CupsQuoteForm() {
       // Upload attached file (if any) to storage first
       const attachments: Array<{ name: string; url: string; size: number; type: string }> = [];
       if (pendingFile) {
-        const safeName = pendingFile.name.replace(/[^\w.\-]+/g, "_");
+        const safeName = pendingFile.name.replace(/[^\w.-]+/g, "_");
         const path = `quote-attachments/${crypto.randomUUID()}/${safeName}`;
         const { supabase } = await import("@/integrations/supabase/client");
         const { error: upErr } = await supabase.storage
@@ -1100,22 +1203,26 @@ function CupsQuoteForm() {
           type: pendingFile.type || "application/octet-stream",
         });
       }
-      const itemsBlock = items.map((it, i) => {
-        const lines = [
-          `#${i + 1} ${it.product}`,
-          it.quantity && `  Qty: ${it.quantity}`,
-          it.size && `  Size: ${it.size}`,
-          it.finish && `  Colour/finish: ${it.finish}`,
-          it.lining && `  Lining: ${it.lining}`,
-          it.timing && `  Timing: ${it.timing}`,
-          it.note && `  Note: ${it.note}`,
-        ].filter(Boolean);
-        return lines.join("\n");
-      }).join("\n\n");
+      const itemsBlock = items
+        .map((it, i) => {
+          const lines = [
+            `#${i + 1} ${it.product}`,
+            it.quantity && `  Qty: ${it.quantity}`,
+            it.size && `  Size: ${it.size}`,
+            it.finish && `  Colour/finish: ${it.finish}`,
+            it.lining && `  Lining: ${it.lining}`,
+            it.timing && `  Timing: ${it.timing}`,
+            it.note && `  Note: ${it.note}`,
+          ].filter(Boolean);
+          return lines.join("\n");
+        })
+        .join("\n\n");
       const pathLabel =
-        path === "brief" ? "[BRIEF UPLOAD]" :
-        path === "sample" ? "[SAMPLE REQUEST]" :
-        "[CONFIGURATOR]";
+        path === "brief"
+          ? "[BRIEF UPLOAD]"
+          : path === "sample"
+            ? "[SAMPLE REQUEST]"
+            : "[CONFIGURATOR]";
       const projectDetails = [
         pathLabel,
         path === "configure" && itemsBlock,
@@ -1123,9 +1230,12 @@ function CupsQuoteForm() {
         path === "sample" && sampleInterest && `Interested in: ${sampleInterest}`,
         path === "sample" && sampleAddress && `Address: ${sampleAddress}`,
         // Attachments are shown separately in the email/admin — don't duplicate here
-        pantoneMatch && `Pantone match requested${pantoneCodes ? `: ${pantoneCodes}` : " (codes to be confirmed)"}`,
+        pantoneMatch &&
+          `Pantone match requested${pantoneCodes ? `: ${pantoneCodes}` : " (codes to be confirmed)"}`,
         contact.notes && `Notes: ${contact.notes}`,
-      ].filter(Boolean).join("\n\n");
+      ]
+        .filter(Boolean)
+        .join("\n\n");
       const res = await fetch("/api/public/quote", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -1134,12 +1244,19 @@ function CupsQuoteForm() {
           name: contact.name,
           email: contact.email,
           phone: contact.phone,
-          productType: path === "configure"
-            ? items.map((i) => i.product).join(" + ")
-            : path === "sample" ? "Sample request" : "Brief upload",
-          quantity: path === "configure"
-            ? items.map((i) => i.quantity).filter(Boolean).join(" / ")
-            : "",
+          productType:
+            path === "configure"
+              ? items.map((i) => i.product).join(" + ")
+              : path === "sample"
+                ? "Sample request"
+                : "Brief upload",
+          quantity:
+            path === "configure"
+              ? items
+                  .map((i) => i.quantity)
+                  .filter(Boolean)
+                  .join(" / ")
+              : "",
           projectDetails,
           needsDesigner: needsDesign === "yes",
           attachments,
@@ -1147,17 +1264,36 @@ function CupsQuoteForm() {
       });
       if (!res.ok) throw new Error("Submit failed");
       let submissionId: string | undefined;
-      try { submissionId = (await res.clone().json())?.id; } catch { /* ignore */ }
+      try {
+        submissionId = (await res.clone().json())?.id;
+      } catch {
+        /* ignore */
+      }
       trackLead({
         path,
         email: contact.email,
         phone: contact.phone,
-        productType: path === "configure" ? items.map((i) => i.product).join(" + ") : (path === "sample" ? "Sample request" : "Brief upload"),
-        quantity: path === "configure" ? items.map((i) => i.quantity).filter(Boolean).join(" / ") : undefined,
+        productType:
+          path === "configure"
+            ? items.map((i) => i.product).join(" + ")
+            : path === "sample"
+              ? "Sample request"
+              : "Brief upload",
+        quantity:
+          path === "configure"
+            ? items
+                .map((i) => i.quantity)
+                .filter(Boolean)
+                .join(" / ")
+            : undefined,
         submissionId,
       });
       setSubmitted(true);
-      try { window.localStorage.removeItem(STORAGE_KEY); } catch { /* ignore */ }
+      try {
+        window.localStorage.removeItem(STORAGE_KEY);
+      } catch {
+        /* ignore */
+      }
       navigate({ to: "/thank-you" });
     } catch {
       setErrorMsg("Something went wrong. Please try again.");
@@ -1166,7 +1302,9 @@ function CupsQuoteForm() {
     }
   };
 
-  const canNextFromSpecs = draft.productIdx >= 0 && draft.quantity !== "" &&
+  const canNextFromSpecs =
+    draft.productIdx >= 0 &&
+    draft.quantity !== "" &&
     (sizeOptions.length === 0 || draft.size !== "") &&
     (finishOptions.length === 0 || draft.finish !== "");
 
@@ -1188,7 +1326,11 @@ function CupsQuoteForm() {
     setPantoneMatch(false);
     setPantoneCodes("");
     setErrorMsg("");
-    try { window.localStorage.removeItem(STORAGE_KEY); } catch { /* ignore */ }
+    try {
+      window.localStorage.removeItem(STORAGE_KEY);
+    } catch {
+      /* ignore */
+    }
   };
 
   return (
@@ -1204,15 +1346,23 @@ function CupsQuoteForm() {
             >
               {step > idx ? <Check size={14} /> : idx + 1}
             </div>
-            <div className={`hidden sm:block text-xs font-semibold uppercase tracking-wider truncate ${step >= idx ? "text-[#333]" : "text-[#aaa]"}`}>
+            <div
+              className={`hidden sm:block text-xs font-semibold uppercase tracking-wider truncate ${step >= idx ? "text-[#333]" : "text-[#aaa]"}`}
+            >
               {stepLabel(idx)}
             </div>
-            {idx < stepLabels.length - 1 && <div className={`hidden sm:block flex-1 h-0.5 ${step > idx ? "bg-[#00AEEF]" : "bg-[#eee]"}`} />}
+            {idx < stepLabels.length - 1 && (
+              <div
+                className={`hidden sm:block flex-1 h-0.5 ${step > idx ? "bg-[#00AEEF]" : "bg-[#eee]"}`}
+              />
+            )}
           </div>
         ))}
       </div>
       <div className="flex items-center justify-between gap-3 mb-4">
-        <div className="text-xs text-[#888]">{wz.step} {step + 1} {wz.of} {totalSteps}</div>
+        <div className="text-xs text-[#888]">
+          {wz.step} {step + 1} {wz.of} {totalSteps}
+        </div>
         {(step > 0 || path !== "") && (
           <button
             type="button"
@@ -1228,18 +1378,30 @@ function CupsQuoteForm() {
       {step === 0 && (
         <div>
           <p className="inline-flex items-center gap-2 rounded-lg bg-[#00AEEF]/10 border border-[#00AEEF]/30 px-3 py-1.5 text-sm font-semibold text-[#00AEEF]">
-            <span aria-hidden>👇</span>{wz.pickPathHint}
+            <span aria-hidden>👇</span>
+            {wz.pickPathHint}
           </p>
           <div className="mt-5 grid gap-3 sm:grid-cols-3">
-            {([
-              { key: "configure", title: wz.pathConfigureTitle, desc: wz.pathConfigureDesc, icon: "⚙️" },
-              { key: "brief", title: wz.pathBriefTitle, desc: wz.pathBriefDesc, icon: "📄" },
-              { key: "sample", title: wz.pathSampleTitle, desc: wz.pathSampleDesc, icon: "🧪" },
-            ] as const).map((opt) => (
+            {(
+              [
+                {
+                  key: "configure",
+                  title: wz.pathConfigureTitle,
+                  desc: wz.pathConfigureDesc,
+                  icon: "⚙️",
+                },
+                { key: "brief", title: wz.pathBriefTitle, desc: wz.pathBriefDesc, icon: "📄" },
+                { key: "sample", title: wz.pathSampleTitle, desc: wz.pathSampleDesc, icon: "🧪" },
+              ] as const
+            ).map((opt) => (
               <button
                 key={opt.key}
                 type="button"
-                onClick={() => { setPath(opt.key); setStep(1); trackFunnelStart(opt.key); }}
+                onClick={() => {
+                  setPath(opt.key);
+                  setStep(1);
+                  trackFunnelStart(opt.key);
+                }}
                 className="text-left rounded-xl border-2 border-[#eee] bg-[#f9f9f9] hover:border-[#00AEEF] hover:bg-[#00AEEF]/5 p-5 transition-colors"
               >
                 <div className="text-3xl">{opt.icon}</div>
@@ -1274,9 +1436,7 @@ function CupsQuoteForm() {
                 }}
               />
               <div className="text-3xl leading-none">📎</div>
-              <div className="font-semibold text-[#222]">
-                {fileName || wz.briefFileCta}
-              </div>
+              <div className="font-semibold text-[#222]">{fileName || wz.briefFileCta}</div>
               <div className="text-xs text-[#777]">{wz.briefFileHint}</div>
             </label>
           </div>
@@ -1284,7 +1444,8 @@ function CupsQuoteForm() {
           {/* Secondary: optional note */}
           <label className="mt-5 flex flex-col gap-1.5">
             <span className="text-xs font-bold uppercase tracking-wider text-[#555]">
-              {wz.briefMessage} <span className="text-[#999] normal-case font-normal">({wz.optional})</span>
+              {wz.briefMessage}{" "}
+              <span className="text-[#999] normal-case font-normal">({wz.optional})</span>
             </span>
             <textarea
               rows={4}
@@ -1295,13 +1456,22 @@ function CupsQuoteForm() {
             />
           </label>
           <div className="mt-6 flex items-center justify-between gap-3">
-            <button type="button" onClick={() => { setStep(0); }}
-              className="inline-flex items-center gap-2 rounded-md px-4 py-2.5 text-sm font-semibold text-[#555] border-2 border-[#eee] hover:border-[#bbb]">
+            <button
+              type="button"
+              onClick={() => {
+                setStep(0);
+              }}
+              className="inline-flex items-center gap-2 rounded-md px-4 py-2.5 text-sm font-semibold text-[#555] border-2 border-[#eee] hover:border-[#bbb]"
+            >
               <ArrowLeft size={16} /> {wz.back}
             </button>
-            <button type="button" disabled={!briefMessage && !fileName} onClick={() => setStep(2)}
+            <button
+              type="button"
+              disabled={!briefMessage && !fileName}
+              onClick={() => setStep(2)}
               className="inline-flex items-center gap-2 rounded-md px-5 py-2.5 text-sm font-semibold text-white disabled:opacity-40"
-              style={{ background: "var(--gradient-cyan)" }}>
+              style={{ background: "var(--gradient-cyan)" }}
+            >
               {wz.next} <ArrowRight size={16} />
             </button>
           </div>
@@ -1314,7 +1484,9 @@ function CupsQuoteForm() {
           <h3 className="text-xl font-bold text-[#222]">{wz.sampleTitle}</h3>
           <p className="text-sm text-[#777] mt-1">{wz.sampleHint}</p>
           <label className="mt-5 flex flex-col gap-1.5">
-            <span className="text-xs font-bold uppercase tracking-wider text-[#555]">{wz.sampleInterest}</span>
+            <span className="text-xs font-bold uppercase tracking-wider text-[#555]">
+              {wz.sampleInterest}
+            </span>
             <textarea
               rows={4}
               value={sampleInterest}
@@ -1324,7 +1496,9 @@ function CupsQuoteForm() {
             />
           </label>
           <label className="mt-4 flex flex-col gap-1.5">
-            <span className="text-xs font-bold uppercase tracking-wider text-[#555]">{wz.sampleAddress}</span>
+            <span className="text-xs font-bold uppercase tracking-wider text-[#555]">
+              {wz.sampleAddress}
+            </span>
             <input
               value={sampleAddress}
               onChange={(e) => setSampleAddress(e.target.value)}
@@ -1333,13 +1507,20 @@ function CupsQuoteForm() {
             />
           </label>
           <div className="mt-6 flex items-center justify-between gap-3">
-            <button type="button" onClick={() => setStep(0)}
-              className="inline-flex items-center gap-2 rounded-md px-4 py-2.5 text-sm font-semibold text-[#555] border-2 border-[#eee] hover:border-[#bbb]">
+            <button
+              type="button"
+              onClick={() => setStep(0)}
+              className="inline-flex items-center gap-2 rounded-md px-4 py-2.5 text-sm font-semibold text-[#555] border-2 border-[#eee] hover:border-[#bbb]"
+            >
               <ArrowLeft size={16} /> {wz.back}
             </button>
-            <button type="button" disabled={!sampleInterest} onClick={() => setStep(2)}
+            <button
+              type="button"
+              disabled={!sampleInterest}
+              onClick={() => setStep(2)}
               className="inline-flex items-center gap-2 rounded-md px-5 py-2.5 text-sm font-semibold text-white disabled:opacity-40"
-              style={{ background: "var(--gradient-cyan)" }}>
+              style={{ background: "var(--gradient-cyan)" }}
+            >
               {wz.next} <ArrowRight size={16} />
             </button>
           </div>
@@ -1404,7 +1585,8 @@ function CupsQuoteForm() {
                         : "border-[#ccc] bg-white text-[#555] hover:border-[#888]"
                     }`}
                   >
-                    <span className="mr-2">💬</span>{p}
+                    <span className="mr-2">💬</span>
+                    {p}
                   </button>
                 );
               })}
@@ -1414,7 +1596,11 @@ function CupsQuoteForm() {
           <div className="mt-6 flex items-center justify-between gap-3">
             <button
               type="button"
-              onClick={() => { setPath(""); setStep(0); setDraft(emptyDraft); }}
+              onClick={() => {
+                setPath("");
+                setStep(0);
+                setDraft(emptyDraft);
+              }}
               className="inline-flex items-center gap-2 rounded-md px-4 py-2.5 text-sm font-semibold text-[#555] border-2 border-[#eee] hover:border-[#bbb]"
             >
               <ArrowLeft size={16} /> {wz.back}
@@ -1433,162 +1619,208 @@ function CupsQuoteForm() {
       )}
 
       {/* CONFIGURE STEP 2: configure (one question per screen) */}
-      {path === "configure" && step === 2 && (() => {
-        type Q = { key: keyof Item; label: string; options: string[]; kind?: "choice" | "text"; placeholder?: string; required?: boolean };
-        const queue: Q[] = [];
-        // Special path: "Not sure / advise me" (idx 0) or "Something else / mix" (idx 10)
-        // Skip size/finish/lining — ask for a free-text description instead
-        const isOpenEnded = draft.productIdx === 0 || draft.productIdx === 10;
-        if (isOpenEnded) {
-          queue.push({
-            key: "note",
-            label: t("cupsPage.quote.wizard.tellUsMore"),
-            options: [],
-            kind: "text",
-            placeholder: t("cupsPage.quote.wizard.tellUsMorePlaceholder"),
-            required: true,
-          });
-        } else {
-        // For bowls (idx 5), ask lining FIRST so we can hide sizes that aren't available for BIO.
-        const liningFirst = draft.productIdx === 5;
-        if (liningFirst && liningOptions.length > 0) queue.push({ key: "lining", label: t("cupsPage.quote.lining"), options: liningOptions });
-        if (sizeOptions.length > 0) queue.push({ key: "size", label: t("cupsPage.quote.size"), options: sizeOptions });
-        if (finishOptions.length > 0) queue.push({ key: "finish", label: t("cupsPage.quote.finish"), options: finishOptions });
-        if (!liningFirst && liningOptions.length > 0) queue.push({ key: "lining", label: t("cupsPage.quote.lining"), options: liningOptions });
-          // If user picked "Mix of sizes", ask for the mix breakdown (optional)
-          if (/mix/i.test(draft.size)) {
+      {path === "configure" &&
+        step === 2 &&
+        (() => {
+          type Q = {
+            key: keyof Item;
+            label: string;
+            options: string[];
+            kind?: "choice" | "text";
+            placeholder?: string;
+            required?: boolean;
+          };
+          const queue: Q[] = [];
+          // Special path: "Not sure / advise me" (idx 0) or "Something else / mix" (idx 10)
+          // Skip size/finish/lining — ask for a free-text description instead
+          const isOpenEnded = draft.productIdx === 0 || draft.productIdx === 10;
+          if (isOpenEnded) {
             queue.push({
               key: "note",
-              label: t("cupsPage.quote.wizard.mixDetails"),
+              label: t("cupsPage.quote.wizard.tellUsMore"),
               options: [],
               kind: "text",
-              placeholder: t("cupsPage.quote.wizard.mixDetailsPlaceholder"),
-              required: false,
+              placeholder: t("cupsPage.quote.wizard.tellUsMorePlaceholder"),
+              required: true,
             });
-          }
-        }
-        queue.push({ key: "quantity", label: t("cupsPage.quote.quantity"), options: tArray("cupsPage.quote.quantities") });
-        queue.push({ key: "timing", label: t("cupsPage.quote.timing"), options: tArray("cupsPage.quote.timings") });
-
-        const safeIdx = Math.min(subStep, queue.length - 1);
-        const q = queue[safeIdx];
-        const value = (draft[q.key] as string) || "";
-        const required = q.required !== undefined ? q.required : q.key !== "timing"; // timing optional
-        const isLast = safeIdx === queue.length - 1;
-        const goPrev = () => {
-          if (safeIdx === 0) {
-            setSubStep(0);
-            setStep(1);
           } else {
-            setSubStep(safeIdx - 1);
+            // For bowls (idx 5), ask lining FIRST so we can hide sizes that aren't available for BIO.
+            const liningFirst = draft.productIdx === 5;
+            if (liningFirst && liningOptions.length > 0)
+              queue.push({
+                key: "lining",
+                label: t("cupsPage.quote.lining"),
+                options: liningOptions,
+              });
+            if (sizeOptions.length > 0)
+              queue.push({ key: "size", label: t("cupsPage.quote.size"), options: sizeOptions });
+            if (finishOptions.length > 0)
+              queue.push({
+                key: "finish",
+                label: t("cupsPage.quote.finish"),
+                options: finishOptions,
+              });
+            if (!liningFirst && liningOptions.length > 0)
+              queue.push({
+                key: "lining",
+                label: t("cupsPage.quote.lining"),
+                options: liningOptions,
+              });
+            // If user picked "Mix of sizes", ask for the mix breakdown (optional)
+            if (/mix/i.test(draft.size)) {
+              queue.push({
+                key: "note",
+                label: t("cupsPage.quote.wizard.mixDetails"),
+                options: [],
+                kind: "text",
+                placeholder: t("cupsPage.quote.wizard.mixDetailsPlaceholder"),
+                required: false,
+              });
+            }
           }
-        };
-        const goNext = () => {
-          if (isLast) {
-            commitDraft();
-            setSubStep(0);
-          } else {
-            setSubStep(safeIdx + 1);
-          }
-        };
-        return (
-          <div>
-            <div className="text-xs uppercase tracking-wider text-[#999] font-semibold">{draft.product}</div>
-            <h3 className="mt-1 text-2xl font-bold text-[#222]">{q.label}</h3>
-            <div className="mt-1 text-xs text-[#aaa]">{safeIdx + 1} / {queue.length}</div>
+          queue.push({
+            key: "quantity",
+            label: t("cupsPage.quote.quantity"),
+            options: tArray("cupsPage.quote.quantities"),
+          });
+          queue.push({
+            key: "timing",
+            label: t("cupsPage.quote.timing"),
+            options: tArray("cupsPage.quote.timings"),
+          });
 
-            {q.kind === "text" ? (
-              <div className="mt-5">
-                <textarea
-                  rows={5}
-                  value={value}
-                  onChange={(e) => setDraft((d) => ({ ...d, [q.key]: e.target.value }))}
-                  placeholder={q.placeholder}
-                  className="w-full rounded-lg border-2 border-[#eee] bg-[#f9f9f9] text-[#333] placeholder:text-[#999] px-4 py-[14px] text-sm outline-none focus:border-[#333] focus:bg-white transition-colors min-h-[120px] resize-y"
-                />
+          const safeIdx = Math.min(subStep, queue.length - 1);
+          const q = queue[safeIdx];
+          const value = (draft[q.key] as string) || "";
+          const required = q.required !== undefined ? q.required : q.key !== "timing"; // timing optional
+          const isLast = safeIdx === queue.length - 1;
+          const goPrev = () => {
+            if (safeIdx === 0) {
+              setSubStep(0);
+              setStep(1);
+            } else {
+              setSubStep(safeIdx - 1);
+            }
+          };
+          const goNext = () => {
+            if (isLast) {
+              commitDraft();
+              setSubStep(0);
+            } else {
+              setSubStep(safeIdx + 1);
+            }
+          };
+          return (
+            <div>
+              <div className="text-xs uppercase tracking-wider text-[#999] font-semibold">
+                {draft.product}
               </div>
-            ) : (
-            <>
-            <div className="mt-5 grid gap-2 sm:grid-cols-2">
-              {q.options.map((opt) => (
+              <h3 className="mt-1 text-2xl font-bold text-[#222]">{q.label}</h3>
+              <div className="mt-1 text-xs text-[#aaa]">
+                {safeIdx + 1} / {queue.length}
+              </div>
+
+              {q.kind === "text" ? (
+                <div className="mt-5">
+                  <textarea
+                    rows={5}
+                    value={value}
+                    onChange={(e) => setDraft((d) => ({ ...d, [q.key]: e.target.value }))}
+                    placeholder={q.placeholder}
+                    className="w-full rounded-lg border-2 border-[#eee] bg-[#f9f9f9] text-[#333] placeholder:text-[#999] px-4 py-[14px] text-sm outline-none focus:border-[#333] focus:bg-white transition-colors min-h-[120px] resize-y"
+                  />
+                </div>
+              ) : (
+                <>
+                  <div className="mt-5 grid gap-2 sm:grid-cols-2">
+                    {q.options.map((opt) => (
+                      <button
+                        key={opt}
+                        type="button"
+                        onClick={() => {
+                          setDraft((d) => ({ ...d, [q.key]: opt }));
+                          if (isLast) {
+                            // commit on last selection
+                            setTimeout(() => {
+                              commitDraft();
+                              setSubStep(0);
+                            }, 120);
+                          } else {
+                            setTimeout(() => setSubStep(safeIdx + 1), 120);
+                          }
+                        }}
+                        className={`text-left rounded-lg border-2 px-4 py-3 text-sm transition-colors ${
+                          value === opt
+                            ? "border-[#00AEEF] bg-[#00AEEF]/5 text-[#222] font-semibold"
+                            : "border-[#eee] bg-[#f9f9f9] hover:border-[#bbb]"
+                        }`}
+                      >
+                        {opt}
+                      </button>
+                    ))}
+                  </div>
+                  {q.key === "quantity" && (
+                    <div className="mt-4">
+                      <label className="block text-xs font-bold uppercase tracking-wider text-[#666] mb-2">
+                        {t("cupsPage.quote.wizard.customQuantityLabel")}
+                      </label>
+                      <input
+                        type="number"
+                        min={1000}
+                        step={100}
+                        inputMode="numeric"
+                        placeholder={t("cupsPage.quote.wizard.customQuantityPlaceholder")}
+                        value={q.options.includes(value) ? "" : value}
+                        onChange={(e) => {
+                          const raw = e.target.value;
+                          setDraft((d) => ({ ...d, quantity: raw }));
+                        }}
+                        className="w-full rounded-lg border-2 border-[#eee] bg-[#f9f9f9] text-[#333] placeholder:text-[#999] px-4 py-[12px] text-sm outline-none focus:border-[#333] focus:bg-white transition-colors"
+                      />
+                      <p className="mt-1.5 text-xs text-[#888]">
+                        {t("cupsPage.quote.wizard.customQuantityHint")}
+                      </p>
+                      {value &&
+                        !q.options.includes(value) &&
+                        Number(value) > 0 &&
+                        Number(value) < 1000 && (
+                          <p className="mt-1.5 text-xs font-semibold text-red-600">
+                            {t("cupsPage.quote.wizard.quantityMinError")}
+                          </p>
+                        )}
+                    </div>
+                  )}
+                </>
+              )}
+
+              <div className="mt-6 flex items-center justify-between gap-3">
                 <button
-                  key={opt}
                   type="button"
-                  onClick={() => {
-                    setDraft((d) => ({ ...d, [q.key]: opt }));
-                    if (isLast) {
-                      // commit on last selection
-                      setTimeout(() => { commitDraft(); setSubStep(0); }, 120);
-                    } else {
-                      setTimeout(() => setSubStep(safeIdx + 1), 120);
-                    }
-                  }}
-                  className={`text-left rounded-lg border-2 px-4 py-3 text-sm transition-colors ${
-                    value === opt
-                      ? "border-[#00AEEF] bg-[#00AEEF]/5 text-[#222] font-semibold"
-                      : "border-[#eee] bg-[#f9f9f9] hover:border-[#bbb]"
-                  }`}
+                  onClick={goPrev}
+                  className="inline-flex items-center gap-2 rounded-md px-4 py-2.5 text-sm font-semibold text-[#555] border-2 border-[#eee] hover:border-[#bbb]"
                 >
-                  {opt}
+                  <ArrowLeft size={16} /> {wz.back}
                 </button>
-              ))}
-            </div>
-            {q.key === "quantity" && (
-              <div className="mt-4">
-                <label className="block text-xs font-bold uppercase tracking-wider text-[#666] mb-2">
-                  {t("cupsPage.quote.wizard.customQuantityLabel")}
-                </label>
-                <input
-                  type="number"
-                  min={1000}
-                  step={100}
-                  inputMode="numeric"
-                  placeholder={t("cupsPage.quote.wizard.customQuantityPlaceholder")}
-                  value={q.options.includes(value) ? "" : value}
-                  onChange={(e) => {
-                    const raw = e.target.value;
-                    setDraft((d) => ({ ...d, quantity: raw }));
-                  }}
-                  className="w-full rounded-lg border-2 border-[#eee] bg-[#f9f9f9] text-[#333] placeholder:text-[#999] px-4 py-[12px] text-sm outline-none focus:border-[#333] focus:bg-white transition-colors"
-                />
-                <p className="mt-1.5 text-xs text-[#888]">
-                  {t("cupsPage.quote.wizard.customQuantityHint")}
-                </p>
-                {value && !q.options.includes(value) && Number(value) > 0 && Number(value) < 1000 && (
-                  <p className="mt-1.5 text-xs font-semibold text-red-600">
-                    {t("cupsPage.quote.wizard.quantityMinError")}
-                  </p>
-                )}
+                <button
+                  type="button"
+                  disabled={
+                    (required && !value) ||
+                    (q.key === "quantity" &&
+                      !!value &&
+                      !q.options.includes(value) &&
+                      Number(value) < 1000)
+                  }
+                  onClick={goNext}
+                  className="inline-flex items-center gap-2 rounded-md px-5 py-2.5 text-sm font-semibold text-white disabled:opacity-40"
+                  style={{ background: "var(--gradient-cyan)" }}
+                >
+                  {isLast ? (editingIdx !== null ? wz.updateItem : wz.addToList) : wz.next}
+                  {isLast ? <Check size={16} /> : <ArrowRight size={16} />}
+                </button>
               </div>
-            )}
-            </>
-            )}
-
-            <div className="mt-6 flex items-center justify-between gap-3">
-              <button
-                type="button"
-                onClick={goPrev}
-                className="inline-flex items-center gap-2 rounded-md px-4 py-2.5 text-sm font-semibold text-[#555] border-2 border-[#eee] hover:border-[#bbb]"
-              >
-                <ArrowLeft size={16} /> {wz.back}
-              </button>
-              <button
-                type="button"
-                disabled={
-                  (required && !value) ||
-                  (q.key === "quantity" && !!value && !q.options.includes(value) && Number(value) < 1000)
-                }
-                onClick={goNext}
-                className="inline-flex items-center gap-2 rounded-md px-5 py-2.5 text-sm font-semibold text-white disabled:opacity-40"
-                style={{ background: "var(--gradient-cyan)" }}
-              >
-                {isLast ? (editingIdx !== null ? wz.updateItem : wz.addToList) : wz.next}
-                {isLast ? <Check size={16} /> : <ArrowRight size={16} />}
-              </button>
             </div>
-          </div>
-        );
-      })()}
+          );
+        })()}
 
       {/* CONFIGURE STEP 3: list + addons */}
       {path === "configure" && step === 3 && (
@@ -1599,11 +1831,18 @@ function CupsQuoteForm() {
           ) : (
             <ul className="mt-4 space-y-2">
               {items.map((it, i) => (
-                <li key={i} className="rounded-lg border-2 border-[#eee] bg-[#f9f9f9] p-3 flex items-start gap-3">
+                <li
+                  key={i}
+                  className="rounded-lg border-2 border-[#eee] bg-[#f9f9f9] p-3 flex items-start gap-3"
+                >
                   <div className="flex-1 min-w-0">
                     <div className="font-semibold text-sm text-[#222]">{it.product}</div>
                     <div className="text-xs text-[#666] mt-1 flex flex-wrap gap-x-3 gap-y-0.5">
-                      {it.quantity && <span>{wz.qty}: {it.quantity}</span>}
+                      {it.quantity && (
+                        <span>
+                          {wz.qty}: {it.quantity}
+                        </span>
+                      )}
                       {it.size && <span>{it.size}</span>}
                       {it.finish && <span>{it.finish}</span>}
                       {it.lining && <span>{it.lining}</span>}
@@ -1612,10 +1851,20 @@ function CupsQuoteForm() {
                       <div className="text-xs text-[#555] mt-1 italic break-words">"{it.note}"</div>
                     )}
                   </div>
-                  <button type="button" onClick={() => startEdit(i)} className="text-[#00AEEF] hover:opacity-80 p-1" aria-label={wz.edit}>
+                  <button
+                    type="button"
+                    onClick={() => startEdit(i)}
+                    className="text-[#00AEEF] hover:opacity-80 p-1"
+                    aria-label={wz.edit}
+                  >
                     <Pencil size={16} />
                   </button>
-                  <button type="button" onClick={() => removeItem(i)} className="text-[#e11d48] hover:opacity-80 p-1" aria-label={wz.remove}>
+                  <button
+                    type="button"
+                    onClick={() => removeItem(i)}
+                    className="text-[#e11d48] hover:opacity-80 p-1"
+                    aria-label={wz.remove}
+                  >
                     <Trash2 size={16} />
                   </button>
                 </li>
@@ -1627,13 +1876,18 @@ function CupsQuoteForm() {
           {addons.length > 0 && (
             <div className="mt-6 rounded-lg border-2 border-dashed border-[#facc15] bg-[#fefce8] p-4">
               <div className="flex items-center gap-2">
-                <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-[#facc15] text-black text-xs font-bold">★</span>
+                <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-[#facc15] text-black text-xs font-bold">
+                  ★
+                </span>
                 <h4 className="font-bold text-sm text-[#713f12]">{wz.addonsTitle}</h4>
               </div>
               <p className="text-xs text-[#854d0e] mt-1">{wz.addonsHint}</p>
               <div className="mt-3 flex flex-wrap gap-2">
                 {addons.map((a) => (
-                  <div key={a.key} className="inline-flex items-center gap-1 rounded-full bg-white border border-[#facc15] pl-3 pr-1 py-1 text-xs">
+                  <div
+                    key={a.key}
+                    className="inline-flex items-center gap-1 rounded-full bg-white border border-[#facc15] pl-3 pr-1 py-1 text-xs"
+                  >
                     <span className="text-[#713f12] font-medium">{a.label}</span>
                     <button
                       type="button"
@@ -1678,9 +1932,13 @@ function CupsQuoteForm() {
       )}
 
       {/* CONTACT STEP — last for every path */}
-      {((path === "configure" && step === 4) || ((path === "brief" || path === "sample") && step === 2)) && (
+      {((path === "configure" && step === 4) ||
+        ((path === "brief" || path === "sample") && step === 2)) && (
         <form
-          onSubmit={(e) => { e.preventDefault(); submit(); }}
+          onSubmit={(e) => {
+            e.preventDefault();
+            submit();
+          }}
           className="grid gap-4 sm:grid-cols-2 [&>*]:min-w-0"
         >
           <h3 className="sm:col-span-2 text-xl font-bold text-[#222]">{wz.contactStep}</h3>
@@ -1688,7 +1946,9 @@ function CupsQuoteForm() {
           {/* Items summary — only for configure path */}
           {path === "configure" && items.length > 0 && (
             <div className="sm:col-span-2 rounded-lg border-2 border-[#eee] bg-[#f9f9f9] p-3">
-              <div className="text-xs font-bold uppercase tracking-wider text-[#555] mb-2">{wz.itemsSummary}</div>
+              <div className="text-xs font-bold uppercase tracking-wider text-[#555] mb-2">
+                {wz.itemsSummary}
+              </div>
               <ul className="space-y-1 text-xs text-[#444]">
                 {items.map((it, i) => (
                   <li key={i}>
@@ -1702,50 +1962,82 @@ function CupsQuoteForm() {
             </div>
           )}
 
-          <Field label={t("cupsPage.quote.name")} required value={contact.name} onChange={updateContact("name")} />
-          <Field label={t("cupsPage.quote.email")} type="email" required value={contact.email} onChange={updateContact("email")} />
-          <Field label={t("cupsPage.quote.phone")} type="tel" required className="sm:col-span-2" value={contact.phone} onChange={updateContact("phone")} />
+          <Field
+            label={t("cupsPage.quote.name")}
+            required
+            value={contact.name}
+            onChange={updateContact("name")}
+          />
+          <Field
+            label={t("cupsPage.quote.email")}
+            type="email"
+            required
+            value={contact.email}
+            onChange={updateContact("email")}
+          />
+          <Field
+            label={t("cupsPage.quote.phone")}
+            type="tel"
+            required
+            className="sm:col-span-2"
+            value={contact.phone}
+            onChange={updateContact("phone")}
+          />
 
           {/* Design assistance + file upload — only relevant when configuring a product order */}
           {path === "configure" && (
-          <div className="sm:col-span-2 flex flex-col gap-4 rounded-lg border-2 border-[#eee] bg-[#f9f9f9] p-4">
-            <fieldset className="flex flex-col gap-2">
-              <legend className="text-xs font-bold uppercase tracking-wider text-[#555] mb-1">
-                {t("cupsPage.quote.designQuestion")}
-              </legend>
-              <label className="flex items-center gap-2 cursor-pointer text-sm text-[#333]">
-                <input type="radio" name="needsDesign" value="yes" checked={needsDesign === "yes"} onChange={() => setNeedsDesign("yes")} className="h-4 w-4 accent-[#00AEEF]" />
-                {t("cupsPage.quote.designYes")}
-              </label>
-              <label className="flex items-center gap-2 cursor-pointer text-sm text-[#333]">
-                <input type="radio" name="needsDesign" value="no" checked={needsDesign === "no"} onChange={() => setNeedsDesign("no")} className="h-4 w-4 accent-[#00AEEF]" />
-                {t("cupsPage.quote.designNo")}
-              </label>
-            </fieldset>
-            {needsDesign === "no" && (
-              <div className="flex flex-col gap-2 min-w-0 border-t-2 border-[#eee] pt-4">
-                <span className="text-xs font-bold uppercase tracking-wider text-[#555]">
-                  {t("cupsPage.quote.uploadArtwork")}
-                </span>
-                <label className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-lg border-2 border-dashed border-[#ddd] bg-white px-3 py-2.5 text-sm font-medium text-[#333] hover:border-[#bbb] transition-colors">
+            <div className="sm:col-span-2 flex flex-col gap-4 rounded-lg border-2 border-[#eee] bg-[#f9f9f9] p-4">
+              <fieldset className="flex flex-col gap-2">
+                <legend className="text-xs font-bold uppercase tracking-wider text-[#555] mb-1">
+                  {t("cupsPage.quote.designQuestion")}
+                </legend>
+                <label className="flex items-center gap-2 cursor-pointer text-sm text-[#333]">
                   <input
-                    type="file"
-                    className="hidden"
-                    accept=".pdf,.ai,.eps,.psd,.png,.jpg,.jpeg,.svg,.tif,.tiff"
-                    onChange={(e) => {
-                      const f = e.target.files?.[0] ?? null;
-                      setPendingFile(f);
-                      setFileName(f?.name ?? "");
-                    }}
+                    type="radio"
+                    name="needsDesign"
+                    value="yes"
+                    checked={needsDesign === "yes"}
+                    onChange={() => setNeedsDesign("yes")}
+                    className="h-4 w-4 accent-[#00AEEF]"
                   />
-                  {fileName ? t("cupsPage.quote.changeFile") : t("cupsPage.quote.chooseFile")}
+                  {t("cupsPage.quote.designYes")}
                 </label>
-                <span className="text-xs text-[#777] break-words">
-                  {fileName || t("cupsPage.quote.uploadPlaceholder")}
-                </span>
-              </div>
-            )}
-          </div>
+                <label className="flex items-center gap-2 cursor-pointer text-sm text-[#333]">
+                  <input
+                    type="radio"
+                    name="needsDesign"
+                    value="no"
+                    checked={needsDesign === "no"}
+                    onChange={() => setNeedsDesign("no")}
+                    className="h-4 w-4 accent-[#00AEEF]"
+                  />
+                  {t("cupsPage.quote.designNo")}
+                </label>
+              </fieldset>
+              {needsDesign === "no" && (
+                <div className="flex flex-col gap-2 min-w-0 border-t-2 border-[#eee] pt-4">
+                  <span className="text-xs font-bold uppercase tracking-wider text-[#555]">
+                    {t("cupsPage.quote.uploadArtwork")}
+                  </span>
+                  <label className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-lg border-2 border-dashed border-[#ddd] bg-white px-3 py-2.5 text-sm font-medium text-[#333] hover:border-[#bbb] transition-colors">
+                    <input
+                      type="file"
+                      className="hidden"
+                      accept=".pdf,.ai,.eps,.psd,.png,.jpg,.jpeg,.svg,.tif,.tiff"
+                      onChange={(e) => {
+                        const f = e.target.files?.[0] ?? null;
+                        setPendingFile(f);
+                        setFileName(f?.name ?? "");
+                      }}
+                    />
+                    {fileName ? t("cupsPage.quote.changeFile") : t("cupsPage.quote.chooseFile")}
+                  </label>
+                  <span className="text-xs text-[#777] break-words">
+                    {fileName || t("cupsPage.quote.uploadPlaceholder")}
+                  </span>
+                </div>
+              )}
+            </div>
           )}
 
           {/* Pantone match — exact brand colour matching (paid extra) */}
@@ -1774,7 +2066,9 @@ function CupsQuoteForm() {
           </div>
 
           <label className="sm:col-span-2 flex flex-col gap-1.5">
-            <span className="text-xs font-bold uppercase tracking-wider text-[#555]">{t("cupsPage.quote.notes")}</span>
+            <span className="text-xs font-bold uppercase tracking-wider text-[#555]">
+              {t("cupsPage.quote.notes")}
+            </span>
             <textarea
               rows={4}
               placeholder={t("cupsPage.quote.notesPlaceholder")}
@@ -1824,11 +2118,27 @@ function Field({
     </label>
   );
 }
-function SelectField({ label, options, placeholder = "Select...", value, onChange }: { label: string; options: string[]; placeholder?: string; value?: string; onChange?: (e: React.ChangeEvent<HTMLSelectElement>) => void }) {
+function SelectField({
+  label,
+  options,
+  placeholder = "Select...",
+  value,
+  onChange,
+}: {
+  label: string;
+  options: string[];
+  placeholder?: string;
+  value?: string;
+  onChange?: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+}) {
   return (
     <label className="flex flex-col gap-1.5">
       <span className="text-xs font-bold uppercase tracking-wider text-[#555]">{label}</span>
-      <select value={value} onChange={onChange} className="rounded-lg border-2 border-[#eee] bg-[#f9f9f9] text-[#333] px-4 py-[14px] text-sm outline-none focus:border-[#333] focus:bg-white transition-colors">
+      <select
+        value={value}
+        onChange={onChange}
+        className="rounded-lg border-2 border-[#eee] bg-[#f9f9f9] text-[#333] px-4 py-[14px] text-sm outline-none focus:border-[#333] focus:bg-white transition-colors"
+      >
         <option value="">{placeholder}</option>
         {options.map((o) => (
           <option key={o}>{o}</option>

@@ -10,10 +10,9 @@ export function JumpToWizard() {
   useEffect(() => {
     const target = document.getElementById("quote");
     if (!target) return;
-    const io = new IntersectionObserver(
-      ([entry]) => setHidden(entry.isIntersecting),
-      { rootMargin: "-20% 0px -20% 0px" }
-    );
+    const io = new IntersectionObserver(([entry]) => setHidden(entry.isIntersecting), {
+      rootMargin: "-20% 0px -20% 0px",
+    });
     io.observe(target);
     return () => io.disconnect();
   }, []);
@@ -21,7 +20,9 @@ export function JumpToWizard() {
   return (
     <button
       type="button"
-      onClick={() => document.getElementById("quote")?.scrollIntoView({ behavior: "smooth", block: "start" })}
+      onClick={() =>
+        document.getElementById("quote")?.scrollIntoView({ behavior: "smooth", block: "start" })
+      }
       aria-label={t("jumpArrow.wizard")}
       className={`fixed left-4 bottom-4 z-40 flex h-9 w-9 items-center justify-center rounded-full bg-black/60 border border-white/15 text-white hover:bg-black/80 transition-opacity ${
         hidden ? "opacity-0 pointer-events-none" : "opacity-100"

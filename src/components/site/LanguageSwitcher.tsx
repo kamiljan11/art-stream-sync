@@ -38,7 +38,10 @@ export function LanguageSwitcher({ compact = false }: { compact?: boolean }) {
       >
         <Globe size={14} className="opacity-70" />
         {compact ? <span>{current.short}</span> : <span>{current.short}</span>}
-        <ChevronDown size={12} className={`opacity-60 transition-transform ${open ? "rotate-180" : ""}`} />
+        <ChevronDown
+          size={12}
+          className={`opacity-60 transition-transform ${open ? "rotate-180" : ""}`}
+        />
       </button>
 
       {open && (
@@ -61,9 +64,7 @@ export function LanguageSwitcher({ compact = false }: { compact?: boolean }) {
                   role="option"
                   aria-selected={active}
                   className={`w-full flex items-center justify-between gap-3 px-3 py-2 text-sm transition-colors ${
-                    active
-                      ? "bg-primary/10 text-primary"
-                      : "text-foreground hover:bg-foreground/5"
+                    active ? "bg-primary/10 text-primary" : "text-foreground hover:bg-foreground/5"
                   }`}
                 >
                   <span className="flex items-center gap-2">

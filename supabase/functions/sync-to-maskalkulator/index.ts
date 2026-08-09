@@ -8,7 +8,8 @@
 // Optional:
 //   SYNC_WEBHOOK_SECRET — if set, Authorization header on inbound requests must match
 
-const MASKALKULATOR_WEBHOOK = "https://ethawlnfuclklkkhydhd.supabase.co/functions/v1/receive-print-order";
+const MASKALKULATOR_WEBHOOK =
+  "https://ethawlnfuclklkkhydhd.supabase.co/functions/v1/receive-print-order";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -99,18 +100,27 @@ Deno.serve(async (req) => {
     }
 
     const result = await res.json();
-    console.log(`Synced print quote "${record.name}" (${record.id}) → maskalkulator order ${result.order_id}`);
-
-    return new Response(
-      JSON.stringify({ synced: true, name: record.name, print_ref: record.id, order_id: result.order_id }),
-      { headers: { ...corsHeaders, "Content-Type": "application/json" } }
+    console.log(
+      `Synced print quote "${record.name}" (${record.id}) → maskalkulator order ${result.order_id}`,
     );
 
-  } catch (err: any) {
+    return new Response(
+      JSON.stringify({
+        synced: true,
+        name: record.name,
+        print_ref: record.id,
+        order_id: result.order_id,
+      }),
+      { headers: { ...corsHeaders, "Content-Type": "application/json" } },
+    );
+  } catch (err) {
     console.error("Unexpected error:", err);
-    return new Response(JSON.stringify({ error: err.message }), {
-      status: 500,
-      headers: { ...corsHeaders, "Content-Type": "application/json" },
-    });
+    return new Response(
+      JSON.stringify({ error: err instanceof Error ? err.message : String(err) }),
+      {
+        status: 500,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      },
+    );
   }
 });

@@ -64,9 +64,11 @@ const pl = {
     heading1: "Dlaczego jesteśmy",
     heading2: "Tańsi.",
     logicTitle: "Logika.",
-    logicBody: "Lokalne drukarnie traktują każde zlecenie jako jednorazowe. Za każdym razem płacisz za przygotowanie maszyny, robociznę i detaliczny narzut.",
+    logicBody:
+      "Lokalne drukarnie traktują każde zlecenie jako jednorazowe. Za każdym razem płacisz za przygotowanie maszyny, robociznę i detaliczny narzut.",
     wholesaleTitle: "Różnica hurtowa.",
-    wholesaleBody: "Łączymy Twoje zlecenie z setkami innych w produkcji przemysłowej. Koszty przygotowania są dzielone, marża detaliczna znika, a oszczędność trafia na Twoją fakturę.",
+    wholesaleBody:
+      "Łączymy Twoje zlecenie z setkami innych w produkcji przemysłowej. Koszty przygotowania są dzielone, marża detaliczna znika, a oszczędność trafia na Twoją fakturę.",
     flow: {
       yourProject: "TWÓJ PROJEKT",
       localShop: "LOKALNA DRUKARNIA",
@@ -85,9 +87,11 @@ const pl = {
       noStorageTitle: "BEZ MAGAZYNU",
       noStorageBody: "Magazyn dodaje ~15% do ceny. Pomijamy go, prosto z fabryki pod Twoje drzwi.",
       noOfficeTitle: "BEZ DROGIEGO BIURA",
-      noOfficeBody: "Bez drogiego biura w 101 Reykjavík. Pracujemy online, więc nasz czynsz nie jest na Twojej fakturze.",
+      noOfficeBody:
+        "Bez drogiego biura w 101 Reykjavík. Pracujemy online, więc nasz czynsz nie jest na Twojej fakturze.",
       localFastTitle: "LOKALNIE I SZYBKO",
-      localFastBody: "Pracujemy z Njarðvíku, obok lotniska. Poza drogim miastem, ale w pełni lokalnie.",
+      localFastBody:
+        "Pracujemy z Njarðvíku, obok lotniska. Poza drogim miastem, ale w pełni lokalnie.",
     },
     compareHeading1: "PORÓWNAJ",
     compareHeading2: "MODEL.",
@@ -119,13 +123,16 @@ const pl = {
     heading1: "Ceny hurtowe.",
     heading2: "100% Legalnie.",
     noFeesTitle: "Bez ukrytych opłat.",
-    noFeesBody: "Tanie zagraniczne wyceny często kończą się niespodzianką z Tollurinn. Nie tutaj, cena którą podajemy to cena ostateczna pod Twoimi drzwiami. Cło bierzemy na siebie.",
+    noFeesBody:
+      "Tanie zagraniczne wyceny często kończą się niespodzianką z Tollurinn. Nie tutaj, cena którą podajemy to cena ostateczna pod Twoimi drzwiami. Cło bierzemy na siebie.",
     invoiceTitle: "Ważna faktura podatkowa.",
     invoiceBodyPart1: "MAS Prints to marka",
     invoiceCompany: "Mountain All Service ehf.",
-    invoiceBodyPart2: "(Kt. 690725-0450). Otrzymujesz zgodną z prawem islandzką fakturę z VSK i odliczasz podatek od razu.",
+    invoiceBodyPart2:
+      "(Kt. 690725-0450). Otrzymujesz zgodną z prawem islandzką fakturę z VSK i odliczasz podatek od razu.",
     accountabilityTitle: "Lokalna odpowiedzialność.",
-    accountabilityBody: "Nie anonimowa strona, lecz zarejestrowana islandzka firma z siedzibą w Njarðvíku.",
+    accountabilityBody:
+      "Nie anonimowa strona, lecz zarejestrowana islandzka firma z siedzibą w Njarðvíku.",
     flow: {
       euFactory: "FABRYKA UE",
       source: "ŹRÓDŁO",
@@ -155,36 +162,84 @@ const pl = {
     sub: "Wszystko, co drukuje Twoja firma, od codziennych podstaw po druk przemysłowy i niestandardowe opakowania.",
     marketing: {
       title: "MARKETING",
-      items: ["Wizytówki i papier firmowy", "Ulotki i składanki", "Roll-upy (wydarzenia)", "Teczki ofertowe", "Notesy z logo"],
+      items: [
+        "Wizytówki i papier firmowy",
+        "Ulotki i składanki",
+        "Roll-upy (wydarzenia)",
+        "Teczki ofertowe",
+        "Notesy z logo",
+      ],
     },
     publishing: {
       title: "WYDAWNICTWA",
-      items: ["Katalogi produktów", "Magazyny", "Książki w twardej oprawie", "Książki w miękkiej oprawie", "Podręczniki szkoleniowe"],
+      items: [
+        "Katalogi produktów",
+        "Magazyny",
+        "Książki w twardej oprawie",
+        "Książki w miękkiej oprawie",
+        "Podręczniki szkoleniowe",
+      ],
     },
     packaging: {
       title: "OPAKOWANIA",
-      items: ["Pudełka produktowe", "Pudełka wysyłkowe", "Torby papierowe", "Naklejki i etykiety", "Tekturowe rękawy"],
+      items: [
+        "Pudełka produktowe",
+        "Pudełka wysyłkowe",
+        "Torby papierowe",
+        "Naklejki i etykiety",
+        "Tekturowe rękawy",
+      ],
     },
     decals: {
       title: "OKLEJANIE POJAZDÓW",
-      items: ["Naklejki na tylną szybę", "Litery z winylu wycinane", "One-Way Vision (perforowane)", "Naklejki na zderzak", "Winyl odporny na pogodę"],
+      items: [
+        "Naklejki na tylną szybę",
+        "Litery z winylu wycinane",
+        "One-Way Vision (perforowane)",
+        "Naklejki na zderzak",
+        "Winyl odporny na pogodę",
+      ],
     },
     magnetic: {
       title: "ZNAKI MAGNETYCZNE",
-      items: ["Zdejmowane magnesy samochodowe", "Branding drzwi vana", "Mocna folia 0,85mm", "Promocje tymczasowe", "Wielokrotnego użytku, trwałe"],
+      items: [
+        "Zdejmowane magnesy samochodowe",
+        "Branding drzwi vana",
+        "Mocna folia 0,85mm",
+        "Promocje tymczasowe",
+        "Wielokrotnego użytku, trwałe",
+      ],
     },
     apparel: {
       title: "ODZIEŻ Z LOGO",
-      items: ["Koszulki sitodruk", "Polo z haftem", "Bluzy firmowe z kapturem", "Kamizelki odblaskowe", "Czapki i czapki zimowe"],
+      items: [
+        "Koszulki sitodruk",
+        "Polo z haftem",
+        "Bluzy firmowe z kapturem",
+        "Kamizelki odblaskowe",
+        "Czapki i czapki zimowe",
+      ],
     },
     cups: {
       title: "KUBKI PAPIEROWE",
-      items: ["Jednowarstwowe kubki papierowe", "Dwuwarstwowe kubki termiczne", "Ekologiczne kubki BIO", "Wieczka papierowe i plastikowe", "Drewniane mieszadełka"],
+      items: [
+        "Jednowarstwowe kubki papierowe",
+        "Dwuwarstwowe kubki termiczne",
+        "Ekologiczne kubki BIO",
+        "Wieczka papierowe i plastikowe",
+        "Drewniane mieszadełka",
+      ],
       cta: "Zobacz ofertę kubków",
     },
     ecocups: {
       title: "EKO KUBKI",
-      items: ["Kompostowalne kubki BIO", "Kubki z rPET z recyklingu", "Kubki PLA z bioplastiku", "Słomki papierowe (dyrektywa EU)", "Kompostowalne miseczki deserowe"],
+      items: [
+        "Kompostowalne kubki BIO",
+        "Kubki z rPET z recyklingu",
+        "Kubki PLA z bioplastiku",
+        "Słomki papierowe (dyrektywa EU)",
+        "Kompostowalne miseczki deserowe",
+      ],
       cta: "Zobacz eko kubki",
     },
   },
@@ -195,9 +250,11 @@ const pl = {
     s1Title: "ZAPYTANIE LUB AUDYT",
     s1Body: "Powiedz, czego potrzebujesz, lub wyślij ostatnią fakturę na bezpłatny audyt cenowy.",
     s2Title: "WYCENA I GWARANCJA",
-    s2Body: "Wysyłamy hurtową cenę. Znajdziesz tańszą islandzką ofertę? Pobijamy ją. Ty zatwierdzasz proof.",
+    s2Body:
+      "Wysyłamy hurtową cenę. Znajdziesz tańszą islandzką ofertę? Pobijamy ją. Ty zatwierdzasz proof.",
     s3Title: "DRUK I DOSTAWA",
-    s3Body: "My zajmujemy się produkcją, cłem i logistyką. Paczka ląduje pod Twoimi drzwiami z jedną fakturą w ISK.",
+    s3Body:
+      "My zajmujemy się produkcją, cłem i logistyką. Paczka ląduje pod Twoimi drzwiami z jedną fakturą w ISK.",
   },
   faqs: {
     heading: "Najczęściej zadawane pytania",
@@ -237,11 +294,26 @@ const pl = {
       popularBadge: "★ Najczęściej zamawiane",
     },
     usp: [
-      { t: "Już od 1 000 szt.", d: "Niski próg minimalnego zamówienia, idealny dla małych kawiarni, eventów i pilotaży. Skalujesz, gdy będziesz gotowy." },
-      { t: "Darmowa adaptacja grafiki", d: "Wyślij logo w dowolnym używalnym formacie, dostosujemy je do szablonu kubka bez dodatkowej opłaty z każdym zamówieniem." },
-      { t: "Twój dedykowany kontakt", d: "Jedna osoba prowadzi cię od wyceny do dostawy. Nie wiesz, co wybrać? Pytaj, doradzimy." },
-      { t: "Profesjonalna kontrola jakości", d: "Każda partia przechodzi wielostopniową kontrolę jakości — dokładność druku, szczelność bariery, struktura i zgodność z normami spożywczymi — zanim trafi do wysyłki. Zgodnie z rygorystycznymi normami europejskimi." },
-      { t: "Certyfikaty do każdego zamówienia", d: "Do każdego zamówienia dołączamy europejskie certyfikaty pod konkretny produkt (kontakt z żywnością, EN 13432 dla BIO itd.) — nie ogólne papiery z Chin. Gotowe do przetargów i audytów." },
+      {
+        t: "Już od 1 000 szt.",
+        d: "Niski próg minimalnego zamówienia, idealny dla małych kawiarni, eventów i pilotaży. Skalujesz, gdy będziesz gotowy.",
+      },
+      {
+        t: "Darmowa adaptacja grafiki",
+        d: "Wyślij logo w dowolnym używalnym formacie, dostosujemy je do szablonu kubka bez dodatkowej opłaty z każdym zamówieniem.",
+      },
+      {
+        t: "Twój dedykowany kontakt",
+        d: "Jedna osoba prowadzi cię od wyceny do dostawy. Nie wiesz, co wybrać? Pytaj, doradzimy.",
+      },
+      {
+        t: "Profesjonalna kontrola jakości",
+        d: "Każda partia przechodzi wielostopniową kontrolę jakości — dokładność druku, szczelność bariery, struktura i zgodność z normami spożywczymi — zanim trafi do wysyłki. Zgodnie z rygorystycznymi normami europejskimi.",
+      },
+      {
+        t: "Certyfikaty do każdego zamówienia",
+        d: "Do każdego zamówienia dołączamy europejskie certyfikaty pod konkretny produkt (kontakt z żywnością, EN 13432 dla BIO itd.) — nie ogólne papiery z Chin. Gotowe do przetargów i audytów.",
+      },
     ],
     uspAskButton: "Zapytaj teraz",
     midCta: {
@@ -286,7 +358,7 @@ const pl = {
       topPick: "★ Top wybór na Islandii",
       h3p1: "Rzuć plastik. Zachowaj",
       h3p2: "kubek.",
-      p1a: "Większość „papierowych\" kubków ma plastikową barierę w środku.",
+      p1a: 'Większość „papierowych" kubków ma plastikową barierę w środku.',
       p1b: "Wlej gorącą kawę i jeden kubek może uwolnić nawet",
       p1c: "25 000 cząstek mikroplastiku prosto do napoju.",
       p2a: "Potem kubek ląduje w koszu.",
@@ -303,12 +375,29 @@ const pl = {
       circLabel: "Gospodarka cyrkularna",
       circHeading1: "Cyrkularne z",
       circHeading2: "założenia.",
-      circSub: "Każda linia BIO podąża za czterostopniową pętlą: zaprojektuj dobrze, używaj mądrze, odzyskaj materiał, wprowadź ponownie do obiegu.",
+      circSub:
+        "Każda linia BIO podąża za czterostopniową pętlą: zaprojektuj dobrze, używaj mądrze, odzyskaj materiał, wprowadź ponownie do obiegu.",
       steps: [
-        { n: "01", t: "Projekt", d: "Powłoka wodno-dyspersyjna zamiast bariery z plastiku. Tusze druku dobrane tak, by kubek pozostał kompostowalny." },
-        { n: "02", t: "Użycie", d: "Ta sama odporność na ciepło, to samo wrażenie w dłoni co zwykły kubek. Bez kompromisów dla klienta i baristy." },
-        { n: "03", t: "Odzysk", d: "Certyfikat EN 13432, rozkłada się w kompostowniach przemysłowych w tygodniach, nie dekadach. Zero mikroplastiku." },
-        { n: "04", t: "Ponowne użycie", d: "Kompost wraca do gleby. Węgiel zostaje w pętli. Kubek staje się tym, co rośnie dalej." },
+        {
+          n: "01",
+          t: "Projekt",
+          d: "Powłoka wodno-dyspersyjna zamiast bariery z plastiku. Tusze druku dobrane tak, by kubek pozostał kompostowalny.",
+        },
+        {
+          n: "02",
+          t: "Użycie",
+          d: "Ta sama odporność na ciepło, to samo wrażenie w dłoni co zwykły kubek. Bez kompromisów dla klienta i baristy.",
+        },
+        {
+          n: "03",
+          t: "Odzysk",
+          d: "Certyfikat EN 13432, rozkłada się w kompostowniach przemysłowych w tygodniach, nie dekadach. Zero mikroplastiku.",
+        },
+        {
+          n: "04",
+          t: "Ponowne użycie",
+          d: "Kompost wraca do gleby. Węgiel zostaje w pętli. Kubek staje się tym, co rośnie dalej.",
+        },
       ],
       ask: "Potrzebujesz certyfikatów EN 13432 lub kart materiałowych do przetargu lub raportu zrównoważonego rozwoju? Pytaj.",
     },
@@ -323,20 +412,48 @@ const pl = {
       heading2: "my.",
       sub: "Bez kontraktu. Sprawdź nas na jednej palecie.",
       items: [
-        { t: "Stabilna cena", d: "Cena, którą dostajesz w wycenie, to cena, którą płacisz. VAT, cło, dostawa, wszystko wliczone. Bez niespodzianek na fakturze." },
-        { t: "Przewidywalna dostawa", d: "Stały harmonogram, stała data. Ty przestajesz gonić, my wysyłamy. VAT i cło już w wycenie." },
-        { t: "Ten sam kubek w każdej partii", d: "Gramatura papieru, dopasowanie wieczka, odcień tuszu, zablokowane w specyfikacji. Twój styczniowy kubek pasuje do lipcowego." },
-        { t: "Islandzka faktura", d: "Dostajesz prawidłową islandzką fakturę w ISK, z naszym numerem firmy i VAT, w pełni odliczalną w księgach. Bez papierkowej roboty „import z Polski\"." },
+        {
+          t: "Stabilna cena",
+          d: "Cena, którą dostajesz w wycenie, to cena, którą płacisz. VAT, cło, dostawa, wszystko wliczone. Bez niespodzianek na fakturze.",
+        },
+        {
+          t: "Przewidywalna dostawa",
+          d: "Stały harmonogram, stała data. Ty przestajesz gonić, my wysyłamy. VAT i cło już w wycenie.",
+        },
+        {
+          t: "Ten sam kubek w każdej partii",
+          d: "Gramatura papieru, dopasowanie wieczka, odcień tuszu, zablokowane w specyfikacji. Twój styczniowy kubek pasuje do lipcowego.",
+        },
+        {
+          t: "Islandzka faktura",
+          d: 'Dostajesz prawidłową islandzką fakturę w ISK, z naszym numerem firmy i VAT, w pełni odliczalną w księgach. Bez papierkowej roboty „import z Polski".',
+        },
       ],
     },
     how: {
       heading1: "Jak",
       heading2: "zamówić.",
       steps: [
-        { n: "1", t: "Wypełnij interaktywny formularz", d: "Wybierz produkt i odpowiedz na kilka szybkich pytań — zajmuje ok. 60 sekund. Możesz też wgrać brief lub poprosić o próbki." },
-        { n: "2", t: "Otrzymaj wycenę", d: "W ISK w ciągu 24 godzin roboczych. Cena all-in, VAT, cło i dostawa pod drzwi wliczone." },
-        { n: "3", t: "Darmowa adaptacja grafiki", d: "Dostosujemy twoje logo lub grafikę do szablonu kubka, całkowicie za darmo z każdym zamówieniem. Cyfrowa próbka przed startem maszyny." },
-        { n: "4", t: "Paczka pod drzwi", d: "Śledzimy produkcję i transport. Ty przestajesz gonić." },
+        {
+          n: "1",
+          t: "Wypełnij interaktywny formularz",
+          d: "Wybierz produkt i odpowiedz na kilka szybkich pytań — zajmuje ok. 60 sekund. Możesz też wgrać brief lub poprosić o próbki.",
+        },
+        {
+          n: "2",
+          t: "Otrzymaj wycenę",
+          d: "W ISK w ciągu 24 godzin roboczych. Cena all-in, VAT, cło i dostawa pod drzwi wliczone.",
+        },
+        {
+          n: "3",
+          t: "Darmowa adaptacja grafiki",
+          d: "Dostosujemy twoje logo lub grafikę do szablonu kubka, całkowicie za darmo z każdym zamówieniem. Cyfrowa próbka przed startem maszyny.",
+        },
+        {
+          n: "4",
+          t: "Paczka pod drzwi",
+          d: "Śledzimy produkcję i transport. Ty przestajesz gonić.",
+        },
       ],
     },
     faq: {
@@ -344,20 +461,62 @@ const pl = {
       heading2: "pytania.",
       sub: "Jeśli czegoś tu nie ma, po prostu zapytaj w formularzu poniżej.",
       items: [
-        { q: "Jakie jest minimum zamówienia kubków z nadrukiem?", a: "1 000 szt. na projekt, dotyczy wszystkich kubków: papierowych, plastiku transparentnego i misek BIO. Poniżej tego cena jednostkowa przestaje mieć sens." },
-        { q: "Ile trwa dostawa do Islandii?", a: "Średnie czasy realizacji: Standard ~6 tygodni, Express ~2–3 tygodnie. Zależy od zamówienia: ilości, rodzaju produktu i wybranego trybu dostawy. Pozycje magazynowe (czyste kubki, wieczka, słomki, mieszadełka) są zwykle najszybsze, kubki z nadrukiem i specjalistyczne trwają dłużej. Dokładną datę dostajesz w wycenie, my obsługujemy islandzką odprawę celną." },
-        { q: "Czy cło, VAT i dostawa są wliczone?", a: "Tak. Każda wycena to all-in ISK, dostarczone pod drzwi. VAT, cło i transport krajowy z portu w Reykjavíku, wszystko wliczone. Bez niespodzianek, gdy paleta dotrze." },
-        { q: "Ile kolorów mogę wydrukować?", a: "Standardowo drukujemy w pełnym kolorze CMYK bez dopłat, bez limitu kolorów ani grafik na kubkach papierowych (fotografie full-bleed mile widziane). Plastik transparentny: tylko jednolite plamy, bez gradientów. Dopasowanie Pantone jest dostępne na życzenie jako płatny dodatek (dopłata ok. 10 000 ISK za kolor Pantone). Kody QR i oznaczenia pojemności obsługujemy na każdym kubku." },
-        { q: "Czy mogę zamówić kubki eco / biodegradowalne?", a: "Tak. Oferujemy trzy bariery: standardową Green PE (w pełni do recyklingu, strumień mieszany), kompostowalną BIO z powłoką wodno-dyspersyjną (bez plastiku, kompostowalna w warunkach domowych, EN 13432) oraz rPET (recyklowany plastik) dla przezroczystych kubków na zimne napoje. Wystarczy zaznaczyć w formularzu wyceny." },
-        { q: "Czy mogę najpierw zobaczyć próbki?", a: "Tak — najchętniej robimy to na żywo. Nasz handlowiec przyjedzie z kubkami, pokaże papier, powłokę i jakość druku oraz omówi dostępne opcje. Szybsze niż wysyłka i możesz dotknąć produktu w ręce." },
-        { q: "Czy każda partia będzie wyglądać identycznie?", a: "Gramatura papieru, dopasowanie wieczka i wymiary są zablokowane w specyfikacji, każda partia jest taka sama. Kolor: standardowa branżowa wariancja ±15% odcienia między produkcjami (czerwony zostaje czerwony, dokładny ton może się nieco różnić). Potrzebujesz dokładnego koloru marki za każdym razem? Wyślij kod Pantone, zrobimy dopasowanie Pantone (mała dopłata)." },
-        { q: "Czy dostarczacie poza obszar stołeczny?", a: "Tak. Mieścimy się w Njarðvíku i wysyłamy w dowolne miejsce na Islandii: Reykjavík, Akureyri, Vestfirðir, Egilsstaðir, Wyspy Westmańskie. Transport krajowy jest w wycenie." },
-        { q: "Nie wiem, jak przygotować grafikę, możecie pomóc?", a: "Tak. Wyślij nam logo, kolory i gdzie ma być umieszczone na kubku. Proste prace przygotowujemy za darmo; bardziej skomplikowane projekty mają niewielką jednorazową opłatę za przygotowanie, podaną z góry." },
-        { q: "Czy mogę umieścić kod QR na kubkach?", a: "Tak, popularne dla menu, programów lojalnościowych i Instagrama. Wyślij jako wektor lub ostry obraz 300 dpi. Testujemy skanowanie wydruku 1:1 na próbie przed pełną produkcją." },
-        { q: "Czy kolor na moim ekranie będzie pasował do gotowych kubków?", a: "Blisko, ale nie 100%. Ekrany używają światła, kubki używają tuszu, plus normalna ±15% wariancja między produkcjami. Jeśli kolor marki musi być dokładny, wyślij kod Pantone i wydrukujemy z dopasowaniem Pantone (mała dopłata)." },
-        { q: "Czy mogę dodać oznaczenia poziomu cieczy (0,2 L, 0,3 L)?", a: "Tak, na zewnątrz. Ponieważ ścianki kubka się zwężają, mierzymy dokładne wysokości napełnienia na kubku referencyjnym przed zablokowaniem grafiki — najłatwiej ustalić to podczas krótkiego spotkania z naszym handlowcem." },
-        { q: "Czy można drukować wewnątrz kubka?", a: "Nie. Szczelna, bezpieczna dla żywności wewnętrzna powłoka blokuje też tusz, druk jest tylko zewnętrzny." },
-        { q: "Jakie formaty plików akceptujecie i jakiego szablonu użyć?", a: "Potrzebujemy otwartego, edytowalnego pliku w przestrzeni barw CMYK: edytowalny .pdf, .ai (Illustrator) lub .cdr (CorelDraw). Każdy rozmiar kubka ma własny szablon w kształcie łuku — podaj rozmiar i barierę, a odeślemy odpowiedni mailem." },
+        {
+          q: "Jakie jest minimum zamówienia kubków z nadrukiem?",
+          a: "1 000 szt. na projekt, dotyczy wszystkich kubków: papierowych, plastiku transparentnego i misek BIO. Poniżej tego cena jednostkowa przestaje mieć sens.",
+        },
+        {
+          q: "Ile trwa dostawa do Islandii?",
+          a: "Średnie czasy realizacji: Standard ~6 tygodni, Express ~2–3 tygodnie. Zależy od zamówienia: ilości, rodzaju produktu i wybranego trybu dostawy. Pozycje magazynowe (czyste kubki, wieczka, słomki, mieszadełka) są zwykle najszybsze, kubki z nadrukiem i specjalistyczne trwają dłużej. Dokładną datę dostajesz w wycenie, my obsługujemy islandzką odprawę celną.",
+        },
+        {
+          q: "Czy cło, VAT i dostawa są wliczone?",
+          a: "Tak. Każda wycena to all-in ISK, dostarczone pod drzwi. VAT, cło i transport krajowy z portu w Reykjavíku, wszystko wliczone. Bez niespodzianek, gdy paleta dotrze.",
+        },
+        {
+          q: "Ile kolorów mogę wydrukować?",
+          a: "Standardowo drukujemy w pełnym kolorze CMYK bez dopłat, bez limitu kolorów ani grafik na kubkach papierowych (fotografie full-bleed mile widziane). Plastik transparentny: tylko jednolite plamy, bez gradientów. Dopasowanie Pantone jest dostępne na życzenie jako płatny dodatek (dopłata ok. 10 000 ISK za kolor Pantone). Kody QR i oznaczenia pojemności obsługujemy na każdym kubku.",
+        },
+        {
+          q: "Czy mogę zamówić kubki eco / biodegradowalne?",
+          a: "Tak. Oferujemy trzy bariery: standardową Green PE (w pełni do recyklingu, strumień mieszany), kompostowalną BIO z powłoką wodno-dyspersyjną (bez plastiku, kompostowalna w warunkach domowych, EN 13432) oraz rPET (recyklowany plastik) dla przezroczystych kubków na zimne napoje. Wystarczy zaznaczyć w formularzu wyceny.",
+        },
+        {
+          q: "Czy mogę najpierw zobaczyć próbki?",
+          a: "Tak — najchętniej robimy to na żywo. Nasz handlowiec przyjedzie z kubkami, pokaże papier, powłokę i jakość druku oraz omówi dostępne opcje. Szybsze niż wysyłka i możesz dotknąć produktu w ręce.",
+        },
+        {
+          q: "Czy każda partia będzie wyglądać identycznie?",
+          a: "Gramatura papieru, dopasowanie wieczka i wymiary są zablokowane w specyfikacji, każda partia jest taka sama. Kolor: standardowa branżowa wariancja ±15% odcienia między produkcjami (czerwony zostaje czerwony, dokładny ton może się nieco różnić). Potrzebujesz dokładnego koloru marki za każdym razem? Wyślij kod Pantone, zrobimy dopasowanie Pantone (mała dopłata).",
+        },
+        {
+          q: "Czy dostarczacie poza obszar stołeczny?",
+          a: "Tak. Mieścimy się w Njarðvíku i wysyłamy w dowolne miejsce na Islandii: Reykjavík, Akureyri, Vestfirðir, Egilsstaðir, Wyspy Westmańskie. Transport krajowy jest w wycenie.",
+        },
+        {
+          q: "Nie wiem, jak przygotować grafikę, możecie pomóc?",
+          a: "Tak. Wyślij nam logo, kolory i gdzie ma być umieszczone na kubku. Proste prace przygotowujemy za darmo; bardziej skomplikowane projekty mają niewielką jednorazową opłatę za przygotowanie, podaną z góry.",
+        },
+        {
+          q: "Czy mogę umieścić kod QR na kubkach?",
+          a: "Tak, popularne dla menu, programów lojalnościowych i Instagrama. Wyślij jako wektor lub ostry obraz 300 dpi. Testujemy skanowanie wydruku 1:1 na próbie przed pełną produkcją.",
+        },
+        {
+          q: "Czy kolor na moim ekranie będzie pasował do gotowych kubków?",
+          a: "Blisko, ale nie 100%. Ekrany używają światła, kubki używają tuszu, plus normalna ±15% wariancja między produkcjami. Jeśli kolor marki musi być dokładny, wyślij kod Pantone i wydrukujemy z dopasowaniem Pantone (mała dopłata).",
+        },
+        {
+          q: "Czy mogę dodać oznaczenia poziomu cieczy (0,2 L, 0,3 L)?",
+          a: "Tak, na zewnątrz. Ponieważ ścianki kubka się zwężają, mierzymy dokładne wysokości napełnienia na kubku referencyjnym przed zablokowaniem grafiki — najłatwiej ustalić to podczas krótkiego spotkania z naszym handlowcem.",
+        },
+        {
+          q: "Czy można drukować wewnątrz kubka?",
+          a: "Nie. Szczelna, bezpieczna dla żywności wewnętrzna powłoka blokuje też tusz, druk jest tylko zewnętrzny.",
+        },
+        {
+          q: "Jakie formaty plików akceptujecie i jakiego szablonu użyć?",
+          a: "Potrzebujemy otwartego, edytowalnego pliku w przestrzeni barw CMYK: edytowalny .pdf, .ai (Illustrator) lub .cdr (CorelDraw). Każdy rozmiar kubka ma własny szablon w kształcie łuku — podaj rozmiar i barierę, a odeślemy odpowiedni mailem.",
+        },
       ],
     },
     quote: {
@@ -384,7 +543,8 @@ const pl = {
       chooseFile: "Wybierz plik",
       uploadPlaceholder: "PDF, AI, EPS, PSD, PNG, JPG, SVG, lub wyślij później mailem",
       notes: "Dodatkowe pytania lub uwagi",
-      notesPlaceholder: "Jeśli chcesz o coś zapytać lub coś nam powiedzieć, napisz tutaj. Rozmiary, kolory, termin, link do logo / grafiki...",
+      notesPlaceholder:
+        "Jeśli chcesz o coś zapytać lub coś nam powiedzieć, napisz tutaj. Rozmiary, kolory, termin, link do logo / grafiki...",
       send: "Wyślij",
       selectPlaceholder: "Wybierz...",
       wizard: {
@@ -406,7 +566,8 @@ const pl = {
         pathSampleTitle: "Poproszę o próbki",
         pathSampleDesc: "Chcę zobaczyć i dotknąć kubków zanim zamówię.",
         briefTitle: "Wyślij swój brief",
-        briefHint: "Załącz dokument lub opisz projekt w kilku zdaniach. Odezwiemy się w 24h roboczych.",
+        briefHint:
+          "Załącz dokument lub opisz projekt w kilku zdaniach. Odezwiemy się w 24h roboczych.",
         briefFileLabel: "Plik briefu / specyfikacji",
         briefFileCta: "Kliknij, aby wgrać lub upuść plik tutaj",
         briefFileHint: "PDF, DOC, PPT, AI, ZIP — do 20 MB",
@@ -414,9 +575,11 @@ const pl = {
         briefMessage: "Krótki opis zapytania",
         briefMessagePlaceholder: "Co chcesz zamówić, ilości, terminy, kolory, dowolne uwagi...",
         sampleTitle: "Poproś o próbki",
-        sampleHint: "Zwykle umawiamy 15–30 min spotkanie z handlowcem, który przywozi kubki na żywo — możesz je zobaczyć i dotknąć. Daj znać, którymi produktami jesteś zainteresowany.",
+        sampleHint:
+          "Zwykle umawiamy 15–30 min spotkanie z handlowcem, który przywozi kubki na żywo — możesz je zobaczyć i dotknąć. Daj znać, którymi produktami jesteś zainteresowany.",
         sampleInterest: "Którymi produktami jesteś zainteresowany?",
-        sampleInterestPlaceholder: "Np. kubki termiczne 300 ml z BIO barierą, miski na lody 360 ml...",
+        sampleInterestPlaceholder:
+          "Np. kubki termiczne 300 ml z BIO barierą, miski na lody 360 ml...",
         sampleAddress: "Adres / lokalizacja (opcjonalnie)",
         sampleAddressPlaceholder: "Miasto / dzielnica — żeby umówić wizytę handlowca",
         pickProduct: "Co chcesz zamówić?",
@@ -426,7 +589,8 @@ const pl = {
         addToList: "Dodaj do listy",
         updateItem: "Zaktualizuj pozycję",
         tellUsMore: "Powiedz nam więcej, czego potrzebujesz",
-        tellUsMorePlaceholder: "Do czego (kawa, sok, lody...), gdzie (kawiarnia, biuro, event), jakiś konkretny look lub ograniczenie. Im więcej wiemy, tym lepiej doradzimy.",
+        tellUsMorePlaceholder:
+          "Do czego (kawa, sok, lody...), gdzie (kawiarnia, biuro, event), jakiś konkretny look lub ograniczenie. Im więcej wiemy, tym lepiej doradzimy.",
         mixDetails: "Opisz mix rozmiarów (opcjonalnie)",
         mixDetailsPlaceholder: "Np. 50% 200 ml + 50% 300 ml — lub zostaw puste, dopytamy.",
         groupKnown: "Wiem, co chcę",
@@ -449,7 +613,8 @@ const pl = {
         customQuantityHint: "Minimum 1 000 — brak górnego limitu.",
         quantityMinError: "Minimalne zamówienie to 1 000 sztuk.",
         pantoneTitle: "Mam konkretne kolory Pantone",
-        pantoneHint: "Zaznacz, jeśli chcesz, żebyśmy drukowali w kolorach Pantone i podaj kody — uwzględnimy dopasowanie w wycenie.",
+        pantoneHint:
+          "Zaznacz, jeśli chcesz, żebyśmy drukowali w kolorach Pantone i podaj kody — uwzględnimy dopasowanie w wycenie.",
         startOver: "Zacznij od nowa",
         resetConfirm: "Usunąć zapisany postęp i zacząć nową wycenę?",
         pantonePlaceholder: "Kody Pantone, np. PMS 286 C, PMS 200 C",
@@ -475,16 +640,77 @@ const pl = {
         "Coś innego / mix",
       ],
       quantities: ["1 000 – 5 000", "5 000 – 20 000", "20 000 – 50 000", "50 000+"],
-      timings: ["Standard (najlepsza cena) — ok. 6 tygodni", "Express (szybciej, jeśli możliwe) — ok. 2–3 tygodnie", "Elastyczny"],
-      linings: ["Nie wiem jeszcze, doradźcie", "Standard (Green PE)", "Kompostowalna BIO (dyspersja wodna, bez plastiku)"],
+      timings: [
+        "Standard (najlepsza cena) — ok. 6 tygodni",
+        "Express (szybciej, jeśli możliwe) — ok. 2–3 tygodnie",
+        "Elastyczny",
+      ],
+      linings: [
+        "Nie wiem jeszcze, doradźcie",
+        "Standard (Green PE)",
+        "Kompostowalna BIO (dyspersja wodna, bez plastiku)",
+      ],
       byProduct: [
         { sizes: [], finishes: [], linings: [] },
-        { sizes: ["100 ml", "180 ml", "200 ml", "300 ml", "400 ml", "Mix rozmiarów"], finishes: ["Papier biały", "Papier kraft (brązowy)"], linings: ["Nie wiem jeszcze, doradźcie", "Standard (Green PE)", "Kompostowalna BIO (dyspersja wodna, bez plastiku)"] },
-        { sizes: ["200 ml (8 oz)", "300 ml (12 oz)", "400 ml (16 oz)", "Mix rozmiarów"], finishes: ["W całości biały", "W całości kraft", "Kraft + biały (kombi)"], linings: ["Nie wiem jeszcze, doradźcie", "Standard (Green PE)", "Kompostowalna BIO (dyspersja wodna, bez plastiku)"] },
-        { sizes: ["100 ml", "180 ml", "200 ml", "300 ml", "400 ml", "Mix rozmiarów"], finishes: ["Biały", "Kraft (brązowy)", "Wzór pastelowy", "Wzór ziarna kawy", "Seria letnia", "Seria zimowa"], linings: ["Nie wiem jeszcze, doradźcie", "Standard (Green PE)", "Kompostowalna BIO (dyspersja wodna, bez plastiku)"] },
-        { sizes: ["300 ml", "400 ml", "500 ml", "Mix rozmiarów"], finishes: ["Bez nadruku", "1–2 kolory spot", "3–4 kolory spot"], linings: [] },
-        { sizes: ["130 ml", "245 ml", "360 ml", "Mix rozmiarów"], finishes: ["Biały", "Kraft", "Wzór pastelowy", "Indywidualny druk full-wrap"], linings: ["Nie wiem jeszcze, doradźcie", "Standard (Green PE)", "Kompostowalna BIO (dyspersja wodna, bez plastiku)"] },
-        { sizes: ["Do 200 ml (8 oz)", "Do 300 ml (12 oz)", "Do 400 ml (16 oz)", "Do rPET (300/400/500)", "Mix rozmiarów"], finishes: ["Białe", "Czarne"], linings: [] },
+        {
+          sizes: ["100 ml", "180 ml", "200 ml", "300 ml", "400 ml", "Mix rozmiarów"],
+          finishes: ["Papier biały", "Papier kraft (brązowy)"],
+          linings: [
+            "Nie wiem jeszcze, doradźcie",
+            "Standard (Green PE)",
+            "Kompostowalna BIO (dyspersja wodna, bez plastiku)",
+          ],
+        },
+        {
+          sizes: ["200 ml (8 oz)", "300 ml (12 oz)", "400 ml (16 oz)", "Mix rozmiarów"],
+          finishes: ["W całości biały", "W całości kraft", "Kraft + biały (kombi)"],
+          linings: [
+            "Nie wiem jeszcze, doradźcie",
+            "Standard (Green PE)",
+            "Kompostowalna BIO (dyspersja wodna, bez plastiku)",
+          ],
+        },
+        {
+          sizes: ["100 ml", "180 ml", "200 ml", "300 ml", "400 ml", "Mix rozmiarów"],
+          finishes: [
+            "Biały",
+            "Kraft (brązowy)",
+            "Wzór pastelowy",
+            "Wzór ziarna kawy",
+            "Seria letnia",
+            "Seria zimowa",
+          ],
+          linings: [
+            "Nie wiem jeszcze, doradźcie",
+            "Standard (Green PE)",
+            "Kompostowalna BIO (dyspersja wodna, bez plastiku)",
+          ],
+        },
+        {
+          sizes: ["300 ml", "400 ml", "500 ml", "Mix rozmiarów"],
+          finishes: ["Bez nadruku", "1–2 kolory spot", "3–4 kolory spot"],
+          linings: [],
+        },
+        {
+          sizes: ["130 ml", "245 ml", "360 ml", "Mix rozmiarów"],
+          finishes: ["Biały", "Kraft", "Wzór pastelowy", "Indywidualny druk full-wrap"],
+          linings: [
+            "Nie wiem jeszcze, doradźcie",
+            "Standard (Green PE)",
+            "Kompostowalna BIO (dyspersja wodna, bez plastiku)",
+          ],
+        },
+        {
+          sizes: [
+            "Do 200 ml (8 oz)",
+            "Do 300 ml (12 oz)",
+            "Do 400 ml (16 oz)",
+            "Do rPET (300/400/500)",
+            "Mix rozmiarów",
+          ],
+          finishes: ["Białe", "Czarne"],
+          linings: [],
+        },
         { sizes: [], finishes: ["Białe", "Czarne"], linings: [] },
         { sizes: [], finishes: [], linings: [] },
         { sizes: [], finishes: [], linings: [] },
@@ -497,7 +723,11 @@ const pl = {
         title: "Kubek papierowy jednowarstwowy z Twoim nadrukiem",
         sizes: "100 · 180 · 200 · 300 · 400 ml",
         desc: "Nasz najpopularniejszy kubek. Lekki, sztaplowalny, nadruk CMYK na całej powierzchni bez limitu kolorów. Druk na białym papierze lub naturalnym papierze kraft (brązowym). Sprawdzi się na eventy, do biur, soczarni i dystrybutorów wody.",
-        bullets: ["Nieograniczony druk pełnokolorowy CMYK, bez dopłat", "Papier biały lub kraft (brązowy)", "Bariera wewnętrzna do recyklingu lub kompostowalna"],
+        bullets: [
+          "Nieograniczony druk pełnokolorowy CMYK, bez dopłat",
+          "Papier biały lub kraft (brązowy)",
+          "Bariera wewnętrzna do recyklingu lub kompostowalna",
+        ],
         moq: "1 000 szt.",
       },
       {
@@ -505,7 +735,11 @@ const pl = {
         title: "Premium termiczny kubek dwuwarstwowy",
         sizes: "200 ml (8 oz) · 300 ml (12 oz) · 400 ml (16 oz)",
         desc: "Premium kubek dwuwarstwowy. Utrzymuje gorący napój w środku, a jednocześnie pozostaje wygodny w trzymaniu. Dostępny w całości biały, w całości kraft, lub w wersji łączonej (jedna ścianka kraft, druga biała). Polecany dla kawiarni, na wynos i do hotelowych kącików kawowych.",
-        bullets: ["Wygodny w trzymaniu nawet z gorącym napojem", "Biały, kraft lub kombinacja kraft + biały", "Bariera wewnętrzna do recyklingu lub kompostowalna"],
+        bullets: [
+          "Wygodny w trzymaniu nawet z gorącym napojem",
+          "Biały, kraft lub kombinacja kraft + biały",
+          "Bariera wewnętrzna do recyklingu lub kompostowalna",
+        ],
         moq: "1 000 szt.",
       },
       {
@@ -513,7 +747,11 @@ const pl = {
         title: "Kubki papierowe z magazynu (białe i kolorowe)",
         sizes: "100 · 180 · 200 · 300 · 400 ml",
         desc: "Kubki bez nadruku z magazynu: białe, kraft (brązowe), pastelowe, w ziarna kawy, letnie flamingi, zimowe choinki. Sprawdzą się przy dystrybutorach wody, w automatach, na siłowniach i w biurach.",
-        bullets: ["Białe, kraft i wzory uniwersalne od ręki", "Od 1 000 szt. na rozmiar", "Bariera wewnętrzna do recyklingu lub kompostowalna"],
+        bullets: [
+          "Białe, kraft i wzory uniwersalne od ręki",
+          "Od 1 000 szt. na rozmiar",
+          "Bariera wewnętrzna do recyklingu lub kompostowalna",
+        ],
         moq: "1 000 szt.",
       },
       {
@@ -521,7 +759,11 @@ const pl = {
         title: "Transparentny kubek z plastiku z recyklingu",
         sizes: "300 · 400 · 500 ml",
         desc: "Przezroczysty kubek do zimnych napojów, smoothie, mrożonej kawy, piwa i koktajli. Wykonany z plastiku PET z recyklingu. Legalny zamiennik starych plastikowych jednorazówek.",
-        bullets: ["Wykonany z plastiku PET z recyklingu", "Do 4 kolorów Pantone, tylko jednolite plamy (bez gradientów)", "Nie nadaje się do gorących napojów"],
+        bullets: [
+          "Wykonany z plastiku PET z recyklingu",
+          "Do 4 kolorów Pantone, tylko jednolite plamy (bez gradientów)",
+          "Nie nadaje się do gorących napojów",
+        ],
         moq: "1 000 szt.",
       },
       {
@@ -529,7 +771,11 @@ const pl = {
         title: "Miska na lody i desery",
         sizes: "130 · 245 · 360 ml",
         desc: "Szerokootworowa miska na lody, jogurt i przekąski (tylko zimne — nie do gorącej zupy). Dostępna w bieli, kraft i pastelowych wzorach lub z indywidualnym drukiem full-wrap. 130 ml: bariera PE; 245 / 360 ml: BIO lub PE.",
-        bullets: ["Białe, kraft lub pastelowe wzory z magazynu", "Indywidualny druk full-wrap, bez limitu kolorów", "Bariera BIO lub PE (zależnie od rozmiaru)"],
+        bullets: [
+          "Białe, kraft lub pastelowe wzory z magazynu",
+          "Indywidualny druk full-wrap, bez limitu kolorów",
+          "Bariera BIO lub PE (zależnie od rozmiaru)",
+        ],
         moq: "1 000 szt.",
       },
       {
@@ -537,7 +783,11 @@ const pl = {
         title: "Wieczka do każdego kubka, który sprzedajemy",
         sizes: "do 100 · 180 · 200 · 300 · 400 ml + kubki plastikowe",
         desc: "Dwie opcje: plastik PE i papier BIO. Płaskie i kopułowe, dopasowane do każdego kubka, który wysyłamy. Dostępne wyłącznie w kolorze białym i czarnym.",
-        bullets: ["Gwarantowane dopasowanie do każdego kubka, który wysyłamy", "Wieczka kopułowe do zimnych napojów i smoothie", "Tylko biały i czarny"],
+        bullets: [
+          "Gwarantowane dopasowanie do każdego kubka, który wysyłamy",
+          "Wieczka kopułowe do zimnych napojów i smoothie",
+          "Tylko biały i czarny",
+        ],
         moq: "1 karton (1 000 szt.)",
       },
       {
@@ -545,7 +795,11 @@ const pl = {
         title: "Słomki papierowe",
         sizes: "150 szt. / opak.",
         desc: "Słomki papierowe bez plastiku, proste lub łamane. Białe i czarne w magazynie. Łącz z kubkami dla zsynchronizowanej dostawy.",
-        bullets: ["Zgodne z dyrektywą UE o jednorazówkach", "Białe i czarne w magazynie", "Pakowane hurtowo dla kawiarni i restauracji"],
+        bullets: [
+          "Zgodne z dyrektywą UE o jednorazówkach",
+          "Białe i czarne w magazynie",
+          "Pakowane hurtowo dla kawiarni i restauracji",
+        ],
         moq: "1 000 szt. (ok. 7 opak.)",
       },
       {
@@ -553,7 +807,12 @@ const pl = {
         title: "Drewniane mieszadełka i patyczki do lodów",
         sizes: "1 000 szt. / opak.",
         desc: "Gładkie drewniane mieszadełka — dostępne również jako patyczki do lodów. Bez drzazg, bez barwników, bez plastiku. Bezpieczne dla żywności i w pełni biodegradowalne.",
-        bullets: ["Nieobrobione naturalne jasne drewno", "Mieszadełka do kawy/herbaty i patyczki do lodów", "Certyfikat kontaktu z żywnością", "100% biodegradowalne"],
+        bullets: [
+          "Nieobrobione naturalne jasne drewno",
+          "Mieszadełka do kawy/herbaty i patyczki do lodów",
+          "Certyfikat kontaktu z żywnością",
+          "100% biodegradowalne",
+        ],
         moq: "1 000 szt. (1 opak.)",
       },
     ],
@@ -588,7 +847,8 @@ const pl = {
     currentCost: "Obecny koszt (opcjonalnie)",
     selectPlaceholder: "Wybierz...",
     needDesigner: "Potrzebuję pomocy grafika",
-    consentLabel: "Zgadzam się na kontakt w sprawie tego zapytania. Nie udostępniamy Twoich danych nikomu innemu. Zobacz politykę prywatności.",
+    consentLabel:
+      "Zgadzam się na kontakt w sprawie tego zapytania. Nie udostępniamy Twoich danych nikomu innemu. Zobacz politykę prywatności.",
     consentRequired: "Potwierdź zgodę na kontakt.",
     errNameReq: "Podaj imię (min. 2 znaki).",
     errEmailInvalid: "Podaj poprawny adres email.",
@@ -634,14 +894,17 @@ const pl = {
   thankYou: {
     title: "Zapytanie",
     titleAccent: "otrzymane!",
-    intro: "Dziękujemy za przesłanie zapytania o audyt. Nasz zespół bezpiecznie otrzymał fakturę i pliki projektowe.",
+    intro:
+      "Dziękujemy za przesłanie zapytania o audyt. Nasz zespół bezpiecznie otrzymał fakturę i pliki projektowe.",
     whatNow: "Co dalej?",
     step1Title: "Audyt techniczny:",
-    step1Text: "Aktualnie wykonujemy pre-flight check Twoich plików projektowych, aby upewnić się, że są gotowe do druku.",
+    step1Text:
+      "Aktualnie wykonujemy pre-flight check Twoich plików projektowych, aby upewnić się, że są gotowe do druku.",
     step2Title: "Analiza kosztów:",
     step2Text: "Porównujemy Twoją wgraną fakturę z naszymi stawkami hurtowymi.",
     step3Title: "Twoja wycena:",
-    step3Text: "Spodziewaj się szczegółowego raportu oszczędności i finalnej wyceny w Twojej skrzynce w ciągu 24–48 godzin (w dni robocze).",
+    step3Text:
+      "Spodziewaj się szczegółowego raportu oszczędności i finalnej wyceny w Twojej skrzynce w ciągu 24–48 godzin (w dni robocze).",
     didntAdd: "Nie dodałeś linku do projektu?",
     emailFiles: "Aby przyspieszyć proces, możesz wysłać pliki bezpośrednio na",
     backHome: "Powrót do strony głównej",

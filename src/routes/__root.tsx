@@ -1,4 +1,11 @@
-import { Outlet, Link, createRootRoute, HeadContent, Scripts, useRouterState } from "@tanstack/react-router";
+import {
+  Outlet,
+  Link,
+  createRootRoute,
+  HeadContent,
+  Scripts,
+  useRouterState,
+} from "@tanstack/react-router";
 import { useEffect } from "react";
 
 import appCss from "../styles.css?url";
@@ -34,14 +41,29 @@ export const Route = createRootRoute({
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "MAS Prints | Wholesale Print Prices. Guaranteed. Iceland." },
-      { name: "description", content: "Direct access to high-capacity European printing factories. Icelandic invoice. Lowest price guarantee. Quote in 24h." },
+      {
+        name: "description",
+        content:
+          "Direct access to high-capacity European printing factories. Icelandic invoice. Lowest price guarantee. Quote in 24h.",
+      },
       { name: "author", content: "Mountain All Service ehf." },
-      { property: "og:title", content: "MAS Prints | Wholesale Print Prices. Guaranteed. Iceland." },
-      { property: "og:description", content: "Direct access to European printing factories. Icelandic invoice. Lowest price guarantee. Quote in 24h." },
+      {
+        property: "og:title",
+        content: "MAS Prints | Wholesale Print Prices. Guaranteed. Iceland.",
+      },
+      {
+        property: "og:description",
+        content:
+          "Direct access to European printing factories. Icelandic invoice. Lowest price guarantee. Quote in 24h.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:title", content: "MAS Prints | Wholesale Print Prices. Iceland." },
-      { name: "twitter:description", content: "Direct access to European printing factories. Icelandic invoice. Lowest price guarantee." },
+      {
+        name: "twitter:description",
+        content:
+          "Direct access to European printing factories. Icelandic invoice. Lowest price guarantee.",
+      },
     ],
     links: [
       {

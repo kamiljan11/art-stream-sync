@@ -64,9 +64,11 @@ const en = {
     heading1: "Why We Are",
     heading2: "Cheaper.",
     logicTitle: "The logic.",
-    logicBody: "Local shops treat every order as a one-off. You pay for the machine setup, the labour and the retail overhead, every single time.",
+    logicBody:
+      "Local shops treat every order as a one-off. You pay for the machine setup, the labour and the retail overhead, every single time.",
     wholesaleTitle: "The wholesale difference.",
-    wholesaleBody: "We batch your job with hundreds of others on industrial runs. Setup costs are shared, retail markup is gone, and the saving lands on your invoice.",
+    wholesaleBody:
+      "We batch your job with hundreds of others on industrial runs. Setup costs are shared, retail markup is gone, and the saving lands on your invoice.",
     flow: {
       yourProject: "YOUR PROJECT",
       localShop: "LOCAL SHOP",
@@ -83,11 +85,14 @@ const en = {
     sub: "We removed every cost that doesn't make your print better.",
     cards: {
       noStorageTitle: "NO STORAGE",
-      noStorageBody: "Storage adds ~15% to the price. We skip it, straight from factory to your door.",
+      noStorageBody:
+        "Storage adds ~15% to the price. We skip it, straight from factory to your door.",
       noOfficeTitle: "NO FANCY OFFICE",
-      noOfficeBody: "No expensive office in 101 Reykjavík. We work online, so our rent isn't on your invoice.",
+      noOfficeBody:
+        "No expensive office in 101 Reykjavík. We work online, so our rent isn't on your invoice.",
       localFastTitle: "LOCAL & FAST",
-      localFastBody: "We work from Njarðvík, next to the airport. Out of the expensive city, still fully local.",
+      localFastBody:
+        "We work from Njarðvík, next to the airport. Out of the expensive city, still fully local.",
     },
     compareHeading1: "COMPARE THE",
     compareHeading2: "MODEL.",
@@ -119,11 +124,13 @@ const en = {
     heading1: "Wholesale Pricing.",
     heading2: "100% Legal.",
     noFeesTitle: "No hidden fees.",
-    noFeesBody: "Cheap foreign quotes often come with a surprise bill from Tollurinn. Not here, the price we quote is the final price at your door. Customs is on us.",
+    noFeesBody:
+      "Cheap foreign quotes often come with a surprise bill from Tollurinn. Not here, the price we quote is the final price at your door. Customs is on us.",
     invoiceTitle: "Valid tax invoice.",
     invoiceBodyPart1: "MAS Prints is a brand of",
     invoiceCompany: "Mountain All Service ehf.",
-    invoiceBodyPart2: "(Kt. 690725-0450). You get a compliant Icelandic invoice with VSK, claim your tax back instantly.",
+    invoiceBodyPart2:
+      "(Kt. 690725-0450). You get a compliant Icelandic invoice with VSK, claim your tax back instantly.",
     accountabilityTitle: "Local accountability.",
     accountabilityBody: "Not a faceless website, a registered Icelandic company based in Njarðvík.",
     flow: {
@@ -155,36 +162,84 @@ const en = {
     sub: "Everything your business prints, from daily essentials to industrial runs and custom packaging.",
     marketing: {
       title: "MARKETING",
-      items: ["Business Cards & Stationery", "Flyers & Folded Leaflets", "Roll-Up Banners (Events)", "Presentation Folders", "Branded Notepads"],
+      items: [
+        "Business Cards & Stationery",
+        "Flyers & Folded Leaflets",
+        "Roll-Up Banners (Events)",
+        "Presentation Folders",
+        "Branded Notepads",
+      ],
     },
     publishing: {
       title: "PUBLISHING",
-      items: ["Product Catalogs", "Magazines", "Hardcover Books", "Softcover Books", "Training Manuals"],
+      items: [
+        "Product Catalogs",
+        "Magazines",
+        "Hardcover Books",
+        "Softcover Books",
+        "Training Manuals",
+      ],
     },
     packaging: {
       title: "PACKAGING",
-      items: ["Product Boxes", "Mailer/Shipping Boxes", "Paper Bags", "Stickers & Labels", "Cardboard Sleeves"],
+      items: [
+        "Product Boxes",
+        "Mailer/Shipping Boxes",
+        "Paper Bags",
+        "Stickers & Labels",
+        "Cardboard Sleeves",
+      ],
     },
     decals: {
       title: "VEHICLE DECALS",
-      items: ["Rear Window Stickers", "Die-Cut Vinyl Lettering", "One-Way Vision (Perforated)", "Bumper Stickers", "Weather-Proof Vinyl"],
+      items: [
+        "Rear Window Stickers",
+        "Die-Cut Vinyl Lettering",
+        "One-Way Vision (Perforated)",
+        "Bumper Stickers",
+        "Weather-Proof Vinyl",
+      ],
     },
     magnetic: {
       title: "MAGNETIC SIGNS",
-      items: ["Removable Car Magnets", "Van Door Branding", "High-Grip 0.85mm Sheet", "Temporary Promotion", "Reusable & Durable"],
+      items: [
+        "Removable Car Magnets",
+        "Van Door Branding",
+        "High-Grip 0.85mm Sheet",
+        "Temporary Promotion",
+        "Reusable & Durable",
+      ],
     },
     apparel: {
       title: "BRANDED APPAREL",
-      items: ["Screen Printed T-Shirts", "Embroidered Polos", "Corporate Hoodies", "High-Vis Safety Vests", "Caps & Beanies"],
+      items: [
+        "Screen Printed T-Shirts",
+        "Embroidered Polos",
+        "Corporate Hoodies",
+        "High-Vis Safety Vests",
+        "Caps & Beanies",
+      ],
     },
     cups: {
       title: "PAPER CUPS",
-      items: ["Single-Wall Paper Cups", "Double-Wall Thermal Cups", "Eco-Friendly BIO Cups", "Paper & Plastic Lids", "Wooden Stirrers"],
+      items: [
+        "Single-Wall Paper Cups",
+        "Double-Wall Thermal Cups",
+        "Eco-Friendly BIO Cups",
+        "Paper & Plastic Lids",
+        "Wooden Stirrers",
+      ],
       cta: "Explore Cups",
     },
     ecocups: {
       title: "ECO CUPS",
-      items: ["BIO Compostable Paper Cups", "rPET Recycled-Plastic Cups", "PLA Plant-Based Cups", "Paper Straws (EU Compliant)", "Compostable Dessert Bowls"],
+      items: [
+        "BIO Compostable Paper Cups",
+        "rPET Recycled-Plastic Cups",
+        "PLA Plant-Based Cups",
+        "Paper Straws (EU Compliant)",
+        "Compostable Dessert Bowls",
+      ],
       cta: "Explore Eco Cups",
     },
   },
@@ -195,9 +250,11 @@ const en = {
     s1Title: "REQUEST OR AUDIT",
     s1Body: "Tell us what you need, or upload a recent invoice for a free price audit.",
     s2Title: "QUOTE & GUARANTEE",
-    s2Body: "We send a wholesale price. Find a lower Icelandic offer? We beat it. You approve the proof.",
+    s2Body:
+      "We send a wholesale price. Find a lower Icelandic offer? We beat it. You approve the proof.",
     s3Title: "PRINT & DELIVER",
-    s3Body: "We handle production, customs and logistics. The box lands at your door with one ISK invoice.",
+    s3Body:
+      "We handle production, customs and logistics. The box lands at your door with one ISK invoice.",
   },
   faqs: {
     heading: "Frequently Asked Questions",
@@ -237,11 +294,26 @@ const en = {
       popularBadge: "★ Most ordered",
     },
     usp: [
-      { t: "From just 1,000 pcs", d: "Low minimum order, perfect for small cafés, events and pilot runs. Scale up whenever you're ready." },
-      { t: "Free artwork adaptation", d: "Send your logo in any usable format, we adapt it to the cup template at no extra cost with every order." },
-      { t: "Your dedicated contact", d: "One person guides you from quote to delivery. Not sure which product fits? Just ask, we'll advise." },
-      { t: "Professional QC system", d: "Every batch passes a multi-stage quality check — print accuracy, lining seal, structure and food-safety compliance — before it ships. In line with strict European standards." },
-      { t: "Certificates with every order", d: "Each order ships with product-specific European certificates (food contact, EN 13432 for BIO, etc.) — never generic Chinese paperwork. Ready for tenders and audits." },
+      {
+        t: "From just 1,000 pcs",
+        d: "Low minimum order, perfect for small cafés, events and pilot runs. Scale up whenever you're ready.",
+      },
+      {
+        t: "Free artwork adaptation",
+        d: "Send your logo in any usable format, we adapt it to the cup template at no extra cost with every order.",
+      },
+      {
+        t: "Your dedicated contact",
+        d: "One person guides you from quote to delivery. Not sure which product fits? Just ask, we'll advise.",
+      },
+      {
+        t: "Professional QC system",
+        d: "Every batch passes a multi-stage quality check — print accuracy, lining seal, structure and food-safety compliance — before it ships. In line with strict European standards.",
+      },
+      {
+        t: "Certificates with every order",
+        d: "Each order ships with product-specific European certificates (food contact, EN 13432 for BIO, etc.) — never generic Chinese paperwork. Ready for tenders and audits.",
+      },
     ],
     uspAskButton: "Ask now",
     midCta: {
@@ -286,7 +358,7 @@ const en = {
       topPick: "★ Top pick in Iceland",
       h3p1: "Drop the plastic. Keep",
       h3p2: "the cup.",
-      p1a: "Most \"paper\" cups have a plastic lining inside.",
+      p1a: 'Most "paper" cups have a plastic lining inside.',
       p1b: "Pour in hot coffee and a single cup can release up to",
       p1c: "25,000 microplastic particles straight into the drink.",
       p2a: "Then the cup goes in the bin.",
@@ -303,12 +375,29 @@ const en = {
       circLabel: "Circular economy",
       circHeading1: "Circular by",
       circHeading2: "design.",
-      circSub: "Every BIO line follows a four-step loop: design it right, use it well, recover the material, put it back to work.",
+      circSub:
+        "Every BIO line follows a four-step loop: design it right, use it well, recover the material, put it back to work.",
       steps: [
-        { n: "01", t: "Design", d: "Water-based dispersion coating instead of plastic lining. Print inks chosen to keep the cup compostable." },
-        { n: "02", t: "Use", d: "Same heat resistance, same hand-feel as a regular cup. No compromise for the customer or the barista." },
-        { n: "03", t: "Recover", d: "EN 13432 certified, breaks down in industrial composting in weeks, not decades. Zero microplastics." },
-        { n: "04", t: "Reuse", d: "Compost goes back into soil. Carbon stays in the loop. The cup becomes the next thing that grows." },
+        {
+          n: "01",
+          t: "Design",
+          d: "Water-based dispersion coating instead of plastic lining. Print inks chosen to keep the cup compostable.",
+        },
+        {
+          n: "02",
+          t: "Use",
+          d: "Same heat resistance, same hand-feel as a regular cup. No compromise for the customer or the barista.",
+        },
+        {
+          n: "03",
+          t: "Recover",
+          d: "EN 13432 certified, breaks down in industrial composting in weeks, not decades. Zero microplastics.",
+        },
+        {
+          n: "04",
+          t: "Reuse",
+          d: "Compost goes back into soil. Carbon stays in the loop. The cup becomes the next thing that grows.",
+        },
       ],
       ask: "Need EN 13432 certificates or material data sheets for a tender or sustainability report? Just ask.",
     },
@@ -323,20 +412,48 @@ const en = {
       heading2: "us.",
       sub: "No contract. Test us on one pallet.",
       items: [
-        { t: "Stable price", d: "The price you're quoted is the price you pay. VAT, customs, delivery, all included. No surprise add-ons on the invoice." },
-        { t: "Predictable delivery", d: "Fixed schedule, fixed date. We handle production and shipping so you don't have to follow up. VAT and customs already in the quote." },
-        { t: "Same cup every batch", d: "Paper weight, lid fit, ink shade, locked in spec. Your January cup matches your July cup." },
-        { t: "Icelandic invoice", d: "You get a proper Icelandic invoice in ISK, with our company ID number and VAT, fully deductible in your books. No \"import from Poland\" paperwork headaches." },
+        {
+          t: "Stable price",
+          d: "The price you're quoted is the price you pay. VAT, customs, delivery, all included. No surprise add-ons on the invoice.",
+        },
+        {
+          t: "Predictable delivery",
+          d: "Fixed schedule, fixed date. We handle production and shipping so you don't have to follow up. VAT and customs already in the quote.",
+        },
+        {
+          t: "Same cup every batch",
+          d: "Paper weight, lid fit, ink shade, locked in spec. Your January cup matches your July cup.",
+        },
+        {
+          t: "Icelandic invoice",
+          d: 'You get a proper Icelandic invoice in ISK, with our company ID number and VAT, fully deductible in your books. No "import from Poland" paperwork headaches.',
+        },
       ],
     },
     how: {
       heading1: "How to",
       heading2: "order.",
       steps: [
-        { n: "1", t: "Use the interactive form", d: "Pick your product and answer a few quick questions — takes about 60 seconds. Or upload a brief / request samples instead." },
-        { n: "2", t: "Get your quote", d: "In ISK within 24 working hours. All-in price, VAT, customs and delivery to your door included." },
-        { n: "3", t: "Free artwork adaptation", d: "We adapt your logo or graphics to the cup template, completely free with every order. Digital proof before any press starts." },
-        { n: "4", t: "Package at your door", d: "We track production and freight and keep you updated." },
+        {
+          n: "1",
+          t: "Use the interactive form",
+          d: "Pick your product and answer a few quick questions — takes about 60 seconds. Or upload a brief / request samples instead.",
+        },
+        {
+          n: "2",
+          t: "Get your quote",
+          d: "In ISK within 24 working hours. All-in price, VAT, customs and delivery to your door included.",
+        },
+        {
+          n: "3",
+          t: "Free artwork adaptation",
+          d: "We adapt your logo or graphics to the cup template, completely free with every order. Digital proof before any press starts.",
+        },
+        {
+          n: "4",
+          t: "Package at your door",
+          d: "We track production and freight and keep you updated.",
+        },
       ],
     },
     faq: {
@@ -344,21 +461,66 @@ const en = {
       heading2: "questions.",
       sub: "If something's not here, just ask in the form below.",
       items: [
-        { q: "What's the minimum order for printed cups?", a: "1,000 pcs per design, applies to all cups: paper, transparent plastic and BIO bowls. Below that the per-unit price stops making sense." },
-        { q: "How long does delivery to Iceland take?", a: "Average lead times: Standard ~6 weeks, Express ~2–3 weeks. It depends on the order: size, product type, and whether you choose standard or express delivery. Stock items (plain cups, lids, straws, stirrers) are usually the fastest, custom-printed and specialty cups take longer. We give you an exact date in your quote and handle Icelandic customs clearance for you." },
-        { q: "Are customs, VAT and delivery included?", a: "Yes. Every quote is all-in ISK, delivered to your door. VAT, customs and inland transport from Reykjavík port, all included. No surprise fees when the pallet lands." },
-        { q: "How many colours can I print?", a: "Standard print is full-colour CMYK at no extra cost, with no limit on the number of colours or graphics on paper cups (full-bleed photos welcome). Transparent plastic: solid blocks only, no gradients. Pantone matching is available on request as a paid extra (approx. 10,000 ISK setup fee per Pantone colour). QR codes and capacity markings are supported on every cup." },
-        { q: "Can I order eco / biodegradable cups?", a: "Yes. We offer three linings: standard Green PE (fully recyclable, mixed-stream), compostable BIO with water-based dispersion coating (plastic-free, home-compostable, EN 13432), and rPET (recycled plastic) for transparent cold-drink cups. Just tick the option in the quote form." },
-        { q: "Can I see samples first?", a: "Yes — we prefer to do it in person. Our sales rep will bring the cups to you, show the paper, lining and print quality live, and walk you through the options. It's faster than mailing samples and you get to feel the product in hand." },
-        { q: "Will every batch look identical?", a: "Paper weight, lid fit and dimensions are locked in spec, every batch matches. Colour: industry-standard ±15% shade variance between print runs (red stays red, the exact tone can shift slightly). Need an exact brand colour every time? Send a Pantone code, we'll Pantone-match it (small extra cost)." },
-        { q: "Do you deliver outside the capital area?", a: "Yes. We're based in Njarðvík and ship anywhere in Iceland, Reykjavík, Akureyri, Vestfirðir, Egilsstaðir, Westman Islands. Inland transport is in the quote." },
-        { q: "I don't know how to prepare artwork, can you help?", a: "Yes. Send us your logo, the colours and where it should sit on the cup. Simple jobs we prepare for free; complex designs get a small one-off setup fee, quoted upfront." },
-        { q: "Can I put a QR code on my cups?", a: "Yes, common for menus, loyalty and Instagram. Send it as vector or a sharp 300 dpi image. We test-scan a 1:1 print on the proof before the full run." },
-        { q: "Will the colour on my screen match the finished cups?", a: "Close, but not 100%. Screens use light, cups use ink, plus a normal ±15% variance between runs. If a brand colour must be exact, send a Pantone code and we'll print a Pantone match (small extra cost)." },
-        { q: "Can I add liquid level markings (0.2 L, 0.3 L)?", a: "Yes, on the outside. Because cup walls taper, we measure the exact fill heights on a reference cup before locking the artwork — easiest to sort during a quick meeting with our sales rep." },
-        { q: "Can the inside of the cup be printed?", a: "No. The leak-proof, food-safe inner coating also blocks ink, printing is exterior-only." },
-        { q: "What file formats do you accept and which template should I use?", a: "We need an open, editable file in CMYK colour mode: editable .pdf, .ai (Illustrator) or .cdr (CorelDraw). Every cup size has its own arc-shaped template — tell us the size and lining and we'll email the right one back." },
-        { q: "Do you provide certificates with the order?", a: "Yes — all relevant certificates are included free with every delivery, no need to ask." },
+        {
+          q: "What's the minimum order for printed cups?",
+          a: "1,000 pcs per design, applies to all cups: paper, transparent plastic and BIO bowls. Below that the per-unit price stops making sense.",
+        },
+        {
+          q: "How long does delivery to Iceland take?",
+          a: "Average lead times: Standard ~6 weeks, Express ~2–3 weeks. It depends on the order: size, product type, and whether you choose standard or express delivery. Stock items (plain cups, lids, straws, stirrers) are usually the fastest, custom-printed and specialty cups take longer. We give you an exact date in your quote and handle Icelandic customs clearance for you.",
+        },
+        {
+          q: "Are customs, VAT and delivery included?",
+          a: "Yes. Every quote is all-in ISK, delivered to your door. VAT, customs and inland transport from Reykjavík port, all included. No surprise fees when the pallet lands.",
+        },
+        {
+          q: "How many colours can I print?",
+          a: "Standard print is full-colour CMYK at no extra cost, with no limit on the number of colours or graphics on paper cups (full-bleed photos welcome). Transparent plastic: solid blocks only, no gradients. Pantone matching is available on request as a paid extra (approx. 10,000 ISK setup fee per Pantone colour). QR codes and capacity markings are supported on every cup.",
+        },
+        {
+          q: "Can I order eco / biodegradable cups?",
+          a: "Yes. We offer three linings: standard Green PE (fully recyclable, mixed-stream), compostable BIO with water-based dispersion coating (plastic-free, home-compostable, EN 13432), and rPET (recycled plastic) for transparent cold-drink cups. Just tick the option in the quote form.",
+        },
+        {
+          q: "Can I see samples first?",
+          a: "Yes — we prefer to do it in person. Our sales rep will bring the cups to you, show the paper, lining and print quality live, and walk you through the options. It's faster than mailing samples and you get to feel the product in hand.",
+        },
+        {
+          q: "Will every batch look identical?",
+          a: "Paper weight, lid fit and dimensions are locked in spec, every batch matches. Colour: industry-standard ±15% shade variance between print runs (red stays red, the exact tone can shift slightly). Need an exact brand colour every time? Send a Pantone code, we'll Pantone-match it (small extra cost).",
+        },
+        {
+          q: "Do you deliver outside the capital area?",
+          a: "Yes. We're based in Njarðvík and ship anywhere in Iceland, Reykjavík, Akureyri, Vestfirðir, Egilsstaðir, Westman Islands. Inland transport is in the quote.",
+        },
+        {
+          q: "I don't know how to prepare artwork, can you help?",
+          a: "Yes. Send us your logo, the colours and where it should sit on the cup. Simple jobs we prepare for free; complex designs get a small one-off setup fee, quoted upfront.",
+        },
+        {
+          q: "Can I put a QR code on my cups?",
+          a: "Yes, common for menus, loyalty and Instagram. Send it as vector or a sharp 300 dpi image. We test-scan a 1:1 print on the proof before the full run.",
+        },
+        {
+          q: "Will the colour on my screen match the finished cups?",
+          a: "Close, but not 100%. Screens use light, cups use ink, plus a normal ±15% variance between runs. If a brand colour must be exact, send a Pantone code and we'll print a Pantone match (small extra cost).",
+        },
+        {
+          q: "Can I add liquid level markings (0.2 L, 0.3 L)?",
+          a: "Yes, on the outside. Because cup walls taper, we measure the exact fill heights on a reference cup before locking the artwork — easiest to sort during a quick meeting with our sales rep.",
+        },
+        {
+          q: "Can the inside of the cup be printed?",
+          a: "No. The leak-proof, food-safe inner coating also blocks ink, printing is exterior-only.",
+        },
+        {
+          q: "What file formats do you accept and which template should I use?",
+          a: "We need an open, editable file in CMYK colour mode: editable .pdf, .ai (Illustrator) or .cdr (CorelDraw). Every cup size has its own arc-shaped template — tell us the size and lining and we'll email the right one back.",
+        },
+        {
+          q: "Do you provide certificates with the order?",
+          a: "Yes — all relevant certificates are included free with every delivery, no need to ask.",
+        },
       ],
     },
     quote: {
@@ -385,7 +547,8 @@ const en = {
       chooseFile: "Choose file",
       uploadPlaceholder: "PDF, AI, EPS, PSD, PNG, JPG, SVG, or send later by email",
       notes: "Additional questions or notes",
-      notesPlaceholder: "If you'd like to ask or tell us anything, write here. Sizes, colours, deadline, link to logo / artwork...",
+      notesPlaceholder:
+        "If you'd like to ask or tell us anything, write here. Sizes, colours, deadline, link to logo / artwork...",
       send: "Send",
       selectPlaceholder: "Select...",
       wizard: {
@@ -407,17 +570,21 @@ const en = {
         pathSampleTitle: "Request samples",
         pathSampleDesc: "I'd like to see and feel the cups before ordering.",
         briefTitle: "Send your brief",
-        briefHint: "Upload your brief (PDF, DOC, PPT) or describe the project. We reply in 24 working hours.",
+        briefHint:
+          "Upload your brief (PDF, DOC, PPT) or describe the project. We reply in 24 working hours.",
         briefFileLabel: "Brief / specification file",
         briefFileCta: "Click to upload or drop a file here",
         briefFileHint: "PDF, DOC, PPT, AI, ZIP — up to 20 MB",
         optional: "optional",
         briefMessage: "Short project description",
-        briefMessagePlaceholder: "What you want to order, quantities, deadlines, colours, anything else...",
+        briefMessagePlaceholder:
+          "What you want to order, quantities, deadlines, colours, anything else...",
         sampleTitle: "Request samples",
-        sampleHint: "We usually book a 15–30 min visit from our sales rep with cups in hand — you get to see and feel the product live. Tell us which products you're interested in.",
+        sampleHint:
+          "We usually book a 15–30 min visit from our sales rep with cups in hand — you get to see and feel the product live. Tell us which products you're interested in.",
         sampleInterest: "Which products are you interested in?",
-        sampleInterestPlaceholder: "E.g. 300 ml double-wall cups with BIO lining, 360 ml ice-cream bowls...",
+        sampleInterestPlaceholder:
+          "E.g. 300 ml double-wall cups with BIO lining, 360 ml ice-cream bowls...",
         sampleAddress: "Address / location (optional)",
         sampleAddressPlaceholder: "City / area — so we can book a sales rep visit",
         pickProduct: "What do you want to order?",
@@ -426,7 +593,8 @@ const en = {
         configureHint: "Only the options that exist for this product are shown.",
         addToList: "Add to list",
         tellUsMore: "Tell us more about what you need",
-        tellUsMorePlaceholder: "What it's for (coffee, juice, ice cream...), where (café, office, event), any specific look or constraint. The more we know, the better we can advise.",
+        tellUsMorePlaceholder:
+          "What it's for (coffee, juice, ice cream...), where (café, office, event), any specific look or constraint. The more we know, the better we can advise.",
         mixDetails: "Describe your size mix (optional)",
         mixDetailsPlaceholder: "E.g. 50% 200 ml + 50% 300 ml — or leave blank, we'll ask.",
         groupKnown: "I know what I want",
@@ -450,7 +618,8 @@ const en = {
         customQuantityHint: "Minimum 1,000 — no upper limit.",
         quantityMinError: "Minimum order is 1,000 pieces.",
         pantoneTitle: "I have specific Pantone colours",
-        pantoneHint: "Tick if you'd like us to print with Pantone colours and share the codes — we'll include the matching in your quote.",
+        pantoneHint:
+          "Tick if you'd like us to print with Pantone colours and share the codes — we'll include the matching in your quote.",
         startOver: "Start over",
         resetConfirm: "Discard your saved progress and start a new quote?",
         pantonePlaceholder: "Pantone codes, e.g. PMS 286 C, PMS 200 C",
@@ -476,16 +645,77 @@ const en = {
         "Something else / mix",
       ],
       quantities: ["1,000 – 5,000", "5,000 – 20,000", "20,000 – 50,000", "50,000+"],
-      timings: ["Standard (best price) — approx. 6 weeks", "Express (faster if possible) — approx. 2–3 weeks", "Flexible"],
-      linings: ["Not sure yet, advise me", "Standard (Green PE)", "Compostable BIO (water-based dispersion, plastic-free)"],
+      timings: [
+        "Standard (best price) — approx. 6 weeks",
+        "Express (faster if possible) — approx. 2–3 weeks",
+        "Flexible",
+      ],
+      linings: [
+        "Not sure yet, advise me",
+        "Standard (Green PE)",
+        "Compostable BIO (water-based dispersion, plastic-free)",
+      ],
       byProduct: [
         { sizes: [], finishes: [], linings: [] },
-        { sizes: ["100 ml", "180 ml", "200 ml", "300 ml", "400 ml", "Mix of sizes"], finishes: ["White paper", "Kraft (brown) paper"], linings: ["Not sure yet, advise me", "Standard (Green PE)", "Compostable BIO (water-based dispersion, plastic-free)"] },
-        { sizes: ["200 ml (8 oz)", "300 ml (12 oz)", "400 ml (16 oz)", "Mix of sizes"], finishes: ["All white", "All kraft", "Kraft + white combo"], linings: ["Not sure yet, advise me", "Standard (Green PE)", "Compostable BIO (water-based dispersion, plastic-free)"] },
-        { sizes: ["100 ml", "180 ml", "200 ml", "300 ml", "400 ml", "Mix of sizes"], finishes: ["White", "Kraft (brown)", "Pastel pattern", "Coffee-bean pattern", "Summer Series", "Winter Series"], linings: ["Not sure yet, advise me", "Standard (Green PE)", "Compostable BIO (water-based dispersion, plastic-free)"] },
-        { sizes: ["300 ml", "400 ml", "500 ml", "Mix of sizes"], finishes: ["Plain (no print)", "1–2 spot colours", "3–4 spot colours"], linings: [] },
-        { sizes: ["130 ml", "245 ml", "360 ml", "Mix of sizes"], finishes: ["White", "Kraft", "Pastel pattern", "Full-wrap custom print"], linings: ["Not sure yet, advise me", "Standard (Green PE)", "Compostable BIO (water-based dispersion, plastic-free)"] },
-        { sizes: ["For 200 ml (8 oz)", "For 300 ml (12 oz)", "For 400 ml (16 oz)", "For rPET (300/400/500)", "Mix of sizes"], finishes: ["White", "Black"], linings: [] },
+        {
+          sizes: ["100 ml", "180 ml", "200 ml", "300 ml", "400 ml", "Mix of sizes"],
+          finishes: ["White paper", "Kraft (brown) paper"],
+          linings: [
+            "Not sure yet, advise me",
+            "Standard (Green PE)",
+            "Compostable BIO (water-based dispersion, plastic-free)",
+          ],
+        },
+        {
+          sizes: ["200 ml (8 oz)", "300 ml (12 oz)", "400 ml (16 oz)", "Mix of sizes"],
+          finishes: ["All white", "All kraft", "Kraft + white combo"],
+          linings: [
+            "Not sure yet, advise me",
+            "Standard (Green PE)",
+            "Compostable BIO (water-based dispersion, plastic-free)",
+          ],
+        },
+        {
+          sizes: ["100 ml", "180 ml", "200 ml", "300 ml", "400 ml", "Mix of sizes"],
+          finishes: [
+            "White",
+            "Kraft (brown)",
+            "Pastel pattern",
+            "Coffee-bean pattern",
+            "Summer Series",
+            "Winter Series",
+          ],
+          linings: [
+            "Not sure yet, advise me",
+            "Standard (Green PE)",
+            "Compostable BIO (water-based dispersion, plastic-free)",
+          ],
+        },
+        {
+          sizes: ["300 ml", "400 ml", "500 ml", "Mix of sizes"],
+          finishes: ["Plain (no print)", "1–2 spot colours", "3–4 spot colours"],
+          linings: [],
+        },
+        {
+          sizes: ["130 ml", "245 ml", "360 ml", "Mix of sizes"],
+          finishes: ["White", "Kraft", "Pastel pattern", "Full-wrap custom print"],
+          linings: [
+            "Not sure yet, advise me",
+            "Standard (Green PE)",
+            "Compostable BIO (water-based dispersion, plastic-free)",
+          ],
+        },
+        {
+          sizes: [
+            "For 200 ml (8 oz)",
+            "For 300 ml (12 oz)",
+            "For 400 ml (16 oz)",
+            "For rPET (300/400/500)",
+            "Mix of sizes",
+          ],
+          finishes: ["White", "Black"],
+          linings: [],
+        },
         { sizes: [], finishes: ["White", "Black"], linings: [] },
         { sizes: [], finishes: [], linings: [] },
         { sizes: [], finishes: [], linings: [] },
@@ -498,7 +728,11 @@ const en = {
         title: "Single-wall paper cup with your print",
         sizes: "100 · 180 · 200 · 300 · 400 ml",
         desc: "Our most popular cup. Light, stackable, full-surface CMYK print with no colour limit. Print on white or natural kraft (brown) paper. Suitable for events, offices, juice bars and water dispensers.",
-        bullets: ["Unlimited full-colour CMYK printing, no upcharge", "White or kraft (brown) paper base", "Recyclable or compostable inner lining"],
+        bullets: [
+          "Unlimited full-colour CMYK printing, no upcharge",
+          "White or kraft (brown) paper base",
+          "Recyclable or compostable inner lining",
+        ],
         moq: "1,000 pcs",
       },
       {
@@ -506,7 +740,11 @@ const en = {
         title: "Premium thermal double-wall cup",
         sizes: "200 ml (8 oz) · 300 ml (12 oz) · 400 ml (16 oz)",
         desc: "Premium double-wall cup. Keeps drinks hot inside while staying comfortable to hold. Available all-white, all-kraft, or with one kraft wall and one white wall. Recommended for cafés, takeaway and hotel coffee corners.",
-        bullets: ["Comfortable to hold even with hot drinks", "White, kraft, or kraft + white combo", "Recyclable or compostable inner lining"],
+        bullets: [
+          "Comfortable to hold even with hot drinks",
+          "White, kraft, or kraft + white combo",
+          "Recyclable or compostable inner lining",
+        ],
         moq: "1,000 pcs",
       },
       {
@@ -514,7 +752,11 @@ const en = {
         title: "Plain paper cups (stock, white & colours)",
         sizes: "100 · 180 · 200 · 300 · 400 ml",
         desc: "Unprinted cups straight from stock: white, kraft (brown), pastel colours, coffee-bean, summer and winter graphics. Suitable for water stations, vending machines, gyms and offices.",
-        bullets: ["White, kraft and patterned stock designs", "From 1,000 pcs per size", "Recyclable or compostable inner lining"],
+        bullets: [
+          "White, kraft and patterned stock designs",
+          "From 1,000 pcs per size",
+          "Recyclable or compostable inner lining",
+        ],
         moq: "1,000 pcs",
       },
       {
@@ -522,7 +764,11 @@ const en = {
         title: "Transparent recycled-plastic cup",
         sizes: "300 · 400 · 500 ml",
         desc: "Transparent cup for cold drinks, smoothies, iced coffee, beer and cocktails. Made from recycled PET. Legal replacement for old single-use plastic cups.",
-        bullets: ["Made from recycled PET plastic", "Up to 4 spot colours, solid blocks only (no gradients)", "Not suitable for hot drinks"],
+        bullets: [
+          "Made from recycled PET plastic",
+          "Up to 4 spot colours, solid blocks only (no gradients)",
+          "Not suitable for hot drinks",
+        ],
         moq: "1,000 pcs",
       },
       {
@@ -530,7 +776,11 @@ const en = {
         title: "Ice cream & dessert bowl",
         sizes: "130 · 245 · 360 ml",
         desc: "Wide-mouth bowl for ice cream, yoghurt and snacks (cold use only — no hot soup). Available in white, kraft and pastel patterns, or full-wrap custom print. 130 ml: PE lining; 245 / 360 ml: BIO or PE.",
-        bullets: ["White, kraft or pastel stock patterns", "Full-wrap custom print, no colour limit", "BIO or PE lining (depending on size)"],
+        bullets: [
+          "White, kraft or pastel stock patterns",
+          "Full-wrap custom print, no colour limit",
+          "BIO or PE lining (depending on size)",
+        ],
         moq: "1,000 pcs",
       },
       {
@@ -538,7 +788,11 @@ const en = {
         title: "Lids for every cup we sell",
         sizes: "for 100 · 180 · 200 · 300 · 400 ml + plastic cups",
         desc: "Two options: PE plastic and BIO paper. Flat and dome shapes, matched to every cup we ship. Available in white and black only.",
-        bullets: ["Guaranteed fit on every cup we ship", "Dome lids for cold drinks & smoothies", "White and black only"],
+        bullets: [
+          "Guaranteed fit on every cup we ship",
+          "Dome lids for cold drinks & smoothies",
+          "White and black only",
+        ],
         moq: "1 carton (1,000 pcs)",
       },
       {
@@ -546,7 +800,11 @@ const en = {
         title: "Paper drinking straws",
         sizes: "150 pcs / pack",
         desc: "Plastic-free paper straws, straight or bendy. White and black in stock. Bundle with cups for synced delivery.",
-        bullets: ["EU single-use plastics compliant", "White and black in stock", "Bulk-packed for cafés and restaurants"],
+        bullets: [
+          "EU single-use plastics compliant",
+          "White and black in stock",
+          "Bulk-packed for cafés and restaurants",
+        ],
         moq: "1,000 pcs (approx. 7 packs)",
       },
       {
@@ -554,7 +812,12 @@ const en = {
         title: "Wooden stirrers & ice-cream sticks",
         sizes: "1,000 pcs / pack",
         desc: "Smooth natural wooden stirrers — also available as ice-cream sticks. No splinters, no dyes, no plastic. Food-safe and fully biodegradable.",
-        bullets: ["Untreated natural light wood", "Coffee/tea stirrers & ice-cream sticks", "Food-contact certified", "100% biodegradable"],
+        bullets: [
+          "Untreated natural light wood",
+          "Coffee/tea stirrers & ice-cream sticks",
+          "Food-contact certified",
+          "100% biodegradable",
+        ],
         moq: "1,000 pcs (1 pack)",
       },
     ],
@@ -589,7 +852,8 @@ const en = {
     currentCost: "Current Cost (Optional)",
     selectPlaceholder: "Select...",
     needDesigner: "I need help from a graphic designer",
-    consentLabel: "I agree to be contacted about this enquiry. We don't share your details with anyone else. See our privacy notice.",
+    consentLabel:
+      "I agree to be contacted about this enquiry. We don't share your details with anyone else. See our privacy notice.",
     consentRequired: "Please confirm consent to be contacted.",
     errNameReq: "Please enter your name (min 2 characters).",
     errEmailInvalid: "Please enter a valid email address.",
@@ -635,14 +899,17 @@ const en = {
   thankYou: {
     title: "Request",
     titleAccent: "Received!",
-    intro: "Thank you for submitting your audit request. Our team has received your invoice and design files securely.",
+    intro:
+      "Thank you for submitting your audit request. Our team has received your invoice and design files securely.",
     whatNow: "What happens now?",
     step1Title: "Technical Audit:",
-    step1Text: "We are currently running a pre-flight check on your design files to ensure print readiness.",
+    step1Text:
+      "We are currently running a pre-flight check on your design files to ensure print readiness.",
     step2Title: "Cost Analysis:",
     step2Text: "We are comparing your uploaded invoice against our wholesale rates.",
     step3Title: "Your Quote:",
-    step3Text: "Expect a detailed savings report and final quote in your inbox within 24–48 hours (in working days).",
+    step3Text:
+      "Expect a detailed savings report and final quote in your inbox within 24–48 hours (in working days).",
     didntAdd: "Didn't add a design link?",
     emailFiles: "To speed up the process, you can email your files directly to",
     backHome: "Back to Homepage",

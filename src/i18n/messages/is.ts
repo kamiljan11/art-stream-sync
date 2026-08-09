@@ -64,9 +64,11 @@ const is = {
     heading1: "Af hverju erum við",
     heading2: "Ódýrari.",
     logicTitle: "Rökfræðin.",
-    logicBody: "Staðbundnar prentsmiðjur líta á hverja pöntun sem stakt verk. Þú borgar fyrir uppsetningu vélar, vinnu og smásöluyfirbygginguna í hvert einasta skipti.",
+    logicBody:
+      "Staðbundnar prentsmiðjur líta á hverja pöntun sem stakt verk. Þú borgar fyrir uppsetningu vélar, vinnu og smásöluyfirbygginguna í hvert einasta skipti.",
     wholesaleTitle: "Heildsölumunurinn.",
-    wholesaleBody: "Við sameinum verkið þitt við hundruð annarra á iðnaðarprentun. Uppsetningarkostnaður deilist, smásöluálagningin hverfur og sparnaðurinn lendir á reikningnum þínum.",
+    wholesaleBody:
+      "Við sameinum verkið þitt við hundruð annarra á iðnaðarprentun. Uppsetningarkostnaður deilist, smásöluálagningin hverfur og sparnaðurinn lendir á reikningnum þínum.",
     flow: {
       yourProject: "VERKEFNIÐ ÞITT",
       localShop: "STAÐBUNDIN PRENTSM.",
@@ -83,11 +85,14 @@ const is = {
     sub: "Við tókum út hvern þann kostnað sem gerir prentið þitt ekki betra.",
     cards: {
       noStorageTitle: "ENGIN GEYMSLA",
-      noStorageBody: "Geymsla bætir ~15% á verðið. Við sleppum henni, beint úr verksmiðju að dyrum þínum.",
+      noStorageBody:
+        "Geymsla bætir ~15% á verðið. Við sleppum henni, beint úr verksmiðju að dyrum þínum.",
       noOfficeTitle: "ENGIN FÍN SKRIFSTOFA",
-      noOfficeBody: "Engin dýr skrifstofa í 101 Reykjavík. Við vinnum á netinu, svo leigan okkar er ekki á reikningnum þínum.",
+      noOfficeBody:
+        "Engin dýr skrifstofa í 101 Reykjavík. Við vinnum á netinu, svo leigan okkar er ekki á reikningnum þínum.",
       localFastTitle: "STAÐBUNDIÐ OG HRATT",
-      localFastBody: "Við vinnum frá Njarðvík, við hliðina á flugvellinum. Utan dýru borgarinnar, samt að fullu staðbundið.",
+      localFastBody:
+        "Við vinnum frá Njarðvík, við hliðina á flugvellinum. Utan dýru borgarinnar, samt að fullu staðbundið.",
     },
     compareHeading1: "BERIÐ SAMAN",
     compareHeading2: "MÓDELIÐ.",
@@ -119,13 +124,16 @@ const is = {
     heading1: "Heildsöluverð.",
     heading2: "100% Löglegt.",
     noFeesTitle: "Engin falin gjöld.",
-    noFeesBody: "Ódýr erlend tilboð fylgja oft óvæntum reikningi frá Tollurinn. Ekki hér, verðið sem við bjóðum er endanlegt verð að dyrum þínum. Tollar eru á okkur.",
+    noFeesBody:
+      "Ódýr erlend tilboð fylgja oft óvæntum reikningi frá Tollurinn. Ekki hér, verðið sem við bjóðum er endanlegt verð að dyrum þínum. Tollar eru á okkur.",
     invoiceTitle: "Gildur skattareikningur.",
     invoiceBodyPart1: "MAS Prints er vörumerki frá",
     invoiceCompany: "Mountain All Service ehf.",
-    invoiceBodyPart2: "(Kt. 690725-0450). Þú færð löglegan íslenskan reikning með VSK og getur fengið skattinn endurgreiddan strax.",
+    invoiceBodyPart2:
+      "(Kt. 690725-0450). Þú færð löglegan íslenskan reikning með VSK og getur fengið skattinn endurgreiddan strax.",
     accountabilityTitle: "Staðbundin ábyrgð.",
-    accountabilityBody: "Ekki andlitslaus vefsíða, heldur skráð íslenskt fyrirtæki með aðsetur í Njarðvík.",
+    accountabilityBody:
+      "Ekki andlitslaus vefsíða, heldur skráð íslenskt fyrirtæki með aðsetur í Njarðvík.",
     flow: {
       euFactory: "ESB-VERKSMIÐJA",
       source: "UPPRUNI",
@@ -155,7 +163,13 @@ const is = {
     sub: "Allt sem fyrirtækið þitt prentar, frá daglegum nauðsynjum til iðnaðarprentunar og sérpökkunar.",
     marketing: {
       title: "MARKAÐSEFNI",
-      items: ["Nafnspjöld og bréfsefni", "Bæklingar og brotnir flugsprettar", "Roll-up borðar (viðburðir)", "Kynningarmöppur", "Vörumerktir minnisblokkir"],
+      items: [
+        "Nafnspjöld og bréfsefni",
+        "Bæklingar og brotnir flugsprettar",
+        "Roll-up borðar (viðburðir)",
+        "Kynningarmöppur",
+        "Vörumerktir minnisblokkir",
+      ],
     },
     publishing: {
       title: "ÚTGÁFA",
@@ -163,28 +177,64 @@ const is = {
     },
     packaging: {
       title: "UMBÚÐIR",
-      items: ["Vörukassar", "Sendingarkassar", "Pappírspokar", "Límmiðar og merkingar", "Pappírssleifar"],
+      items: [
+        "Vörukassar",
+        "Sendingarkassar",
+        "Pappírspokar",
+        "Límmiðar og merkingar",
+        "Pappírssleifar",
+      ],
     },
     decals: {
       title: "BÍLAMERKINGAR",
-      items: ["Afturrúðumiðar", "Skornar vínyl-stafagerðir", "One-Way Vision (göt)", "Stuðaramiðar", "Veðurþolinn vínyl"],
+      items: [
+        "Afturrúðumiðar",
+        "Skornar vínyl-stafagerðir",
+        "One-Way Vision (göt)",
+        "Stuðaramiðar",
+        "Veðurþolinn vínyl",
+      ],
     },
     magnetic: {
       title: "SEGULSKILTI",
-      items: ["Færanlegir bílaseglar", "Merkingar á bílhurðir", "Háþéttniblað 0,85mm", "Tímabundnar herferðir", "Endurnýtanlegt og endingargott"],
+      items: [
+        "Færanlegir bílaseglar",
+        "Merkingar á bílhurðir",
+        "Háþéttniblað 0,85mm",
+        "Tímabundnar herferðir",
+        "Endurnýtanlegt og endingargott",
+      ],
     },
     apparel: {
       title: "MERKTUR FATNAÐUR",
-      items: ["Silkiprentaðir bolir", "Útsaumaðir polo-bolir", "Fyrirtækjabolir með húdd", "Háöryggisvesti", "Húfur og prjónahúfur"],
+      items: [
+        "Silkiprentaðir bolir",
+        "Útsaumaðir polo-bolir",
+        "Fyrirtækjabolir með húdd",
+        "Háöryggisvesti",
+        "Húfur og prjónahúfur",
+      ],
     },
     cups: {
       title: "PAPPAMÁL",
-      items: ["Einveggja pappamál", "Tvíveggja hitaeinangruð mál", "Vistvæn BIO mál", "Pappírs- og plastlok", "Tréhrærarar"],
+      items: [
+        "Einveggja pappamál",
+        "Tvíveggja hitaeinangruð mál",
+        "Vistvæn BIO mál",
+        "Pappírs- og plastlok",
+        "Tréhrærarar",
+      ],
       cta: "Skoða úrval mála",
     },
     ecocups: {
       title: "VISTVÆN MÁL",
-      items: ["BIO lífgrðanleg pappamál", "rPET endurvinnslugler mál", "PLA plöntutengd mál", "Pappírsstrár (ESB-samræmd)", "Lífbrotnar dessertskálar"],
+      items: [
+        "BIO lífgrðanleg pappamál",
+        "rPET endurvinnslugler mál",
+        "PLA plöntutengd mál",
+        "Pappírsstrár (ESB-samræmd)",
+        "Lífbrotnar dessertskálar",
+      ],
       cta: "Skoða vistvæn mál",
     },
   },
@@ -195,9 +245,11 @@ const is = {
     s1Title: "BEIÐNI EÐA ÚTTEKT",
     s1Body: "Segðu okkur hvað þú þarft, eða sendu nýlegan reikning fyrir ókeypis verðúttekt.",
     s2Title: "TILBOÐ OG ÁBYRGÐ",
-    s2Body: "Við sendum heildsöluverð. Finnurðu lægra íslenskt tilboð? Við sláum það. Þú samþykkir prufu.",
+    s2Body:
+      "Við sendum heildsöluverð. Finnurðu lægra íslenskt tilboð? Við sláum það. Þú samþykkir prufu.",
     s3Title: "PRENTA OG AFHENDA",
-    s3Body: "Við sjáum um framleiðslu, tolla og flutning. Kassinn lendir við dyrnar þínar með einum ISK reikningi.",
+    s3Body:
+      "Við sjáum um framleiðslu, tolla og flutning. Kassinn lendir við dyrnar þínar með einum ISK reikningi.",
   },
   faqs: {
     heading: "Algengar spurningar",
@@ -237,11 +289,26 @@ const is = {
       popularBadge: "★ Vinsælast",
     },
     usp: [
-      { t: "Frá aðeins 1.000 stk", d: "Lág lágmarkspöntun, fullkomin fyrir lítil kaffihús, viðburði og prufukeyrslur. Stækkaðu þegar þú ert tilbúinn." },
-      { t: "Ókeypis aðlögun á hönnun", d: "Sendu lógóið þitt á hvaða nothæfu sniði sem er, við aðlögum það að bollasniðmátinu án aukakostnaðar með hverri pöntun." },
-      { t: "Þinn eigin tengiliður", d: "Ein manneskja leiðir þig frá tilboði til afhendingar. Ekki viss hvað passar? Bara spurðu, við ráðleggjum." },
-      { t: "Faglegt gæðaeftirlit", d: "Hver framleiðslulota gengur í gegnum margra þrepa gæðaeftirlit — prentnákvæmni, þéttleika húðunar, byggingu og matvælaöryggi — áður en hún er send. Í samræmi við ströng evrópsk gæðastaðla." },
-      { t: "Vottorð fylgja hverri pöntun", d: "Hverri pöntun fylgja evrópsk vottorð fyrir tiltekna vöru (matvælasnerting, EN 13432 fyrir BIO o.fl.) — ekki almenn kínversk skjöl. Tilbúið fyrir útboð og úttektir." },
+      {
+        t: "Frá aðeins 1.000 stk",
+        d: "Lág lágmarkspöntun, fullkomin fyrir lítil kaffihús, viðburði og prufukeyrslur. Stækkaðu þegar þú ert tilbúinn.",
+      },
+      {
+        t: "Ókeypis aðlögun á hönnun",
+        d: "Sendu lógóið þitt á hvaða nothæfu sniði sem er, við aðlögum það að bollasniðmátinu án aukakostnaðar með hverri pöntun.",
+      },
+      {
+        t: "Þinn eigin tengiliður",
+        d: "Ein manneskja leiðir þig frá tilboði til afhendingar. Ekki viss hvað passar? Bara spurðu, við ráðleggjum.",
+      },
+      {
+        t: "Faglegt gæðaeftirlit",
+        d: "Hver framleiðslulota gengur í gegnum margra þrepa gæðaeftirlit — prentnákvæmni, þéttleika húðunar, byggingu og matvælaöryggi — áður en hún er send. Í samræmi við ströng evrópsk gæðastaðla.",
+      },
+      {
+        t: "Vottorð fylgja hverri pöntun",
+        d: "Hverri pöntun fylgja evrópsk vottorð fyrir tiltekna vöru (matvælasnerting, EN 13432 fyrir BIO o.fl.) — ekki almenn kínversk skjöl. Tilbúið fyrir útboð og úttektir.",
+      },
     ],
     uspAskButton: "Spyrja núna",
     midCta: {
@@ -286,7 +353,7 @@ const is = {
       topPick: "★ Vinsælast á Íslandi",
       h3p1: "Slepptu plastinu. Haltu",
       h3p2: "bollanum.",
-      p1a: "Flestir „pappírs\"bollar eru með plasthúðun innan í.",
+      p1a: 'Flestir „pappírs"bollar eru með plasthúðun innan í.',
       p1b: "Helltu heitu kaffi í og einn bolli getur losað allt að",
       p1c: "25.000 örplastagnir beint í drykkinn.",
       p2a: "Síðan fer bollinn í ruslið.",
@@ -303,12 +370,29 @@ const is = {
       circLabel: "Hringrásarhagkerfi",
       circHeading1: "Hringrás í",
       circHeading2: "hönnun.",
-      circSub: "Hver BIO lína fylgir fjögurra þrepa lykkju: hannaðu rétt, notaðu vel, endurheimtu efnið, settu það aftur í vinnu.",
+      circSub:
+        "Hver BIO lína fylgir fjögurra þrepa lykkju: hannaðu rétt, notaðu vel, endurheimtu efnið, settu það aftur í vinnu.",
       steps: [
-        { n: "01", t: "Hönnun", d: "Vatnsbasuð dispersion-húðun í stað plasthúðunar. Prentblek valið til að halda bollanum niðurbrjótanlegum." },
-        { n: "02", t: "Notkun", d: "Sami hitaþol, sama tilfinning og venjulegur bolli. Engin málamiðlun fyrir viðskiptavin eða barista." },
-        { n: "03", t: "Endurheimt", d: "EN 13432 vottað, brotnar niður í iðnaðarmoltun á vikum, ekki áratugum. Núll örplast." },
-        { n: "04", t: "Endurnýting", d: "Moltan fer aftur í jarðveginn. Kolefnið helst í lykkjunni. Bollinn verður að næsta hlutnum sem vex." },
+        {
+          n: "01",
+          t: "Hönnun",
+          d: "Vatnsbasuð dispersion-húðun í stað plasthúðunar. Prentblek valið til að halda bollanum niðurbrjótanlegum.",
+        },
+        {
+          n: "02",
+          t: "Notkun",
+          d: "Sami hitaþol, sama tilfinning og venjulegur bolli. Engin málamiðlun fyrir viðskiptavin eða barista.",
+        },
+        {
+          n: "03",
+          t: "Endurheimt",
+          d: "EN 13432 vottað, brotnar niður í iðnaðarmoltun á vikum, ekki áratugum. Núll örplast.",
+        },
+        {
+          n: "04",
+          t: "Endurnýting",
+          d: "Moltan fer aftur í jarðveginn. Kolefnið helst í lykkjunni. Bollinn verður að næsta hlutnum sem vex.",
+        },
       ],
       ask: "Þarftu EN 13432 vottorð eða efnisgögn fyrir útboð eða sjálfbærniskýrslu? Bara spurðu.",
     },
@@ -323,20 +407,48 @@ const is = {
       heading2: "við.",
       sub: "Enginn samningur. Prófaðu okkur með einni vörubretti.",
       items: [
-        { t: "Stöðugt verð", d: "Verðið sem þú færð er verðið sem þú borgar. VSK, tollar, afhending, allt innifalið. Engar óvæntar viðbætur á reikningnum." },
-        { t: "Fyrirsjáanleg afhending", d: "Föst áætlun, föst dagsetning. Þú hættir að elta, við sendum. VSK og tollar þegar í tilboðinu." },
-        { t: "Sami bolli í hverri lotu", d: "Pappírsþyngd, lokafesting, blekblanda, læst í forskrift. Janúarbollinn þinn passar við júlíbollann." },
-        { t: "Íslenskur reikningur", d: "Þú færð réttan íslenskan reikning í ISK, með kennitölu okkar og VSK, fullkomlega frádráttarbært. Engin „innflutningur frá Póllandi\" pappírsvinna." },
+        {
+          t: "Stöðugt verð",
+          d: "Verðið sem þú færð er verðið sem þú borgar. VSK, tollar, afhending, allt innifalið. Engar óvæntar viðbætur á reikningnum.",
+        },
+        {
+          t: "Fyrirsjáanleg afhending",
+          d: "Föst áætlun, föst dagsetning. Þú hættir að elta, við sendum. VSK og tollar þegar í tilboðinu.",
+        },
+        {
+          t: "Sami bolli í hverri lotu",
+          d: "Pappírsþyngd, lokafesting, blekblanda, læst í forskrift. Janúarbollinn þinn passar við júlíbollann.",
+        },
+        {
+          t: "Íslenskur reikningur",
+          d: 'Þú færð réttan íslenskan reikning í ISK, með kennitölu okkar og VSK, fullkomlega frádráttarbært. Engin „innflutningur frá Póllandi" pappírsvinna.',
+        },
       ],
     },
     how: {
       heading1: "Hvernig á að",
       heading2: "panta.",
       steps: [
-        { n: "1", t: "Notaðu gagnvirkt eyðublað", d: "Veldu vöru og svaraðu nokkrum stuttum spurningum — tekur um 60 sekúndur. Eða sendu lýsingu / biddu um sýnishorn." },
-        { n: "2", t: "Fáðu fast tilboð", d: "Í ISK innan 24 vinnustunda. Allt-innifalið verð, VSK, tollar og afhending heim að dyrum innifalið." },
-        { n: "3", t: "Ókeypis aðlögun á hönnun", d: "Við aðlögum lógóið þitt eða grafíkina að bollasniðmátinu, alveg ókeypis með hverri pöntun. Stafræn prufa áður en prentun hefst." },
-        { n: "4", t: "Pakki heim að dyrum", d: "Við fylgjumst með framleiðslu og flutningi. Þú hættir að elta." },
+        {
+          n: "1",
+          t: "Notaðu gagnvirkt eyðublað",
+          d: "Veldu vöru og svaraðu nokkrum stuttum spurningum — tekur um 60 sekúndur. Eða sendu lýsingu / biddu um sýnishorn.",
+        },
+        {
+          n: "2",
+          t: "Fáðu fast tilboð",
+          d: "Í ISK innan 24 vinnustunda. Allt-innifalið verð, VSK, tollar og afhending heim að dyrum innifalið.",
+        },
+        {
+          n: "3",
+          t: "Ókeypis aðlögun á hönnun",
+          d: "Við aðlögum lógóið þitt eða grafíkina að bollasniðmátinu, alveg ókeypis með hverri pöntun. Stafræn prufa áður en prentun hefst.",
+        },
+        {
+          n: "4",
+          t: "Pakki heim að dyrum",
+          d: "Við fylgjumst með framleiðslu og flutningi. Þú hættir að elta.",
+        },
       ],
     },
     faq: {
@@ -344,21 +456,66 @@ const is = {
       heading2: "spurningar.",
       sub: "Ef eitthvað vantar, spurðu bara í forminu hér að neðan.",
       items: [
-        { q: "Hvert er lágmark fyrir prentaða bolla?", a: "1.000 stk á hönnun, gildir um alla bolla: pappír, glært plast og BIO skálar. Undir því hættir verð á einingu að vera skynsamlegt." },
-        { q: "Hve lengi tekur afhending til Íslands?", a: "Meðalafgreiðslutími: Hefðbundið ~6 vikur, Hraðsending ~2–3 vikur. Fer eftir pöntun: magni, vörutegund og hvort valin er hefðbundin eða hraðsending. Lagervörur (sléttir bollar, lok, sogrör, hrærur) eru yfirleitt fljótastar, sérprentaðir og sérvörubollar taka lengri tíma. Nákvæm dagsetning er læst í tilboði þínu, við sjáum um íslenska tollafgreiðslu." },
-        { q: "Eru tollar, VSK og afhending innifalin?", a: "Já. Hvert tilboð er allt-innifalið ISK, afhent heim að dyrum. VSK, tollar og innanlandsflutningur frá Reykjavíkurhöfn, allt innifalið. Engin óvænt gjöld þegar vörubrettið kemur." },
-        { q: "Hve marga liti get ég prentað?", a: "Staðalprentun er CMYK fjöllita án aukakostnaðar, engin takmörkun á fjölda lita eða grafíkur á pappírsbollum (ljósmyndir með fullum blæðingum velkomnar). Glært plast: aðeins heilir blettir, engar litabreytingar. Pantone-samsvörun er fáanleg sem greitt aukaatriði (uppsetningargjald u.þ.b. 10.000 ISK á hvern Pantone-lit). QR kóðar og rúmtaksmerkingar studdar á öllum bollum." },
-        { q: "Get ég pantað eco / niðurbrjótanlega bolla?", a: "Já. Við bjóðum þrjár húðanir: hefðbundna Green PE (að fullu endurvinnanleg, blandaður straumur), niðurbrjótanlega BIO með vatnsdreifingarhúðun (plastlaust, heimajarðgerðarhæft, EN 13432) og rPET (endurunnið plast) fyrir glæra bolla undir kalda drykki. Hakaðu bara við í tilboðsforminu." },
-        { q: "Get ég séð sýnishorn fyrst?", a: "Já — við kjósum að gera það í eigin persónu. Sölufulltrúi okkar kemur með bollana til þín, sýnir pappírinn, húðunina og prentgæðin lifandi og fer yfir valkostina. Fljótlegra en póstsending og þú færð að snerta vöruna sjálf/ur." },
-        { q: "Verður hver lota eins?", a: "Pappírsþyngd, lokafesting og mál eru læst í forskrift, hver lota passar. Litur: iðnaðarstaðlað ±15% blæbrigðisbreytileiki milli framleiðslulota (rauður helst rauður, nákvæm tónn getur breyst lítillega). Þarftu nákvæman vörumerkislit í hvert sinn? Sendu Pantone kóða, við pörum Pantone (lítill aukakostnaður)." },
-        { q: "Afhendið þið utan höfuðborgarsvæðisins?", a: "Já. Við erum í Njarðvík og sendum hvert sem er á Íslandi, Reykjavík, Akureyri, Vestfirðir, Egilsstaðir, Vestmannaeyjar. Innanlandsflutningur er í tilboðinu." },
-        { q: "Ég kann ekki að undirbúa hönnun, getið þið hjálpað?", a: "Já. Sendu okkur lógóið, litina og hvar það á að sitja á bollanum. Einföld verkefni undirbúum við ókeypis; flóknari hönnun fær lítið uppsetningargjald, gefið upp fyrirfram." },
-        { q: "Get ég sett QR kóða á bollana mína?", a: "Já, algengt fyrir matseðla, hollustu og Instagram. Sendu sem vektor eða skarpa 300 dpi mynd. Við prufum 1:1 prentun á prufunni áður en heildarframleiðsla hefst." },
-        { q: "Mun liturinn á skjánum mínum passa við fullbúna bolla?", a: "Nálægt, en ekki 100%. Skjáir nota ljós, bollar nota blek, auk venjulegs ±15% breytileika milli framleiðslulota. Ef vörumerkislitur þarf að vera nákvæmur, sendu Pantone kóða og við prentum Pantone samsvörun (lítill aukakostnaður)." },
-        { q: "Get ég bætt við vökvamerkingum (0,2 L, 0,3 L)?", a: "Já, að utan. Þar sem bollaveggir mjókka mælum við nákvæmlega fyllingarhæðina á viðmiðunarbolla áður en hönnunin er læst — auðveldast að ganga frá því á stuttum fundi með sölufulltrúa okkar." },
-        { q: "Er hægt að prenta innan í bollann?", a: "Nei. Lekaþétta, matvælaörugga innri húðin blokkerar einnig blek, prentun er aðeins að utan." },
-        { q: "Hvaða skráarsnið takið þið við og hvaða sniðmát ætti ég að nota?", a: "Við þurfum opna, breytanlega skrá í CMYK litarými: breytanlegt .pdf, .ai (Illustrator) eða .cdr (CorelDraw). Hver bollastærð hefur sitt eigið boga-laga sniðmát — segðu okkur stærð og húðun og við sendum það rétta til baka með tölvupósti." },
-        { q: "Fylgja vottorð með pöntuninni?", a: "Já — ókeypis með hverri sendingu. Vottorð um snertingu við matvæli, niðurbrjótanleika (EN 13432 fyrir BIO), endurunnið efni (rPET) og uppruna fylgja sjálfkrafa, þú þarft ekki að biðja um þau." },
+        {
+          q: "Hvert er lágmark fyrir prentaða bolla?",
+          a: "1.000 stk á hönnun, gildir um alla bolla: pappír, glært plast og BIO skálar. Undir því hættir verð á einingu að vera skynsamlegt.",
+        },
+        {
+          q: "Hve lengi tekur afhending til Íslands?",
+          a: "Meðalafgreiðslutími: Hefðbundið ~6 vikur, Hraðsending ~2–3 vikur. Fer eftir pöntun: magni, vörutegund og hvort valin er hefðbundin eða hraðsending. Lagervörur (sléttir bollar, lok, sogrör, hrærur) eru yfirleitt fljótastar, sérprentaðir og sérvörubollar taka lengri tíma. Nákvæm dagsetning er læst í tilboði þínu, við sjáum um íslenska tollafgreiðslu.",
+        },
+        {
+          q: "Eru tollar, VSK og afhending innifalin?",
+          a: "Já. Hvert tilboð er allt-innifalið ISK, afhent heim að dyrum. VSK, tollar og innanlandsflutningur frá Reykjavíkurhöfn, allt innifalið. Engin óvænt gjöld þegar vörubrettið kemur.",
+        },
+        {
+          q: "Hve marga liti get ég prentað?",
+          a: "Staðalprentun er CMYK fjöllita án aukakostnaðar, engin takmörkun á fjölda lita eða grafíkur á pappírsbollum (ljósmyndir með fullum blæðingum velkomnar). Glært plast: aðeins heilir blettir, engar litabreytingar. Pantone-samsvörun er fáanleg sem greitt aukaatriði (uppsetningargjald u.þ.b. 10.000 ISK á hvern Pantone-lit). QR kóðar og rúmtaksmerkingar studdar á öllum bollum.",
+        },
+        {
+          q: "Get ég pantað eco / niðurbrjótanlega bolla?",
+          a: "Já. Við bjóðum þrjár húðanir: hefðbundna Green PE (að fullu endurvinnanleg, blandaður straumur), niðurbrjótanlega BIO með vatnsdreifingarhúðun (plastlaust, heimajarðgerðarhæft, EN 13432) og rPET (endurunnið plast) fyrir glæra bolla undir kalda drykki. Hakaðu bara við í tilboðsforminu.",
+        },
+        {
+          q: "Get ég séð sýnishorn fyrst?",
+          a: "Já — við kjósum að gera það í eigin persónu. Sölufulltrúi okkar kemur með bollana til þín, sýnir pappírinn, húðunina og prentgæðin lifandi og fer yfir valkostina. Fljótlegra en póstsending og þú færð að snerta vöruna sjálf/ur.",
+        },
+        {
+          q: "Verður hver lota eins?",
+          a: "Pappírsþyngd, lokafesting og mál eru læst í forskrift, hver lota passar. Litur: iðnaðarstaðlað ±15% blæbrigðisbreytileiki milli framleiðslulota (rauður helst rauður, nákvæm tónn getur breyst lítillega). Þarftu nákvæman vörumerkislit í hvert sinn? Sendu Pantone kóða, við pörum Pantone (lítill aukakostnaður).",
+        },
+        {
+          q: "Afhendið þið utan höfuðborgarsvæðisins?",
+          a: "Já. Við erum í Njarðvík og sendum hvert sem er á Íslandi, Reykjavík, Akureyri, Vestfirðir, Egilsstaðir, Vestmannaeyjar. Innanlandsflutningur er í tilboðinu.",
+        },
+        {
+          q: "Ég kann ekki að undirbúa hönnun, getið þið hjálpað?",
+          a: "Já. Sendu okkur lógóið, litina og hvar það á að sitja á bollanum. Einföld verkefni undirbúum við ókeypis; flóknari hönnun fær lítið uppsetningargjald, gefið upp fyrirfram.",
+        },
+        {
+          q: "Get ég sett QR kóða á bollana mína?",
+          a: "Já, algengt fyrir matseðla, hollustu og Instagram. Sendu sem vektor eða skarpa 300 dpi mynd. Við prufum 1:1 prentun á prufunni áður en heildarframleiðsla hefst.",
+        },
+        {
+          q: "Mun liturinn á skjánum mínum passa við fullbúna bolla?",
+          a: "Nálægt, en ekki 100%. Skjáir nota ljós, bollar nota blek, auk venjulegs ±15% breytileika milli framleiðslulota. Ef vörumerkislitur þarf að vera nákvæmur, sendu Pantone kóða og við prentum Pantone samsvörun (lítill aukakostnaður).",
+        },
+        {
+          q: "Get ég bætt við vökvamerkingum (0,2 L, 0,3 L)?",
+          a: "Já, að utan. Þar sem bollaveggir mjókka mælum við nákvæmlega fyllingarhæðina á viðmiðunarbolla áður en hönnunin er læst — auðveldast að ganga frá því á stuttum fundi með sölufulltrúa okkar.",
+        },
+        {
+          q: "Er hægt að prenta innan í bollann?",
+          a: "Nei. Lekaþétta, matvælaörugga innri húðin blokkerar einnig blek, prentun er aðeins að utan.",
+        },
+        {
+          q: "Hvaða skráarsnið takið þið við og hvaða sniðmát ætti ég að nota?",
+          a: "Við þurfum opna, breytanlega skrá í CMYK litarými: breytanlegt .pdf, .ai (Illustrator) eða .cdr (CorelDraw). Hver bollastærð hefur sitt eigið boga-laga sniðmát — segðu okkur stærð og húðun og við sendum það rétta til baka með tölvupósti.",
+        },
+        {
+          q: "Fylgja vottorð með pöntuninni?",
+          a: "Já — ókeypis með hverri sendingu. Vottorð um snertingu við matvæli, niðurbrjótanleika (EN 13432 fyrir BIO), endurunnið efni (rPET) og uppruna fylgja sjálfkrafa, þú þarft ekki að biðja um þau.",
+        },
       ],
     },
     quote: {
@@ -385,7 +542,8 @@ const is = {
       chooseFile: "Velja skrá",
       uploadPlaceholder: "PDF, AI, EPS, PSD, PNG, JPG, SVG, eða senda síðar með tölvupósti",
       notes: "Viðbótarspurningar eða athugasemdir",
-      notesPlaceholder: "Ef þú vilt spyrja eða segja okkur eitthvað, skrifaðu hér. Stærðir, litir, frestur, hlekkur á lógó / hönnun...",
+      notesPlaceholder:
+        "Ef þú vilt spyrja eða segja okkur eitthvað, skrifaðu hér. Stærðir, litir, frestur, hlekkur á lógó / hönnun...",
       send: "Senda",
       selectPlaceholder: "Veldu...",
       wizard: {
@@ -401,13 +559,16 @@ const is = {
         pickPath: "Hvernig viltu byrja?",
         pickPathHint: "Veldu þá leið sem hentar þér best.",
         pathConfigureTitle: "Setja upp pöntun",
-        pathConfigureDesc: "Skref-fyrir-skref — vara, stærð, magn, viðbætur. Hraðasta verðtilboðið.",
+        pathConfigureDesc:
+          "Skref-fyrir-skref — vara, stærð, magn, viðbætur. Hraðasta verðtilboðið.",
         pathBriefTitle: "Ég sendi lýsingu",
-        pathBriefDesc: "Ég er nú þegar með allt skrifað (PDF / skjal / tölvupóstur) — hengja við og senda.",
+        pathBriefDesc:
+          "Ég er nú þegar með allt skrifað (PDF / skjal / tölvupóstur) — hengja við og senda.",
         pathSampleTitle: "Biðja um sýnishorn",
         pathSampleDesc: "Mig langar að sjá og snerta bollana áður en ég panta.",
         briefTitle: "Sendu lýsinguna þína",
-        briefHint: "Hengdu við skjal eða lýstu verkefninu í nokkrum setningum. Við svörum innan 24 vinnustunda.",
+        briefHint:
+          "Hengdu við skjal eða lýstu verkefninu í nokkrum setningum. Við svörum innan 24 vinnustunda.",
         briefFileLabel: "Brief / forskriftarskjal",
         briefFileCta: "Smelltu til að hlaða upp eða slepptu skrá hér",
         briefFileHint: "PDF, DOC, PPT, AI, ZIP — allt að 20 MB",
@@ -415,7 +576,8 @@ const is = {
         briefMessage: "Stutt verkefnislýsing",
         briefMessagePlaceholder: "Hvað þú vilt panta, magn, tímamörk, litir, allt annað...",
         sampleTitle: "Biðja um sýnishorn",
-        sampleHint: "Við bókum yfirleitt 15–30 mín heimsókn frá sölumanni með bolla í hönd — þú færð að sjá og snerta vöruna lifandi. Segðu okkur hvaða vörur vekja áhuga þinn.",
+        sampleHint:
+          "Við bókum yfirleitt 15–30 mín heimsókn frá sölumanni með bolla í hönd — þú færð að sjá og snerta vöruna lifandi. Segðu okkur hvaða vörur vekja áhuga þinn.",
         sampleInterest: "Hvaða vörum hefur þú áhuga á?",
         sampleInterestPlaceholder: "T.d. 300 ml tvíveggja bollar með BIO fóðri, 360 ml ísskálar...",
         sampleAddress: "Heimilisfang / staðsetning (valfrjálst)",
@@ -427,7 +589,8 @@ const is = {
         addToList: "Bæta á lista",
         updateItem: "Uppfæra atriði",
         tellUsMore: "Segðu okkur meira um hvað þú þarft",
-        tellUsMorePlaceholder: "Til hvers (kaffi, safi, ís...), hvar (kaffihús, skrifstofa, viðburður), sérstakt útlit eða takmörkun. Því meira sem við vitum, því betur ráðleggjum við.",
+        tellUsMorePlaceholder:
+          "Til hvers (kaffi, safi, ís...), hvar (kaffihús, skrifstofa, viðburður), sérstakt útlit eða takmörkun. Því meira sem við vitum, því betur ráðleggjum við.",
         mixDetails: "Lýstu blöndu af stærðum (valfrjálst)",
         mixDetailsPlaceholder: "T.d. 50% 200 ml + 50% 300 ml — eða skildu eftir autt, við spyrjum.",
         groupKnown: "Ég veit hvað ég vil",
@@ -450,7 +613,8 @@ const is = {
         customQuantityHint: "Lágmark 1.000 — engin efri mörk.",
         quantityMinError: "Lágmarkspöntun er 1.000 stykki.",
         pantoneTitle: "Ég er með ákveðna Pantone liti",
-        pantoneHint: "Hakaðu við ef þú vilt að við prentum með Pantone litum og deildu kóðunum — við tökum samsvörunina með í tilboðinu.",
+        pantoneHint:
+          "Hakaðu við ef þú vilt að við prentum með Pantone litum og deildu kóðunum — við tökum samsvörunina með í tilboðinu.",
         startOver: "Byrja upp á nýtt",
         resetConfirm: "Henda vistuðum gögnum og byrja nýtt tilboð?",
         pantonePlaceholder: "Pantone kóðar, t.d. PMS 286 C, PMS 200 C",
@@ -476,16 +640,77 @@ const is = {
         "Eitthvað annað / blanda",
       ],
       quantities: ["1.000 – 5.000", "5.000 – 20.000", "20.000 – 50.000", "50.000+"],
-      timings: ["Hefðbundið (besta verð) — u.þ.b. 6 vikur", "Hraðsending (hraðar ef hægt er) — u.þ.b. 2–3 vikur", "Sveigjanlegt"],
-      linings: ["Veit ekki enn, ráðleggðu", "Hefðbundið (Green PE)", "Niðurbrjótanlegt BIO (vatnsdreifing, plastlaust)"],
+      timings: [
+        "Hefðbundið (besta verð) — u.þ.b. 6 vikur",
+        "Hraðsending (hraðar ef hægt er) — u.þ.b. 2–3 vikur",
+        "Sveigjanlegt",
+      ],
+      linings: [
+        "Veit ekki enn, ráðleggðu",
+        "Hefðbundið (Green PE)",
+        "Niðurbrjótanlegt BIO (vatnsdreifing, plastlaust)",
+      ],
       byProduct: [
         { sizes: [], finishes: [], linings: [] },
-        { sizes: ["100 ml", "180 ml", "200 ml", "300 ml", "400 ml", "Blanda af stærðum"], finishes: ["Hvítur pappír", "Kraft (brúnn) pappír"], linings: ["Veit ekki enn, ráðleggðu", "Hefðbundið (Green PE)", "Niðurbrjótanlegt BIO (vatnsdreifing, plastlaust)"] },
-        { sizes: ["200 ml (8 oz)", "300 ml (12 oz)", "400 ml (16 oz)", "Blanda af stærðum"], finishes: ["Allur hvítur", "Allur kraft", "Kraft + hvítur (combo)"], linings: ["Veit ekki enn, ráðleggðu", "Hefðbundið (Green PE)", "Niðurbrjótanlegt BIO (vatnsdreifing, plastlaust)"] },
-        { sizes: ["100 ml", "180 ml", "200 ml", "300 ml", "400 ml", "Blanda af stærðum"], finishes: ["Hvítur", "Kraft (brúnn)", "Pastel mynstur", "Kaffibauna mynstur", "Sumarlína", "Vetrarlína"], linings: ["Veit ekki enn, ráðleggðu", "Hefðbundið (Green PE)", "Niðurbrjótanlegt BIO (vatnsdreifing, plastlaust)"] },
-        { sizes: ["300 ml", "400 ml", "500 ml", "Blanda af stærðum"], finishes: ["Án prentunar", "1–2 spot litir", "3–4 spot litir"], linings: [] },
-        { sizes: ["130 ml", "245 ml", "360 ml", "Blanda af stærðum"], finishes: ["Hvítur", "Kraft", "Pastel mynstur", "Sérprentun full-wrap"], linings: ["Veit ekki enn, ráðleggðu", "Hefðbundið (Green PE)", "Niðurbrjótanlegt BIO (vatnsdreifing, plastlaust)"] },
-        { sizes: ["Fyrir 200 ml (8 oz)", "Fyrir 300 ml (12 oz)", "Fyrir 400 ml (16 oz)", "Fyrir rPET (300/400/500)", "Blanda af stærðum"], finishes: ["Hvítt", "Svart"], linings: [] },
+        {
+          sizes: ["100 ml", "180 ml", "200 ml", "300 ml", "400 ml", "Blanda af stærðum"],
+          finishes: ["Hvítur pappír", "Kraft (brúnn) pappír"],
+          linings: [
+            "Veit ekki enn, ráðleggðu",
+            "Hefðbundið (Green PE)",
+            "Niðurbrjótanlegt BIO (vatnsdreifing, plastlaust)",
+          ],
+        },
+        {
+          sizes: ["200 ml (8 oz)", "300 ml (12 oz)", "400 ml (16 oz)", "Blanda af stærðum"],
+          finishes: ["Allur hvítur", "Allur kraft", "Kraft + hvítur (combo)"],
+          linings: [
+            "Veit ekki enn, ráðleggðu",
+            "Hefðbundið (Green PE)",
+            "Niðurbrjótanlegt BIO (vatnsdreifing, plastlaust)",
+          ],
+        },
+        {
+          sizes: ["100 ml", "180 ml", "200 ml", "300 ml", "400 ml", "Blanda af stærðum"],
+          finishes: [
+            "Hvítur",
+            "Kraft (brúnn)",
+            "Pastel mynstur",
+            "Kaffibauna mynstur",
+            "Sumarlína",
+            "Vetrarlína",
+          ],
+          linings: [
+            "Veit ekki enn, ráðleggðu",
+            "Hefðbundið (Green PE)",
+            "Niðurbrjótanlegt BIO (vatnsdreifing, plastlaust)",
+          ],
+        },
+        {
+          sizes: ["300 ml", "400 ml", "500 ml", "Blanda af stærðum"],
+          finishes: ["Án prentunar", "1–2 spot litir", "3–4 spot litir"],
+          linings: [],
+        },
+        {
+          sizes: ["130 ml", "245 ml", "360 ml", "Blanda af stærðum"],
+          finishes: ["Hvítur", "Kraft", "Pastel mynstur", "Sérprentun full-wrap"],
+          linings: [
+            "Veit ekki enn, ráðleggðu",
+            "Hefðbundið (Green PE)",
+            "Niðurbrjótanlegt BIO (vatnsdreifing, plastlaust)",
+          ],
+        },
+        {
+          sizes: [
+            "Fyrir 200 ml (8 oz)",
+            "Fyrir 300 ml (12 oz)",
+            "Fyrir 400 ml (16 oz)",
+            "Fyrir rPET (300/400/500)",
+            "Blanda af stærðum",
+          ],
+          finishes: ["Hvítt", "Svart"],
+          linings: [],
+        },
         { sizes: [], finishes: ["Hvítt", "Svart"], linings: [] },
         { sizes: [], finishes: [], linings: [] },
         { sizes: [], finishes: [], linings: [] },
@@ -498,7 +723,11 @@ const is = {
         title: "Einveggja pappírsbolli með þinni prentun",
         sizes: "100 · 180 · 200 · 300 · 400 ml",
         desc: "Vinsælasti bollinn okkar. Léttur, staflanlegur, CMYK prentun á alla yfirborðið án litatakmörkunar. Prentað á hvítan eða náttúrulegan kraftpappír (brúnan). Hentar fyrir viðburði, skrifstofur, safabar og vatnsvélar.",
-        bullets: ["Ótakmörkuð fjöllita CMYK prentun, engin viðbót", "Hvítur eða kraftpappír (brúnn)", "Endurvinnanleg eða niðurbrjótanleg innri húðun"],
+        bullets: [
+          "Ótakmörkuð fjöllita CMYK prentun, engin viðbót",
+          "Hvítur eða kraftpappír (brúnn)",
+          "Endurvinnanleg eða niðurbrjótanleg innri húðun",
+        ],
         moq: "1.000 stk",
       },
       {
@@ -506,7 +735,11 @@ const is = {
         title: "Premium hita tvíveggja bolli",
         sizes: "200 ml (8 oz) · 300 ml (12 oz) · 400 ml (16 oz)",
         desc: "Premium tvíveggja bolli. Heldur drykknum heitum en er þægilegur að halda á. Fáanlegur alhvítur, allur úr kraft, eða með annan vegg úr kraft og hinn hvítan. Mælt með fyrir kaffihús, take-away og kaffihorn hótela.",
-        bullets: ["Þægilegur að halda á jafnvel með heitum drykkjum", "Hvítur, kraft eða kraft + hvít blanda", "Endurvinnanleg eða niðurbrjótanleg innri húðun"],
+        bullets: [
+          "Þægilegur að halda á jafnvel með heitum drykkjum",
+          "Hvítur, kraft eða kraft + hvít blanda",
+          "Endurvinnanleg eða niðurbrjótanleg innri húðun",
+        ],
         moq: "1.000 stk",
       },
       {
@@ -514,7 +747,11 @@ const is = {
         title: "Pappírsbollar úr lager (hvítir og litaðir)",
         sizes: "100 · 180 · 200 · 300 · 400 ml",
         desc: "Óprentaðir bollar beint úr lager: hvítir, kraft (brúnir), pastellitir, kaffibaunamynstur, sumar-flamingó og jólamynstur. Hentar fyrir vatnsstöðvar, sjálfsala, líkamsræktarstöðvar og skrifstofur.",
-        bullets: ["Hvítt, kraft og algild mynstur á lager", "Frá 1.000 stk á stærð", "Endurvinnanleg eða niðurbrjótanleg innri húðun"],
+        bullets: [
+          "Hvítt, kraft og algild mynstur á lager",
+          "Frá 1.000 stk á stærð",
+          "Endurvinnanleg eða niðurbrjótanleg innri húðun",
+        ],
         moq: "1.000 stk",
       },
       {
@@ -522,7 +759,11 @@ const is = {
         title: "Glær endurunninn plastbolli",
         sizes: "300 · 400 · 500 ml",
         desc: "Glær bolli fyrir kalda drykki, smoothies, ískaffi, bjór og kokteila. Búið til úr endurunnu PET. Lögleg endurnýjun á gömlum einnota plastbollum.",
-        bullets: ["Búið til úr endurunnu PET plasti", "Allt að 4 staðlitir, aðeins heilir blettir (engar litabreytingar)", "Ekki hentug fyrir heita drykki"],
+        bullets: [
+          "Búið til úr endurunnu PET plasti",
+          "Allt að 4 staðlitir, aðeins heilir blettir (engar litabreytingar)",
+          "Ekki hentug fyrir heita drykki",
+        ],
         moq: "1.000 stk",
       },
       {
@@ -530,7 +771,11 @@ const is = {
         title: "Ís og eftirréttarskál",
         sizes: "130 · 245 · 360 ml",
         desc: "Víðopuð skál fyrir ís, jógúrt og snarl (aðeins kalt — ekki fyrir heita súpu). Fáanleg í hvítu, kraft og pastelmynstrum, eða með sérsniðinni full-vafðs prentun. 130 ml: PE húðun; 245 / 360 ml: BIO eða PE.",
-        bullets: ["Hvítt, kraft eða pastelmynstur úr lager", "Sérsniðin full-vafðs prentun, engin litatakmörkun", "BIO eða PE húðun (eftir stærð)"],
+        bullets: [
+          "Hvítt, kraft eða pastelmynstur úr lager",
+          "Sérsniðin full-vafðs prentun, engin litatakmörkun",
+          "BIO eða PE húðun (eftir stærð)",
+        ],
         moq: "1.000 stk",
       },
       {
@@ -538,7 +783,11 @@ const is = {
         title: "Lok fyrir alla bolla sem við seljum",
         sizes: "fyrir 100 · 180 · 200 · 300 · 400 ml + plastbolla",
         desc: "Tveir valkostir: PE plast og BIO pappír. Slétt og hvelfd, samsvörð við hvern bolla sem við sendum. Aðeins fáanleg í hvítu og svörtu.",
-        bullets: ["Tryggð passar á alla bolla sem við sendum", "Hvelfd lok fyrir kalda drykki og smoothies", "Aðeins hvítt og svart"],
+        bullets: [
+          "Tryggð passar á alla bolla sem við sendum",
+          "Hvelfd lok fyrir kalda drykki og smoothies",
+          "Aðeins hvítt og svart",
+        ],
         moq: "1 kassi (1.000 stk)",
       },
       {
@@ -546,7 +795,11 @@ const is = {
         title: "Pappírssogrör",
         sizes: "150 stk / pakki",
         desc: "Plastlaus pappírssogrör, bein eða sveigjanleg. Hvít og svört á lager. Sameina með bollum fyrir samstillta afhendingu.",
-        bullets: ["ESB einnota plast samhæft", "Hvít og svört á lager", "Magnpakkað fyrir kaffihús og veitingastaði"],
+        bullets: [
+          "ESB einnota plast samhæft",
+          "Hvít og svört á lager",
+          "Magnpakkað fyrir kaffihús og veitingastaði",
+        ],
         moq: "1.000 stk (u.þ.b. 7 pakkar)",
       },
       {
@@ -554,7 +807,12 @@ const is = {
         title: "Tréhrærur og íspinnar",
         sizes: "1.000 stk / pakki",
         desc: "Sléttar náttúrulegar tréhrærur — einnig fáanlegar sem íspinnar. Engin spóla, engin litarefni, ekkert plast. Matvælaöruggt og fullkomlega niðurbrjótanlegt.",
-        bullets: ["Ómeðhöndlað náttúrulegt ljóst tré", "Hrærur fyrir kaffi/te og íspinnar", "Matvælasnertu vottað", "100% niðurbrjótanlegt"],
+        bullets: [
+          "Ómeðhöndlað náttúrulegt ljóst tré",
+          "Hrærur fyrir kaffi/te og íspinnar",
+          "Matvælasnertu vottað",
+          "100% niðurbrjótanlegt",
+        ],
         moq: "1.000 stk (1 pakki)",
       },
     ],
@@ -589,7 +847,8 @@ const is = {
     currentCost: "Núverandi kostnaður (valfrjálst)",
     selectPlaceholder: "Veldu...",
     needDesigner: "Ég þarf aðstoð frá grafískum hönnuði",
-    consentLabel: "Ég samþykki að haft sé samband við mig vegna þessarar fyrirspurnar. Við deilum upplýsingum þínum ekki með öðrum. Sjá persónuverndartilkynningu.",
+    consentLabel:
+      "Ég samþykki að haft sé samband við mig vegna þessarar fyrirspurnar. Við deilum upplýsingum þínum ekki með öðrum. Sjá persónuverndartilkynningu.",
     consentRequired: "Vinsamlegast staðfestu samþykki fyrir sambandi.",
     errNameReq: "Sláðu inn nafn (a.m.k. 2 stafir).",
     errEmailInvalid: "Sláðu inn gilt netfang.",
@@ -635,14 +894,17 @@ const is = {
   thankYou: {
     title: "Beiðni",
     titleAccent: "móttekin!",
-    intro: "Takk fyrir að senda inn úttektarbeiðnina þína. Lið okkar hefur móttekið reikning þinn og hönnunarskrár á öruggan hátt.",
+    intro:
+      "Takk fyrir að senda inn úttektarbeiðnina þína. Lið okkar hefur móttekið reikning þinn og hönnunarskrár á öruggan hátt.",
     whatNow: "Hvað gerist núna?",
     step1Title: "Tækniskoðun:",
-    step1Text: "Við erum að keyra fyrir-flugskoðun á hönnunarskrám þínum til að tryggja að þær séu prenttilbúnar.",
+    step1Text:
+      "Við erum að keyra fyrir-flugskoðun á hönnunarskrám þínum til að tryggja að þær séu prenttilbúnar.",
     step2Title: "Kostnaðargreining:",
     step2Text: "Við berum saman uppsetta reikninginn þinn við heildsöluverð okkar.",
     step3Title: "Tilboð þitt:",
-    step3Text: "Búðu þig undir nákvæma sparnaðarskýrslu og lokatilboð í pósthólfinu þínu innan 24–48 klukkustunda (á virkum dögum).",
+    step3Text:
+      "Búðu þig undir nákvæma sparnaðarskýrslu og lokatilboð í pósthólfinu þínu innan 24–48 klukkustunda (á virkum dögum).",
     didntAdd: "Bættir þú ekki við hönnunarhlekk?",
     emailFiles: "Til að flýta fyrir ferlinu geturðu sent skrárnar þínar beint á",
     backHome: "Til baka á forsíðu",

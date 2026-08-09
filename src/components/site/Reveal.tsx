@@ -1,4 +1,11 @@
-import { useEffect, useRef, useState, type ReactNode, type ElementType, type CSSProperties } from "react";
+import {
+  useEffect,
+  useRef,
+  useState,
+  type ReactNode,
+  type ElementType,
+  type CSSProperties,
+} from "react";
 
 type RevealProps = {
   children: ReactNode;
@@ -59,7 +66,7 @@ export function Reveal({
           }
         }
       },
-      { threshold, rootMargin }
+      { threshold, rootMargin },
     );
     io.observe(el);
     return () => io.disconnect();

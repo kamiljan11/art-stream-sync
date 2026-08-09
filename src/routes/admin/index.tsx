@@ -1,19 +1,26 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import type { Database } from "@/integrations/supabase/types";
+
+// Edytor generyczny operuje na dynamicznych wierszach zgloszen (quote/contact).
+type Json = string | number | boolean | null | Json[] | { [key: string]: Json };
+type SubmissionRow = Record<string, Json | undefined>;
 import { Search, LogOut, Mail, FileText, RefreshCw, Plus, ArrowRightLeft } from "lucide-react";
 
 export const Route = createFileRoute("/admin/")({
-  head: () => ({ meta: [{ title: "Admin · MAS Prints" }, { name: "robots", content: "noindex, nofollow" }] }),
+  head: () => ({
+    meta: [{ title: "Admin · MAS Prints" }, { name: "robots", content: "noindex, nofollow" }],
+  }),
   component: AdminPage,
 });
 
 /* ----- Order/request statuses (internal tracking) ----- */
 const STATUS_OPTIONS: { value: string; label: string; color: string }[] = [
-  { value: "new",          label: "Nowe zamówienie",  color: "bg-blue-500/15 text-blue-700" },
-  { value: "quote_sent",   label: "Wycena wysłana",   color: "bg-amber-500/15 text-amber-700" },
-  { value: "paid",         label: "Opłacone",         color: "bg-emerald-500/15 text-emerald-700" },
-  { value: "shipped_pl",   label: "Wysyłka z Polski", color: "bg-purple-500/15 text-purple-700" },
+  { value: "new", label: "Nowe zamówienie", color: "bg-blue-500/15 text-blue-700" },
+  { value: "quote_sent", label: "Wycena wysłana", color: "bg-amber-500/15 text-amber-700" },
+  { value: "paid", label: "Opłacone", color: "bg-emerald-500/15 text-emerald-700" },
+  { value: "shipped_pl", label: "Wysyłka z Polski", color: "bg-purple-500/15 text-purple-700" },
 ];
 const STATUS_MAP: Record<string, { label: string; color: string }> = Object.fromEntries(
   STATUS_OPTIONS.map((s) => [s.value, { label: s.label, color: s.color }]),
@@ -92,7 +99,9 @@ function AdminPage() {
       }
       setChecking(false);
     })();
-    return () => { cancelled = true; };
+    return () => {
+      cancelled = true;
+    };
   }, [navigate]);
 
   async function loadAll() {
@@ -132,9 +141,7 @@ function AdminPage() {
         .filter(Boolean)
         .join(" · "),
     }));
-    const merged = [...cItems, ...qItems].sort((a, b) =>
-      a.created_at < b.created_at ? 1 : -1,
-    );
+    const merged = [...cItems, ...qItems].sort((a, b) => (a.created_at < b.created_at ? 1 : -1));
     setItems(merged);
     setLoading(false);
   }
@@ -170,7 +177,9 @@ function AdminPage() {
 
   async function quickSetStatus(it: Item, status: string) {
     // Optimistic update
-    setItems((prev) => prev.map((p) => (p.id === it.id && p.source === it.source ? { ...p, status } : p)));
+    setItems((prev) =>
+      prev.map((p) => (p.id === it.id && p.source === it.source ? { ...p, status } : p)),
+    );
     const table = it.source === "quote" ? "quote_submissions" : "contact_submissions";
     const { error } = await supabase.from(table).update({ status }).eq("id", it.id);
     if (error) {
@@ -185,7 +194,11 @@ function AdminPage() {
   }
 
   if (checking) {
-    return <div className="min-h-screen flex items-center justify-center text-sm text-muted-foreground">Checking access...</div>;
+    return (
+      <div className="min-h-screen flex items-center justify-center text-sm text-muted-foreground">
+        Checking access...
+      </div>
+    );
   }
 
   if (!allowed) {
@@ -194,9 +207,19 @@ function AdminPage() {
         <div className="max-w-md text-center">
           <h1 className="text-xl font-extrabold mb-2">Access denied</h1>
           <p className="text-sm text-muted-foreground mb-6">
-            {userEmail ? <>Signed in as <span className="font-mono">{userEmail}</span>, but this email is not on the admin list.</> : "You are not authorised."}
+            {userEmail ? (
+              <>
+                Signed in as <span className="font-mono">{userEmail}</span>, but this email is not
+                on the admin list.
+              </>
+            ) : (
+              "You are not authorised."
+            )}
           </p>
-          <button onClick={signOut} className="rounded-lg bg-primary text-primary-foreground px-4 py-2 text-sm font-bold">
+          <button
+            onClick={signOut}
+            className="rounded-lg bg-primary text-primary-foreground px-4 py-2 text-sm font-bold"
+          >
             Sign out
           </button>
         </div>
@@ -209,16 +232,29 @@ function AdminPage() {
       {/* Top bar */}
       <header className="sticky top-0 z-30 bg-background/95 backdrop-blur border-b border-border">
         <div className="max-w-5xl mx-auto px-4 py-3 flex items-center gap-3">
-          <Link to="/" className="text-xs uppercase tracking-[0.25em] text-muted-foreground">MAS</Link>
+          <Link to="/" className="text-xs uppercase tracking-[0.25em] text-muted-foreground">
+            MAS
+          </Link>
           <h1 className="text-base font-extrabold tracking-tight">Submissions</h1>
           <div className="ml-auto flex items-center gap-2">
-            <button onClick={loadAll} className="p-2 rounded-md hover:bg-accent" aria-label="Refresh">
+            <button
+              onClick={loadAll}
+              className="p-2 rounded-md hover:bg-accent"
+              aria-label="Refresh"
+            >
               <RefreshCw className="h-4 w-4" />
             </button>
-            <button onClick={() => setSelected({ source: "quote", id: "new" })} className="hidden sm:inline-flex items-center gap-1.5 rounded-md bg-primary text-primary-foreground px-3 py-1.5 text-xs font-bold">
+            <button
+              onClick={() => setSelected({ source: "quote", id: "new" })}
+              className="hidden sm:inline-flex items-center gap-1.5 rounded-md bg-primary text-primary-foreground px-3 py-1.5 text-xs font-bold"
+            >
               <Plus className="h-3.5 w-3.5" /> New
             </button>
-            <button onClick={signOut} className="p-2 rounded-md hover:bg-accent" aria-label="Sign out">
+            <button
+              onClick={signOut}
+              className="p-2 rounded-md hover:bg-accent"
+              aria-label="Sign out"
+            >
               <LogOut className="h-4 w-4" />
             </button>
           </div>
@@ -236,14 +272,37 @@ function AdminPage() {
             />
           </div>
           <div className="flex gap-2 overflow-x-auto pb-1 -mx-1 px-1">
-            <SmallSelect label="Type" value={sourceFilter} onChange={(v) => setSourceFilter(v as any)}
-              options={[{ value: "all", label: "All types" }, { value: "quote", label: "Quotes" }, { value: "contact", label: "Contact" }]}/>
-            <SmallSelect label="Status" value={statusFilter} onChange={setStatusFilter}
-              options={statuses.map((s) => ({ value: s, label: s === "all" ? "All statuses" : statusMeta(s).label }))}/>
-            <input type="date" value={dateFrom} onChange={(e) => setDateFrom(e.target.value)}
-              className="rounded-md border border-input bg-background px-2 py-1.5 text-xs"/>
-            <input type="date" value={dateTo} onChange={(e) => setDateTo(e.target.value)}
-              className="rounded-md border border-input bg-background px-2 py-1.5 text-xs"/>
+            <SmallSelect
+              label="Type"
+              value={sourceFilter}
+              onChange={(v) => setSourceFilter(v as Source)}
+              options={[
+                { value: "all", label: "All types" },
+                { value: "quote", label: "Quotes" },
+                { value: "contact", label: "Contact" },
+              ]}
+            />
+            <SmallSelect
+              label="Status"
+              value={statusFilter}
+              onChange={setStatusFilter}
+              options={statuses.map((s) => ({
+                value: s,
+                label: s === "all" ? "All statuses" : statusMeta(s).label,
+              }))}
+            />
+            <input
+              type="date"
+              value={dateFrom}
+              onChange={(e) => setDateFrom(e.target.value)}
+              className="rounded-md border border-input bg-background px-2 py-1.5 text-xs"
+            />
+            <input
+              type="date"
+              value={dateTo}
+              onChange={(e) => setDateTo(e.target.value)}
+              className="rounded-md border border-input bg-background px-2 py-1.5 text-xs"
+            />
           </div>
         </div>
       </header>
@@ -252,10 +311,13 @@ function AdminPage() {
       <div className="max-w-5xl mx-auto px-4 pt-4">
         <div className="flex items-center gap-2.5 rounded-lg border border-amber-500/30 bg-amber-500/8 px-4 py-2.5 text-sm">
           <ArrowRightLeft className="h-4 w-4 shrink-0 text-amber-400" />
-          <span className="font-semibold text-amber-300">MAS Prints → MaskAlkulator sync: AKTYWNY</span>
+          <span className="font-semibold text-amber-300">
+            MAS Prints → MaskAlkulator sync: AKTYWNY
+          </span>
           <span className="text-amber-400/70 hidden sm:inline">·</span>
           <span className="text-xs text-amber-400/70 hidden sm:inline">
-            Nowe wyceny są automatycznie przekazywane do MaskAlkulator jako zamówienia do przypisania.
+            Nowe wyceny są automatycznie przekazywane do MaskAlkulator jako zamówienia do
+            przypisania.
           </span>
         </div>
       </div>
@@ -265,7 +327,9 @@ function AdminPage() {
         {loading ? (
           <p className="text-sm text-muted-foreground">Loading...</p>
         ) : filtered.length === 0 ? (
-          <div className="text-center py-16 text-sm text-muted-foreground">No submissions match your filters.</div>
+          <div className="text-center py-16 text-sm text-muted-foreground">
+            No submissions match your filters.
+          </div>
         ) : (
           <ul className="space-y-2">
             {filtered.map((it) => (
@@ -275,18 +339,33 @@ function AdminPage() {
                   className="w-full text-left bg-card border border-border rounded-xl p-4 hover:border-foreground/30 transition"
                 >
                   <div className="flex items-start gap-3">
-                    <div className={`mt-0.5 h-8 w-8 rounded-full flex items-center justify-center text-xs font-bold ${it.source === "quote" ? "bg-cyan-500/15 text-cyan-600" : "bg-pink-500/15 text-pink-600"}`}>
-                      {it.source === "quote" ? <FileText className="h-4 w-4"/> : <Mail className="h-4 w-4"/>}
+                    <div
+                      className={`mt-0.5 h-8 w-8 rounded-full flex items-center justify-center text-xs font-bold ${it.source === "quote" ? "bg-cyan-500/15 text-cyan-600" : "bg-pink-500/15 text-pink-600"}`}
+                    >
+                      {it.source === "quote" ? (
+                        <FileText className="h-4 w-4" />
+                      ) : (
+                        <Mail className="h-4 w-4" />
+                      )}
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2 flex-wrap">
                         <p className="font-bold truncate">{it.name || "(no name)"}</p>
-                        <StatusBadge status={it.status}/>
+                        <StatusBadge status={it.status} />
                       </div>
-                      <p className="text-xs text-muted-foreground truncate">{it.email}{it.phone ? ` · ${it.phone}` : ""}</p>
-                      {it.subtitle && <p className="text-sm text-muted-foreground/90 mt-1 line-clamp-2">{it.subtitle}</p>}
+                      <p className="text-xs text-muted-foreground truncate">
+                        {it.email}
+                        {it.phone ? ` · ${it.phone}` : ""}
+                      </p>
+                      {it.subtitle && (
+                        <p className="text-sm text-muted-foreground/90 mt-1 line-clamp-2">
+                          {it.subtitle}
+                        </p>
+                      )}
                     </div>
-                    <span className="text-[11px] text-muted-foreground whitespace-nowrap">{formatDate(it.created_at)}</span>
+                    <span className="text-[11px] text-muted-foreground whitespace-nowrap">
+                      {formatDate(it.created_at)}
+                    </span>
                   </div>
                 </button>
                 {/* Quick status switcher — works great on mobile */}
@@ -331,24 +410,50 @@ function AdminPage() {
           source={selected.source}
           id={selected.id}
           onClose={() => setSelected(null)}
-          onSaved={() => { setSelected(null); loadAll(); }}
+          onSaved={() => {
+            setSelected(null);
+            loadAll();
+          }}
         />
       )}
     </div>
   );
 }
 
-function SmallSelect({ value, onChange, options }: { label: string; value: string; onChange: (v: string) => void; options: { value: string; label: string }[] }) {
+function SmallSelect({
+  value,
+  onChange,
+  options,
+}: {
+  label: string;
+  value: string;
+  onChange: (v: string) => void;
+  options: { value: string; label: string }[];
+}) {
   return (
-    <select value={value} onChange={(e) => onChange(e.target.value)} className="rounded-md border border-input bg-background px-2 py-1.5 text-xs">
-      {options.map((o) => <option key={o.value} value={o.value}>{o.label}</option>)}
+    <select
+      value={value}
+      onChange={(e) => onChange(e.target.value)}
+      className="rounded-md border border-input bg-background px-2 py-1.5 text-xs"
+    >
+      {options.map((o) => (
+        <option key={o.value} value={o.value}>
+          {o.label}
+        </option>
+      ))}
     </select>
   );
 }
 
 function StatusBadge({ status }: { status: string }) {
   const m = statusMeta(status);
-  return <span className={`text-[10px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded ${m.color}`}>{m.label}</span>;
+  return (
+    <span
+      className={`text-[10px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded ${m.color}`}
+    >
+      {m.label}
+    </span>
+  );
 }
 
 function formatDate(s: string) {
@@ -361,7 +466,12 @@ function formatDate(s: string) {
 
 /* ----- Detail drawer (view + edit + create) ----- */
 
-const QUOTE_FIELDS: { key: string; label: string; type?: "text" | "textarea" | "checkbox" | "select"; options?: string[] }[] = [
+const QUOTE_FIELDS: {
+  key: string;
+  label: string;
+  type?: "text" | "textarea" | "checkbox" | "select";
+  options?: string[];
+}[] = [
   { key: "type", label: "Type", type: "select", options: ["new", "audit"] },
   { key: "name", label: "Name / Company" },
   { key: "email", label: "Email" },
@@ -382,11 +492,21 @@ const CONTACT_FIELDS: { key: string; label: string; type?: "text" | "textarea" |
   { key: "needs_designer", label: "Needs designer", type: "checkbox" },
 ];
 
-function DetailDrawer({ source, id, onClose, onSaved }: { source: Source; id: string; onClose: () => void; onSaved: () => void }) {
+function DetailDrawer({
+  source,
+  id,
+  onClose,
+  onSaved,
+}: {
+  source: Source;
+  id: string;
+  onClose: () => void;
+  onSaved: () => void;
+}) {
   const isNew = id === "new";
   const table = source === "quote" ? "quote_submissions" : "contact_submissions";
   const fields = source === "quote" ? QUOTE_FIELDS : CONTACT_FIELDS;
-  const [row, setRow] = useState<Record<string, any> | null>(isNew ? defaultRow(source) : null);
+  const [row, setRow] = useState<SubmissionRow | null>(isNew ? defaultRow(source) : null);
   const [loading, setLoading] = useState(!isNew);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -399,9 +519,12 @@ function DetailDrawer({ source, id, onClose, onSaved }: { source: Source; id: st
       if (error) {
         setError(error.message);
       } else {
-        setRow(data as any);
+        const rowData = data as SubmissionRow;
+        setRow(rowData);
         // Hide fields that are already rendered in dedicated sections (attachments)
-        const ex = { ...((data as any)?.extra ?? {}) };
+        const exSrc = rowData.extra;
+        const ex: Record<string, Json | undefined> =
+          exSrc && typeof exSrc === "object" && !Array.isArray(exSrc) ? { ...exSrc } : {};
         delete ex.attachments;
         setExtraJson(JSON.stringify(ex, null, 2));
       }
@@ -409,7 +532,7 @@ function DetailDrawer({ source, id, onClose, onSaved }: { source: Source; id: st
     })();
   }, [id, table, isNew]);
 
-  function update(k: string, v: any) {
+  function update(k: string, v: Json) {
     setRow((p) => ({ ...(p ?? {}), [k]: v }));
   }
 
@@ -418,23 +541,50 @@ function DetailDrawer({ source, id, onClose, onSaved }: { source: Source; id: st
     setSaving(true);
     setError(null);
     try {
-      let extra: any = {};
-      try { extra = JSON.parse(extraJson || "{}"); } catch { throw new Error("Extra fields are not valid JSON."); }
+      let extra: Record<string, Json | undefined> = {};
+      try {
+        extra = JSON.parse(extraJson || "{}") as Record<string, Json | undefined>;
+      } catch {
+        throw new Error("Extra fields are not valid JSON.");
+      }
       // Preserve attachments that we hid from the editor
-      const existingAttachments = (row as any)?.extra?.attachments;
+      const rowExtra = row.extra;
+      const existingAttachments =
+        rowExtra && typeof rowExtra === "object" && !Array.isArray(rowExtra)
+          ? rowExtra.attachments
+          : undefined;
       if (existingAttachments && !extra.attachments) extra.attachments = existingAttachments;
-      const payload: any = { ...row, extra };
-      delete payload.id; delete payload.created_at; delete payload.updated_at;
+      const payload: SubmissionRow = { ...row, extra: extra as Json };
+      delete payload.id;
+      delete payload.created_at;
+      delete payload.updated_at;
+      // Wiersz jest budowany dynamicznie z pol tabeli — jawny cast do Insert per tabela.
       if (isNew) {
-        const { error } = await supabase.from(table).insert(payload);
+        const { error } =
+          table === "quote_submissions"
+            ? await supabase
+                .from("quote_submissions")
+                .insert(payload as Database["public"]["Tables"]["quote_submissions"]["Insert"])
+            : await supabase
+                .from("contact_submissions")
+                .insert(payload as Database["public"]["Tables"]["contact_submissions"]["Insert"]);
         if (error) throw error;
       } else {
-        const { error } = await supabase.from(table).update(payload).eq("id", id);
+        const { error } =
+          table === "quote_submissions"
+            ? await supabase
+                .from("quote_submissions")
+                .update(payload as Database["public"]["Tables"]["quote_submissions"]["Update"])
+                .eq("id", id)
+            : await supabase
+                .from("contact_submissions")
+                .update(payload as Database["public"]["Tables"]["contact_submissions"]["Update"])
+                .eq("id", id);
         if (error) throw error;
       }
       onSaved();
-    } catch (err: any) {
-      setError(err?.message || "Save failed.");
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Save failed.");
     } finally {
       setSaving(false);
     }
@@ -447,28 +597,44 @@ function DetailDrawer({ source, id, onClose, onSaved }: { source: Source; id: st
       const { error } = await supabase.from(table).delete().eq("id", id);
       if (error) throw error;
       onSaved();
-    } catch (err: any) {
-      setError(err?.message || "Delete failed.");
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Delete failed.");
       setSaving(false);
     }
   }
 
   return (
-    <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center" onClick={onClose}>
+    <div
+      className="fixed inset-0 z-50 flex items-end sm:items-center justify-center"
+      onClick={onClose}
+    >
       <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
-      <div onClick={(e) => e.stopPropagation()} className="relative w-full sm:max-w-lg bg-card text-card-foreground rounded-t-2xl sm:rounded-2xl shadow-2xl max-h-[92vh] flex flex-col border border-border">
+      <div
+        onClick={(e) => e.stopPropagation()}
+        className="relative w-full sm:max-w-lg bg-card text-card-foreground rounded-t-2xl sm:rounded-2xl shadow-2xl max-h-[92vh] flex flex-col border border-border"
+      >
         <div className="px-5 py-4 border-b border-border flex items-center gap-3">
           <h2 className="text-base font-extrabold tracking-tight">
-            {isNew ? "New " : ""}{source === "quote" ? "Quote request" : "Contact message"}
+            {isNew ? "New " : ""}
+            {source === "quote" ? "Quote request" : "Contact message"}
           </h2>
-          <button onClick={onClose} className="ml-auto text-sm text-muted-foreground hover:text-foreground">Close</button>
+          <button
+            onClick={onClose}
+            className="ml-auto text-sm text-muted-foreground hover:text-foreground"
+          >
+            Close
+          </button>
         </div>
         <div className="overflow-y-auto p-5 space-y-4">
-          {loading ? <p className="text-sm text-muted-foreground">Loading...</p> : (
+          {loading ? (
+            <p className="text-sm text-muted-foreground">Loading...</p>
+          ) : (
             <>
               {/* Status (always editable) */}
               <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-muted-foreground mb-1">Status</label>
+                <label className="block text-xs font-bold uppercase tracking-wider text-muted-foreground mb-1">
+                  Status
+                </label>
                 <div className="flex flex-wrap gap-1.5">
                   {STATUS_OPTIONS.map((s) => {
                     const active = (row?.status ?? "new") === s.value;
@@ -478,7 +644,9 @@ function DetailDrawer({ source, id, onClose, onSaved }: { source: Source; id: st
                         type="button"
                         onClick={() => update("status", s.value)}
                         className={`text-xs font-bold px-3 py-2 rounded-full border transition ${
-                          active ? `${s.color} border-transparent` : "bg-background text-muted-foreground border-border hover:text-foreground"
+                          active
+                            ? `${s.color} border-transparent`
+                            : "bg-background text-muted-foreground border-border hover:text-foreground"
                         }`}
                       >
                         {s.label}
@@ -489,15 +657,23 @@ function DetailDrawer({ source, id, onClose, onSaved }: { source: Source; id: st
               </div>
 
               {fields.map((f) => (
-                <FieldRow key={f.key} field={f} value={row?.[f.key]} onChange={(v) => update(f.key, v)} />
+                <FieldRow
+                  key={f.key}
+                  field={f}
+                  value={row?.[f.key]}
+                  onChange={(v) => update(f.key, v)}
+                />
               ))}
 
               {(() => {
-                let attachments: any[] = [];
+                type Attachment = { url?: string; name?: string; size?: number | string };
+                let attachments: Attachment[] = [];
                 try {
-                  const e = JSON.parse(extraJson || "{}");
+                  const e = JSON.parse(extraJson || "{}") as { attachments?: Attachment[] };
                   if (Array.isArray(e?.attachments)) attachments = e.attachments;
-                } catch { /* ignore */ }
+                } catch {
+                  /* ignore */
+                }
                 if (attachments.length === 0) return null;
                 return (
                   <div>
@@ -528,9 +704,11 @@ function DetailDrawer({ source, id, onClose, onSaved }: { source: Source; id: st
               })()}
 
               <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-muted-foreground mb-1">Internal notes</label>
+                <label className="block text-xs font-bold uppercase tracking-wider text-muted-foreground mb-1">
+                  Internal notes
+                </label>
                 <textarea
-                  value={row?.internal_notes ?? ""}
+                  value={typeof row?.internal_notes === "string" ? row.internal_notes : ""}
                   onChange={(e) => update("internal_notes", e.target.value)}
                   rows={3}
                   className="w-full rounded-lg border border-input bg-background px-3 py-2 text-sm"
@@ -539,8 +717,12 @@ function DetailDrawer({ source, id, onClose, onSaved }: { source: Source; id: st
               </div>
 
               <details className="border border-border rounded-lg p-3">
-                <summary className="text-xs font-bold uppercase tracking-wider text-muted-foreground cursor-pointer">Extra fields (advanced)</summary>
-                <p className="text-[11px] text-muted-foreground mt-2 mb-1">Add any extra info as JSON, e.g. {"{ \"deadline\": \"2026-06-01\" }"}.</p>
+                <summary className="text-xs font-bold uppercase tracking-wider text-muted-foreground cursor-pointer">
+                  Extra fields (advanced)
+                </summary>
+                <p className="text-[11px] text-muted-foreground mt-2 mb-1">
+                  Add any extra info as JSON, e.g. {'{ "deadline": "2026-06-01" }'}.
+                </p>
                 <textarea
                   value={extraJson}
                   onChange={(e) => setExtraJson(e.target.value)}
@@ -551,7 +733,9 @@ function DetailDrawer({ source, id, onClose, onSaved }: { source: Source; id: st
               </details>
 
               {!isNew && row?.created_at && (
-                <p className="text-[11px] text-muted-foreground">Received {new Date(row.created_at).toLocaleString()}</p>
+                <p className="text-[11px] text-muted-foreground">
+                  Received {new Date(String(row.created_at)).toLocaleString()}
+                </p>
               )}
 
               {error && <p className="text-sm text-red-500">{error}</p>}
@@ -560,10 +744,22 @@ function DetailDrawer({ source, id, onClose, onSaved }: { source: Source; id: st
         </div>
         <div className="px-5 py-3 border-t border-border flex items-center gap-2">
           {!isNew && (
-            <button onClick={remove} disabled={saving} className="text-xs text-red-600 hover:underline mr-auto">Delete</button>
+            <button
+              onClick={remove}
+              disabled={saving}
+              className="text-xs text-red-600 hover:underline mr-auto"
+            >
+              Delete
+            </button>
           )}
-          <button onClick={onClose} className="rounded-md px-3 py-2 text-sm hover:bg-accent">Cancel</button>
-          <button onClick={save} disabled={saving} className="rounded-md bg-primary text-primary-foreground px-4 py-2 text-sm font-bold disabled:opacity-60">
+          <button onClick={onClose} className="rounded-md px-3 py-2 text-sm hover:bg-accent">
+            Cancel
+          </button>
+          <button
+            onClick={save}
+            disabled={saving}
+            className="rounded-md bg-primary text-primary-foreground px-4 py-2 text-sm font-bold disabled:opacity-60"
+          >
             {saving ? "Saving..." : isNew ? "Create" : "Save"}
           </button>
         </div>
@@ -572,12 +768,26 @@ function DetailDrawer({ source, id, onClose, onSaved }: { source: Source; id: st
   );
 }
 
-function FieldRow({ field, value, onChange }: { field: { key: string; label: string; type?: string; options?: string[] }; value: any; onChange: (v: any) => void }) {
+function FieldRow({
+  field,
+  value,
+  onChange,
+}: {
+  field: { key: string; label: string; type?: string; options?: string[] };
+  value: Json | undefined;
+  onChange: (v: string | boolean) => void;
+}) {
   const v = value ?? (field.type === "checkbox" ? false : "");
+  const text = typeof v === "string" || typeof v === "number" ? String(v) : "";
   if (field.type === "checkbox") {
     return (
       <label className="flex items-center gap-2 text-sm">
-        <input type="checkbox" checked={!!v} onChange={(e) => onChange(e.target.checked)} className="h-4 w-4" />
+        <input
+          type="checkbox"
+          checked={!!v}
+          onChange={(e) => onChange(e.target.checked)}
+          className="h-4 w-4"
+        />
         {field.label}
       </label>
     );
@@ -585,9 +795,19 @@ function FieldRow({ field, value, onChange }: { field: { key: string; label: str
   if (field.type === "select" && field.options) {
     return (
       <div>
-        <label className="block text-xs font-bold uppercase tracking-wider text-muted-foreground mb-1">{field.label}</label>
-        <select value={v} onChange={(e) => onChange(e.target.value)} className="w-full rounded-lg border border-input bg-background px-3 py-2 text-sm">
-          {field.options.map((o) => <option key={o} value={o}>{o}</option>)}
+        <label className="block text-xs font-bold uppercase tracking-wider text-muted-foreground mb-1">
+          {field.label}
+        </label>
+        <select
+          value={text}
+          onChange={(e) => onChange(e.target.value)}
+          className="w-full rounded-lg border border-input bg-background px-3 py-2 text-sm"
+        >
+          {field.options.map((o) => (
+            <option key={o} value={o}>
+              {o}
+            </option>
+          ))}
         </select>
       </div>
     );
@@ -595,22 +815,56 @@ function FieldRow({ field, value, onChange }: { field: { key: string; label: str
   if (field.type === "textarea") {
     return (
       <div>
-        <label className="block text-xs font-bold uppercase tracking-wider text-muted-foreground mb-1">{field.label}</label>
-        <textarea value={v} onChange={(e) => onChange(e.target.value)} rows={3} className="w-full rounded-lg border border-input bg-background px-3 py-2 text-sm" />
+        <label className="block text-xs font-bold uppercase tracking-wider text-muted-foreground mb-1">
+          {field.label}
+        </label>
+        <textarea
+          value={text}
+          onChange={(e) => onChange(e.target.value)}
+          rows={3}
+          className="w-full rounded-lg border border-input bg-background px-3 py-2 text-sm"
+        />
       </div>
     );
   }
   return (
     <div>
-      <label className="block text-xs font-bold uppercase tracking-wider text-muted-foreground mb-1">{field.label}</label>
-      <input value={v} onChange={(e) => onChange(e.target.value)} className="w-full rounded-lg border border-input bg-background px-3 py-2 text-sm" />
+      <label className="block text-xs font-bold uppercase tracking-wider text-muted-foreground mb-1">
+        {field.label}
+      </label>
+      <input
+        value={text}
+        onChange={(e) => onChange(e.target.value)}
+        className="w-full rounded-lg border border-input bg-background px-3 py-2 text-sm"
+      />
     </div>
   );
 }
 
-function defaultRow(source: Source): Record<string, any> {
+function defaultRow(source: Source): SubmissionRow {
   if (source === "quote") {
-    return { type: "new", name: "", email: "", phone: "", product_type: "", quantity: "", project_details: "", design_link: "", current_cost: "", needs_designer: false, status: "new", internal_notes: "" };
+    return {
+      type: "new",
+      name: "",
+      email: "",
+      phone: "",
+      product_type: "",
+      quantity: "",
+      project_details: "",
+      design_link: "",
+      current_cost: "",
+      needs_designer: false,
+      status: "new",
+      internal_notes: "",
+    };
   }
-  return { name: "", email: "", phone: "", message: "", needs_designer: false, status: "new", internal_notes: "" };
+  return {
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+    needs_designer: false,
+    status: "new",
+    internal_notes: "",
+  };
 }

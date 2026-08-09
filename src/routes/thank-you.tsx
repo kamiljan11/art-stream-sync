@@ -5,7 +5,11 @@ export const Route = createFileRoute("/thank-you")({
   head: () => ({
     meta: [
       { title: "Thank you — MAS Prints" },
-      { name: "description", content: "We received your request and will get back to you within 24 hours with an ISK quote." },
+      {
+        name: "description",
+        content:
+          "We received your request and will get back to you within 24 hours with an ISK quote.",
+      },
       { name: "robots", content: "noindex" },
     ],
   }),
@@ -26,17 +30,26 @@ function ThankYouPage() {
           Takk fyrir!
         </h1>
         <p className="text-lg text-muted-foreground mb-8">
-          We've received your request. Our Icelandic brokerage team will get
-          back to you within <strong>24 hours</strong> with an ISK quote.
+          We've received your request. Our Icelandic brokerage team will get back to you within{" "}
+          <strong>24 hours</strong> with an ISK quote.
         </p>
 
         <div className="bg-card border border-border rounded-2xl p-6 md:p-7 text-left mb-8">
-          <h2 className="text-xs font-extrabold uppercase tracking-widest mb-4" style={{ color: "#00AEEF" }}>
+          <h2
+            className="text-xs font-extrabold uppercase tracking-widest mb-4"
+            style={{ color: "#00AEEF" }}
+          >
             What happens next
           </h2>
           <ul className="space-y-3 text-sm md:text-base text-foreground">
-            <li className="flex gap-3"><span style={{ color: "#EC008C" }}>✓</span> A confirmation email is on its way to your inbox</li>
-            <li className="flex gap-3"><span style={{ color: "#EC008C" }}>✓</span> We review your request and prepare an ISK quote</li>
+            <li className="flex gap-3">
+              <span style={{ color: "#EC008C" }}>✓</span> A confirmation email is on its way to your
+              inbox
+            </li>
+            <li className="flex gap-3">
+              <span style={{ color: "#EC008C" }}>✓</span> We review your request and prepare an ISK
+              quote
+            </li>
           </ul>
         </div>
 

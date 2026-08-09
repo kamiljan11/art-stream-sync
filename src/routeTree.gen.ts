@@ -9,31 +9,26 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as UnsubscribeRouteImport } from './routes/unsubscribe'
-import { Route as ThankYouRouteImport } from './routes/thank-you'
-import { Route as CupsRouteImport } from './routes/cups'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CupsRouteImport } from './routes/cups'
+import { Route as ThankYouRouteImport } from './routes/thank-you'
+import { Route as UnsubscribeRouteImport } from './routes/unsubscribe'
 import { Route as AdminIndexRouteImport } from './routes/admin/index'
-import { Route as ProductsEcocupsRouteImport } from './routes/products/ecocups'
-import { Route as EmailUnsubscribeRouteImport } from './routes/email/unsubscribe'
-import { Route as CupsCalculatorRouteImport } from './routes/cups.calculator'
 import { Route as AdminLoginRouteImport } from './routes/admin/login'
-import { Route as LovableEmailSuppressionRouteImport } from './routes/lovable/email/suppression'
-import { Route as ApiPublicQuoteRouteImport } from './routes/api/public/quote'
-import { Route as ApiPublicMetaCapiRouteImport } from './routes/api/public/meta-capi'
+import { Route as CupsCalculatorRouteImport } from './routes/cups.calculator'
+import { Route as EmailUnsubscribeRouteImport } from './routes/email/unsubscribe'
+import { Route as ProductsEcocupsRouteImport } from './routes/products/ecocups'
 import { Route as ApiPublicContactRouteImport } from './routes/api/public/contact'
-import { Route as LovableEmailTransactionalSendRouteImport } from './routes/lovable/email/transactional/send'
-import { Route as LovableEmailTransactionalPreviewRouteImport } from './routes/lovable/email/transactional/preview'
+import { Route as ApiPublicMetaCapiRouteImport } from './routes/api/public/meta-capi'
+import { Route as ApiPublicQuoteRouteImport } from './routes/api/public/quote'
+import { Route as LovableEmailSuppressionRouteImport } from './routes/lovable/email/suppression'
 import { Route as LovableEmailQueueProcessRouteImport } from './routes/lovable/email/queue/process'
+import { Route as LovableEmailTransactionalPreviewRouteImport } from './routes/lovable/email/transactional/preview'
+import { Route as LovableEmailTransactionalSendRouteImport } from './routes/lovable/email/transactional/send'
 
-const UnsubscribeRoute = UnsubscribeRouteImport.update({
-  id: '/unsubscribe',
-  path: '/unsubscribe',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ThankYouRoute = ThankYouRouteImport.update({
-  id: '/thank-you',
-  path: '/thank-you',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CupsRoute = CupsRouteImport.update({
@@ -41,9 +36,14 @@ const CupsRoute = CupsRouteImport.update({
   path: '/cups',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const ThankYouRoute = ThankYouRouteImport.update({
+  id: '/thank-you',
+  path: '/thank-you',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UnsubscribeRoute = UnsubscribeRouteImport.update({
+  id: '/unsubscribe',
+  path: '/unsubscribe',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AdminIndexRoute = AdminIndexRouteImport.update({
@@ -51,14 +51,9 @@ const AdminIndexRoute = AdminIndexRouteImport.update({
   path: '/admin/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ProductsEcocupsRoute = ProductsEcocupsRouteImport.update({
-  id: '/products/ecocups',
-  path: '/products/ecocups',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const EmailUnsubscribeRoute = EmailUnsubscribeRouteImport.update({
-  id: '/email/unsubscribe',
-  path: '/email/unsubscribe',
+const AdminLoginRoute = AdminLoginRouteImport.update({
+  id: '/admin/login',
+  path: '/admin/login',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CupsCalculatorRoute = CupsCalculatorRouteImport.update({
@@ -66,24 +61,14 @@ const CupsCalculatorRoute = CupsCalculatorRouteImport.update({
   path: '/calculator',
   getParentRoute: () => CupsRoute,
 } as any)
-const AdminLoginRoute = AdminLoginRouteImport.update({
-  id: '/admin/login',
-  path: '/admin/login',
+const EmailUnsubscribeRoute = EmailUnsubscribeRouteImport.update({
+  id: '/email/unsubscribe',
+  path: '/email/unsubscribe',
   getParentRoute: () => rootRouteImport,
 } as any)
-const LovableEmailSuppressionRoute = LovableEmailSuppressionRouteImport.update({
-  id: '/lovable/email/suppression',
-  path: '/lovable/email/suppression',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiPublicQuoteRoute = ApiPublicQuoteRouteImport.update({
-  id: '/api/public/quote',
-  path: '/api/public/quote',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiPublicMetaCapiRoute = ApiPublicMetaCapiRouteImport.update({
-  id: '/api/public/meta-capi',
-  path: '/api/public/meta-capi',
+const ProductsEcocupsRoute = ProductsEcocupsRouteImport.update({
+  id: '/products/ecocups',
+  path: '/products/ecocups',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiPublicContactRoute = ApiPublicContactRouteImport.update({
@@ -91,10 +76,25 @@ const ApiPublicContactRoute = ApiPublicContactRouteImport.update({
   path: '/api/public/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
-const LovableEmailTransactionalSendRoute =
-  LovableEmailTransactionalSendRouteImport.update({
-    id: '/lovable/email/transactional/send',
-    path: '/lovable/email/transactional/send',
+const ApiPublicMetaCapiRoute = ApiPublicMetaCapiRouteImport.update({
+  id: '/api/public/meta-capi',
+  path: '/api/public/meta-capi',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiPublicQuoteRoute = ApiPublicQuoteRouteImport.update({
+  id: '/api/public/quote',
+  path: '/api/public/quote',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LovableEmailSuppressionRoute = LovableEmailSuppressionRouteImport.update({
+  id: '/lovable/email/suppression',
+  path: '/lovable/email/suppression',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LovableEmailQueueProcessRoute =
+  LovableEmailQueueProcessRouteImport.update({
+    id: '/lovable/email/queue/process',
+    path: '/lovable/email/queue/process',
     getParentRoute: () => rootRouteImport,
   } as any)
 const LovableEmailTransactionalPreviewRoute =
@@ -103,10 +103,10 @@ const LovableEmailTransactionalPreviewRoute =
     path: '/lovable/email/transactional/preview',
     getParentRoute: () => rootRouteImport,
   } as any)
-const LovableEmailQueueProcessRoute =
-  LovableEmailQueueProcessRouteImport.update({
-    id: '/lovable/email/queue/process',
-    path: '/lovable/email/queue/process',
+const LovableEmailTransactionalSendRoute =
+  LovableEmailTransactionalSendRouteImport.update({
+    id: '/lovable/email/transactional/send',
+    path: '/lovable/email/transactional/send',
     getParentRoute: () => rootRouteImport,
   } as any)
 
@@ -242,18 +242,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/unsubscribe': {
-      id: '/unsubscribe'
-      path: '/unsubscribe'
-      fullPath: '/unsubscribe'
-      preLoaderRoute: typeof UnsubscribeRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/thank-you': {
-      id: '/thank-you'
-      path: '/thank-you'
-      fullPath: '/thank-you'
-      preLoaderRoute: typeof ThankYouRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/cups': {
@@ -263,11 +256,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CupsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/thank-you': {
+      id: '/thank-you'
+      path: '/thank-you'
+      fullPath: '/thank-you'
+      preLoaderRoute: typeof ThankYouRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/unsubscribe': {
+      id: '/unsubscribe'
+      path: '/unsubscribe'
+      fullPath: '/unsubscribe'
+      preLoaderRoute: typeof UnsubscribeRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/admin/': {
@@ -277,18 +277,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/products/ecocups': {
-      id: '/products/ecocups'
-      path: '/products/ecocups'
-      fullPath: '/products/ecocups'
-      preLoaderRoute: typeof ProductsEcocupsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/email/unsubscribe': {
-      id: '/email/unsubscribe'
-      path: '/email/unsubscribe'
-      fullPath: '/email/unsubscribe'
-      preLoaderRoute: typeof EmailUnsubscribeRouteImport
+    '/admin/login': {
+      id: '/admin/login'
+      path: '/admin/login'
+      fullPath: '/admin/login'
+      preLoaderRoute: typeof AdminLoginRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/cups/calculator': {
@@ -298,32 +291,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CupsCalculatorRouteImport
       parentRoute: typeof CupsRoute
     }
-    '/admin/login': {
-      id: '/admin/login'
-      path: '/admin/login'
-      fullPath: '/admin/login'
-      preLoaderRoute: typeof AdminLoginRouteImport
+    '/email/unsubscribe': {
+      id: '/email/unsubscribe'
+      path: '/email/unsubscribe'
+      fullPath: '/email/unsubscribe'
+      preLoaderRoute: typeof EmailUnsubscribeRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/lovable/email/suppression': {
-      id: '/lovable/email/suppression'
-      path: '/lovable/email/suppression'
-      fullPath: '/lovable/email/suppression'
-      preLoaderRoute: typeof LovableEmailSuppressionRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/public/quote': {
-      id: '/api/public/quote'
-      path: '/api/public/quote'
-      fullPath: '/api/public/quote'
-      preLoaderRoute: typeof ApiPublicQuoteRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/public/meta-capi': {
-      id: '/api/public/meta-capi'
-      path: '/api/public/meta-capi'
-      fullPath: '/api/public/meta-capi'
-      preLoaderRoute: typeof ApiPublicMetaCapiRouteImport
+    '/products/ecocups': {
+      id: '/products/ecocups'
+      path: '/products/ecocups'
+      fullPath: '/products/ecocups'
+      preLoaderRoute: typeof ProductsEcocupsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/public/contact': {
@@ -333,11 +312,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiPublicContactRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/lovable/email/transactional/send': {
-      id: '/lovable/email/transactional/send'
-      path: '/lovable/email/transactional/send'
-      fullPath: '/lovable/email/transactional/send'
-      preLoaderRoute: typeof LovableEmailTransactionalSendRouteImport
+    '/api/public/meta-capi': {
+      id: '/api/public/meta-capi'
+      path: '/api/public/meta-capi'
+      fullPath: '/api/public/meta-capi'
+      preLoaderRoute: typeof ApiPublicMetaCapiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/quote': {
+      id: '/api/public/quote'
+      path: '/api/public/quote'
+      fullPath: '/api/public/quote'
+      preLoaderRoute: typeof ApiPublicQuoteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lovable/email/suppression': {
+      id: '/lovable/email/suppression'
+      path: '/lovable/email/suppression'
+      fullPath: '/lovable/email/suppression'
+      preLoaderRoute: typeof LovableEmailSuppressionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lovable/email/queue/process': {
+      id: '/lovable/email/queue/process'
+      path: '/lovable/email/queue/process'
+      fullPath: '/lovable/email/queue/process'
+      preLoaderRoute: typeof LovableEmailQueueProcessRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/lovable/email/transactional/preview': {
@@ -347,11 +347,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LovableEmailTransactionalPreviewRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/lovable/email/queue/process': {
-      id: '/lovable/email/queue/process'
-      path: '/lovable/email/queue/process'
-      fullPath: '/lovable/email/queue/process'
-      preLoaderRoute: typeof LovableEmailQueueProcessRouteImport
+    '/lovable/email/transactional/send': {
+      id: '/lovable/email/transactional/send'
+      path: '/lovable/email/transactional/send'
+      fullPath: '/lovable/email/transactional/send'
+      preLoaderRoute: typeof LovableEmailTransactionalSendRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -387,3 +387,12 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { createStart } from '@tanstack/react-start'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+  }
+}

@@ -3,7 +3,9 @@ import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/admin/login")({
-  head: () => ({ meta: [{ title: "Admin login" }, { name: "robots", content: "noindex, nofollow" }] }),
+  head: () => ({
+    meta: [{ title: "Admin login" }, { name: "robots", content: "noindex, nofollow" }],
+  }),
   component: AdminLogin,
 });
 
@@ -42,8 +44,8 @@ function AdminLogin() {
         setInfo("Account created. You can sign in now.");
         setMode("signin");
       }
-    } catch (err: any) {
-      setError(err?.message || "Something went wrong.");
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Something went wrong.");
     } finally {
       setLoading(false);
     }
@@ -52,17 +54,24 @@ function AdminLogin() {
   return (
     <div className="min-h-screen bg-background text-foreground flex items-center justify-center px-4 py-10">
       <div className="w-full max-w-sm">
-        <Link to="/" className="block text-xs uppercase tracking-[0.3em] text-muted-foreground mb-6 text-center">
+        <Link
+          to="/"
+          className="block text-xs uppercase tracking-[0.3em] text-muted-foreground mb-6 text-center"
+        >
           MAS Prints
         </Link>
         <div className="bg-card border border-border rounded-2xl p-6 shadow-lg">
-          <h1 className="text-2xl font-extrabold tracking-tight mb-1">Admin {mode === "signin" ? "sign in" : "sign up"}</h1>
+          <h1 className="text-2xl font-extrabold tracking-tight mb-1">
+            Admin {mode === "signin" ? "sign in" : "sign up"}
+          </h1>
           <p className="text-sm text-muted-foreground mb-5">
             Only authorised admin emails can access the dashboard.
           </p>
           <form onSubmit={onSubmit} className="space-y-3">
             <div>
-              <label className="block text-xs font-bold uppercase tracking-wider text-muted-foreground mb-1">Email</label>
+              <label className="block text-xs font-bold uppercase tracking-wider text-muted-foreground mb-1">
+                Email
+              </label>
               <input
                 type="email"
                 required
@@ -73,7 +82,9 @@ function AdminLogin() {
               />
             </div>
             <div>
-              <label className="block text-xs font-bold uppercase tracking-wider text-muted-foreground mb-1">Password</label>
+              <label className="block text-xs font-bold uppercase tracking-wider text-muted-foreground mb-1">
+                Password
+              </label>
               <input
                 type="password"
                 required
@@ -96,10 +107,16 @@ function AdminLogin() {
           </form>
           <button
             type="button"
-            onClick={() => { setMode(mode === "signin" ? "signup" : "signin"); setError(null); setInfo(null); }}
+            onClick={() => {
+              setMode(mode === "signin" ? "signup" : "signin");
+              setError(null);
+              setInfo(null);
+            }}
             className="mt-4 w-full text-xs text-muted-foreground hover:text-foreground"
           >
-            {mode === "signin" ? "First time? Create admin account" : "Already have an account? Sign in"}
+            {mode === "signin"
+              ? "First time? Create admin account"
+              : "Already have an account? Sign in"}
           </button>
         </div>
       </div>

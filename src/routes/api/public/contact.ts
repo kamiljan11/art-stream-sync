@@ -37,16 +37,13 @@ export const Route = createFileRoute("/api/public/contact")({
 
         const { data: row, error: insertError } = await supabaseAdmin
           .from("contact_submissions")
-          .insert({ name, email, phone, message, extra: { needs_designer: needsDesigner } } as any)
+          .insert({ name, email, phone, message, extra: { needs_designer: needsDesigner } })
           .select("id")
           .single();
 
         if (insertError) {
           console.error("[contact] insert error:", insertError);
-          return Response.json(
-            { error: "Failed to save submission" },
-            { status: 500 },
-          );
+          return Response.json({ error: "Failed to save submission" }, { status: 500 });
         }
 
         // Fire-and-forget emails (don't fail the request if emails fail)

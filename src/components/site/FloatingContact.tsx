@@ -7,7 +7,13 @@ import { useT } from "@/i18n/I18nProvider";
 const cyan = "#00AEEF";
 const magenta = "#EC008C";
 
-type FormState = { name: string; email: string; phone: string; message: string; needsDesigner: boolean };
+type FormState = {
+  name: string;
+  email: string;
+  phone: string;
+  message: string;
+  needsDesigner: boolean;
+};
 
 export function FloatingContact() {
   const t = useT();
@@ -147,9 +153,7 @@ export function FloatingContact() {
               <h2 id="floating-contact-title" className="text-xl font-extrabold tracking-wider">
                 {t("floating.title")}
               </h2>
-              <p className="text-sm text-white/90 mt-1">
-                {t("floating.sub")}
-              </p>
+              <p className="text-sm text-white/90 mt-1">{t("floating.sub")}</p>
             </div>
 
             {/* Body */}
@@ -158,9 +162,7 @@ export function FloatingContact() {
                 <div className="text-center py-8">
                   <CheckCircle2 className="mx-auto h-14 w-14" style={{ color: cyan }} />
                   <h3 className="mt-4 text-lg font-extrabold">{t("floating.sentTitle")}</h3>
-                  <p className="mt-2 text-sm text-gray-600">
-                    {t("floating.sentSub")}
-                  </p>
+                  <p className="mt-2 text-sm text-gray-600">{t("floating.sentSub")}</p>
                   <button
                     type="button"
                     onClick={() => setOpen(false)}
@@ -205,7 +207,7 @@ export function FloatingContact() {
                       onChange={(e) => update("message", e.target.value)}
                       rows={4}
                       className="w-full rounded-lg border border-gray-300 bg-gray-50 px-3 py-2.5 text-sm text-gray-900 outline-none focus:border-transparent focus:ring-2"
-                      style={{ ["--tw-ring-color" as any]: cyan }}
+                      style={{ "--tw-ring-color": cyan } as React.CSSProperties}
                       placeholder={t("floating.messagePlaceholder")}
                     />
                     {errors.message && (
@@ -279,7 +281,7 @@ function Field({
         autoComplete={autoComplete}
         placeholder={placeholder}
         className="w-full rounded-lg border border-gray-300 bg-gray-50 px-3 py-2.5 text-sm text-gray-900 outline-none focus:border-transparent focus:ring-2"
-        style={{ ["--tw-ring-color" as any]: cyan }}
+        style={{ "--tw-ring-color": cyan } as React.CSSProperties}
       />
       {error && <p className="mt-1 text-xs text-red-600">{error}</p>}
     </div>

@@ -84,7 +84,9 @@ export function trackFunnelStart(path: string) {
   try {
     if (sessionStorage.getItem(key)) return;
     sessionStorage.setItem(key, "1");
-  } catch { /* ignore */ }
+  } catch {
+    /* ignore */
+  }
 
   const eventId = uuid();
   const data = { path };
@@ -111,7 +113,9 @@ export function trackLead(opts: {
   try {
     if (sessionStorage.getItem(key)) return;
     sessionStorage.setItem(key, "1");
-  } catch { /* ignore */ }
+  } catch {
+    /* ignore */
+  }
 
   const eventId = uuid();
   const customData: Record<string, unknown> = {

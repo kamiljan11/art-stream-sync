@@ -8,10 +8,7 @@ export const Route = createFileRoute("/unsubscribe")({
     token: typeof search.token === "string" ? search.token : "",
   }),
   head: () => ({
-    meta: [
-      { title: "Unsubscribe — MAS Prints" },
-      { name: "robots", content: "noindex" },
-    ],
+    meta: [{ title: "Unsubscribe — MAS Prints" }, { name: "robots", content: "noindex" }],
   }),
   component: UnsubscribePage,
 });
@@ -21,14 +18,20 @@ function UnsubscribePage() {
   const [status, setStatus] = useState<Status>("loading");
 
   useEffect(() => {
-    if (!token) { setStatus("invalid"); return; }
+    if (!token) {
+      setStatus("invalid");
+      return;
+    }
     let cancelled = false;
     (async () => {
       try {
         const res = await fetch(`/email/unsubscribe?token=${encodeURIComponent(token)}`);
         const data = await res.json();
         if (cancelled) return;
-        if (!res.ok) { setStatus("invalid"); return; }
+        if (!res.ok) {
+          setStatus("invalid");
+          return;
+        }
         if (data.valid) setStatus("ready");
         else if (data.reason === "already_unsubscribed") setStatus("already");
         else setStatus("invalid");
@@ -36,7 +39,9 @@ function UnsubscribePage() {
         if (!cancelled) setStatus("error");
       }
     })();
-    return () => { cancelled = true; };
+    return () => {
+      cancelled = true;
+    };
   }, [token]);
 
   async function confirm() {

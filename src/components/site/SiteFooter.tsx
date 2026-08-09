@@ -46,15 +46,7 @@ function FooterLogo() {
   );
 }
 
-function TeamCard({
-  img,
-  name,
-  dept,
-}: {
-  img: string;
-  name: string;
-  dept: string;
-}) {
+function TeamCard({ img, name, dept }: { img: string; name: string; dept: string }) {
   return (
     <div className="flex items-center gap-4 rounded-xl border border-white/10 bg-white/[0.03] px-5 py-4 w-full sm:w-[280px]">
       <img
@@ -107,7 +99,8 @@ export function SiteFooter() {
         </div>
 
         <div className="mt-12 text-xs text-muted-foreground/70">
-          {t("footer.copyright")}{/* [ukryte 2026-07-21] {" · "}built by{" "}
+          {t("footer.copyright")}
+          {/* [ukryte 2026-07-21] {" · "}built by{" "}
           <a href="https://kamiljan.com" target="_blank" rel="noopener noreferrer" className="hover:underline">Kamil Jan</a> */}
         </div>
       </div>

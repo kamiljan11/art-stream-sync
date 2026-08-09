@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { ArrowDown } from "lucide-react";
-import { useT } from "@/i18n/I18nProvider";
+import { useT } from "@/i18n/useI18n";
 
 /** Small bottom-left arrow that scrolls to the wizard on the cups page. */
 export function JumpToWizard() {

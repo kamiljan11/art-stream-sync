@@ -6,7 +6,7 @@ import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { Reveal } from "@/components/site/Reveal";
 import { JumpToWizard } from "@/components/site/JumpToWizard";
-import { useT } from "@/i18n/I18nProvider";
+import { useT } from "@/i18n/useI18n";
 import { trackFunnelStart, trackLead } from "@/lib/tracking/meta-pixel";
 import capCups from "@/assets/site/cap-cups.png";
 

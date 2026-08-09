@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Globe, Check, ChevronDown } from "lucide-react";
-import { useI18n } from "@/i18n/I18nProvider";
+import { useI18n } from "@/i18n/useI18n";
 import { LOCALES, LOCALE_LABELS, type Locale } from "@/i18n/types";
 
 export function LanguageSwitcher({ compact = false }: { compact?: boolean }) {

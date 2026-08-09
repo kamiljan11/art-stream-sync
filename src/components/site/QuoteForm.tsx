@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "@tanstack/react-router";
 import { ShieldCheck } from "lucide-react";
 import { z } from "zod";
-import { useT, useTArray } from "@/i18n/I18nProvider";
+import { useT, useTArray } from "@/i18n/useI18n";
 import { trackFunnelStart, trackLead } from "@/lib/tracking/meta-pixel";
 
 export function QuoteForm() {

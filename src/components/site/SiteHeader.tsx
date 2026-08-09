@@ -1,7 +1,7 @@
 import { Link, useLocation, useNavigate } from "@tanstack/react-router";
-import { useState, useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { Menu, X, Phone } from "lucide-react";
-import { useT } from "@/i18n/I18nProvider";
+import { useT } from "@/i18n/useI18n";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 
 // Home page sections
@@ -33,7 +33,6 @@ const cupsNav = [
   { key: "nav.faq", id: "faq" },
 ];
 
-
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const [activeId, setActiveId] = useState<string>("");
@@ -55,15 +54,18 @@ export function SiteHeader() {
     return headerHeight + 20;
   };
 
-  const scrollToSection = (id: string, behavior: ScrollBehavior = "smooth") => {
-    const el = document.getElementById(id);
-    if (!el) return;
+  const scrollToSection = useCallback(
+    (id: string, behavior: ScrollBehavior = "smooth") => {
+      const el = document.getElementById(id);
+      if (!el) return;
 
-    const top = el.getBoundingClientRect().top + window.scrollY - getScrollOffset();
-    window.scrollTo({ top: Math.max(0, top), behavior });
-    setActiveId(id);
-    history.replaceState(null, "", `${basePath}#${id}`);
-  };
+      const top = el.getBoundingClientRect().top + window.scrollY - getScrollOffset();
+      window.scrollTo({ top: Math.max(0, top), behavior });
+      setActiveId(id);
+      history.replaceState(null, "", `${basePath}#${id}`);
+    },
+    [basePath],
+  );
 
   // Smooth-scroll to a section. If we're on a different page, navigate first
   // then scroll once the target section mounts.
@@ -72,8 +74,7 @@ export function SiteHeader() {
     setOpen(false);
     setActiveId(id);
     const onCorrectPage =
-      (isCups && location.pathname.startsWith("/cups")) ||
-      (!isCups && location.pathname === "/");
+      (isCups && location.pathname.startsWith("/cups")) || (!isCups && location.pathname === "/");
 
     if (onCorrectPage) {
       scrollToSection(id);
@@ -123,7 +124,7 @@ export function SiteHeader() {
       window.removeEventListener("scroll", updateActiveSection);
       window.removeEventListener("resize", updateActiveSection);
     };
-  }, [location.pathname, location.hash, navKeys]);
+  }, [location.pathname, location.hash, navKeys, scrollToSection]);
 
   // Track scroll for floating-nav background opacity
   useEffect(() => {
@@ -189,44 +190,42 @@ export function SiteHeader() {
                 ref={navInnerRef}
                 className="flex items-center gap-1 rounded-full border border-white/10 bg-black/40 px-2 py-1.5 text-xs xl:text-sm font-medium whitespace-nowrap"
               >
-              {navKeys.map((n) => {
-                const isActive = activeId === n.id;
-                return (
-                  <a
-                    key={n.key}
-                    href={`${basePath}#${n.id}`}
-                    onClick={(e) => goToSection(e, n.id)}
-                    className={`relative shrink-0 whitespace-nowrap px-2.5 xl:px-3 py-1.5 rounded-full transition-colors ${
-                      isActive
-                        ? "text-foreground"
-                        : "text-muted-foreground hover:text-foreground"
-                    }`}
+                {navKeys.map((n) => {
+                  const isActive = activeId === n.id;
+                  return (
+                    <a
+                      key={n.key}
+                      href={`${basePath}#${n.id}`}
+                      onClick={(e) => goToSection(e, n.id)}
+                      className={`relative shrink-0 whitespace-nowrap px-2.5 xl:px-3 py-1.5 rounded-full transition-colors ${
+                        isActive ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+                      }`}
+                    >
+                      {isActive && (
+                        <span
+                          className="absolute inset-0 rounded-full -z-0"
+                          style={{ background: "var(--gradient-cyan)", opacity: 0.18 }}
+                        />
+                      )}
+                      <span className="relative z-10">{t(n.key)}</span>
+                    </a>
+                  );
+                })}
+                {isCups || isEcoCups ? (
+                  <Link
+                    to="/"
+                    className="relative shrink-0 whitespace-nowrap px-2.5 xl:px-3 py-1.5 rounded-full text-muted-foreground hover:text-foreground transition-colors"
                   >
-                    {isActive && (
-                      <span
-                        className="absolute inset-0 rounded-full -z-0"
-                        style={{ background: "var(--gradient-cyan)", opacity: 0.18 }}
-                      />
-                    )}
-                    <span className="relative z-10">{t(n.key)}</span>
-                  </a>
-                );
-              })}
-              {(isCups || isEcoCups) ? (
-                <Link
-                  to="/"
-                  className="relative shrink-0 whitespace-nowrap px-2.5 xl:px-3 py-1.5 rounded-full text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  {t("nav.backHome")}
-                </Link>
-              ) : (
-                <Link
-                  to="/cups"
-                  className="relative shrink-0 whitespace-nowrap px-2.5 xl:px-3 py-1.5 rounded-full text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  {t("nav.cups")}
-                </Link>
-              )}
+                    {t("nav.backHome")}
+                  </Link>
+                ) : (
+                  <Link
+                    to="/cups"
+                    className="relative shrink-0 whitespace-nowrap px-2.5 xl:px-3 py-1.5 rounded-full text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    {t("nav.cups")}
+                  </Link>
+                )}
               </div>
             </nav>
 
@@ -252,7 +251,9 @@ export function SiteHeader() {
 
           {/* Mobile dropdown */}
           {open && (
-            <div className={`mt-2 rounded-2xl border border-white/10 bg-background/95 backdrop-blur-xl shadow-2xl ${navFits ? "md:hidden" : ""}`}>
+            <div
+              className={`mt-2 rounded-2xl border border-white/10 bg-background/95 backdrop-blur-xl shadow-2xl ${navFits ? "md:hidden" : ""}`}
+            >
               <div className="px-4 py-4 flex flex-col gap-3">
                 {navKeys.map((n) => {
                   const isActive = activeId === n.id;
@@ -262,14 +263,16 @@ export function SiteHeader() {
                       href={`${basePath}#${n.id}`}
                       onClick={(e) => goToSection(e, n.id)}
                       className={`text-sm transition-colors ${
-                        isActive ? "text-foreground font-semibold" : "text-muted-foreground hover:text-foreground"
+                        isActive
+                          ? "text-foreground font-semibold"
+                          : "text-muted-foreground hover:text-foreground"
                       }`}
                     >
                       {t(n.key)}
                     </a>
                   );
                 })}
-                {(isCups || isEcoCups) ? (
+                {isCups || isEcoCups ? (
                   <Link
                     to="/"
                     className="text-sm text-muted-foreground hover:text-foreground"
@@ -306,7 +309,12 @@ export function SiteHeader() {
 
 function MasLogo() {
   return (
-    <svg className="h-7 sm:h-9 w-auto" viewBox="0 0 350 50" xmlns="http://www.w3.org/2000/svg" aria-label="MAS PRINTS, Icelandic Brokerage">
+    <svg
+      className="h-7 sm:h-9 w-auto"
+      viewBox="0 0 350 50"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-label="MAS PRINTS, Icelandic Brokerage"
+    >
       <g transform="translate(0, 5)">
         <circle cx="25" cy="5" r="3.5" fill="#00AEEF" />
         <circle cx="20" cy="14" r="3.5" fill="#EC008C" />
@@ -319,8 +327,20 @@ function MasLogo() {
         <circle cx="30" cy="32" r="3.5" fill="#FFFFFF" />
         <circle cx="40" cy="32" r="3.5" fill="#FFFFFF" />
       </g>
-      <text x="60" y="28" fontFamily="Inter, sans-serif" fontWeight="800" fontSize="26" fill="#fff">MAS PRINTS</text>
-      <text x="61" y="42" fontFamily="Inter, sans-serif" fontWeight="700" fontSize="10" fill="#00AEEF" letterSpacing="2">ICELANDIC BROKERAGE</text>
+      <text x="60" y="28" fontFamily="Inter, sans-serif" fontWeight="800" fontSize="26" fill="#fff">
+        MAS PRINTS
+      </text>
+      <text
+        x="61"
+        y="42"
+        fontFamily="Inter, sans-serif"
+        fontWeight="700"
+        fontSize="10"
+        fill="#00AEEF"
+        letterSpacing="2"
+      >
+        ICELANDIC BROKERAGE
+      </text>
     </svg>
   );
 }

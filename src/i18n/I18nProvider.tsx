@@ -1,20 +1,6 @@
-import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
+import { useCallback, useEffect, useMemo, useState, type ReactNode } from "react";
 import { DEFAULT_LOCALE, LOCALES, type Locale } from "./types";
-import en from "./messages/en";
-import is from "./messages/is";
-import pl from "./messages/pl";
-
-type Messages = typeof en;
-const dictionaries: Record<Locale, Messages> = { en, is, pl: pl as Messages };
-
-type I18nContextValue = {
-  locale: Locale;
-  setLocale: (l: Locale) => void;
-  t: (key: string, vars?: Record<string, string | number>) => string;
-  tArray: (key: string) => string[];
-};
-
-const I18nContext = createContext<I18nContextValue | null>(null);
+import { dictionaries, getNested, I18nContext, type I18nContextValue } from "./useI18n";
 
 const STORAGE_KEY = "mas-locale";
 
@@ -27,15 +13,6 @@ function detectInitialLocale(): Locale {
     // ignore
   }
   return DEFAULT_LOCALE;
-}
-
-function getNested(obj: unknown, path: string): unknown {
-  return path.split(".").reduce<unknown>((acc, part) => {
-    if (acc && typeof acc === "object" && part in (acc as Record<string, unknown>)) {
-      return (acc as Record<string, unknown>)[part];
-    }
-    return undefined;
-  }, obj);
 }
 
 function interpolate(str: string, vars?: Record<string, string | number>): string {
@@ -75,7 +52,7 @@ export function I18nProvider({ children }: { children: ReactNode }) {
       if (typeof raw !== "string") return key;
       return interpolate(raw, vars);
     },
-    [locale]
+    [locale],
   );
 
   const tArray = useCallback(
@@ -85,41 +62,13 @@ export function I18nProvider({ children }: { children: ReactNode }) {
       const raw = getNested(dict, key) ?? getNested(fallback, key);
       return Array.isArray(raw) ? (raw as string[]) : [];
     },
-    [locale]
+    [locale],
   );
 
   const value = useMemo<I18nContextValue>(
     () => ({ locale, setLocale, t, tArray }),
-    [locale, setLocale, t, tArray]
+    [locale, setLocale, t, tArray],
   );
 
   return <I18nContext.Provider value={value}>{children}</I18nContext.Provider>;
-}
-
-export function useI18n(): I18nContextValue {
-  const ctx = useContext(I18nContext);
-  if (!ctx) {
-    // SSR / outside-provider safe fallback
-    return {
-      locale: DEFAULT_LOCALE,
-      setLocale: () => undefined,
-      t: (key) => {
-        const raw = getNested(dictionaries[DEFAULT_LOCALE], key);
-        return typeof raw === "string" ? raw : key;
-      },
-      tArray: (key) => {
-        const raw = getNested(dictionaries[DEFAULT_LOCALE], key);
-        return Array.isArray(raw) ? (raw as string[]) : [];
-      },
-    };
-  }
-  return ctx;
-}
-
-export function useT() {
-  return useI18n().t;
-}
-
-export function useTArray() {
-  return useI18n().tArray;
 }

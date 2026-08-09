@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "@tanstack/react-router";
 import { MessageCircle, X, Send, CheckCircle2 } from "lucide-react";
 import { z } from "zod";
-import { useT } from "@/i18n/I18nProvider";
+import { useT } from "@/i18n/useI18n";
 
 const cyan = "#00AEEF";
 const magenta = "#EC008C";

@@ -1,6 +1,6 @@
 import teamArek from "@/assets/site/team-arek.png";
 // [ukryte 2026-07-21] import teamKamil from "@/assets/site/team-kamil.png";
-import { useT } from "@/i18n/I18nProvider";
+import { useT } from "@/i18n/useI18n";
 
 const C = "#00AEEF";
 const M = "#EC008C";

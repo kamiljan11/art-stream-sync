@@ -92,7 +92,7 @@ Deno.serve(async (req) => {
 
     if (!res.ok) {
       const errText = await res.text();
-      console.error(`maskalkulator webhook error ${res.status}:`, errText);
+      console.error("maskalkulator webhook error", res.status, errText);
       return new Response(JSON.stringify({ error: `webhook ${res.status}`, detail: errText }), {
         status: 502,
         headers: { ...corsHeaders, "Content-Type": "application/json" },

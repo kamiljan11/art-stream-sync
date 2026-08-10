@@ -1,49 +1,53 @@
-# [NAZWA PROJEKTU]
+# MAS Prints — Print Brokerage, Iceland
 
-<!-- Jednozdaniowy opis: co to robi i dla kogo. UZUPELNIJ przy starcie projektu. -->
+**Status:** production · Part of the [MAS Group](https://masgroup.is) platform · Built by [Kamil Jan](https://kamiljan.com)
+
+Storefront and quoting tool for MAS Prints, an Icelandic print brokerage. Customers price a
+print job themselves — business cards, flyers, roll-up banners, cups and merch — and the
+order lands directly in the MAS Group operations platform instead of an inbox.
+
+The commercial promise is a wholesale price guarantee, so the calculator has to be exact:
+prices come from parsed supplier price lists and are covered by a golden-snapshot test that
+fails the build if a number moves unintentionally.
+
+## What it does
+
+- **Self-service price calculator** per product category, with quantity breaks
+- **Product catalogue** with printing options and lead times
+- **Order intake** that syncs straight into the MAS Group platform (`sync-to-maskalkulator` edge function)
+- **Transactional e-mail** with confirmation and unsubscribe handling
+- **Admin view** for reviewing incoming orders
 
 ## Stack
-- Frontend: React 18 + TypeScript + Vite + Tailwind
-- Backend/API:
-- Baza:
-- Hosting/deploy:
 
-## Wymagania
-- Node 20+
-- npm
+React + TypeScript · Vite · TanStack Router · Tailwind CSS · Supabase (Postgres, Auth, RLS,
+Edge Functions) · hosted on Lovable. Schema history lives in `supabase/migrations/`.
 
-## Setup
+## Running locally
+
 ```bash
 npm install
-cp .env.example .env   # uzupelnij wartosci (sekrety: Infisical "MAS Group")
+npm run dev
 ```
 
-## Komendy
-| Komenda | Co robi |
-|---|---|
-| `npm run dev` | serwer deweloperski |
-| `npm run build` | build produkcyjny |
-| `npm run lint` | ESLint |
-| `npm run typecheck` | tsc --noEmit |
-| `npm test` | testy jednostkowe |
-| `npm run test:coverage` | testy + prog pokrycia |
-| `npx playwright test` | E2E smoke |
+Copy `.env.example` to `.env` and provide your own Supabase project URL and publishable key.
 
-## Zmienne srodowiskowe
-<!-- Tabela: NAZWA | wymagana? | opis. Zadnych wartosci sekretow w repo. -->
-
-## Struktura
-```
-src/            # kod aplikacji
-e2e/            # testy Playwright
-docs/adr/       # decyzje architektoniczne
-docs/RUNBOOK.md # operacje: deploy, rollback, awarie
+```bash
+npm run lint
+npm run build
+npx tsc -b        # note: -b, not --noEmit (project references)
 ```
 
-## Deploy i wersjonowanie
-- Flow: feature branch -> PR -> zielone CI + review -> merge do main -> deploy
-- Wersje: SemVer, tag `vX.Y.Z` tworzy GitHub Release (auto-notes)
-- Zmiany: `CHANGELOG.md` (Keep a Changelog) — aktualizuj sekcje [Unreleased] w kazdym PR
+## How security is handled
 
-## Wlasciciel
-MAS Group / Kamil Jan — mountainallservice@gmail.com
+- No secrets in the repo — server-side keys are injected at deploy time; `.env` holds only the
+  Supabase publishable key, which ships in the browser bundle by design.
+- Authorisation is enforced by Row Level Security in Postgres, not by hiding UI.
+- Privileged work runs in Edge Functions where the service role key stays server-side.
+- Every push runs build, lint, typecheck, tests, Semgrep and a Gitleaks secret scan; a
+  pre-commit hook blocks credential-shaped strings.
+- Pricing regressions are caught by a golden snapshot test, not by eyeballing.
+
+## Licence
+
+Proprietary. Published for reference, not for reuse.

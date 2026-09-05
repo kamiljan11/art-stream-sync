@@ -1,6 +1,6 @@
-# MAS Prints — Print Brokerage Storefront (prototype)
-
 **Status: prototype (2026-08) — not maintained**
+
+# MAS Prints — Print Brokerage Storefront (prototype)
 
 A prototype storefront and price calculator for an Icelandic print brokerage (business cards,
 flyers, banners, cups/merch), with order intake meant to sync into the MAS Group platform via a
